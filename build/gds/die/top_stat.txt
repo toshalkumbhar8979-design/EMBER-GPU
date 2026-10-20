@@ -1,0 +1,39 @@
+
+20. Printing statistics.
+
+=== ember_die ===
+
+   Number of wires:                289
+   Number of wire bits:           1821
+   Number of public wires:         143
+   Number of public wire bits:    1675
+   Number of ports:                 80
+   Number of port bits:           1047
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                261
+     ember_blit                      1
+     ember_core                      1
+     ember_cp                        1
+     ember_display                   1
+     ember_gsx                       1
+     ember_rtr_top                   1
+     ember_tu                        1
+     ember_xbar                      1
+     sky130_fd_sc_hd__conb_1        43
+     sky130_fd_sc_hd__nand2_1      140
+     sky130_fd_sc_hd__nand3b_1      70
+
+   Area for cell type \ember_xbar is unknown!
+   Area for cell type \ember_cp is unknown!
+   Area for cell type \ember_tu is unknown!
+   Area for cell type \ember_core is unknown!
+   Area for cell type \ember_gsx is unknown!
+   Area for cell type \ember_blit is unknown!
+   Area for cell type \ember_display is unknown!
+   Area for cell type \ember_rtr_top is unknown!
+
+   Chip area for module '\ember_die': 1212.412800
+     of which used for sequential elements: 0.000000 (0.00%)
+

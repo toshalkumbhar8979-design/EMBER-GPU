@@ -1,0 +1,6 @@
+snapshot OK: /work/build/gds/harden_rtr_snapshot2.sh
+SYNTHESIS rtr_scan
+FAIL rtr_scan
+SYNTHESIS rtr_top
+FAIL rtr_top
+FAILED: ['rtr_scan', 'rtr_top']

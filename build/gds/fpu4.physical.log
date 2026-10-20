@@ -1,0 +1,14 @@
+== [fpu4] 1/4 Yosys synthesis ==
+Mapped logic verified: ember_fpu4
+   (validated physical-only cache; synthesis not repeated)
+   cells: 101131
+== [fpu4] 2/4 OpenROAD floorplan/place/CTS/route ==
+   route ok
+== [fpu4] 3/4 Magic GDS merge + DRC ==
+   using DEF: final.def (detailed-route)
+MAGIC FAIL (falling back to KLayout DEF->GDS)
+DRC_COUNT=?
+== [fpu4] 4/4 KLayout finalize ==
+GDS VALIDATION FAILED
+ERROR: RuntimeError: Unexpected end-of-file (position=39202814, record number=3473633, cell=ember_fpu4) in Layout.read
+  /work/scripts/gds/finalize.py:13

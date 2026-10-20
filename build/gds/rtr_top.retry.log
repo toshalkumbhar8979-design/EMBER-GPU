@@ -1,0 +1,15 @@
+== [rtr_top] 1/4 Yosys synthesis ==
+Generated ripple_techmap.v from /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+YOSYS FAIL (timeout / RSS limit / error)
+No latch inferred for signal `\ember_rtr_setup.903'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$375'.
+No latch inferred for signal `\ember_rtr_setup.800'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$392'.
+No latch inferred for signal `\ember_rtr_setup.903'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$409'.
+No latch inferred for signal `\ember_rtr_setup.903'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$426'.
+No latch inferred for signal `\ember_rtr_setup.800'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$443'.
+No latch inferred for signal `\ember_rtr_setup.128'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$460'.
+No latch inferred for signal `\ember_rtr_setup.128'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$473'.
+No latch inferred for signal `\ember_rtr_setup.128'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$488'.
+No latch inferred for signal `\ember_rtr_setup.128'x' from process `\ember_rtr_setup.$proc$/work/build/gds/rtr_top.v:0$501'.
+
+8.9. Executing PROC_DFF pass (convert process syncs to FFs).
+ERROR: Multiple edge sensitive events found for this signal!

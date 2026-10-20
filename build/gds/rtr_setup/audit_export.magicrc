@@ -1,0 +1,3 @@
+tech load /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.tech/magic/sky130A.tech
+scalegrid 1 2
+drc euclidean on

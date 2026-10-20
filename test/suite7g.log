@@ -1,0 +1,208 @@
+rm -f results.xml
+/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:73: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=tb_memory,tb_rtr,tb_display,tb_blit,tb_gsx,tb_core,tb_tu,tb_tex,tb_mnist,tb_scene,tb_mnist_e2e,tb_pool,tb_anim,tb_mnist_acc,tb_fly COCOTB_TESTCASE=  COCOTB_TOPLEVEL=ember_top TOPLEVEL_LANG=verilog       \
+         sim_build/Vtop     
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.13.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/home/toshal/.local/lib/python3.13/site-packages/cocotb/simulator.cpython-313-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.13.8 interpreter at /usr/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1790636670
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /home/toshal/.local/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Verilator version 5.046 2026-02-28
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running tb_memory.test_cp_regs (1/30)
+                                                            CP ID and STATUS reset values
+    60.00ns INFO     cocotb.regression                  tb_memory.test_cp_regs passed
+    60.00ns INFO     cocotb.regression                  running tb_memory.test_vram_bus_rw (2/30)
+                                                            VRAM write/read through the host bus
+   190.00ns INFO     cocotb.regression                  tb_memory.test_vram_bus_rw passed
+   190.00ns INFO     cocotb.regression                  running tb_memory.test_dma_upload_readback (3/30)
+                                                            DMA: FIFO -> VRAM -> FIFO round trip with fence
+  1500.00ns INFO     cocotb.regression                  tb_memory.test_dma_upload_readback passed
+  1500.00ns INFO     cocotb.regression                  running tb_memory.test_zero_len_dma (4/30)
+                                                            Zero-length DMA completes immediately and updates fence
+  1630.00ns INFO     cocotb.regression                  tb_memory.test_zero_len_dma passed
+  1630.00ns INFO     cocotb.regression                  running tb_rtr.test_rtr_solid_gradient (5/30)
+                                                            Golden tri 1: Gouraud gradient, no z, no tex.
+5390750.00ns INFO     cocotb.regression                  tb_rtr.test_rtr_solid_gradient passed
+5390750.00ns INFO     cocotb.regression                  running tb_rtr.test_rtr_textured_quad (6/30)
+                                                            Golden tris 2+3: perspective-correct texture map over a quad.
+10268580.01ns INFO     cocotb.regression                  tb_rtr.test_rtr_textured_quad passed
+10268580.01ns INFO     cocotb.regression                  running tb_rtr.test_rtr_ztest_ordering (7/30)
+                                                            Golden tris 4+5: near triangle must win through the z-buffer.
+18702100.01ns INFO     cocotb.regression                  tb_rtr.test_rtr_ztest_ordering passed
+18702100.01ns INFO     cocotb.regression                  running tb_rtr.test_rtr_full_rop_chain (8/30)
+                                                            Blend + dither + rgbmap all enabled — full ROP ordering vs golden.
+27288020.01ns INFO     cocotb.regression                  tb_rtr.test_rtr_full_rop_chain passed
+27288020.01ns INFO     cocotb.regression                  running tb_display.test_display_composite_frame (9/30)
+                                                            Gradient + RTR triangle streamed by the display controller.
+OK — display_frame.ppm written, all 2x2 blocks verified
+39526485.01ns INFO     cocotb.regression                  tb_display.test_display_composite_frame passed
+39526485.01ns INFO     cocotb.regression                  running tb_blit.test_blit_copy_1x (10/30)
+                                                            Plain 1x copy of a 5x4 sprite onto a patterned background.
+42677015.01ns INFO     cocotb.regression                  tb_blit.test_blit_copy_1x passed
+42677015.01ns INFO     cocotb.regression                  running tb_blit.test_blit_key_transparency (11/30)
+                                                            key_en=1: background shows through key-colored sprite pixels.
+45827555.01ns INFO     cocotb.regression                  tb_blit.test_blit_key_transparency passed
+45827555.01ns INFO     cocotb.regression                  running tb_blit.test_blit_scale2 (12/30)
+                                                            2x scale: each source pixel becomes a 2x2 block.
+48978695.01ns INFO     cocotb.regression                  tb_blit.test_blit_scale2 passed
+48978695.01ns INFO     cocotb.regression                  running tb_gsx.test_gsx_identity (13/30)
+                                                            w=1.0 matrix: screen-space in -> bit-exact passthrough cmd words.
+48982665.01ns INFO     cocotb.regression                  tb_gsx.test_gsx_identity passed
+48982665.01ns INFO     cocotb.regression                  running tb_gsx.test_gsx_cull (14/30)
+                                                            m33=-1 -> w'=-1 <0 on every vertex: triangle dropped, queue intact.
+48984605.01ns INFO     cocotb.regression                  tb_gsx.test_gsx_cull passed
+48984605.01ns INFO     cocotb.regression                  running tb_gsx.test_gsx_cube (15/30)
+                                                            Full spinning-cube frame: 12 MVP tris through GSX+RTR vs golden.
+56925635.01ns INFO     cocotb.regression                  tb_gsx.test_gsx_cube passed
+56925635.01ns INFO     cocotb.regression                  running tb_core.test_core_matadd (16/30)
+                                                            matadd: 4 threads x 32 elements; A[i] += B[i] in VRAM.
+56982075.02ns INFO     cocotb.regression                  tb_core.test_core_matadd passed
+56982075.02ns INFO     cocotb.regression                  running tb_core.test_core_divergent (17/30)
+                                                            divergent: tid-dependent trip count (thread 0 skips the loop).
+56987705.02ns INFO     cocotb.regression                  tb_core.test_core_divergent passed
+56987705.02ns INFO     cocotb.regression                  running tb_core.test_core_barrier (18/30)
+                                                            barrier: smem atomics + block barrier + broadcast read (all see 60).
+56991325.02ns INFO     cocotb.regression                  tb_core.test_core_barrier passed
+56991325.02ns INFO     cocotb.regression                  running tb_core.test_core_matmul (19/30)
+                                                            matmul: C[4][4] = A[4][4] * B[4][4], thread t computes row t.
+57026085.02ns INFO     cocotb.regression                  tb_core.test_core_matmul passed
+57026085.02ns INFO     cocotb.regression                  running tb_tu.test_tu_small (20/30)
+                                                            5x20x13 identity-quant matmul, bit-exact vs golden.
+57054385.02ns INFO     cocotb.regression                  tb_tu.test_tu_small passed
+57054385.02ns INFO     cocotb.regression                  running tb_tu.test_tu_quant (21/30)
+                                                            4x8x4 with mult=128/shift=7: requant path vs golden.
+57069555.02ns INFO     cocotb.regression                  tb_tu.test_tu_quant passed
+57069555.02ns INFO     cocotb.regression                  running tb_tu.test_tu_256 (22/30)
+                                                            256-cube gate: full golden compare + sustained GOPS estimate.
+TU 256^3: 2134296 cycles, 1.57 GOPS @ 100 MHz
+80772065.02ns INFO     cocotb.regression                  tb_tu.test_tu_256 passed
+80772065.02ns INFO     cocotb.regression                  running tb_tex.test_tex_quad (23/30)
+                                                            Textured quad through GSX (tex_en + texpage) + RTR vs golden.
+DIAG: RTL cmdq[0]=0x00000009 golden words[0]=0x00000009
+90866755.02ns INFO     cocotb.regression                  tb_tex.test_tex_quad passed
+90866755.02ns INFO     cocotb.regression                  running tb_mnist.test_mnist_layers (24/30)
+                                                            Layer-by-layer LeNet through the RTL TU vs golden arithmetic.
+MNIST RTL RUN: logits=[112, 66, 71, -63, -84, 14, -72, -17, 83, 9] pred=0
+MNIST LAYER TESTS PASS
+91946755.02ns INFO     cocotb.regression                  tb_mnist.test_mnist_layers passed
+91946755.02ns INFO     cocotb.regression                  running tb_scene.test_scene_frame (25/30)
+                                                            Temple scene: 8 textured tris through GSX+RTR (real Z) vs golden.
+DIAG: tex[0]=0x96969696 tex[FFFC]=0x46464646 tex[FF00]=0x46464646 tex[FFFC]=0x46464646
+DIAG: golden tex[0]=0x96969696 tex[FFFC]=0x46464646
+DIAG[tex+ztest]: rtl uv13..15=0x00000000,0x00000000,0x3fc00000  golden=0x00000000,0x00000000,0x3fc00000
+MODE tex+ztest: rtl_nonzero= 44168 mismatches=     0  ex=[]
+DIAG: TEX-frame queue dumped (153 words), w0=0x0000000d uv13=0x00000000
+DIAG[tex]: rtl uv13..15=0x00000000,0x00000000,0x3fc00000  golden=0x00000000,0x00000000,0x3fc00000
+MODE tex      : rtl_nonzero= 44168 mismatches=     0  ex=[]
+DIAG[ztest]: rtl uv13..15=0x00000000,0x00000000,0x00000000  golden=0x00000000,0x00000000,0x3fc00000
+MODE ztest    : rtl_nonzero=     0 mismatches=     0  ex=[]
+DIAG: tex page -> scene_tex.txt
+SCENE FRAME PASS: 8 textured tris, Z-sorted, bit-exact
+125813535.02ns INFO     cocotb.regression                  tb_scene.test_scene_frame passed
+125813535.02ns INFO     cocotb.regression                  running tb_mnist_e2e.test_mnist_e2e (26/30)
+                                                            Image -> TU(conv) -> CORE(pool) -> TU(dense) -> digit, all RTL.
+E2E: rtl logits=[63, 30, -34, -89, -105, 27, 69, 94, -21, -76] digit=7
+E2E: golden logits=[63, 30, -34, -89, -105, 27, 69, 94, -21, -76] digit=7
+MNIST E2E PASS: image -> TU(conv) -> CORE(pool) -> TU(dense) -> digit (logits bit-exact)
+128086155.03ns INFO     cocotb.regression                  tb_mnist_e2e.test_mnist_e2e passed
+128086155.03ns INFO     cocotb.regression                  running tb_pool.test_pool_shapes (27/30)
+                                                            pool2d kernel vs golden on two shapes with signed byte planes.
+pool1: 676 outputs bit-exact (signed bytes OK)
+pool2: 200 outputs bit-exact (signed bytes OK)
+POOL KERNEL PASS
+129266565.03ns INFO     cocotb.regression                  tb_pool.test_pool_shapes passed
+129266565.03ns INFO     cocotb.regression                  running tb_anim.test_anim_frames (28/30)
+                                                            4 orbit frames through GSX+RTR, each bit-exact vs golden.
+frame 0: 0 mismatches
+frame 1: 0 mismatches
+frame 2: 0 mismatches
+frame 3: 0 mismatches
+ANIM PASS: 4 orbit frames, all bit-exact (game loop proven)
+177870525.03ns INFO     cocotb.regression                  tb_anim.test_anim_frames passed
+177870525.03ns INFO     cocotb.regression                  running tb_mnist_acc.test_mnist_acc (29/30)
+                                                            100 t10k images through the RTL chain with TRAINED weights; >=95%.
+  OPS img0: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img0: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img0: W1 bad=0/16
+  OPS img0: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img0: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img0: A1 bad=0/8
+  OPS img0: C0 raw=['0xecf6e811', '0x0', '0x0', '0x0']
+  OPS img0: c1_pre[0:8]=[17, -24, -10, -20, 17, -24, -10, -20]
+  OPS img1: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img1: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img1: W1 bad=0/16
+  OPS img1: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img1: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img1: A1 bad=0/8
+  OPS img1: C0 raw=['0xecf6e811', '0x0', '0x0', '0x0']
+  OPS img1: c1_pre[0:8]=[17, -24, -10, -20, 17, -24, -10, -20]
+  OPS img2: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img2: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img2: W1 bad=0/16
+  OPS img2: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img2: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img2: A1 bad=0/8
+  OPS img2: C0 raw=['0xecf6e811', '0x0', '0x0', '0x0']
+  OPS img2: c1_pre[0:8]=[17, -24, -10, -20, 17, -24, -10, -20]
+[ 10/100] acc so far 100.0% (sw 100.0%)
+[ 20/100] acc so far  95.0% (sw  95.0%)
+[ 30/100] acc so far  96.7% (sw  96.7%)
+[ 40/100] acc so far  97.5% (sw  97.5%)
+[ 50/100] acc so far  98.0% (sw  98.0%)
+[ 60/100] acc so far  98.3% (sw  98.3%)
+[ 70/100] acc so far  98.6% (sw  98.6%)
+[ 80/100] acc so far  98.8% (sw  98.8%)
+[ 90/100] acc so far  98.9% (sw  98.9%)
+[100/100] acc so far  98.0% (sw  98.0%)
+RTL ACCURACY: 98/100 = 98.0%  (software mirror: 98.0%)
+MNIST ACC PASS: 98/100 = 98.0% >= 95% through the FULL RTL chain (trained weights)
+404519715.03ns INFO     cocotb.regression                  tb_mnist_acc.test_mnist_acc passed
+404519715.03ns INFO     cocotb.regression                  running tb_fly.test_fly_through (30/30)
+                                                            Scripted fly-through + HUD sprite + frame-time measurement.
+frame 0 cam=(0.000,0.00): distinct=18 nonbg=44168 zvals=153 | rtr 6131 us (613k cycles), blit 20.7 us (2067 cycles), frame 6.152 ms (18.6% of budget)
+frame 1 cam=(0.212,0.25): distinct=18 nonbg=40799 zvals=201 | rtr 5680 us (568k cycles), blit 20.7 us (2067 cycles), frame 5.701 ms (17.3% of budget)
+frame 2 cam=(0.300,0.50): distinct=18 nonbg=34543 zvals=173 | rtr 4746 us (475k cycles), blit 20.7 us (2067 cycles), frame 4.767 ms (14.4% of budget)
+frame 3 cam=(0.212,0.75): distinct=18 nonbg=25711 zvals=140 | rtr 3498 us (350k cycles), blit 20.7 us (2067 cycles), frame 3.519 ms (10.7% of budget)
+FLY PASS: 4 frames, structural asserts OK; worst frame 6.152 ms = 18.6% of the 33-ms/30-fps budget
+454050225.03ns INFO     cocotb.regression                  tb_fly.test_fly_through passed
+454050225.03ns INFO     cocotb.regression                  *************************************************************************************************
+                                                        ** TEST                                     STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        *************************************************************************************************
+                                                        ** tb_memory.test_cp_regs                    PASS          60.00           0.00      59812.91  **
+                                                        ** tb_memory.test_vram_bus_rw                PASS         130.00           0.00     265811.16  **
+                                                        ** tb_memory.test_dma_upload_readback        PASS        1310.00           0.00     495712.84  **
+                                                        ** tb_memory.test_zero_len_dma               PASS         130.00           0.00     366595.79  **
+                                                        ** tb_rtr.test_rtr_solid_gradient            PASS     5389120.00          10.72     502624.67  **
+                                                        ** tb_rtr.test_rtr_textured_quad             PASS     4877830.00           9.24     527972.66  **
+                                                        ** tb_rtr.test_rtr_ztest_ordering            PASS     8433520.00          15.56     541917.46  **
+                                                        ** tb_rtr.test_rtr_full_rop_chain            PASS     8585920.00          15.97     537761.78  **
+                                                        ** tb_display.test_display_composite_frame   PASS    12238465.00          19.45     629082.92  **
+                                                        ** tb_blit.test_blit_copy_1x                 PASS     3150530.00           6.04     521645.35  **
+                                                        ** tb_blit.test_blit_key_transparency        PASS     3150540.00           6.02     523031.91  **
+                                                        ** tb_blit.test_blit_scale2                  PASS     3151140.00           6.00     525108.08  **
+                                                        ** tb_gsx.test_gsx_identity                  PASS        3970.00           0.01     509876.97  **
+                                                        ** tb_gsx.test_gsx_cull                      PASS        1940.00           0.00     512023.99  **
+                                                        ** tb_gsx.test_gsx_cube                      PASS     7941030.00          15.34     517620.21  **
+                                                        ** tb_core.test_core_matadd                  PASS       56440.00           0.11     500418.37  **
+                                                        ** tb_core.test_core_divergent               PASS        5630.00           0.02     256839.48  **
+                                                        ** tb_core.test_core_barrier                 PASS        3620.00           0.02     185707.83  **
+                                                        ** tb_core.test_core_matmul                  PASS       34760.00           0.08     451406.79  **
+                                                        ** tb_tu.test_tu_small                       PASS       28300.00           0.05     518453.04  **
+                                                        ** tb_tu.test_tu_quant                       PASS       15170.00           0.03     510437.88  **
+                                                        ** tb_tu.test_tu_256                         PASS    23702510.00          46.65     508133.46  **
+                                                        ** tb_tex.test_tex_quad                      PASS    10094690.00          18.98     531859.68  **
+                                                        ** tb_mnist.test_mnist_layers                PASS     1080000.00           2.02     535170.94  **
+                                                        ** tb_scene.test_scene_frame                 PASS    33866780.00          64.35     526270.00  **
+                                                        ** tb_mnist_e2e.test_mnist_e2e               PASS     2272620.00           4.24     536581.25  **
+                                                        ** tb_pool.test_pool_shapes                  PASS     1180410.00           2.16     545427.95  **
+                                                        ** tb_anim.test_anim_frames                  PASS    48603960.00          94.08     516643.70  **
+                                                        ** tb_mnist_acc.test_mnist_acc               PASS   226649190.00         451.03     502513.23  **
+                                                        ** tb_fly.test_fly_through                   PASS    49530510.00          93.88     527605.66  **
+                                                        *************************************************************************************************
+                                                        ** TESTS=30 PASS=30 FAIL=0 SKIP=0                   454050225.03         882.11     514730.23  **
+                                                        *************************************************************************************************
+- :0: Verilog $finish

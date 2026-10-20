@@ -1,0 +1,1 @@
+rtr_setup {'top': 'ember_rtr_setup', 'gds_bytes': 58476618, 'gds_mtime_ns': 1790972490158364900, 'gds_sha256': '668c6f832a4abb90f4d7f67549ee83b04e1d9bdd1aef0d39b9dfef67de1d1a72', 'whole_layout_flattened_drc': 0, 'rule_style': 'drc(full)', 'rules_suppressed': False}

@@ -1,0 +1,31 @@
+Ember chip pad ring report
+source: scripts/gds/pinout.csv
+
+signal pads      : 373 (37 signal names)
+power/ground     : 53
+corner cells     : 4
+TOTAL pads       : 430
+
+die size         : 8280.0 x 9455.0 um  (78.29 mm^2 incl. pads)
+ring band depth  : 200 um
+
+side S:  91 signal +  8 power pads, span  7880.0 um, avg pitch 79.60 um (min pwr/side 8)
+side E: 104 signal +  9 power pads, span  9055.0 um, avg pitch 80.13 um (min pwr/side 9)
+side N:  76 signal + 24 power pads, span  7880.0 um, avg pitch 78.80 um (min pwr/side 7)
+side W: 102 signal + 12 power pads, span  9055.0 um, avg pitch 79.43 um (min pwr/side 9)
+
+by net class:
+  host     146 pins
+  mem0      50 pins
+  mem1      50 pins
+  mem2      50 pins
+  memory    54 pins
+  sys        2 pins
+  video     21 pins
+
+notes:
+  - x/y are pad footprint centers; ring order is counter-clockwise (S, E, N, W).
+  - residual side slack is absorbed as extra inter-pad pitch (reported avg pitch);
+    exact abutment is a chip-assembly refinement in the physical flow.
+  - power/ground pads connect VDDIO/VSSIO/VCCD/VSSD (VDDA/VSSA tie to VDDIO/VSSIO analog taps);
+    distribute evenly along each edge in the physical flow.

@@ -1,0 +1,2450 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)
+Loaded SDC plugin
+
+-- Running command `
+read_verilog  /work/build/gds/cp.v
+hierarchy -check -top ember_cp
+synth -top ember_cp
+dfflibmap -liberty /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -fast -liberty /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+setundef -zero
+# hilomap: turn constant nets into sky130 tie cells. Without this, setundef
+# creates one big  net and TritonRoute refuses it:
+#   [ERROR DRT-0305] Net zero_ of signal type GROUND is not routable.
+hilomap -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+opt_clean -purge
+splitnets -ports
+write_verilog -noattr -noexpr -nodec synth.v
+stat -liberty /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib > synth_stat.txt
+' --
+
+1. Executing Verilog-2005 frontend: /work/build/gds/cp.v
+Parsing Verilog input from `/work/build/gds/cp.v' to AST representation.
+Generating RTLIL representation for module `\ember_ram_slave'.
+Generating RTLIL representation for module `\ember_cp'.
+Warning: Replacing memory \rb_mem with list of registers. See /work/build/gds/cp.v:301
+Warning: Replacing memory \up_mem with list of registers. See /work/build/gds/cp.v:280
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ember_cp
+Used module:     \ember_ram_slave
+
+2.2. Analyzing design hierarchy..
+Top module:  \ember_cp
+Used module:     \ember_ram_slave
+Removed 0 unused modules.
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ember_cp
+Used module:     \ember_ram_slave
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ember_cp
+Used module:     \ember_ram_slave
+Removed 0 unused modules.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\ember_cp.$proc$/work/build/gds/cp.v:429$115'.
+Cleaned up 1 empty switch.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$/work/build/gds/cp.v:0$194 in module ember_cp.
+Marked 1 switch rules as full_case in process $proc$/work/build/gds/cp.v:0$194 in module ember_cp.
+Removed 1 dead cases from process $proc$/work/build/gds/cp.v:429$115 in module ember_cp.
+Marked 2 switch rules as full_case in process $proc$/work/build/gds/cp.v:429$115 in module ember_cp.
+Removed 1 dead cases from process $proc$/work/build/gds/cp.v:319$78 in module ember_cp.
+Marked 5 switch rules as full_case in process $proc$/work/build/gds/cp.v:319$78 in module ember_cp.
+Marked 1 switch rules as full_case in process $proc$/work/build/gds/cp.v:305$73 in module ember_cp.
+Marked 3 switch rules as full_case in process $proc$/work/build/gds/cp.v:297$59 in module ember_cp.
+Marked 1 switch rules as full_case in process $proc$/work/build/gds/cp.v:283$52 in module ember_cp.
+Marked 3 switch rules as full_case in process $proc$/work/build/gds/cp.v:276$41 in module ember_cp.
+Marked 1 switch rules as full_case in process $proc$/work/build/gds/cp.v:247$32 in module ember_cp.
+Marked 2 switch rules as full_case in process $proc$/work/build/gds/cp.v:104$20 in module ember_ram_slave.
+Marked 2 switch rules as full_case in process $proc$/work/build/gds/cp.v:91$16 in module ember_ram_slave.
+Marked 1 switch rules as full_case in process $proc$/work/build/gds/cp.v:81$15 in module ember_ram_slave.
+Marked 2 switch rules as full_case in process $proc$/work/build/gds/cp.v:68$8 in module ember_ram_slave.
+Marked 2 switch rules as full_case in process $proc$/work/build/gds/cp.v:57$5 in module ember_ram_slave.
+Removed a total of 3 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 9 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+Found async reset \rst_n in `\ember_cp.$proc$/work/build/gds/cp.v:305$73'.
+Found async reset \rst_n in `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+Found async reset \rst_n in `\ember_cp.$proc$/work/build/gds/cp.v:283$52'.
+Found async reset \rst_n in `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+Found async reset \rst_n in `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+Found async reset \rst_n in `\ember_ram_slave.$proc$/work/build/gds/cp.v:104$20'.
+Found async reset \rst_n in `\ember_ram_slave.$proc$/work/build/gds/cp.v:91$16'.
+Found async reset \rst_n in `\ember_ram_slave.$proc$/work/build/gds/cp.v:68$8'.
+Found async reset \rst_n in `\ember_ram_slave.$proc$/work/build/gds/cp.v:57$5'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~36 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:0$197'.
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:0$194'.
+     1/1: $1$mem2reg_rd$\up_mem$/work/build/gds/cp.v:275$28_DATA[31:0]$196
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:429$115'.
+     1/4: $2$mem2reg_rd$\rb_mem$/work/build/gds/cp.v:436$31_DATA[31:0]$120
+     2/4: $1\rd_data[31:0]
+     3/4: $1$mem2reg_rd$\rb_mem$/work/build/gds/cp.v:436$31_DATA[31:0]$119
+     4/4: $1$mem2reg_rd$\rb_mem$/work/build/gds/cp.v:436$31_ADDR[2:0]$118
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+     1/20: $0\m_ar[34:0] [34:3]
+     2/20: $0\m_ar[34:0] [2:0]
+     3/20: $0\m_w[35:0] [3:0]
+     4/20: $0\m_aw[34:0] [2:0]
+     5/20: $0\w_busy_q[0:0]
+     6/20: $0\r_pend_q[0:0]
+     7/20: $0\dma_left_q[31:0]
+     8/20: $0\dma_addr_q[31:0]
+     9/20: $0\dstate[1:0]
+    10/20: $1\rb_rp[3:0]
+    11/20: $1\rb_wp[3:0]
+    12/20: $1\up_rp[6:0]
+    13/20: $1\dma_busy_q[0:0]
+    14/20: $1\fence_done_q[7:0]
+    15/20: $0\m_arvalid[0:0]
+    16/20: $0\m_w[35:0] [35:4]
+    17/20: $0\m_wvalid[0:0]
+    18/20: $0\m_aw[34:0] [34:3]
+    19/20: $0\m_awvalid[0:0]
+    20/20: $0\up_pop[0:0]
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:305$73'.
+     1/1: $0\rb_rp[3:0]
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+     1/13: $2$mem2reg_wr$\rb_mem$/work/build/gds/cp.v:301$30_ADDR[2:0]$67
+     2/13: $2$mem2reg_wr$\rb_mem$/work/build/gds/cp.v:301$30_DATA[31:0]$68
+     3/13: $1$mem2reg_wr$\rb_mem$/work/build/gds/cp.v:301$30_DATA[31:0]$64
+     4/13: $1$mem2reg_wr$\rb_mem$/work/build/gds/cp.v:301$30_ADDR[2:0]$63
+     5/13: $0\rb_mem[7][31:0]
+     6/13: $0\rb_mem[6][31:0]
+     7/13: $0\rb_mem[5][31:0]
+     8/13: $0\rb_mem[4][31:0]
+     9/13: $0\rb_mem[3][31:0]
+    10/13: $0\rb_mem[2][31:0]
+    11/13: $0\rb_mem[1][31:0]
+    12/13: $0\rb_mem[0][31:0]
+    13/13: $0\rb_wp[3:0]
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:283$52'.
+     1/1: $0\up_rp[6:0]
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+     1/69: $2$mem2reg_wr$\up_mem$/work/build/gds/cp.v:280$29_ADDR[5:0]$49
+     2/69: $2$mem2reg_wr$\up_mem$/work/build/gds/cp.v:280$29_DATA[31:0]$50
+     3/69: $1$mem2reg_wr$\up_mem$/work/build/gds/cp.v:280$29_DATA[31:0]$46
+     4/69: $1$mem2reg_wr$\up_mem$/work/build/gds/cp.v:280$29_ADDR[5:0]$45
+     5/69: $0\up_mem[63][31:0]
+     6/69: $0\up_mem[62][31:0]
+     7/69: $0\up_mem[61][31:0]
+     8/69: $0\up_mem[60][31:0]
+     9/69: $0\up_mem[59][31:0]
+    10/69: $0\up_mem[58][31:0]
+    11/69: $0\up_mem[57][31:0]
+    12/69: $0\up_mem[56][31:0]
+    13/69: $0\up_mem[55][31:0]
+    14/69: $0\up_mem[54][31:0]
+    15/69: $0\up_mem[53][31:0]
+    16/69: $0\up_mem[52][31:0]
+    17/69: $0\up_mem[51][31:0]
+    18/69: $0\up_mem[50][31:0]
+    19/69: $0\up_mem[49][31:0]
+    20/69: $0\up_mem[48][31:0]
+    21/69: $0\up_mem[47][31:0]
+    22/69: $0\up_mem[46][31:0]
+    23/69: $0\up_mem[45][31:0]
+    24/69: $0\up_mem[44][31:0]
+    25/69: $0\up_mem[43][31:0]
+    26/69: $0\up_mem[42][31:0]
+    27/69: $0\up_mem[41][31:0]
+    28/69: $0\up_mem[40][31:0]
+    29/69: $0\up_mem[39][31:0]
+    30/69: $0\up_mem[38][31:0]
+    31/69: $0\up_mem[37][31:0]
+    32/69: $0\up_mem[36][31:0]
+    33/69: $0\up_mem[35][31:0]
+    34/69: $0\up_mem[34][31:0]
+    35/69: $0\up_mem[33][31:0]
+    36/69: $0\up_mem[32][31:0]
+    37/69: $0\up_mem[31][31:0]
+    38/69: $0\up_mem[30][31:0]
+    39/69: $0\up_mem[29][31:0]
+    40/69: $0\up_mem[28][31:0]
+    41/69: $0\up_mem[27][31:0]
+    42/69: $0\up_mem[26][31:0]
+    43/69: $0\up_mem[25][31:0]
+    44/69: $0\up_mem[24][31:0]
+    45/69: $0\up_mem[23][31:0]
+    46/69: $0\up_mem[22][31:0]
+    47/69: $0\up_mem[21][31:0]
+    48/69: $0\up_mem[20][31:0]
+    49/69: $0\up_mem[19][31:0]
+    50/69: $0\up_mem[18][31:0]
+    51/69: $0\up_mem[17][31:0]
+    52/69: $0\up_mem[16][31:0]
+    53/69: $0\up_mem[15][31:0]
+    54/69: $0\up_mem[14][31:0]
+    55/69: $0\up_mem[13][31:0]
+    56/69: $0\up_mem[12][31:0]
+    57/69: $0\up_mem[11][31:0]
+    58/69: $0\up_mem[10][31:0]
+    59/69: $0\up_mem[9][31:0]
+    60/69: $0\up_mem[8][31:0]
+    61/69: $0\up_mem[7][31:0]
+    62/69: $0\up_mem[6][31:0]
+    63/69: $0\up_mem[5][31:0]
+    64/69: $0\up_mem[4][31:0]
+    65/69: $0\up_mem[3][31:0]
+    66/69: $0\up_mem[2][31:0]
+    67/69: $0\up_mem[1][31:0]
+    68/69: $0\up_mem[0][31:0]
+    69/69: $0\up_wp[6:0]
+Creating decoders for process `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+     1/5: $0\dma_busy_q[0:0]
+     2/5: $0\fence_done_q[7:0]
+     3/5: $0\fence_pend_q[7:0]
+     4/5: $0\dma_len_q[31:0]
+     5/5: $0\dma_dst_q[31:0]
+Creating decoders for process `\ember_ram_slave.$proc$/work/build/gds/cp.v:112$24'.
+     1/2: $0\s_r[33:0] [33:2]
+     2/2: $0\s_r[33:0] [1:0]
+Creating decoders for process `\ember_ram_slave.$proc$/work/build/gds/cp.v:104$20'.
+     1/1: $0\ar_v[0:0]
+Creating decoders for process `\ember_ram_slave.$proc$/work/build/gds/cp.v:91$16'.
+     1/2: $0\s_bvalid[0:0]
+     2/2: $0\s_b[1:0]
+Creating decoders for process `\ember_ram_slave.$proc$/work/build/gds/cp.v:81$15'.
+     1/4: $0\reg_wr_en[0:0]
+     2/4: $0\reg_wdata[31:0]
+     3/4: $0\reg_be[3:0]
+     4/4: $0\reg_addr[11:0]
+Creating decoders for process `\ember_ram_slave.$proc$/work/build/gds/cp.v:68$8'.
+     1/2: $0\w_q[35:0]
+     2/2: $0\w_v[0:0]
+Creating decoders for process `\ember_ram_slave.$proc$/work/build/gds/cp.v:57$5'.
+     1/2: $0\aw_q[34:0]
+     2/2: $0\aw_v[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ember_cp.\_sv2v_0' from process `\ember_cp.$proc$/work/build/gds/cp.v:0$197'.
+No latch inferred for signal `\ember_cp.$mem2reg_rd$\up_mem$/work/build/gds/cp.v:275$28_DATA' from process `\ember_cp.$proc$/work/build/gds/cp.v:0$194'.
+No latch inferred for signal `\ember_cp.\rd_data' from process `\ember_cp.$proc$/work/build/gds/cp.v:429$115'.
+No latch inferred for signal `\ember_cp.$mem2reg_rd$\rb_mem$/work/build/gds/cp.v:436$31_ADDR' from process `\ember_cp.$proc$/work/build/gds/cp.v:429$115'.
+No latch inferred for signal `\ember_cp.$mem2reg_rd$\rb_mem$/work/build/gds/cp.v:436$31_DATA' from process `\ember_cp.$proc$/work/build/gds/cp.v:429$115'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ember_cp.\m_aw' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$2983' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\m_awvalid' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$2988' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\m_w' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$2993' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\m_wvalid' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$2998' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\m_ar' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3003' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\m_arvalid' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3008' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\fence_done_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3013' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\dma_busy_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3018' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\up_rp' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $dff cell `$procdff$3025' with positive edge clock.
+Creating register for signal `\ember_cp.\up_pop' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3030' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\rb_wp' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $dff cell `$procdff$3037' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_rp' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $dff cell `$procdff$3044' with positive edge clock.
+Creating register for signal `\ember_cp.\dstate' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3049' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\dma_addr_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3054' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\dma_left_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3059' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\r_pend_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3064' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\w_busy_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+  created $adff cell `$procdff$3069' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\rb_rp' using process `\ember_cp.$proc$/work/build/gds/cp.v:305$73'.
+  created $adff cell `$procdff$3074' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\rb_wp' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $adff cell `$procdff$3079' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\rb_mem[0]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3086' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_mem[1]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3093' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_mem[2]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3100' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_mem[3]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3107' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_mem[4]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3114' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_mem[5]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3121' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_mem[6]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3128' with positive edge clock.
+Creating register for signal `\ember_cp.\rb_mem[7]' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $dff cell `$procdff$3135' with positive edge clock.
+Creating register for signal `\ember_cp.$mem2reg_wr$\rb_mem$/work/build/gds/cp.v:301$30_ADDR' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $adff cell `$procdff$3140' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.$mem2reg_wr$\rb_mem$/work/build/gds/cp.v:301$30_DATA' using process `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+  created $adff cell `$procdff$3145' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\up_rp' using process `\ember_cp.$proc$/work/build/gds/cp.v:283$52'.
+  created $adff cell `$procdff$3150' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\up_wp' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $adff cell `$procdff$3155' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\up_mem[0]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3162' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[1]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3169' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[2]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3176' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[3]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3183' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[4]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3190' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[5]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3197' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[6]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3204' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[7]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3211' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[8]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3218' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[9]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3225' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[10]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3232' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[11]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3239' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[12]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3246' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[13]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3253' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[14]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3260' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[15]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3267' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[16]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3274' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[17]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3281' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[18]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3288' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[19]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3295' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[20]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3302' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[21]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3309' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[22]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3316' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[23]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3323' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[24]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3330' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[25]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3337' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[26]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3344' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[27]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3351' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[28]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3358' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[29]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3365' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[30]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3372' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[31]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3379' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[32]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3386' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[33]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3393' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[34]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3400' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[35]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3407' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[36]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3414' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[37]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3421' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[38]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3428' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[39]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3435' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[40]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3442' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[41]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3449' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[42]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3456' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[43]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3463' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[44]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3470' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[45]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3477' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[46]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3484' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[47]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3491' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[48]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3498' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[49]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3505' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[50]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3512' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[51]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3519' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[52]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3526' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[53]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3533' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[54]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3540' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[55]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3547' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[56]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3554' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[57]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3561' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[58]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3568' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[59]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3575' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[60]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3582' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[61]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3589' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[62]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3596' with positive edge clock.
+Creating register for signal `\ember_cp.\up_mem[63]' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $dff cell `$procdff$3603' with positive edge clock.
+Creating register for signal `\ember_cp.$mem2reg_wr$\up_mem$/work/build/gds/cp.v:280$29_ADDR' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $adff cell `$procdff$3608' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.$mem2reg_wr$\up_mem$/work/build/gds/cp.v:280$29_DATA' using process `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+  created $adff cell `$procdff$3613' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\dma_dst_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+  created $adff cell `$procdff$3618' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\dma_len_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+  created $adff cell `$procdff$3623' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\fence_pend_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+  created $adff cell `$procdff$3628' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\fence_done_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+  created $adff cell `$procdff$3633' with positive edge clock and positive level reset.
+Creating register for signal `\ember_cp.\dma_busy_q' using process `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+  created $adff cell `$procdff$3638' with positive edge clock and positive level reset.
+Creating register for signal `\ember_ram_slave.\s_r' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:112$24'.
+  created $dff cell `$procdff$3639' with positive edge clock.
+Creating register for signal `\ember_ram_slave.\ar_v' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:104$20'.
+  created $adff cell `$procdff$3644' with positive edge clock and positive level reset.
+Creating register for signal `\ember_ram_slave.\s_b' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:91$16'.
+  created $adff cell `$procdff$3649' with positive edge clock and positive level reset.
+Creating register for signal `\ember_ram_slave.\s_bvalid' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:91$16'.
+  created $adff cell `$procdff$3654' with positive edge clock and positive level reset.
+Creating register for signal `\ember_ram_slave.\reg_addr' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:81$15'.
+  created $dff cell `$procdff$3655' with positive edge clock.
+Creating register for signal `\ember_ram_slave.\reg_be' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:81$15'.
+  created $dff cell `$procdff$3656' with positive edge clock.
+Creating register for signal `\ember_ram_slave.\reg_wdata' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:81$15'.
+  created $dff cell `$procdff$3657' with positive edge clock.
+Creating register for signal `\ember_ram_slave.\reg_wr_en' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:81$15'.
+  created $dff cell `$procdff$3658' with positive edge clock.
+Creating register for signal `\ember_ram_slave.\w_v' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:68$8'.
+  created $adff cell `$procdff$3663' with positive edge clock and positive level reset.
+Creating register for signal `\ember_ram_slave.\w_q' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:68$8'.
+  created $adff cell `$procdff$3668' with positive edge clock and positive level reset.
+Creating register for signal `\ember_ram_slave.\aw_v' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:57$5'.
+  created $adff cell `$procdff$3673' with positive edge clock and positive level reset.
+Creating register for signal `\ember_ram_slave.\aw_q' using process `\ember_ram_slave.$proc$/work/build/gds/cp.v:57$5'.
+  created $adff cell `$procdff$3678' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:0$197'.
+Found and cleaned up 1 empty switch in `\ember_cp.$proc$/work/build/gds/cp.v:0$194'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:0$194'.
+Found and cleaned up 2 empty switches in `\ember_cp.$proc$/work/build/gds/cp.v:429$115'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:429$115'.
+Found and cleaned up 14 empty switches in `\ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:319$78'.
+Found and cleaned up 1 empty switch in `\ember_cp.$proc$/work/build/gds/cp.v:305$73'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:305$73'.
+Found and cleaned up 2 empty switches in `\ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:297$59'.
+Found and cleaned up 1 empty switch in `\ember_cp.$proc$/work/build/gds/cp.v:283$52'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:283$52'.
+Found and cleaned up 2 empty switches in `\ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:276$41'.
+Found and cleaned up 3 empty switches in `\ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+Removing empty process `ember_cp.$proc$/work/build/gds/cp.v:247$32'.
+Found and cleaned up 1 empty switch in `\ember_ram_slave.$proc$/work/build/gds/cp.v:112$24'.
+Removing empty process `ember_ram_slave.$proc$/work/build/gds/cp.v:112$24'.
+Found and cleaned up 2 empty switches in `\ember_ram_slave.$proc$/work/build/gds/cp.v:104$20'.
+Removing empty process `ember_ram_slave.$proc$/work/build/gds/cp.v:104$20'.
+Found and cleaned up 2 empty switches in `\ember_ram_slave.$proc$/work/build/gds/cp.v:91$16'.
+Removing empty process `ember_ram_slave.$proc$/work/build/gds/cp.v:91$16'.
+Found and cleaned up 1 empty switch in `\ember_ram_slave.$proc$/work/build/gds/cp.v:81$15'.
+Removing empty process `ember_ram_slave.$proc$/work/build/gds/cp.v:81$15'.
+Found and cleaned up 2 empty switches in `\ember_ram_slave.$proc$/work/build/gds/cp.v:68$8'.
+Removing empty process `ember_ram_slave.$proc$/work/build/gds/cp.v:68$8'.
+Found and cleaned up 2 empty switches in `\ember_ram_slave.$proc$/work/build/gds/cp.v:57$5'.
+Removing empty process `ember_ram_slave.$proc$/work/build/gds/cp.v:57$5'.
+Cleaned up 36 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+<suppressed ~220 debug messages>
+Optimizing module ember_ram_slave.
+<suppressed ~14 debug messages>
+
+3.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 134 unused cells and 581 unused wires.
+<suppressed ~137 debug messages>
+
+3.5. Executing CHECK pass (checking for obvious problems).
+Checking module ember_cp...
+Warning: multiple conflicting drivers for ember_cp.\rb_rp [3]:
+    port Q[3] of cell $procdff$3044 ($dff)
+    port Q[3] of cell $procdff$3074 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\rb_rp [2]:
+    port Q[2] of cell $procdff$3044 ($dff)
+    port Q[2] of cell $procdff$3074 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\rb_rp [1]:
+    port Q[1] of cell $procdff$3044 ($dff)
+    port Q[1] of cell $procdff$3074 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\rb_rp [0]:
+    port Q[0] of cell $procdff$3044 ($dff)
+    port Q[0] of cell $procdff$3074 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\rb_wp [3]:
+    port Q[3] of cell $procdff$3037 ($dff)
+    port Q[3] of cell $procdff$3079 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\rb_wp [2]:
+    port Q[2] of cell $procdff$3037 ($dff)
+    port Q[2] of cell $procdff$3079 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\rb_wp [1]:
+    port Q[1] of cell $procdff$3037 ($dff)
+    port Q[1] of cell $procdff$3079 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\rb_wp [0]:
+    port Q[0] of cell $procdff$3037 ($dff)
+    port Q[0] of cell $procdff$3079 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [6]:
+    port Q[6] of cell $procdff$3025 ($dff)
+    port Q[6] of cell $procdff$3150 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [5]:
+    port Q[5] of cell $procdff$3025 ($dff)
+    port Q[5] of cell $procdff$3150 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [4]:
+    port Q[4] of cell $procdff$3025 ($dff)
+    port Q[4] of cell $procdff$3150 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [3]:
+    port Q[3] of cell $procdff$3025 ($dff)
+    port Q[3] of cell $procdff$3150 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [2]:
+    port Q[2] of cell $procdff$3025 ($dff)
+    port Q[2] of cell $procdff$3150 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [1]:
+    port Q[1] of cell $procdff$3025 ($dff)
+    port Q[1] of cell $procdff$3150 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [0]:
+    port Q[0] of cell $procdff$3025 ($dff)
+    port Q[0] of cell $procdff$3150 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\dma_busy_q:
+    port Q[0] of cell $procdff$3018 ($adff)
+    port Q[0] of cell $procdff$3638 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [7]:
+    port Q[7] of cell $procdff$3013 ($adff)
+    port Q[7] of cell $procdff$3633 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [6]:
+    port Q[6] of cell $procdff$3013 ($adff)
+    port Q[6] of cell $procdff$3633 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [5]:
+    port Q[5] of cell $procdff$3013 ($adff)
+    port Q[5] of cell $procdff$3633 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [4]:
+    port Q[4] of cell $procdff$3013 ($adff)
+    port Q[4] of cell $procdff$3633 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [3]:
+    port Q[3] of cell $procdff$3013 ($adff)
+    port Q[3] of cell $procdff$3633 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [2]:
+    port Q[2] of cell $procdff$3013 ($adff)
+    port Q[2] of cell $procdff$3633 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [1]:
+    port Q[1] of cell $procdff$3013 ($adff)
+    port Q[1] of cell $procdff$3633 ($adff)
+Warning: multiple conflicting drivers for ember_cp.\fence_done_q [0]:
+    port Q[0] of cell $procdff$3013 ($adff)
+    port Q[0] of cell $procdff$3633 ($adff)
+Checking module ember_ram_slave...
+Found and reported 24 problems.
+
+3.6. Executing OPT pass (performing simple optimizations).
+
+3.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+<suppressed ~162 debug messages>
+Finding identical cells in module `\ember_ram_slave'.
+<suppressed ~3 debug messages>
+Removed a total of 55 cells.
+
+3.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$275.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 1 multiplexer ports.
+<suppressed ~114 debug messages>
+
+3.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 0 changes.
+
+3.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 3 cells.
+
+3.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+Handling D = Q on $procdff$3638 ($adff) from module ember_cp (removing D path).
+Handling D = Q on $procdff$3633 ($adff) from module ember_cp (removing D path).
+Setting constant 0-bit at position 0 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 1 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 2 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 3 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 4 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 5 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 6 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 7 on $procdff$3633 ($dlatch) from module ember_cp.
+Setting constant 0-bit at position 0 on $procdff$3638 ($dlatch) from module ember_cp.
+
+3.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Warning: Driver-driver conflict for \dma_busy_q between cell $procdff$3018.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [7] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [6] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [5] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [4] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [3] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [2] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [1] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \fence_done_q [0] between cell $procdff$3013.Q and constant 1'0 in ember_cp: Resolved using constant.
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 24 unused cells and 81 unused wires.
+<suppressed ~27 debug messages>
+
+3.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.6.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.6.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~112 debug messages>
+
+3.6.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+    New ctrl vector for $pmux cell $procmux$278: { $procmux$284_CMP $procmux$283_CMP $procmux$276_CMP $procmux$280_CMP $procmux$279_CMP }
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 1 changes.
+
+3.6.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.6.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 1 unused cells and 1 unused wires.
+<suppressed ~2 debug messages>
+
+3.6.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.6.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.6.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~112 debug messages>
+
+3.6.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 0 changes.
+
+3.6.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.6.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.6.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.6.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.6.23. Finished OPT passes. (There is nothing left to do.)
+
+3.7. Executing FSM pass (extract and optimize FSM).
+
+3.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+Found FSM state register ember_cp.dstate.
+Not marking ember_ram_slave.s_b as FSM state register:
+    Register is connected to module port.
+    Users of register don't seem to benefit from recoding.
+
+3.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+Extracting FSM `\dstate' from module `\ember_cp'.
+  found $adff cell for state register: $procdff$3049
+  root of input selection tree: $0\dstate[1:0]
+  found reset state: 2'00 (from async reset)
+  found ctrl input: $logic_and$/work/build/gds/cp.v:409$113_Y
+  found ctrl input: $procmux$298_CMP
+  found ctrl input: $procmux$368_CMP
+  found ctrl input: $procmux$308_CMP
+  found ctrl input: $procmux$348_CMP
+  found ctrl input: \m_rvalid
+  found ctrl input: $le$/work/build/gds/cp.v:368$94_Y
+  found ctrl input: \m_awvalid
+  found ctrl input: $logic_and$/work/build/gds/cp.v:364$92_Y
+  found state code: 2'10
+  found ctrl input: $logic_and$/work/build/gds/cp.v:340$82_Y
+  found ctrl input: $eq$/work/build/gds/cp.v:344$83_Y
+  found ctrl input: \reg_wdata [0]
+  found state code: 2'01
+  found state code: 2'11
+  found ctrl output: $procmux$298_CMP
+  found ctrl output: $procmux$308_CMP
+  found ctrl output: $procmux$348_CMP
+  found ctrl output: $procmux$368_CMP
+  ctrl inputs: { $logic_and$/work/build/gds/cp.v:409$113_Y $le$/work/build/gds/cp.v:368$94_Y $logic_and$/work/build/gds/cp.v:364$92_Y $eq$/work/build/gds/cp.v:344$83_Y $logic_and$/work/build/gds/cp.v:340$82_Y \m_rvalid \m_awvalid \reg_wdata [0] }
+  ctrl outputs: { $procmux$368_CMP $procmux$348_CMP $procmux$308_CMP $procmux$298_CMP $0\dstate[1:0] }
+  transition:       2'00 8'0---0--- ->       2'00 6'010000
+  transition:       2'00 8'0--01--0 ->       2'01 6'010001
+  transition:       2'00 8'0--01--1 ->       2'11 6'010011
+  transition:       2'00 8'0--11--- ->       2'00 6'010000
+  transition:       2'00 8'1------- ->       2'00 6'010000
+  transition:       2'10 8'0-----0- ->       2'00 6'100000
+  transition:       2'10 8'0-----1- ->       2'10 6'100010
+  transition:       2'10 8'1------- ->       2'00 6'100000
+  transition:       2'01 8'0-0----- ->       2'01 6'001001
+  transition:       2'01 8'001----- ->       2'01 6'001001
+  transition:       2'01 8'011---0- ->       2'00 6'001000
+  transition:       2'01 8'011---1- ->       2'10 6'001010
+  transition:       2'01 8'1------- ->       2'00 6'001000
+  transition:       2'11 8'0----0-- ->       2'11 6'000111
+  transition:       2'11 8'00---1-- ->       2'11 6'000111
+  transition:       2'11 8'01---1-- ->       2'00 6'000100
+  transition:       2'11 8'1------- ->       2'00 6'000100
+
+3.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\dstate$3679' from module `\ember_cp'.
+
+3.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 16 unused cells and 16 unused wires.
+<suppressed ~17 debug messages>
+
+3.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+Optimizing FSM `$fsm$\dstate$3679' from module `\ember_cp'.
+  Removing unused output signal $0\dstate[1:0] [0].
+  Removing unused output signal $0\dstate[1:0] [1].
+  Removing unused output signal $procmux$368_CMP.
+
+3.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+Recoding FSM `$fsm$\dstate$3679' from module `\ember_cp' using `auto' encoding:
+  mapping auto encoding to `one-hot` for this FSM.
+  00 -> ---1
+  10 -> --1-
+  01 -> -1--
+  11 -> 1---
+
+3.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+FSM `$fsm$\dstate$3679' from module `ember_cp':
+-------------------------------------
+
+  Information on FSM $fsm$\dstate$3679 (\dstate):
+
+  Number of input signals:    8
+  Number of output signals:   3
+  Number of state bits:       4
+
+  Input signals:
+    0: \reg_wdata [0]
+    1: \m_awvalid
+    2: \m_rvalid
+    3: $logic_and$/work/build/gds/cp.v:340$82_Y
+    4: $eq$/work/build/gds/cp.v:344$83_Y
+    5: $logic_and$/work/build/gds/cp.v:364$92_Y
+    6: $le$/work/build/gds/cp.v:368$94_Y
+    7: $logic_and$/work/build/gds/cp.v:409$113_Y
+
+  Output signals:
+    0: $procmux$298_CMP
+    1: $procmux$308_CMP
+    2: $procmux$348_CMP
+
+  State encoding:
+    0:     4'---1  <RESET STATE>
+    1:     4'--1-
+    2:     4'-1--
+    3:     4'1---
+
+  Transition Table (state_in, ctrl_in, state_out, ctrl_out):
+      0:     0 8'0---0---   ->     0 3'100
+      1:     0 8'0--11---   ->     0 3'100
+      2:     0 8'1-------   ->     0 3'100
+      3:     0 8'0--01--0   ->     2 3'100
+      4:     0 8'0--01--1   ->     3 3'100
+      5:     1 8'0-----0-   ->     0 3'000
+      6:     1 8'1-------   ->     0 3'000
+      7:     1 8'0-----1-   ->     1 3'000
+      8:     2 8'011---0-   ->     0 3'010
+      9:     2 8'1-------   ->     0 3'010
+     10:     2 8'011---1-   ->     1 3'010
+     11:     2 8'0-0-----   ->     2 3'010
+     12:     2 8'001-----   ->     2 3'010
+     13:     3 8'01---1--   ->     0 3'001
+     14:     3 8'1-------   ->     0 3'001
+     15:     3 8'0----0--   ->     3 3'001
+     16:     3 8'00---1--   ->     3 3'001
+
+-------------------------------------
+
+3.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+Mapping FSM `$fsm$\dstate$3679' from module `\ember_cp'.
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+<suppressed ~5 debug messages>
+Optimizing module ember_ram_slave.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~111 debug messages>
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $procdff$3623 ($adff) from module ember_cp (D = \reg_wdata, Q = \dma_len_q).
+Adding EN signal on $procdff$3618 ($adff) from module ember_cp (D = \reg_wdata, Q = \dma_dst_q).
+Adding EN signal on $procdff$3603 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[63]).
+Adding EN signal on $procdff$3596 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[62]).
+Adding EN signal on $procdff$3589 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[61]).
+Adding EN signal on $procdff$3582 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[60]).
+Adding EN signal on $procdff$3575 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[59]).
+Adding EN signal on $procdff$3568 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[58]).
+Adding EN signal on $procdff$3561 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[57]).
+Adding EN signal on $procdff$3554 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[56]).
+Adding EN signal on $procdff$3547 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[55]).
+Adding EN signal on $procdff$3540 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[54]).
+Adding EN signal on $procdff$3533 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[53]).
+Adding EN signal on $procdff$3526 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[52]).
+Adding EN signal on $procdff$3519 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[51]).
+Adding EN signal on $procdff$3512 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[50]).
+Adding EN signal on $procdff$3505 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[49]).
+Adding EN signal on $procdff$3498 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[48]).
+Adding EN signal on $procdff$3491 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[47]).
+Adding EN signal on $procdff$3484 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[46]).
+Adding EN signal on $procdff$3477 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[45]).
+Adding EN signal on $procdff$3470 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[44]).
+Adding EN signal on $procdff$3463 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[43]).
+Adding EN signal on $procdff$3456 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[42]).
+Adding EN signal on $procdff$3449 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[41]).
+Adding EN signal on $procdff$3442 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[40]).
+Adding EN signal on $procdff$3435 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[39]).
+Adding EN signal on $procdff$3428 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[38]).
+Adding EN signal on $procdff$3421 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[37]).
+Adding EN signal on $procdff$3414 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[36]).
+Adding EN signal on $procdff$3407 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[35]).
+Adding EN signal on $procdff$3400 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[34]).
+Adding EN signal on $procdff$3393 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[33]).
+Adding EN signal on $procdff$3386 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[32]).
+Adding EN signal on $procdff$3379 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[31]).
+Adding EN signal on $procdff$3372 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[30]).
+Adding EN signal on $procdff$3365 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[29]).
+Adding EN signal on $procdff$3358 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[28]).
+Adding EN signal on $procdff$3351 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[27]).
+Adding EN signal on $procdff$3344 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[26]).
+Adding EN signal on $procdff$3337 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[25]).
+Adding EN signal on $procdff$3330 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[24]).
+Adding EN signal on $procdff$3323 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[23]).
+Adding EN signal on $procdff$3316 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[22]).
+Adding EN signal on $procdff$3309 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[21]).
+Adding EN signal on $procdff$3302 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[20]).
+Adding EN signal on $procdff$3295 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[19]).
+Adding EN signal on $procdff$3288 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[18]).
+Adding EN signal on $procdff$3281 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[17]).
+Adding EN signal on $procdff$3274 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[16]).
+Adding EN signal on $procdff$3267 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[15]).
+Adding EN signal on $procdff$3260 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[14]).
+Adding EN signal on $procdff$3253 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[13]).
+Adding EN signal on $procdff$3246 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[12]).
+Adding EN signal on $procdff$3239 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[11]).
+Adding EN signal on $procdff$3232 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[10]).
+Adding EN signal on $procdff$3225 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[9]).
+Adding EN signal on $procdff$3218 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[8]).
+Adding EN signal on $procdff$3211 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[7]).
+Adding EN signal on $procdff$3204 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[6]).
+Adding EN signal on $procdff$3197 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[5]).
+Adding EN signal on $procdff$3190 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[4]).
+Adding EN signal on $procdff$3183 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[3]).
+Adding EN signal on $procdff$3176 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[2]).
+Adding EN signal on $procdff$3169 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[1]).
+Adding EN signal on $procdff$3162 ($dff) from module ember_cp (D = \reg_wdata, Q = \up_mem[0]).
+Adding EN signal on $procdff$3155 ($adff) from module ember_cp (D = $add$/work/build/gds/cp.v:281$51_Y, Q = \up_wp).
+Adding EN signal on $procdff$3150 ($adff) from module ember_cp (D = $add$/work/build/gds/cp.v:287$54_Y, Q = \up_rp).
+Adding EN signal on $procdff$3135 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[7]).
+Adding EN signal on $procdff$3128 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[6]).
+Adding EN signal on $procdff$3121 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[5]).
+Adding EN signal on $procdff$3114 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[4]).
+Adding EN signal on $procdff$3107 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[3]).
+Adding EN signal on $procdff$3100 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[2]).
+Adding EN signal on $procdff$3093 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[1]).
+Adding EN signal on $procdff$3086 ($dff) from module ember_cp (D = \m_r [33:2], Q = \rb_mem[0]).
+Adding EN signal on $procdff$3079 ($adff) from module ember_cp (D = $add$/work/build/gds/cp.v:302$69_Y, Q = \rb_wp).
+Adding EN signal on $procdff$3074 ($adff) from module ember_cp (D = $add$/work/build/gds/cp.v:309$77_Y, Q = \rb_rp).
+Adding EN signal on $procdff$3069 ($adff) from module ember_cp (D = $0\w_busy_q[0:0], Q = \w_busy_q).
+Adding EN signal on $procdff$3064 ($adff) from module ember_cp (D = $0\r_pend_q[0:0], Q = \r_pend_q).
+Adding EN signal on $procdff$3059 ($adff) from module ember_cp (D = $0\dma_left_q[31:0], Q = \dma_left_q).
+Adding EN signal on $procdff$3054 ($adff) from module ember_cp (D = $0\dma_addr_q[31:0], Q = \dma_addr_q).
+Adding EN signal on $procdff$3044 ($dff) from module ember_cp (D = 4'0000, Q = \rb_rp).
+Adding EN signal on $procdff$3037 ($dff) from module ember_cp (D = 4'0000, Q = \rb_wp).
+Adding EN signal on $procdff$3025 ($dff) from module ember_cp (D = \up_wp, Q = \up_rp).
+Adding EN signal on $procdff$3008 ($adff) from module ember_cp (D = $0\m_arvalid[0:0], Q = \m_arvalid).
+Adding EN signal on $procdff$3003 ($adff) from module ember_cp (D = { $add$/work/build/gds/cp.v:356$90_Y 3'000 }, Q = \m_ar).
+Adding EN signal on $procdff$2998 ($adff) from module ember_cp (D = $0\m_wvalid[0:0], Q = \m_wvalid).
+Adding EN signal on $procdff$2993 ($adff) from module ember_cp (D = { \up_front 4'1111 }, Q = \m_w).
+Adding EN signal on $procdff$2988 ($adff) from module ember_cp (D = $0\m_awvalid[0:0], Q = \m_awvalid).
+Adding EN signal on $procdff$2983 ($adff) from module ember_cp (D = { $add$/work/build/gds/cp.v:356$90_Y 3'000 }, Q = \m_aw).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$4045 ($adffe) from module ember_cp.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$4045 ($adffe) from module ember_cp.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$4045 ($adffe) from module ember_cp.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$4025 ($adffe) from module ember_cp.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$4025 ($adffe) from module ember_cp.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$4025 ($adffe) from module ember_cp.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$4012 ($dffe) from module ember_cp.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$4012 ($dffe) from module ember_cp.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$4012 ($dffe) from module ember_cp.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$4012 ($dffe) from module ember_cp.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$4009 ($dffe) from module ember_cp.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$4009 ($dffe) from module ember_cp.
+Setting constant 0-bit at position 2 on $auto$ff.cc:266:slice$4009 ($dffe) from module ember_cp.
+Setting constant 0-bit at position 3 on $auto$ff.cc:266:slice$4009 ($dffe) from module ember_cp.
+Adding EN signal on $procdff$3678 ($adff) from module ember_ram_slave (D = \s_aw, Q = \aw_q).
+Adding EN signal on $procdff$3673 ($adff) from module ember_ram_slave (D = $0\aw_v[0:0], Q = \aw_v).
+Adding EN signal on $procdff$3668 ($adff) from module ember_ram_slave (D = \s_w, Q = \w_q).
+Adding EN signal on $procdff$3663 ($adff) from module ember_ram_slave (D = $0\w_v[0:0], Q = \w_v).
+Adding EN signal on $procdff$3657 ($dff) from module ember_ram_slave (D = \w_q [35:4], Q = \reg_wdata).
+Adding EN signal on $procdff$3656 ($dff) from module ember_ram_slave (D = \w_q [3:0], Q = \reg_be).
+Adding EN signal on $procdff$3655 ($dff) from module ember_ram_slave (D = \aw_q [14:3], Q = \reg_addr).
+Adding EN signal on $procdff$3654 ($adff) from module ember_ram_slave (D = $0\s_bvalid[0:0], Q = \s_bvalid).
+Adding EN signal on $procdff$3649 ($adff) from module ember_ram_slave (D = 2'00, Q = \s_b).
+Adding EN signal on $procdff$3644 ($adff) from module ember_ram_slave (D = $0\ar_v[0:0], Q = \ar_v).
+Adding EN signal on $procdff$3639 ($dff) from module ember_ram_slave (D = { \rd_data 2'00 }, Q = \s_r).
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$4068 ($dffe) from module ember_ram_slave.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$4068 ($dffe) from module ember_ram_slave.
+Setting constant 0-bit at position 0 on $auto$ff.cc:266:slice$4064 ($adffe) from module ember_ram_slave.
+Setting constant 0-bit at position 1 on $auto$ff.cc:266:slice$4064 ($adffe) from module ember_ram_slave.
+
+3.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Warning: Driver-driver conflict for \rb_wp [3] between cell $auto$ff.cc:266:slice$3971.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \rb_wp [2] between cell $auto$ff.cc:266:slice$3971.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \rb_wp [1] between cell $auto$ff.cc:266:slice$3971.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \rb_wp [0] between cell $auto$ff.cc:266:slice$3971.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \rb_rp [3] between cell $auto$ff.cc:266:slice$3972.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \rb_rp [2] between cell $auto$ff.cc:266:slice$3972.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \rb_rp [1] between cell $auto$ff.cc:266:slice$3972.Q and constant 1'0 in ember_cp: Resolved using constant.
+Warning: Driver-driver conflict for \rb_rp [0] between cell $auto$ff.cc:266:slice$3972.Q and constant 1'0 in ember_cp: Resolved using constant.
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 263 unused cells and 265 unused wires.
+<suppressed ~266 debug messages>
+
+3.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+<suppressed ~38 debug messages>
+Optimizing module ember_ram_slave.
+<suppressed ~4 debug messages>
+
+3.8.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/9 on $pmux $procmux$266.
+    dead port 2/9 on $pmux $procmux$266.
+    dead port 3/9 on $pmux $procmux$266.
+    dead port 4/9 on $pmux $procmux$266.
+    dead port 5/9 on $pmux $procmux$266.
+    dead port 6/9 on $pmux $procmux$266.
+    dead port 7/9 on $pmux $procmux$266.
+    dead port 8/9 on $pmux $procmux$266.
+    dead port 9/9 on $pmux $procmux$266.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 9 multiplexer ports.
+<suppressed ~17 debug messages>
+
+3.8.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$3970: { \m_rvalid \rst_n }
+    New ctrl vector for $pmux cell $procmux$278: { $procmux$284_CMP $procmux$283_CMP $procmux$280_CMP $procmux$279_CMP }
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 2 changes.
+
+3.8.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+<suppressed ~69 debug messages>
+Finding identical cells in module `\ember_ram_slave'.
+<suppressed ~3 debug messages>
+Removed a total of 24 cells.
+
+3.8.13. Executing OPT_DFF pass (perform DFF optimizations).
+Handling never-active EN on $auto$ff.cc:266:slice$3947 ($dffe) from module ember_cp (removing D path).
+
+3.8.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 3 unused cells and 49 unused wires.
+<suppressed ~6 debug messages>
+
+3.8.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.8.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.8.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+3.8.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 0 changes.
+
+3.8.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.8.20. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.8.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.8.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.8.23. Finished OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 7 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:273$38 ($eq).
+Removed top 7 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:340$81 ($eq).
+Removed top 1 bits (of 3) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3698 ($eq).
+Removed top 19 bits (of 32) from port A of cell ember_cp.$add$/work/build/gds/cp.v:356$90 ($add).
+Removed top 29 bits (of 32) from port B of cell ember_cp.$add$/work/build/gds/cp.v:367$93 ($add).
+Removed top 29 bits (of 32) from port B of cell ember_cp.$le$/work/build/gds/cp.v:368$94 ($le).
+Removed top 29 bits (of 32) from port B of cell ember_cp.$sub$/work/build/gds/cp.v:376$97 ($sub).
+Removed top 31 bits (of 32) from port B of cell ember_cp.$gt$/work/build/gds/cp.v:397$107 ($gt).
+Removed top 1 bits (of 2) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3717 ($eq).
+Removed top 8 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:409$111 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:470$123 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:476$126 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:476$127 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:476$129 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:476$131 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:482$142 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:488$145 ($eq).
+Removed top 6 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:488$146 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:488$148 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:488$150 ($eq).
+Removed top 2 bits (of 4) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3735 ($eq).
+Removed top 2 bits (of 4) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3722 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:494$161 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:498$164 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:498$165 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:504$171 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:510$174 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:510$175 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:510$177 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:510$179 ($eq).
+Removed top 2 bits (of 3) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3730 ($eq).
+Removed top 5 bits (of 12) from port B of cell ember_cp.$eq$/work/build/gds/cp.v:516$190 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$231_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$232_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$233_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$234_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$235_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$236_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$237_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$238_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$239_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$240_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$241_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$242_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$243_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$244_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$245_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$246_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$247_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$248_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$249_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$250_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$251_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$252_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$253_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$254_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$255_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$256_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$257_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$258_CMP0 ($eq).
+Removed top 4 bits (of 6) from port B of cell ember_cp.$procmux$259_CMP0 ($eq).
+Removed top 4 bits (of 6) from port B of cell ember_cp.$procmux$260_CMP0 ($eq).
+Removed top 5 bits (of 6) from port B of cell ember_cp.$procmux$261_CMP0 ($eq).
+Removed top 7 bits (of 12) from port B of cell ember_cp.$procmux$279_CMP0 ($eq).
+Removed top 7 bits (of 12) from port B of cell ember_cp.$procmux$280_CMP0 ($eq).
+Removed top 9 bits (of 12) from port B of cell ember_cp.$procmux$283_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3713 ($eq).
+Removed top 1 bits (of 4) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3690 ($eq).
+Removed top 1 bits (of 3) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3706 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1264_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1302_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1341_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1381_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1422_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1464_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1507_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1551_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1596_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1642_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1689_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1737_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1786_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1836_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1887_CMP0 ($eq).
+Removed top 1 bits (of 6) from port B of cell ember_cp.$procmux$1939_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$1992_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$2046_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$2101_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$2157_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$2214_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$2272_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$2331_CMP0 ($eq).
+Removed top 2 bits (of 6) from port B of cell ember_cp.$procmux$2391_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$2452_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$2514_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$2577_CMP0 ($eq).
+Removed top 3 bits (of 6) from port B of cell ember_cp.$procmux$2641_CMP0 ($eq).
+Removed top 4 bits (of 6) from port B of cell ember_cp.$procmux$2706_CMP0 ($eq).
+Removed top 4 bits (of 6) from port B of cell ember_cp.$procmux$2772_CMP0 ($eq).
+Removed top 5 bits (of 6) from port B of cell ember_cp.$procmux$2839_CMP0 ($eq).
+Removed top 2 bits (of 3) from port B of cell ember_cp.$auto$fsm_map.cc:77:implement_pattern_cache$3743 ($eq).
+Removed top 7 bits (of 12) from port B of cell ember_cp.$procmux$2921_CMP0 ($eq).
+Removed top 7 bits (of 12) from port B of cell ember_cp.$procmux$2929_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell ember_cp.$auto$opt_dff.cc:195:make_patterns_logic$3995 ($ne).
+Removed top 1 bits (of 2) from port B of cell ember_cp.$auto$opt_dff.cc:195:make_patterns_logic$3993 ($ne).
+Removed top 2 bits (of 4) from port B of cell ember_cp.$auto$opt_dff.cc:195:make_patterns_logic$3982 ($ne).
+Removed top 3 bits (of 4) from port B of cell ember_cp.$auto$opt_dff.cc:195:make_patterns_logic$3977 ($ne).
+Removed top 3 bits (of 4) from port B of cell ember_cp.$auto$opt_dff.cc:195:make_patterns_logic$4042 ($ne).
+Removed top 3 bits (of 4) from port B of cell ember_cp.$auto$opt_dff.cc:195:make_patterns_logic$4022 ($ne).
+Removed top 20 bits (of 35) from FF cell ember_ram_slave.$auto$ff.cc:266:slice$4050 ($adffe).
+Removed top 20 bits (of 35) from wire ember_ram_slave.aw_q.
+
+3.10. Executing PEEPOPT pass (run peephole optimizers).
+
+3.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module ember_cp:
+  creating $macc model for $add$/work/build/gds/cp.v:281$51 ($add).
+  creating $macc model for $add$/work/build/gds/cp.v:287$54 ($add).
+  creating $macc model for $add$/work/build/gds/cp.v:356$90 ($add).
+  creating $macc model for $add$/work/build/gds/cp.v:367$93 ($add).
+  creating $macc model for $sub$/work/build/gds/cp.v:376$97 ($sub).
+  creating $alu model for $macc $sub$/work/build/gds/cp.v:376$97.
+  creating $alu model for $macc $add$/work/build/gds/cp.v:367$93.
+  creating $alu model for $macc $add$/work/build/gds/cp.v:356$90.
+  creating $alu model for $macc $add$/work/build/gds/cp.v:287$54.
+  creating $alu model for $macc $add$/work/build/gds/cp.v:281$51.
+  creating $alu model for $gt$/work/build/gds/cp.v:397$107 ($gt): new $alu
+  creating $alu model for $le$/work/build/gds/cp.v:368$94 ($le): new $alu
+  creating $alu cell for $le$/work/build/gds/cp.v:368$94: $auto$alumacc.cc:485:replace_alu$4073
+  creating $alu cell for $gt$/work/build/gds/cp.v:397$107: $auto$alumacc.cc:485:replace_alu$4086
+  creating $alu cell for $add$/work/build/gds/cp.v:281$51: $auto$alumacc.cc:485:replace_alu$4091
+  creating $alu cell for $add$/work/build/gds/cp.v:287$54: $auto$alumacc.cc:485:replace_alu$4094
+  creating $alu cell for $add$/work/build/gds/cp.v:356$90: $auto$alumacc.cc:485:replace_alu$4097
+  creating $alu cell for $add$/work/build/gds/cp.v:367$93: $auto$alumacc.cc:485:replace_alu$4100
+  creating $alu cell for $sub$/work/build/gds/cp.v:376$97: $auto$alumacc.cc:485:replace_alu$4103
+  created 7 $alu and 0 $macc cells.
+Extracting $alu and $macc cells in module ember_ram_slave:
+  created 0 $alu and 0 $macc cells.
+
+3.13. Executing SHARE pass (SAT-based resource sharing).
+
+3.14. Executing OPT pass (performing simple optimizations).
+
+3.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+3.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 0 changes.
+
+3.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~18 debug messages>
+
+3.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 0 changes.
+
+3.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.14.16. Finished OPT passes. (There is nothing left to do.)
+
+3.15. Executing MEMORY pass.
+
+3.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+3.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+3.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+3.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+3.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+3.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+3.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+3.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.17. Executing OPT pass (performing simple optimizations).
+
+3.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+<suppressed ~23 debug messages>
+Optimizing module ember_ram_slave.
+<suppressed ~12 debug messages>
+
+3.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:266:slice$3998 ($adffe) from module ember_cp (D = $0\dma_addr_q[31:0] [1:0], Q = \dma_addr_q [1:0]).
+
+3.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 3 unused cells and 26 unused wires.
+<suppressed ~5 debug messages>
+
+3.17.5. Rerunning OPT passes. (Removed registers in this run.)
+
+3.17.6. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+<suppressed ~5 debug messages>
+Optimizing module ember_ram_slave.
+
+3.17.7. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.17.8. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.17.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.17.10. Finished fast OPT passes.
+
+3.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+3.19. Executing OPT pass (performing simple optimizations).
+
+3.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+3.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$4116: { $auto$opt_dff.cc:194:make_patterns_logic$4111 $auto$opt_dff.cc:194:make_patterns_logic$3988 $auto$opt_dff.cc:194:make_patterns_logic$3990 $auto$opt_dff.cc:194:make_patterns_logic$3992 $auto$opt_dff.cc:194:make_patterns_logic$3994 $auto$opt_dff.cc:194:make_patterns_logic$4113 }
+    Consolidated identical input bits for $mux cell $procmux$334:
+      Old ports: A={ $sub$/work/build/gds/cp.v:376$97_Y [31:2] \dma_left_q [1:0] }, B=\dma_left_q, Y=$procmux$334_Y
+      New ports: A=$sub$/work/build/gds/cp.v:376$97_Y [31:2], B=\dma_left_q [31:2], Y=$procmux$334_Y [31:2]
+      New connections: $procmux$334_Y [1:0] = \dma_left_q [1:0]
+    New ctrl vector for $pmux cell $procmux$338: $auto$opt_reduce.cc:134:opt_pmux$4119
+    New ctrl vector for $pmux cell $procmux$351: $auto$opt_reduce.cc:134:opt_pmux$4121
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 4 changes.
+
+3.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 1 cells.
+
+3.19.6. Executing OPT_SHARE pass.
+
+3.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+Adding EN signal on $auto$ff.cc:266:slice$3987 ($adffe) from module ember_cp (D = $0\dma_left_q[31:0] [1:0], Q = \dma_left_q [1:0]).
+Adding EN signal on $auto$ff.cc:266:slice$3987 ($adffe) from module ember_cp (D = $0\dma_left_q[31:0] [31:2], Q = \dma_left_q [31:2]).
+
+3.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+<suppressed ~2 debug messages>
+Optimizing module ember_ram_slave.
+
+3.19.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.19.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+3.19.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$4131: { $auto$opt_dff.cc:194:make_patterns_logic$3988 $auto$opt_dff.cc:194:make_patterns_logic$3990 $auto$opt_dff.cc:194:make_patterns_logic$3992 $auto$opt_dff.cc:194:make_patterns_logic$3994 $auto$opt_dff.cc:194:make_patterns_logic$4128 }
+    New input vector for $reduce_and cell $auto$opt_dff.cc:220:make_patterns_logic$4126: { $auto$opt_dff.cc:194:make_patterns_logic$3988 $auto$opt_dff.cc:194:make_patterns_logic$3990 $auto$opt_dff.cc:194:make_patterns_logic$3992 $auto$opt_dff.cc:194:make_patterns_logic$3994 $auto$opt_dff.cc:194:make_patterns_logic$4123 }
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 2 changes.
+
+3.19.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.19.14. Executing OPT_SHARE pass.
+
+3.19.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.19.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.19.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.19.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.19.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_cp..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \ember_ram_slave..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+3.19.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_cp.
+  Optimizing cells in module \ember_ram_slave.
+Performed a total of 0 changes.
+
+3.19.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 0 cells.
+
+3.19.22. Executing OPT_SHARE pass.
+
+3.19.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.19.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+
+3.19.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.19.26. Finished OPT passes. (There is nothing left to do.)
+
+3.20. Executing TECHMAP pass (map to technology primitives).
+
+3.20.1. Executing Verilog-2005 frontend: /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+3.20.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using extmapper simplemap for cells of type $adffe.
+Using extmapper simplemap for cells of type $dffe.
+Using extmapper simplemap for cells of type $dff.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $adff.
+Using extmapper simplemap for cells of type $ne.
+Using extmapper simplemap for cells of type $eq.
+Using template $paramod$103b4016182df467cceab67bcf3e18e6361ec0fd\_90_alu for cells of type $alu.
+Using template $paramod$ce0ec84be7047712840b0952f343ee9e63ef75d1\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$44a13d10af618e7fbe7b9aad2f6151ffcee1e2fa\_90_alu for cells of type $alu.
+Using template $paramod$861f5302217787cd55fd1a501bc728125f176580\_90_alu for cells of type $alu.
+Using template $paramod$6a42b6fefed750f8a1c58eab59479d960557103c\_90_alu for cells of type $alu.
+Using template $paramod$076c9a7a3f037230073fe14dd4865d470cb48917\_90_alu for cells of type $alu.
+Using template $paramod$dcd17738bbcecd83f7938b6b79f55a32aabd6959\_90_pmux for cells of type $pmux.
+Using template $paramod$b098bc6f249c0ac91c4d6e19d54b23c285914115\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011110 for cells of type $lcu.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010100 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000111 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~2043 debug messages>
+
+3.21. Executing OPT pass (performing simple optimizations).
+
+3.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+<suppressed ~2082 debug messages>
+Optimizing module ember_ram_slave.
+
+3.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+<suppressed ~4128 debug messages>
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 1376 cells.
+
+3.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 158 unused cells and 2154 unused wires.
+<suppressed ~161 debug messages>
+
+3.21.5. Finished fast OPT passes.
+
+3.22. Executing ABC pass (technology mapping using ABC).
+
+3.22.1. Extracting gate netlist of module `\ember_cp' to `<abc-temp-dir>/input.blif'..
+Replacing 4 occurrences of constant undef bits with constant zero bits
+Extracted 5397 gates and 7632 wires to a netlist network with 2233 inputs and 264 outputs.
+
+3.22.1.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+3.22.1.2. Re-integrating ABC results.
+ABC RESULTS:               NOT cells:       24
+ABC RESULTS:               MUX cells:       93
+ABC RESULTS:             ORNOT cells:       77
+ABC RESULTS:                OR cells:     2381
+ABC RESULTS:               NOR cells:       36
+ABC RESULTS:            ANDNOT cells:     2332
+ABC RESULTS:              XNOR cells:        5
+ABC RESULTS:              NAND cells:       55
+ABC RESULTS:               AND cells:       45
+ABC RESULTS:               XOR cells:       89
+ABC RESULTS:        internal signals:     5135
+ABC RESULTS:           input signals:     2233
+ABC RESULTS:          output signals:      264
+Removing temp directory.
+
+3.22.2. Extracting gate netlist of module `\ember_ram_slave' to `<abc-temp-dir>/input.blif'..
+Extracted 31 gates and 53 wires to a netlist network with 21 inputs and 23 outputs.
+
+3.22.2.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_library <abc-temp-dir>/stdcells.genlib 
+ABC: Entered genlib library with 13 gates from file "<abc-temp-dir>/stdcells.genlib".
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+3.22.2.2. Re-integrating ABC results.
+ABC RESULTS:            ANDNOT cells:        2
+ABC RESULTS:               MUX cells:        2
+ABC RESULTS:             ORNOT cells:        3
+ABC RESULTS:                OR cells:        2
+ABC RESULTS:               AND cells:       16
+ABC RESULTS:        internal signals:        9
+ABC RESULTS:           input signals:       21
+ABC RESULTS:          output signals:       23
+Removing temp directory.
+
+3.23. Executing OPT pass (performing simple optimizations).
+
+3.23.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_cp.
+Optimizing module ember_ram_slave.
+
+3.23.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_cp'.
+<suppressed ~15 debug messages>
+Finding identical cells in module `\ember_ram_slave'.
+Removed a total of 5 cells.
+
+3.23.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+3.23.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 0 unused cells and 3362 unused wires.
+<suppressed ~8 debug messages>
+
+3.23.5. Finished fast OPT passes.
+
+3.24. Executing HIERARCHY pass (managing design hierarchy).
+
+3.24.1. Analyzing design hierarchy..
+Top module:  \ember_cp
+Used module:     \ember_ram_slave
+
+3.24.2. Analyzing design hierarchy..
+Top module:  \ember_cp
+Used module:     \ember_ram_slave
+Removed 0 unused modules.
+
+3.25. Printing statistics.
+
+=== ember_cp ===
+
+   Number of wires:               5114
+   Number of wire bits:           8145
+   Number of public wires:         152
+   Number of public wire bits:    3059
+   Number of ports:                 54
+   Number of port bits:            456
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               7436
+     $_ANDNOT_                    2332
+     $_AND_                         45
+     $_DFFE_PN0P_                  243
+     $_DFFE_PP_                   2055
+     $_DFF_PN0_                      4
+     $_DFF_PN1_                      1
+     $_MUX_                         93
+     $_NAND_                        55
+     $_NOR_                         35
+     $_NOT_                         24
+     $_ORNOT_                       77
+     $_OR_                        2377
+     $_XNOR_                         5
+     $_XOR_                         89
+     ember_ram_slave                 1
+
+=== ember_ram_slave ===
+
+   Number of wires:                 38
+   Number of wire bits:            311
+   Number of public wires:          30
+   Number of public wire bits:     303
+   Number of ports:                 23
+   Number of port bits:            247
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                158
+     $_ANDNOT_                       2
+     $_AND_                         16
+     $_DFFE_PN0P_                   52
+     $_DFFE_PP_                     80
+     $_DFF_P_                        1
+     $_MUX_                          2
+     $_ORNOT_                        3
+     $_OR_                           2
+
+=== design hierarchy ===
+
+   ember_cp                          1
+     ember_ram_slave                 1
+
+   Number of wires:               5152
+   Number of wire bits:           8456
+   Number of public wires:         182
+   Number of public wire bits:    3362
+   Number of ports:                 77
+   Number of port bits:            703
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               7593
+     $_ANDNOT_                    2334
+     $_AND_                         61
+     $_DFFE_PN0P_                  295
+     $_DFFE_PP_                   2135
+     $_DFF_PN0_                      4
+     $_DFF_PN1_                      1
+     $_DFF_P_                        1
+     $_MUX_                         95
+     $_NAND_                        55
+     $_NOR_                         35
+     $_NOT_                         24
+     $_ORNOT_                       80
+     $_OR_                        2379
+     $_XNOR_                         5
+     $_XOR_                         89
+
+3.26. Executing CHECK pass (checking for obvious problems).
+Checking module ember_cp...
+Warning: multiple conflicting drivers for ember_cp.\up_rp [6]:
+    port Q[0] of cell $auto$ff.cc:266:slice$8920 ($_DFFE_PP_)
+    port Q[0] of cell $auto$ff.cc:266:slice$8930 ($_DFFE_PN0P_)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [5]:
+    port Q[0] of cell $auto$ff.cc:266:slice$8919 ($_DFFE_PP_)
+    port Q[0] of cell $auto$ff.cc:266:slice$8929 ($_DFFE_PN0P_)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [4]:
+    port Q[0] of cell $auto$ff.cc:266:slice$8918 ($_DFFE_PP_)
+    port Q[0] of cell $auto$ff.cc:266:slice$8928 ($_DFFE_PN0P_)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [3]:
+    port Q[0] of cell $auto$ff.cc:266:slice$8917 ($_DFFE_PP_)
+    port Q[0] of cell $auto$ff.cc:266:slice$8927 ($_DFFE_PN0P_)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [2]:
+    port Q[0] of cell $auto$ff.cc:266:slice$8916 ($_DFFE_PP_)
+    port Q[0] of cell $auto$ff.cc:266:slice$8926 ($_DFFE_PN0P_)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [1]:
+    port Q[0] of cell $auto$ff.cc:266:slice$8915 ($_DFFE_PP_)
+    port Q[0] of cell $auto$ff.cc:266:slice$8925 ($_DFFE_PN0P_)
+Warning: multiple conflicting drivers for ember_cp.\up_rp [0]:
+    port Q[0] of cell $auto$ff.cc:266:slice$8914 ($_DFFE_PP_)
+    port Q[0] of cell $auto$ff.cc:266:slice$8924 ($_DFFE_PN0P_)
+Checking module ember_ram_slave...
+Found and reported 7 problems.
+
+4. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE|IQ&!DE' in pin attribute of cell 'sky130_fd_sc_hd__edfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfstp_4' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' - skipping.
+Warning: Found unsupported expression 'D&DE&!SCE|IQ&!DE&!SCE|SCD&SCE' in pin attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' - skipping.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+4.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\ember_cp':
+  mapped 247 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+  mapped 1 $_DFF_PN1_ cells to \sky130_fd_sc_hd__dfstp_2 cells.
+  mapped 2055 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+Mapping DFF cells in module `\ember_ram_slave':
+  mapped 52 $_DFF_PN0_ cells to \sky130_fd_sc_hd__dfrtp_1 cells.
+  mapped 81 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+5. Executing ABC pass (technology mapping using ABC).
+
+5.1. Extracting gate netlist of module `\ember_cp' to `<abc-temp-dir>/input.blif'..
+Extracted 7430 gates and 9795 wires to a netlist network with 2364 inputs and 2351 outputs.
+
+5.1.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.05 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 334 cells (94 skipped: 63 seq; 13 tri-state; 18 no func; 0 dont_use).  Time =     0.07 sec
+ABC: Memory =   19.85 MB. Time =     0.07 sec
+ABC: Warning: Detected 9 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+5.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or4_2 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o311ai_0 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a41oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       32
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__mux2i_1 cells:       16
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__or2_2 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__and2_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o41ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:       15
+ABC RESULTS:   sky130_fd_sc_hd__nor4_1 cells:       19
+ABC RESULTS:   sky130_fd_sc_hd__and3_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:      194
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:       32
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:     2124
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       65
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       29
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:      371
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       41
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:      426
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:      232
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:     2615
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:     2273
+ABC RESULTS:        internal signals:     5080
+ABC RESULTS:           input signals:     2364
+ABC RESULTS:          output signals:     2351
+Removing temp directory.
+
+5.2. Extracting gate netlist of module `\ember_ram_slave' to `<abc-temp-dir>/input.blif'..
+Extracted 157 gates and 386 wires to a netlist network with 229 inputs and 148 outputs.
+
+5.2.1. Executing ABC.
+Running ABC command: "/nix/store/6l3aj1gi4lja8z5s4lan2k2cfz9mqkrz-yosys-abc/bin/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.04 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib" has 334 cells (94 skipped: 63 seq; 13 tri-state; 18 no func; 0 dont_use).  Time =     0.07 sec
+ABC: Memory =   19.85 MB. Time =     0.07 sec
+ABC: Warning: Detected 9 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + dretime 
+ABC: + map 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+5.2.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       12
+ABC RESULTS:   sky130_fd_sc_hd__a21o_2 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      149
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       48
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:       68
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       99
+ABC RESULTS:        internal signals:        9
+ABC RESULTS:           input signals:      229
+ABC RESULTS:          output signals:      148
+Removing temp directory.
+
+6. Executing SETUNDEF pass (replace undef values with defined constants).
+
+7. Executing HILOMAP pass (mapping to constant drivers).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_cp..
+Finding unused cells or wires in module \ember_ram_slave..
+Removed 248 unused cells and 10340 unused wires.
+<suppressed ~272 debug messages>
+
+9. Executing SPLITNETS pass (splitting up multi-bit signals).
+
+10. Executing Verilog backend.
+Dumping module `\ember_cp'.
+Dumping module `\ember_ram_slave'.
+Warning: Selection ">" did not match any module.
+Warning: Selection "synth_stat.txt" did not match any module.
+
+11. Printing statistics.
+
+Warnings: 78 unique messages, 286 total
+End of script. Logfile hash: 518b3a594b, CPU: user 1.40s system 0.04s, MEM: 94.19 MB peak
+Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)
+Time spent: 49% 2x abc (1 sec), 10% 26x opt_clean (0 sec), ...

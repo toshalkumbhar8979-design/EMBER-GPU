@@ -1,0 +1,54 @@
+# Ember chip logical pinout — SOURCE OF TRUTH.
+# Consumed by scripts/gds/make_pad_ring.py (bit-blasts width rows into physical
+# pads and plans the ring) and documented in docs/chip_pinout.md.
+#
+# Columns: signal,dir,width,pad_cell,side,group
+#   dir      : in | out | inout (chip core perspective)
+#   width    : bus width; a row expands to `width` one-bit pads, LSB first
+#   side     : N | S | E | W (ring row the pads sit on)
+#   group    : functional block name (used for ordering + docs)
+#
+# Power/ground and corner pads are NOT listed here: make_pad_ring.py inserts
+# sky130_fd_io power/ground pads to balance the ring and 4 corner_bus_overlay
+# cells at the corners.
+#
+# Signal pads: 373 total (N 76 / S 91 / E 104 / W 102).
+# Die is pad-limited; see docs/chip_pinout.md for the budget.
+signal,dir,width,pad_cell,side,group
+clk,in,1,sky130_fd_io__top_gpiov2,W,sys
+reset_n,in,1,sky130_fd_io__top_xres4v2,W,sys
+h_awaddr,in,32,sky130_fd_io__top_gpiov2,N,host_aw
+h_awvalid,in,1,sky130_fd_io__top_gpiov2,N,host_aw
+h_awready,out,1,sky130_fd_io__top_gpiov2,N,host_aw
+h_wdata,in,32,sky130_fd_io__top_gpiov2,N,host_w
+h_wstrb,in,4,sky130_fd_io__top_gpiov2,N,host_w
+h_wvalid,in,1,sky130_fd_io__top_gpiov2,N,host_w
+h_wready,out,1,sky130_fd_io__top_gpiov2,N,host_w
+h_bresp,out,2,sky130_fd_io__top_gpiov2,N,host_b
+h_bvalid,out,1,sky130_fd_io__top_gpiov2,N,host_b
+h_bready,in,1,sky130_fd_io__top_gpiov2,N,host_b
+h_araddr,in,32,sky130_fd_io__top_gpiov2,S,host_ar
+h_arvalid,in,1,sky130_fd_io__top_gpiov2,S,host_ar
+h_arready,out,1,sky130_fd_io__top_gpiov2,S,host_ar
+h_rdata,out,32,sky130_fd_io__top_gpiov2,S,host_r
+h_rresp,out,2,sky130_fd_io__top_gpiov2,S,host_r
+h_rvalid,out,1,sky130_fd_io__top_gpiov2,S,host_r
+h_rready,in,1,sky130_fd_io__top_gpiov2,S,host_r
+fb_select,in,2,sky130_fd_io__top_gpiov2,S,video
+vid_hs,out,1,sky130_fd_io__top_gpiov2,S,video
+vid_vs,out,1,sky130_fd_io__top_gpiov2,S,video
+vid_de,out,1,sky130_fd_io__top_gpiov2,S,video
+vid_pixel,out,16,sky130_fd_io__top_gpiov2,S,video
+mem_waddr,out,17,sky130_fd_io__top_gpiov2,E,mem_wr
+mem_wdata,out,32,sky130_fd_io__top_gpiov2,E,mem_wr
+mem_wbe_n,out,4,sky130_fd_io__top_gpiov2,E,mem_wr
+mem_we_n,out,1,sky130_fd_io__top_gpiov2,E,mem_wr
+mem0_raddr,out,17,sky130_fd_io__top_gpiov2,E,mem0
+mem0_rdata,in,32,sky130_fd_io__top_gpiov2,E,mem0
+mem0_re_n,out,1,sky130_fd_io__top_gpiov2,E,mem0
+mem1_raddr,out,17,sky130_fd_io__top_gpiov2,W,mem1
+mem1_rdata,in,32,sky130_fd_io__top_gpiov2,W,mem1
+mem1_re_n,out,1,sky130_fd_io__top_gpiov2,W,mem1
+mem2_raddr,out,17,sky130_fd_io__top_gpiov2,W,mem2
+mem2_rdata,in,32,sky130_fd_io__top_gpiov2,W,mem2
+mem2_re_n,out,1,sky130_fd_io__top_gpiov2,W,mem2

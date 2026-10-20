@@ -1,0 +1,27 @@
+# name|top|sv2v sources (build/gds/<name>.v is self-contained)|optional env overrides
+# ORDER (h3b): small/proven blocks first to bank real GDS files, big blocks
+# next, cp LAST (496 unreachable RAM-bit pins make it diverge -- it is being
+# diagnosed separately and rejoins once fixed).
+# PER-BLOCK TUNING: bus-dense blocks get whitespace (util 20, density 0.30),
+# 40 DRT iterations and a 4h timebox; small blocks keep the recipe that took
+# display to ZERO violations.
+display|ember_display|rtl/ember_pkg.sv rtl/ember_display.sv|
+xbar|ember_xbar|rtl/ember_pkg.sv rtl/ember_xbar.sv|
+ram_slave|ember_ram_slave|rtl/ember_pkg.sv rtl/ember_ram_slave.sv|
+blit|ember_blit|rtl/ember_pkg.sv rtl/ember_blit.sv|
+fpu4|ember_fpu4|rtl/ember_pkg.sv rtl/ember_fpu4.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400 GDS_MAGIC_TIMEOUT=21600
+gsx|ember_gsx|rtl/ember_pkg.sv rtl/ember_fpu4.sv rtl/ember_gsx.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400 GDS_MAGIC_TIMEOUT=36000
+#tu|ember_tu|rtl/ember_pkg.sv rtl/ember_tu.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=43200 GDS_MAGIC_TIMEOUT=43200
+core|ember_core|rtl/ember_pkg.sv rtl/ember_core.sv|GDS_UTIL=15 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=43200 GDS_MAGIC_TIMEOUT=21600
+rtr_setup|ember_rtr_setup|rtl/ember_pkg.sv rtl/ember_rtr_setup.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400
+# ENABLED 2026-10-04: hierarchical netlist (509,562 cells) synth-cache installed; see agentbible.
+# ENABLED 2026-10-04: builds via make_rtr_top_netlist.sh + rtr_top_pnr.sh once rtr_scan verifies clean.
+# 2026-10-19 overnight tuning (remaining blocks only; done blocks KEEP'd untouched):
+# more whitespace + more DRT repair passes so violations grind down early in the
+# run (core's 477K-violation drama must not repeat), generous timeboxes so
+# nothing dies mid-run overnight.
+rtr_scan|ember_rtr_scan|rtl/ember_pkg.sv rtl/ember_rtr_scan.sv|GDS_UTIL=18 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400 GDS_MAGIC_TIMEOUT=43200
+# ENABLED 2026-10-04: hierarchical netlist (509,562 cells) synth-cache installed; see agentbible.
+# ENABLED 2026-10-04: builds via make_rtr_top_netlist.sh + rtr_top_pnr.sh once rtr_scan verifies clean.
+rtr_top|ember_rtr_top|rtl/ember_pkg.sv rtl/ember_rtr_setup.sv rtl/ember_rtr_scan.sv rtl/ember_rtr_top.sv|GDS_UTIL=18 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400
+cp|ember_cp|rtl/ember_pkg.sv rtl/ember_ram_slave.sv rtl/ember_cp.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400

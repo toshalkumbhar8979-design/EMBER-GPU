@@ -1,0 +1,10 @@
+# cocotb 2.x runner flow for the Ember chip external memory controller
+TOPLEVEL_LANG    := verilog
+SIM              := verilator
+COMPILE_ARGS     += --timing -I../rtl
+TOPLEVEL         := memif_tb
+MODULE           := tb_memif
+SIM_BUILD        := sim_build_memif
+VERILOG_SOURCES  := ../rtl/ember_pkg.sv ../rtl/ember_memif.sv memif_tb.sv sram_model.sv
+
+include $(shell cocotb-config --makefiles)/Makefile.sim

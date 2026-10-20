@@ -1,0 +1,14 @@
+read_verilog +/techmap.v
+chparam -set WIDTH 118 _90_lcu_brent_kung
+hierarchy -top _90_lcu_brent_kung
+proc
+opt
+rename _90_lcu_brent_kung gold
+read_verilog /work/scripts/gds/ripple_lcu.v
+chparam -set WIDTH 118 ember_ripple_lcu
+proc
+opt
+rename ember_ripple_lcu gate
+equiv_make gold gate equiv
+equiv_simple
+equiv_status -assert

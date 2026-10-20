@@ -1,0 +1,11 @@
+== [display] 1/4 Yosys synthesis ==
+   (cached synth.v)
+   cells: 454
+== [display] 2/4 OpenROAD floorplan/place/CTS/route ==
+   route ok
+== [display] 3/4 Magic GDS merge + DRC ==
+   using DEF: final.def (detailed-route)
+DRC_COUNT=0
+== [display] 4/4 KLayout finalize ==
+-rw-r--r-- 1 root root 2149992 Oct  2 10:52 display.gds
+== [display] DONE (validated GDS, routing and Magic DRC zero) ==

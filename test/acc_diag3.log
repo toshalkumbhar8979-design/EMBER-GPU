@@ -1,0 +1,119 @@
+rm -f results.xml
+/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:73: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=tb_mnist_acc COCOTB_TESTCASE=  COCOTB_TOPLEVEL=ember_top TOPLEVEL_LANG=verilog       \
+         sim_build/Vtop     
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.13.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/home/toshal/.local/lib/python3.13/site-packages/cocotb/simulator.cpython-313-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.13.8 interpreter at /usr/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1790632235
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /home/toshal/.local/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Verilator version 5.046 2026-02-28
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running tb_mnist_acc.test_mnist_acc (1/1)
+                                                            100 t10k images through the RTL chain with TRAINED weights; >=95%.
+  DIAG img0 c1: 1444 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img0 p1: 400 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img0 p2: 9 mismatches [(8, 0, 5), (32, 0, 1), (63, 0, 7), (68, 0, 12), (72, 2, 16), (88, 0, 12)]
+  DIAG img0 d1r: 4 mismatches [(3, 0, 2), (6, 0, 5), (20, 0, 3), (23, 0, 13)]
+  DIAG img0 logits: 10 mismatches [(0, 0, -15), (1, 0, 5), (2, 0, 5), (3, 0, 10), (4, 0, 7), (5, 0, -5)]
+  DIAG img0 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img0 A1: 30 bad words [(0, 0, 2155905152), (1, 0, 2155905152), (2, 0, 45440), (4, 0, 2155905152)]
+  DIAG img2 c1: 1423 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img2 p1: 374 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img2 p2: 6 mismatches [(58, 0, 5), (62, 0, 12), (67, 0, 7), (72, 0, 11), (142, 0, 5), (147, 0, 4)]
+  DIAG img2 d1r: 1 mismatches [(0, 0, 6)]
+  DIAG img2 logits: 9 mismatches [(0, 0, -1), (1, 0, 11), (2, 0, -1), (3, 0, 2), (5, 0, -5), (6, 0, 1)]
+  DIAG img2 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img2 A1: 30 bad words [(0, 0, 2155905152), (1, 0, 2155905152), (2, 0, 45440), (4, 0, 2155905152)]
+  DIAG img4 c1: 1444 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img4 p1: 399 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img4 p2: 10 mismatches [(41, 9, 15), (56, 0, 4), (61, 0, 7), (63, 7, 20), (98, 5, 11), (134, 0, 3)]
+  DIAG img4 d1r: 5 mismatches [(0, 1, 0), (13, 1, 0), (15, 1, 4), (20, 3, 1), (28, 1, 3)]
+  DIAG img4 logits: 9 mismatches [(0, -5, -7), (1, 2, 1), (2, -1, -4), (3, 4, -3), (4, 4, 8), (5, -1, -3)]
+  DIAG img4 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img4 A1: 32 bad words [(0, 1, 2155905152), (1, 0, 2155905152), (2, 0, 45440), (3, 16777472, 0)]
+  DIAG img6 c1: 1447 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img6 p1: 408 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img6 p2: 15 mismatches [(12, 1, 7), (36, 24, 25), (37, 0, 3), (48, 9, 16), (56, 0, 11), (58, 0, 3)]
+  DIAG img6 d1r: 10 mismatches [(0, 8, 0), (4, 5, 0), (5, 12, 0), (6, 13, 0), (11, 13, 0), (15, 0, 12)]
+  DIAG img6 logits: 10 mismatches [(0, -7, -14), (1, 33, 4), (2, 22, -6), (3, -5, -16), (4, 21, 22), (5, -7, -14)]
+  DIAG img6 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img6 A1: 31 bad words [(0, 8, 2155905152), (1, 855045, 2155905152), (2, 218103808, 45440), (3, 512, 0)]
+  DIAG img8 c1: 1461 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img8 p1: 418 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img8 p2: 18 mismatches [(4, 0, 2), (16, 9, 14), (17, 0, 4), (36, 9, 14), (41, 10, 11), (47, 7, 8)]
+  DIAG img8 d1r: 5 mismatches [(3, 2, 1), (8, 1, 2), (9, 7, 8), (13, 4, 0), (18, 2, 0)]
+  DIAG img8 logits: 9 mismatches [(0, 2, 4), (1, 0, -1), (2, -5, -7), (3, 3, 4), (4, 3, -1), (5, 7, 11)]
+  DIAG img8 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img8 A1: 31 bad words [(0, 33554432, 2155905152), (1, 0, 2155905152), (2, 1793, 45440), (3, 1024, 0)]
+  DIAG img9 c1: 1471 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img9 p1: 419 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img9 p2: 14 mismatches [(12, 0, 4), (36, 7, 14), (37, 14, 15), (38, 0, 3), (71, 0, 6), (72, 9, 21)]
+  DIAG img9 d1r: 3 mismatches [(6, 0, 1), (26, 1, 0), (28, 7, 13)]
+  DIAG img9 logits: 10 mismatches [(0, -10, -16), (1, -2, -4), (2, -9, -16), (3, -3, 1), (4, 10, 14), (5, -2, 0)]
+  DIAG img9 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img9 A1: 32 bad words [(0, 0, 2155905152), (1, 0, 2155905152), (2, 0, 45440), (3, 83886080, 0)]
+[ 10/25] acc so far  40.0% (sw 100.0%)
+  DIAG img12 c1: 1481 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img12 p1: 415 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img12 p2: 16 mismatches [(8, 0, 5), (17, 0, 5), (36, 0, 4), (37, 17, 23), (56, 0, 11), (61, 0, 10)]
+  DIAG img12 d1r: 7 mismatches [(7, 1, 0), (9, 5, 2), (13, 7, 0), (15, 3, 4), (17, 4, 0), (18, 2, 0)]
+  DIAG img12 logits: 10 mismatches [(0, -10, -15), (1, -2, -5), (2, -9, -18), (3, 2, 3), (4, 10, 12), (5, 3, 5)]
+  DIAG img12 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img12 A1: 32 bad words [(0, 0, 2155905152), (1, 16777216, 2155905152), (2, 1280, 45440), (3, 50333440, 0)]
+  DIAG img18 c1: 1479 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img18 p1: 433 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img18 p2: 27 mismatches [(1, 1, 5), (2, 0, 3), (7, 0, 6), (13, 6, 8), (14, 5, 10), (19, 6, 10)]
+  DIAG img18 d1r: 4 mismatches [(11, 2, 0), (15, 1, 0), (17, 4, 0), (26, 2, 1)]
+  DIAG img18 logits: 7 mismatches [(1, 0, -1), (2, 4, 0), (4, 1, -1), (5, -1, 0), (6, 1, 0), (7, 1, 0)]
+  DIAG img18 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img18 A1: 31 bad words [(0, 0, 2155905152), (1, 0, 2155905152), (2, 33554432, 45440), (3, 16777216, 0)]
+  DIAG img19 c1: 1435 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img19 p1: 391 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img19 p2: 5 mismatches [(36, 0, 5), (37, 0, 7), (136, 0, 1), (148, 0, 4), (187, 0, 5)]
+  DIAG img19 d1r: 5 mismatches [(9, 0, 2), (13, 0, 2), (15, 0, 2), (18, 0, 1), (28, 0, 3)]
+  DIAG img19 logits: 8 mismatches [(0, 0, -5), (2, 0, -5), (4, 0, 6), (5, 0, 1), (6, 0, -1), (7, 0, 1)]
+  DIAG img19 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img19 A1: 30 bad words [(0, 0, 2155905152), (1, 0, 2155905152), (2, 0, 45440), (4, 0, 2155905152)]
+[ 20/25] acc so far  55.0% (sw  95.0%)
+  DIAG img20 c1: 1460 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img20 p1: 408 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img20 p2: 17 mismatches [(33, 1, 5), (37, 15, 18), (57, 0, 8), (67, 124, 0), (72, 0, 12), (83, 0, 4)]
+  DIAG img20 d1r: 10 mismatches [(0, 5, 0), (5, 11, 0), (6, 12, 0), (11, 16, 0), (13, 7, 3), (15, 0, 3)]
+  DIAG img20 logits: 10 mismatches [(0, -6, -12), (1, 21, -4), (2, 16, -11), (3, -2, 1), (4, 24, 9), (5, -4, -1)]
+  DIAG img20 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img20 A1: 31 bad words [(0, 5, 2155905152), (1, 789248, 2155905152), (2, 268435456, 45440), (3, 1792, 0)]
+  DIAG img23 c1: 1458 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img23 p1: 417 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img23 p2: 12 mismatches [(17, 2, 7), (18, 7, 15), (37, 14, 20), (57, 0, 11), (93, 0, 1), (137, 0, 6)]
+  DIAG img23 d1r: 7 mismatches [(7, 1, 0), (9, 3, 12), (11, 1, 0), (13, 5, 4), (15, 1, 0), (16, 1, 0)]
+  DIAG img23 logits: 10 mismatches [(0, -4, 0), (1, 1, -1), (2, -1, -10), (3, 2, 7), (4, 6, 2), (5, 1, 15)]
+  DIAG img23 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img23 A1: 31 bad words [(0, 0, 2155905152), (1, 16777216, 2155905152), (2, 16777984, 45440), (3, 16778496, 0)]
+  DIAG img24 c1: 1420 mismatches [(0, 48, 38), (2, 14, 6), (4, 48, 38), (6, 14, 6), (8, 48, 38), (10, 14, 6)]
+  DIAG img24 p1: 390 mismatches [(0, 48, 38), (1, 48, 38), (2, 48, 38), (3, 48, 38), (4, 48, 38), (5, 48, 38)]
+  DIAG img24 p2: 2 mismatches [(138, 0, 1), (148, 0, 2)]
+  DIAG img24 d1r: 1 mismatches [(15, 0, 1)]
+  DIAG img24 logits: 6 mismatches [(0, 0, -1), (1, 0, 1), (3, 0, -2), (4, 0, 2), (5, 0, -1), (9, 0, -1)]
+  DIAG img24 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img24 A1: 30 bad words [(0, 0, 2155905152), (1, 0, 2155905152), (2, 0, 45440), (4, 0, 2155905152)]
+RTL ACCURACY: 13/25 = 52.0%  (software mirror: 96.0%)
+RTL-vs-software disagreements: [(0, 0, 7, 7), (2, 0, 1, 1), (4, 3, 4, 4), (6, 7, 4, 4), (8, 6, 5, 5), (9, 4, 9, 9), (12, 4, 9, 9), (18, 2, 0, 3), (19, 0, 4, 4), (20, 7, 9, 9)] (total 12)
+56683700.00ns WARNING  cocotb.regression                  tb_mnist_acc.test_mnist_acc failed
+                                                        Traceback (most recent call last):
+                                                          File "/mnt/c/Users/tosha/Downloads/GPU/test/tb_mnist_acc.py", line 460, in test_mnist_acc
+                                                            assert not mismatched, \
+                                                                f"RTL logits disagree with the software mirror on {len(mismatched)} images"
+                                                        AssertionError: RTL logits disagree with the software mirror on 12 images
+                                                        assert not [(0, 0, 7, 7), (2, 0, 1, 1), (4, 3, 4, 4), (6, 7, 4, 4), (8, 6, 5, 5), (9, 4, 9, 9), ...]
+56683700.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** tb_mnist_acc.test_mnist_acc    FAIL    56683700.00         112.74     502769.12  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0           56683700.00         112.75     502716.39  **
+                                                        **************************************************************************************
+- :0: Verilog $finish
+make: *** [/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:74: results.xml] Error 1

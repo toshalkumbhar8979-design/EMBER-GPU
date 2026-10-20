@@ -1,0 +1,37 @@
+=== PRE-SHUTDOWN SNAPSHOT Mon Oct 19 08:00:01 AM IST 2026 ===
+--- latest routing violation counts (core/openroad.log) ---
+[INFO DRT-0199]   Number of violations = 170.
+[INFO DRT-0199]   Number of violations = 170.
+[INFO DRT-0199]   Number of violations = 156.
+[INFO DRT-0199]   Number of violations = 153.
+[INFO DRT-0199]   Number of violations = 152.
+--- resume round log tail ---
+    Completing 20% with 111 violations.
+    elapsed time = 00:00:00, memory = 13672.03 (MB).
+    Completing 30% with 111 violations.
+    elapsed time = 00:00:37, memory = 13624.85 (MB).
+    Completing 40% with 111 violations.
+    elapsed time = 00:00:37, memory = 13624.85 (MB).
+--- routed checkpoint artifacts ---
+-rw-rw-r-- 1 toshal toshal  682834397 Oct 19 05:42 /work/build/gds/core/final.def
+-rw-r--r-- 1 toshal toshal  682834397 Oct 19 05:44 /work/build/gds/core/final_iter40_backup.def
+-rw-rw-r-- 1 toshal toshal 1243186052 Oct 19 05:42 /work/build/gds/core/final.odb
+--- block GDS inventory ---
+-rw-r--r-- 1 toshal toshal   8859968 Oct  2 16:28 /work/build/gds/blit/blit.gds
+-rw-r--r-- 1 toshal toshal  32729898 Oct 16 03:44 /work/build/gds/chip/pad_ring.gds
+-rw-r--r-- 1 toshal toshal  41421890 Oct  3 01:32 /work/build/gds/cp/cp.gds
+-rw-r--r-- 1 toshal toshal   2149992 Oct  2 16:22 /work/build/gds/display/display.gds
+-rw-r--r-- 1 toshal toshal 329070154 Oct  4 20:58 /work/build/gds/fpu4/fpu4.gds
+-rw-r--r-- 1 toshal toshal 392489948 Oct  5 02:04 /work/build/gds/gsx/gsx.gds
+-rw-r--r-- 1 toshal toshal   7834486 Oct 16 03:52 /work/build/gds/memif/memif.gds
+-rw-r--r-- 1 toshal toshal   1894340 Oct  2 16:22 /work/build/gds/ram_slave/ram_slave.gds
+-rw-r--r-- 1 toshal toshal  58476618 Oct  3 01:51 /work/build/gds/rtr_setup/rtr_setup.gds
+-rw-r--r-- 1 toshal toshal 438095280 Oct 17 04:58 /work/build/gds/tu/tu.gds
+-rw-r--r-- 1 toshal toshal   2632864 Oct  2 16:34 /work/build/gds/xbar/xbar.gds
+-rw-r--r-- 1 toshal toshal   2645188 Oct  2 16:15 /work/build/gds/xbar/xbar_gridtest.gds
+--- chain processes at cutoff ---
+3225 bash /work/scripts/gds/chip_watch.sh
+3232 bash /work/scripts/gds/run_cached.sh
+17658 bash /work/scripts/gds/auto_core_master.sh
+18933 /nix/store/zzypcxbrgw1qink1l7fwgwpbk7fvdwpg-openroad/bin/openroad -no_init -exit route_resume.tcl
+19702 bash -c  while [ ! -f /work/build/gds/STOPPED_0800 ]; do   T=$(date "+%F %T")   V=$(grep "Number of violations =" /work/build/gds/core/openroad_resume_1.log 2>/dev/null | tail -1 | grep -oE "[0-9]+\.?$")   P=$(tail -1 /work/build/gds/core/openroad_resume_1.log 2>/dev/null | tr -d "\r")   echo "$T | violations=$V | $P" >> /work/build/gds/VIOL_TREND.log   sleep 300 done echo "$(date "+%F %T") | trend recorder: STOPPED_0800 seen, exiting" >> /work/build/gds/VIOL_TREND.log 

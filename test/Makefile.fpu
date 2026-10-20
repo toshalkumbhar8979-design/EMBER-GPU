@@ -1,0 +1,9 @@
+# cocotb 2.x runner flow for the Ember FPU (Phase 4) testbench
+TOPLEVEL_LANG    := verilog
+SIM              := verilator
+COMPILE_ARGS     += --timing -I../rtl
+TOPLEVEL         := ember_fpu4
+MODULE           := tb_fpu
+VERILOG_SOURCES  := ../rtl/ember_fpu4.sv
+
+include $(shell cocotb-config --makefiles)/Makefile.sim

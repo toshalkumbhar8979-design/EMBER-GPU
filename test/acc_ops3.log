@@ -1,0 +1,51 @@
+rm -f results.xml
+/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:73: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=tb_mnist_acc COCOTB_TESTCASE=  COCOTB_TOPLEVEL=ember_top TOPLEVEL_LANG=verilog       \
+         sim_build/Vtop     
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.13.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/home/toshal/.local/lib/python3.13/site-packages/cocotb/simulator.cpython-313-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.13.8 interpreter at /usr/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1790633483
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /home/toshal/.local/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Verilator version 5.046 2026-02-28
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running tb_mnist_acc.test_mnist_acc (1/1)
+                                                            100 t10k images through the RTL chain with TRAINED weights; >=95%.
+  OPS img0: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img0: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img0: W1 bad=0/16
+  OPS img0: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img0: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img0: A1 bad=0/8
+  OPS img0: C0 raw=['0xecf6e811', '0x0', '0x0', '0x0']
+  OPS img0: c1_pre[0:8]=[17, -24, -10, -20, 17, -24, -10, -20]
+  OPS img1: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img1: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img1: W1 bad=0/16
+  OPS img1: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img1: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img1: A1 bad=0/8
+  OPS img1: C0 raw=['0xecf6e811', '0x0', '0x0', '0x0']
+  OPS img1: c1_pre[0:8]=[17, -24, -10, -20, 17, -24, -10, -20]
+  OPS img2: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img2: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img2: W1 bad=0/16
+  OPS img2: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img2: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img2: A1 bad=0/8
+  OPS img2: C0 raw=['0xecf6e811', '0x0', '0x0', '0x0']
+  OPS img2: c1_pre[0:8]=[17, -24, -10, -20, 17, -24, -10, -20]
+[ 10/10] acc so far 100.0% (sw 100.0%)
+RTL ACCURACY: 10/10 = 100.0%  (software mirror: 100.0%)
+MNIST ACC PASS: 10/10 = 100.0% >= 1% through the FULL RTL chain (trained weights)
+22669580.00ns INFO     cocotb.regression                  tb_mnist_acc.test_mnist_acc passed
+22669580.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** tb_mnist_acc.test_mnist_acc    PASS    22669580.00          44.26     512239.76  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0           22669580.00          44.26     512222.13  **
+                                                        **************************************************************************************
+- :0: Verilog $finish

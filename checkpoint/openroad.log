@@ -1,0 +1,244 @@
+OpenROAD edf00dff99f6c40d67a30c0e22a8191c5d2ed9d6 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0227] LEF file: /home/toshal/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef, created 13 layers, 25 vias
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /home/toshal/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /home/toshal/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+[INFO ORD-0030] Using 8 thread(s).
+[WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.120, 10.880).
+[INFO IFP-0001] Added 1485 rows of 8783 site unithd.
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 10.120 10.880 ) ( 4050.300 4050.080 ) um
+[INFO GPL-0006] NumInstances:            378094
+[INFO GPL-0007] NumPlaceInstances:       378094
+[INFO GPL-0008] NumFixedInstances:            0
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 378196
+[INFO GPL-0011] NumPins:                1344027
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 4060.365 4060.365 ) um
+[INFO GPL-0013] CoreBBox: ( 10.120 10.880 ) ( 4050.300 4050.080 ) um
+[INFO GPL-0016] CoreArea:            16319095.056 um^2
+[INFO GPL-0017] NonPlaceInstsArea:        0.000 um^2
+[INFO GPL-0018] PlaceInstsArea:      2448684.733 um^2
+[INFO GPL-0019] Util:                    15.005 %
+[INFO GPL-0020] StdInstsArea:        2448684.733 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00188580 HPWL: 3129996555
+[InitialPlace]  Iter: 2 CG residual: 0.00016798 HPWL: 3114328701
+[InitialPlace]  Iter: 3 CG residual: 0.00004325 HPWL: 3116207056
+[InitialPlace]  Iter: 4 CG residual: 0.00037251 HPWL: 3128411519
+[InitialPlace]  Iter: 5 CG residual: 0.00004922 HPWL: 3124994030
+[InitialPlace]  Iter: 6 CG residual: 0.00005498 HPWL: 3132443657
+[InitialPlace]  Iter: 7 CG residual: 0.00004546 HPWL: 3127781551
+[InitialPlace]  Iter: 8 CG residual: 0.00004638 HPWL: 3134250725
+[InitialPlace]  Iter: 9 CG residual: 0.00004319 HPWL: 3129170975
+[InitialPlace]  Iter: 10 CG residual: 0.00005627 HPWL: 3135046241
+[InitialPlace]  Iter: 11 CG residual: 0.00004384 HPWL: 3129637948
+[InitialPlace]  Iter: 12 CG residual: 0.00004136 HPWL: 3135406035
+[InitialPlace]  Iter: 13 CG residual: 0.00004072 HPWL: 3130190901
+[InitialPlace]  Iter: 14 CG residual: 0.00003779 HPWL: 3135629899
+[InitialPlace]  Iter: 15 CG residual: 0.00004304 HPWL: 3130219975
+[InitialPlace]  Iter: 16 CG residual: 0.00004290 HPWL: 3135712361
+[InitialPlace]  Iter: 17 CG residual: 0.00004177 HPWL: 3130556619
+[InitialPlace]  Iter: 18 CG residual: 0.00003973 HPWL: 3135963396
+[InitialPlace]  Iter: 19 CG residual: 0.00005148 HPWL: 3130651734
+[InitialPlace]  Iter: 20 CG residual: 0.00004736 HPWL: 3135939436
+[INFO GPL-0031] FillerInit:NumGCells:    657919
+[INFO GPL-0032] FillerInit:NumGNets:     378196
+[INFO GPL-0033] FillerInit:NumGPins:    1344027
+[INFO GPL-0023] TargetDensity:            0.250
+[INFO GPL-0024] AvrgPlaceInstArea:        6.476 um^2
+[INFO GPL-0025] IdealBinArea:            25.906 um^2
+[INFO GPL-0026] IdealBinCnt:             629945
+[INFO GPL-0027] TotalBinArea:        16319095.056 um^2
+[INFO GPL-0028] BinCnt:       512    512
+[INFO GPL-0029] BinSize: (  7.891  7.890 )
+[INFO GPL-0030] NumBins: 262144
+[NesterovSolve] Iter:    1 overflow: 0.999 HPWL: 1162461927
+[NesterovSolve] Iter:   10 overflow: 0.994 HPWL: 1485930317
+[NesterovSolve] Iter:   20 overflow: 0.993 HPWL: 1410180539
+[NesterovSolve] Iter:   30 overflow: 0.992 HPWL: 1435981804
+[NesterovSolve] Iter:   40 overflow: 0.992 HPWL: 1463152719
+[NesterovSolve] Iter:   50 overflow: 0.992 HPWL: 1475452198
+[NesterovSolve] Iter:   60 overflow: 0.991 HPWL: 1478530776
+[NesterovSolve] Iter:   70 overflow: 0.991 HPWL: 1476859278
+[NesterovSolve] Iter:   80 overflow: 0.991 HPWL: 1475886217
+[NesterovSolve] Iter:   90 overflow: 0.991 HPWL: 1475659709
+[NesterovSolve] Iter:  100 overflow: 0.991 HPWL: 1478286866
+[NesterovSolve] Iter:  110 overflow: 0.991 HPWL: 1487419808
+[NesterovSolve] Iter:  120 overflow: 0.991 HPWL: 1507560630
+[NesterovSolve] Iter:  130 overflow: 0.991 HPWL: 1545486691
+[NesterovSolve] Iter:  140 overflow: 0.991 HPWL: 1604225962
+[NesterovSolve] Iter:  150 overflow: 0.991 HPWL: 1679833933
+[NesterovSolve] Iter:  160 overflow: 0.991 HPWL: 1768149916
+[NesterovSolve] Iter:  170 overflow: 0.991 HPWL: 1866263250
+[NesterovSolve] Iter:  180 overflow: 0.990 HPWL: 1977643442
+[NesterovSolve] Iter:  190 overflow: 0.989 HPWL: 2110654474
+[NesterovSolve] Iter:  200 overflow: 0.987 HPWL: 2276937273
+[NesterovSolve] Iter:  210 overflow: 0.985 HPWL: 2492955776
+[NesterovSolve] Iter:  220 overflow: 0.982 HPWL: 2773619616
+[NesterovSolve] Iter:  230 overflow: 0.977 HPWL: 3134120054
+[NesterovSolve] Iter:  240 overflow: 0.970 HPWL: 3686269735
+[NesterovSolve] Iter:  250 overflow: 0.960 HPWL: 4697093243
+[NesterovSolve] Iter:  260 overflow: 0.949 HPWL: 5731771387
+[NesterovSolve] Iter:  270 overflow: 0.939 HPWL: 6652310287
+[NesterovSolve] Iter:  280 overflow: 0.926 HPWL: 7540592912
+[NesterovSolve] Iter:  290 overflow: 0.911 HPWL: 8363661375
+[NesterovSolve] Iter:  300 overflow: 0.894 HPWL: 8999262961
+[NesterovSolve] Iter:  310 overflow: 0.874 HPWL: 9429251183
+[NesterovSolve] Iter:  320 overflow: 0.848 HPWL: 9928775887
+[NesterovSolve] Iter:  330 overflow: 0.817 HPWL: 10861083547
+[NesterovSolve] Iter:  340 overflow: 0.787 HPWL: 11688821216
+[NesterovSolve] Iter:  350 overflow: 0.757 HPWL: 12300374716
+[NesterovSolve] Iter:  360 overflow: 0.720 HPWL: 13810670896
+[NesterovSolve] Iter:  370 overflow: 0.694 HPWL: 14578574041
+[NesterovSolve] Iter:  380 overflow: 0.651 HPWL: 14279813404
+[NesterovSolve] Iter:  390 overflow: 0.601 HPWL: 14361816681
+[NesterovSolve] Snapshot saved at iter = 390
+[NesterovSolve] Iter:  400 overflow: 0.558 HPWL: 14434393985
+[NesterovSolve] Iter:  410 overflow: 0.509 HPWL: 13351392417
+[NesterovSolve] Iter:  420 overflow: 0.462 HPWL: 13381606514
+[NesterovSolve] Iter:  430 overflow: 0.418 HPWL: 13086169446
+[NesterovSolve] Iter:  440 overflow: 0.379 HPWL: 12908793091
+[NesterovSolve] Iter:  450 overflow: 0.341 HPWL: 12556672976
+[NesterovSolve] Iter:  460 overflow: 0.319 HPWL: 12061506136
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 6900 6900 ) DBU
+[INFO GPL-0038] TileCnt:     588  588
+[INFO GPL-0040] NumTiles: 345744
+[INFO GPL-0081] TotalRouteOverflow: 4.839183330535889
+[INFO GPL-0082] OverflowTileCnt: 53
+[INFO GPL-0083] 0.5%RC: 0.7790655635422264
+[INFO GPL-0084] 1.0%RC: 0.7133879534525289
+[INFO GPL-0085] 2.0%RC: 0.6456397814157642
+[INFO GPL-0086] 5.0%RC: 0.5504273040748509
+[INFO GPL-0087] FinalRC: 0.7462268
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:  470 overflow: 0.297 HPWL: 11662156564
+[NesterovSolve] Iter:  480 overflow: 0.272 HPWL: 11379634265
+[NesterovSolve] Iter:  490 overflow: 0.248 HPWL: 11100553307
+[NesterovSolve] Iter:  500 overflow: 0.224 HPWL: 10868787437
+[NesterovSolve] Iter:  510 overflow: 0.201 HPWL: 10681013984
+[NesterovSolve] Iter:  520 overflow: 0.177 HPWL: 10543334535
+[NesterovSolve] Iter:  530 overflow: 0.155 HPWL: 10453750991
+[NesterovSolve] Iter:  540 overflow: 0.135 HPWL: 10398101869
+[NesterovSolve] Iter:  550 overflow: 0.116 HPWL: 10369415827
+[NesterovSolve] Iter:  560 overflow: 0.101 HPWL: 10361994876
+[NesterovSolve] Finished with Overflow: 0.099425
+[INFO RSZ-0058] Using max wire length 3224um.
+[INFO RSZ-0034] Found 118061 slew violations.
+[INFO RSZ-0036] Found 778 capacitance violations.
+[INFO RSZ-0037] Found 101 long wires.
+[INFO RSZ-0038] Inserted 5398 buffers in 118129 nets.
+[INFO RSZ-0039] Resized 76413 instances.
+Placement Analysis
+---------------------------------
+total displacement     749266.3 u
+average displacement        2.0 u
+max displacement           54.3 u
+original HPWL        13392599.8 u
+legalized HPWL       13943377.2 u
+delta HPWL                    4 %
+
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 35747 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 35747.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0023]  Original sink region: [(452445, 466540), (3711545, 3801260)].
+[INFO CTS-0024]  Normalized sink region: [(33.268, 34.3044), (272.908, 279.504)].
+[INFO CTS-0025]     Width:  239.6397.
+[INFO CTS-0026]     Height: 245.2000.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 17874
+    Sub-region size: 239.6397 X 122.6000
+[INFO CTS-0034]     Segment length (rounded): 62.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 8937
+    Sub-region size: 119.8199 X 122.6000
+[INFO CTS-0034]     Segment length (rounded): 60.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 4469
+    Sub-region size: 119.8199 X 61.3000
+[INFO CTS-0034]     Segment length (rounded): 30.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 2235
+    Sub-region size: 59.9099 X 61.3000
+[INFO CTS-0034]     Segment length (rounded): 30.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 1118
+    Sub-region size: 59.9099 X 30.6500
+[INFO CTS-0034]     Segment length (rounded): 16.
+ Level 6
+    Direction: Horizontal
+    Sinks per sub-region: 559
+    Sub-region size: 29.9550 X 30.6500
+[INFO CTS-0034]     Segment length (rounded): 14.
+ Level 7
+    Direction: Vertical
+    Sinks per sub-region: 280
+    Sub-region size: 29.9550 X 15.3250
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 8
+    Direction: Horizontal
+    Sinks per sub-region: 140
+    Sub-region size: 14.9775 X 15.3250
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 9
+    Direction: Vertical
+    Sinks per sub-region: 70
+    Sub-region size: 14.9775 X 7.6625
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 10
+    Direction: Horizontal
+    Sinks per sub-region: 35
+    Sub-region size: 7.4887 X 7.6625
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 11
+    Direction: Vertical
+    Sinks per sub-region: 18
+    Sub-region size: 7.4887 X 3.8312
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 12
+    Direction: Horizontal
+    Sinks per sub-region: 9
+    Sub-region size: 3.7444 X 3.8312
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 35747.
+[INFO CTS-0018]     Created 5221 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 10.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 10.
+[INFO CTS-0015]     Created 5221 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 1:5, 2:46, 3:182, 4:360, 5:336, 6:422, 7:426, 8:432, 9:367, 10:312, 11:247, 12:241, 13:198, 14:158, 15:101, 16:112, 17:52, 18:39, 19:22, 20:10, 21:5, 22:8, 23:1, 24:5, 25:3, 26:2, 31:1, 33:1, 34:1, 36:1..
+[INFO CTS-0017]     Max level of the clock tree: 12.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 38537
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 5512.27 um
+[INFO CTS-0102]  Path depth 10 - 10
+[INFO CTS-0207]  Leaf load cells 2790
+[INFO RSZ-0094] Found 34944 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 3494 out of 34944 (10.00%) violating endpoints...

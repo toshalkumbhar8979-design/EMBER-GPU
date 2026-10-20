@@ -1,0 +1,43 @@
+rm -f results.xml
+/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:73: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=tb_mnist_acc COCOTB_TESTCASE=  COCOTB_TOPLEVEL=ember_top TOPLEVEL_LANG=verilog       \
+         sim_build/Vtop     
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.13.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/home/toshal/.local/lib/python3.13/site-packages/cocotb/simulator.cpython-313-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.13.8 interpreter at /usr/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1790631223
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /home/toshal/.local/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Verilator version 5.046 2026-02-28
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running tb_mnist_acc.test_mnist_acc (1/1)
+                                                            100 t10k images through the RTL chain with TRAINED weights; >=95%.
+[ 10/25] acc so far 100.0% (sw 100.0%)
+  DIAG img18 p1: 407 mismatches [(0, 38, 17), (1, 38, 17), (2, 38, 17), (3, 38, 17), (4, 38, 17), (5, 38, 17)]
+  DIAG img18 p2: 40 mismatches [(1, 5, 6), (2, 3, 7), (7, 7, 9), (8, 0, 2), (12, 0, 1), (13, 8, 6)]
+  DIAG img18 d1r: 1 mismatches [(26, 1, 0)]
+  DIAG img18 logits: 2 mismatches [(1, -2, -1), (3, 1, 0)]
+[ 20/25] acc so far 100.0% (sw  95.0%)
+  DIAG img24 p1: 365 mismatches [(0, 38, 17), (1, 38, 17), (2, 38, 17), (3, 38, 17), (4, 38, 17), (5, 38, 17)]
+  DIAG img24 p2: 17 mismatches [(16, 0, 1), (17, 0, 3), (36, 0, 9), (38, 0, 1), (43, 0, 4), (56, 0, 9)]
+  DIAG img24 d1r: 1 mismatches [(15, 0, 12)]
+  DIAG img24 logits: 10 mismatches [(0, 0, -10), (1, -1, 6), (2, 0, -1), (3, 0, -18), (4, -1, 19), (5, 0, -14)]
+RTL ACCURACY: 24/25 = 96.0%  (software mirror: 96.0%)
+RTL-vs-software disagreements: [(18, 3, 8, 3), (24, 8, 4, 4)] (total 2)
+56664500.00ns WARNING  cocotb.regression                  tb_mnist_acc.test_mnist_acc failed
+                                                        Traceback (most recent call last):
+                                                          File "/mnt/c/Users/tosha/Downloads/GPU/test/tb_mnist_acc.py", line 442, in test_mnist_acc
+                                                            assert not mismatched, \
+                                                                f"RTL logits disagree with the software mirror on {len(mismatched)} images"
+                                                        AssertionError: RTL logits disagree with the software mirror on 2 images
+                                                        assert not [(18, 3, 8, 3), (24, 8, 4, 4)]
+56664500.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** tb_mnist_acc.test_mnist_acc    FAIL    56664500.00         110.92     510845.28  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0           56664500.00         110.94     510764.90  **
+                                                        **************************************************************************************
+- :0: Verilog $finish
+make: *** [/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:74: results.xml] Error 1

@@ -1,0 +1,4 @@
+Started rtr_setup: PID 845; 3 GiB RSS budget; log /work/build/gds/rtr_setup.parallel.log
+rtr_setup: flow exit 0
+rtr_setup: content-bound zero-routing/DRC evidence verified (LVS/timing pending)
+rtr_setup: independently verified exported GDS; paper counts can be refreshed

@@ -1,0 +1,124 @@
+
+23. Printing statistics.
+
+=== ember_rtr_scan ===
+
+   Number of wires:             1418352
+   Number of wire bits:         1418352
+   Number of public wires:        3348
+   Number of public wire bits:    3348
+   Number of ports:               1983
+   Number of port bits:           1983
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:             1416166
+     sky130_fd_sc_hd__a2111oi_0      1
+     sky130_fd_sc_hd__a211oi_1       2
+     sky130_fd_sc_hd__a21boi_0    7068
+     sky130_fd_sc_hd__a21boi_1       1
+     sky130_fd_sc_hd__a21o_1        42
+     sky130_fd_sc_hd__a21oi_1    86788
+     sky130_fd_sc_hd__a21oi_2      471
+     sky130_fd_sc_hd__a21oi_4        2
+     sky130_fd_sc_hd__a221oi_1      19
+     sky130_fd_sc_hd__a311oi_1       1
+     sky130_fd_sc_hd__a31oi_1    71557
+     sky130_fd_sc_hd__a31oi_2      325
+     sky130_fd_sc_hd__a31oi_4        3
+     sky130_fd_sc_hd__and2_1         2
+     sky130_fd_sc_hd__buf_1        900
+     sky130_fd_sc_hd__buf_12     12070
+     sky130_fd_sc_hd__buf_2         23
+     sky130_fd_sc_hd__buf_4         92
+     sky130_fd_sc_hd__buf_6      21930
+     sky130_fd_sc_hd__buf_8       2399
+     sky130_fd_sc_hd__bufbuf_16     22
+     sky130_fd_sc_hd__bufbuf_8     734
+     sky130_fd_sc_hd__bufinv_8     173
+     sky130_fd_sc_hd__clkbuf_1    7041
+     sky130_fd_sc_hd__clkbuf_2      19
+     sky130_fd_sc_hd__clkbuf_8   24767
+     sky130_fd_sc_hd__clkdlybuf4s15_1      3
+     sky130_fd_sc_hd__clkdlybuf4s50_2      1
+     sky130_fd_sc_hd__clkinv_1      49
+     sky130_fd_sc_hd__clkinv_2      23
+     sky130_fd_sc_hd__conb_1        18
+     sky130_fd_sc_hd__dfrtp_1     1198
+     sky130_fd_sc_hd__dlygate4sd1_1     55
+     sky130_fd_sc_hd__dlygate4sd3_1    122
+     sky130_fd_sc_hd__inv_1      32811
+     sky130_fd_sc_hd__inv_12        26
+     sky130_fd_sc_hd__inv_16         4
+     sky130_fd_sc_hd__inv_2       1029
+     sky130_fd_sc_hd__inv_4         43
+     sky130_fd_sc_hd__inv_6         15
+     sky130_fd_sc_hd__lpflow_clkbufkapwr_1   3275
+     sky130_fd_sc_hd__lpflow_clkbufkapwr_4      1
+     sky130_fd_sc_hd__lpflow_clkbufkapwr_8    246
+     sky130_fd_sc_hd__lpflow_clkinvkapwr_1  64936
+     sky130_fd_sc_hd__lpflow_clkinvkapwr_8      1
+     sky130_fd_sc_hd__lpflow_inputiso0n_1    301
+     sky130_fd_sc_hd__lpflow_isobufsrc_1    517
+     sky130_fd_sc_hd__maj3_1     21797
+     sky130_fd_sc_hd__mux2_2         5
+     sky130_fd_sc_hd__mux2i_1        3
+     sky130_fd_sc_hd__nand2_1   105622
+     sky130_fd_sc_hd__nand2_2    70741
+     sky130_fd_sc_hd__nand2_4      237
+     sky130_fd_sc_hd__nand2b_1     246
+     sky130_fd_sc_hd__nand3_1     6618
+     sky130_fd_sc_hd__nand3_2    66465
+     sky130_fd_sc_hd__nand3b_1       4
+     sky130_fd_sc_hd__nand4_1       99
+     sky130_fd_sc_hd__nand4_2       40
+     sky130_fd_sc_hd__nand4_4       19
+     sky130_fd_sc_hd__nor2_1    354804
+     sky130_fd_sc_hd__nor2_2     72075
+     sky130_fd_sc_hd__nor2_4     71792
+     sky130_fd_sc_hd__nor2_8      1458
+     sky130_fd_sc_hd__nor3_1      2246
+     sky130_fd_sc_hd__nor3_2        20
+     sky130_fd_sc_hd__nor3_4        10
+     sky130_fd_sc_hd__nor3b_1        1
+     sky130_fd_sc_hd__nor4_1       137
+     sky130_fd_sc_hd__nor4_2        16
+     sky130_fd_sc_hd__nor4_4        45
+     sky130_fd_sc_hd__o2111a_1       2
+     sky130_fd_sc_hd__o2111ai_1      4
+     sky130_fd_sc_hd__o211ai_1      43
+     sky130_fd_sc_hd__o211ai_2     352
+     sky130_fd_sc_hd__o21a_1      4953
+     sky130_fd_sc_hd__o21a_4       334
+     sky130_fd_sc_hd__o21ai_0    13424
+     sky130_fd_sc_hd__o21ai_1     3312
+     sky130_fd_sc_hd__o21ai_2    69161
+     sky130_fd_sc_hd__o21ai_4        2
+     sky130_fd_sc_hd__o21bai_1     867
+     sky130_fd_sc_hd__o21bai_2      61
+     sky130_fd_sc_hd__o21bai_4     319
+     sky130_fd_sc_hd__o22ai_1        2
+     sky130_fd_sc_hd__o22ai_2        1
+     sky130_fd_sc_hd__o22ai_4        1
+     sky130_fd_sc_hd__o2bb2ai_1    672
+     sky130_fd_sc_hd__o2bb2ai_2     34
+     sky130_fd_sc_hd__o311ai_0       3
+     sky130_fd_sc_hd__o31a_1         6
+     sky130_fd_sc_hd__o31ai_1      173
+     sky130_fd_sc_hd__o31ai_2       42
+     sky130_fd_sc_hd__o32ai_1        1
+     sky130_fd_sc_hd__o41ai_1       36
+     sky130_fd_sc_hd__or2_0          2
+     sky130_fd_sc_hd__or2_1          4
+     sky130_fd_sc_hd__or2_2        517
+     sky130_fd_sc_hd__or2_4          1
+     sky130_fd_sc_hd__or4_1        140
+     sky130_fd_sc_hd__xnor2_1    44352
+     sky130_fd_sc_hd__xnor2_2        3
+     sky130_fd_sc_hd__xor2_1    125872
+     sky130_fd_sc_hd__xor2_2     35836
+     sky130_fd_sc_hd__xor2_4         8
+
+   Chip area for module '\ember_rtr_scan': 9514331.248119
+     of which used for sequential elements: 29978.752000 (0.32%)
+

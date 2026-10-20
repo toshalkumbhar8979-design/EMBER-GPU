@@ -1,0 +1,21 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)
+Loaded SDC plugin
+
+-- Running command `read_verilog synth.v; write_json synth.json' --
+
+1. Executing Verilog-2005 frontend: synth.v
+Parsing Verilog input from `synth.v' to AST representation.
+Generating RTLIL representation for module `\ember_fpu4'.
+Successfully finished Verilog frontend.
+
+2. Executing JSON backend.
+
+End of script. Logfile hash: 69715981a2, CPU: user 7.43s system 0.90s, MEM: 1001.73 MB peak
+Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)
+Time spent: 92% 2x read_verilog (7 sec), 7% 2x write_json (0 sec)

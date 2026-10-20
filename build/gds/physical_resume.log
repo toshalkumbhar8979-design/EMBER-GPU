@@ -1,0 +1,6 @@
+Physical-only immutable snapshot: /work/build/gds/harden_physical_snapshot.sh
+KEEP display: audited zero-routing/DRC GDS
+KEEP xbar: audited zero-routing/DRC GDS
+KEEP ram_slave: audited zero-routing/DRC GDS
+KEEP blit: audited zero-routing/DRC GDS
+BLOCK fpu4 [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400]

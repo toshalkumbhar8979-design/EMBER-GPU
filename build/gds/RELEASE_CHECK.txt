@@ -1,0 +1,14 @@
+display: block DRC evidence verified (not chip sign-off)
+xbar: block DRC evidence verified (not chip sign-off)
+ram_slave: block DRC evidence verified (not chip sign-off)
+blit: block DRC evidence verified (not chip sign-off)
+fpu4: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/fpu4/fpu4.gds'
+gsx: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/gsx/gsx.gds'
+tu: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/tu/tu.gds'
+core: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/core/core.gds'
+rtr_setup: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/rtr_setup/rtr_setup.gds'
+rtr_scan: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/rtr_scan/rtr_scan.gds'
+rtr_top: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/rtr_top/rtr_top.gds'
+cp: missing evidence: [Errno 2] No such file or directory: '/work/build/gds/cp/cp.gds'
+FULL CHIP: NOT RELEASED. Electrical integration, physical SRAM, LVS, timing closure and full-chip sign-off evidence are not implemented in this gate.
+Blocks lacking complete evidence: fpu4, gsx, tu, core, rtr_setup, rtr_scan, rtr_top, cp

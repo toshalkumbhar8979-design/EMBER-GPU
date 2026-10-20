@@ -1,0 +1,32 @@
+== [rtr_top] 1/4 Yosys synthesis ==
+Generated ripple_techmap.v from /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+/work/build/gds/harden_rtr_snapshot3.sh: line 119:  6596 Killed                  timeout "$TMO" yosys -p "
+read_verilog $FILES
+hierarchy -check -top $TOP
+$SYNTH_COMMAND
+dfflibmap -liberty $LIB
+abc -liberty $LIB -script $LEAN_ABC
+setundef -zero
+# hilomap: turn constant nets into sky130 tie cells. Without this, setundef
+# creates one big zero_ net and TritonRoute refuses it:
+#   [ERROR DRT-0305] Net zero_ of signal type GROUND is not routable.
+hilomap -hicell sky130_fd_sc_hd__conb_1 HI -locell sky130_fd_sc_hd__conb_1 LO
+opt_clean -purge
+splitnets -ports
+write_verilog -noattr -noexpr -nodec synth.v
+tee -o synth_stat.txt stat -liberty $LIB
+write_json synth.json
+" > yosys.log 2>&1
+YOSYS FAIL (timeout / RSS limit / error)
+8.189.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `$paramod\$__div_mod_u\WIDTH=32'00000000000000000000000011000000.$proc$/work/build/gds/ripple_techmap.v:0$2766397'.
+Cleaned up 0 empty switches.
+
+8.189.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\$__div_mod_u\WIDTH=32'00000000000000000000000011000000.
+<suppressed ~2112 debug messages>
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000111 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000010000 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000101011 for cells of type $lcu.
+Using template $paramod$c947c77aabbbde8c9d71e6dcb3bdf96e44c2b879\_90_alu for cells of type $alu.

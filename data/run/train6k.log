@@ -1,0 +1,12 @@
+epoch 0: loss=20.0151 (34s)
+  int8 val accuracy: 24/300 = 8.0%
+epoch 1: loss=24.6985 (38s)
+  int8 val accuracy: 24/300 = 8.0%
+epoch 2: loss=24.6560 (41s)
+  int8 val accuracy: 24/300 = 8.0%
+epoch 3: loss=24.5356 (38s)
+  int8 val accuracy: 24/300 = 8.0%
+epoch 4: loss=24.6705 (40s)
+  int8 val accuracy: 24/300 = 8.0%
+epoch 5: loss=24.6069 (36s)
+  int8 val accuracy: 24/300 = 8.0%

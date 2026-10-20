@@ -1,0 +1,8 @@
+snapshot OK: /work/build/gds/harden_rtr_snapshot4.sh
+[rtr_scan] waiting: avail 17.1G + swapfree 5.2G
+SYNTHESIS rtr_scan
+PASS rtr_scan
+[rtr_top] waiting: avail 19.2G + swapfree 5.2G
+SYNTHESIS rtr_top
+FAIL rtr_top
+FAILED: ['rtr_top']

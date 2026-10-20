@@ -1,0 +1,937 @@
+OpenROAD edf00dff99f6c40d67a30c0e22a8191c5d2ed9d6 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+[INFO ODB-0227] LEF file: /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef, created 13 layers, 25 vias
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+[INFO ODB-0127] Reading DEF file: /work/build/gds/cp/global_route.def
+[INFO ODB-0128] Design: ember_cp
+[INFO ODB-0130]     Created 456 pins.
+[INFO ODB-0131]     Created 18187 components and 103269 component-terminals.
+[INFO ODB-0132]     Created 2 special nets and 60302 connections.
+[INFO ODB-0133]     Created 11925 nets and 42763 connections.
+[INFO ODB-0134] Finished DEF file: /work/build/gds/cp/global_route.def
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     437
+Number of vias:       29
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net rst_n has 303 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _06396_ has 396 pins which may impact routing performance. Consider optimization.
+
+Design:                   ember_cp
+Die area:                 ( 0 0 ) ( 706475 706475 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     18187
+Number of terminals:      456
+Number of snets:          2
+Number of nets:           11925
+
+[INFO DRT-0167] List of default vias:
+  Layer mcon
+    default via: L1M1_PR
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+[INFO DRT-0164] Number of unique instances = 155.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 345623.
+[INFO DRT-0033] mcon shape region query size = 206277.
+[INFO DRT-0033] met1 shape region query size = 64878.
+[INFO DRT-0033] via shape region query size = 31629.
+[INFO DRT-0033] met2 shape region query size = 19171.
+[INFO DRT-0033] via2 shape region query size = 25304.
+[INFO DRT-0033] met3 shape region query size = 18977.
+[INFO DRT-0033] via3 shape region query size = 25304.
+[INFO DRT-0033] met4 shape region query size = 7627.
+[INFO DRT-0033] via4 shape region query size = 1252.
+[INFO DRT-0033] met5 shape region query size = 1302.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0078]   Complete 528 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0081]   Complete 153 unique inst patterns.
+[INFO DRT-0084]   Complete 8904 groups.
+#scanned instances     = 18187
+#unique  instances     = 155
+#stdCellGenAp          = 4708
+#stdCellValidPlanarAp  = 112
+#stdCellValidViaAp     = 3323
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 42763
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:01:20, elapsed time = 00:00:19, memory = 346.66 (MB), peak = 347.71 (MB)
+
+[INFO DRT-0157] Number of guides:     70089
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 102 STEP 6900 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 102 STEP 6900 ;
+[INFO DRT-0028]   Complete FR_MASTERSLICE.
+[INFO DRT-0028]   Complete Fr_VIA.
+[INFO DRT-0028]   Complete li1.
+[INFO DRT-0028]   Complete mcon.
+[INFO DRT-0028]   Complete met1.
+[INFO DRT-0028]   Complete via.
+[INFO DRT-0028]   Complete met2.
+[INFO DRT-0028]   Complete via2.
+[INFO DRT-0028]   Complete met3.
+[INFO DRT-0028]   Complete via3.
+[INFO DRT-0028]   Complete met4.
+[INFO DRT-0028]   Complete via4.
+[INFO DRT-0028]   Complete met5.
+[WARNING DRT-0225] blit_csr_wdata\[13\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] blit_csr_wdata\[17\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] blit_csr_wdata\[21\] 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] blit_csr_wdata\[29\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] blit_csr_wdata\[30\] 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] blit_csr_wdata\[8\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_ar\[13\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_ar\[29\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_aw\[20\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_aw\[28\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_aw\[7\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_w\[10\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_w\[35\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] m_w\[5\] 1 pin not visited, fall back to feedthrough mode.
+[INFO DRT-1000] Pin u_regs/_875_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_874_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_871_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_870_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_868_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_866_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_865_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_861_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_857_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_855_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_853_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_847_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_845_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_843_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_789_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin u_regs/_747_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18240_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18239_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18236_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18230_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18217_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18216_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18215_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18210_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18208_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18207_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18202_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18201_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18200_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18198_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18196_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18195_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18192_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18188_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18185_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18182_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18181_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18180_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18177_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18174_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18173_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18171_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18170_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18169_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18168_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18167_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18166_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18164_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18162_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18157_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18156_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18155_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18153_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18148_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18141_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18139_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18138_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18135_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18132_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18127_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18123_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18122_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18121_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18118_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18116_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18109_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18107_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18096_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18095_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18086_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18082_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18081_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18080_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18074_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18073_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18072_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18068_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18067_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18063_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18059_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18052_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18051_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18049_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18048_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18045_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18043_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18038_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18030_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18028_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18026_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18025_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18017_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18015_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18011_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18009_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18006_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _18004_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _17996_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[INFO DRT-1000] Pin _17991_/RESET_B not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[WARNING DRT-0225] s_awready 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] s_awvalid 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] s_wready 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] s_wvalid 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _00000_ 50 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03350_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03384_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03417_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03450_ 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03483_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03516_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03549_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03582_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03615_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03648_ 39 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03681_ 25 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03714_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03747_ 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03780_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03813_ 20 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03846_ 18 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03879_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03880_ 31 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03913_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03946_ 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _03979_ 31 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04012_ 21 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04045_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04078_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04111_ 21 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04144_ 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04177_ 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04210_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04243_ 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04276_ 26 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04375_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04408_ 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04464_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04469_ 59 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04473_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04474_ 61 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04479_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04487_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04496_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04516_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04527_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04541_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04544_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04567_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04579_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04595_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04602_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04604_ 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04607_ 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04608_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04647_ 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04662_ 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04663_ 27 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04665_ 36 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04667_ 53 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04669_ 65 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04671_ 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04673_ 61 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04675_ 47 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04677_ 23 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04679_ 53 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04681_ 36 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04683_ 45 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04685_ 45 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04687_ 55 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04689_ 42 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04691_ 45 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04693_ 65 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04695_ 53 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04697_ 58 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04699_ 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04701_ 58 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04703_ 21 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04705_ 45 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04707_ 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04709_ 60 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04711_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04713_ 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04719_ 21 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04721_ 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04723_ 52 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04725_ 56 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04727_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04729_ 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04760_ 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04793_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04830_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04864_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04898_ 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _04967_ 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05001_ 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05035_ 28 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05071_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05105_ 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05139_ 30 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05174_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05210_ 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05243_ 49 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05276_ 32 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05342_ 33 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05375_ 32 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05408_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05441_ 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05474_ 27 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05507_ 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05540_ 25 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05573_ 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05606_ 31 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05639_ 24 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05672_ 28 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05706_ 26 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05739_ 50 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05775_ 47 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05784_ 41 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05786_ 32 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05869_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05891_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05899_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05923_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05924_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05926_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05960_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _05972_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06009_ 32 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06118_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06140_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06260_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06277_ 1 pin not visited, fall back to feedthrough mode.
+[INFO DRT-1000] Pin _11560_/A not in any guide. Attempting to patch guides to cover (at least part of) the pin.
+[WARNING DRT-0225] _06330_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06331_ 20 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06388_ 38 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06389_ 26 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06390_ 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06393_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06396_ 273 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06400_ 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06409_ 24 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06416_ 56 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06417_ 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06421_ 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06426_ 31 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06427_ 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06433_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06452_ 58 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06471_ 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06478_ 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06534_ 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] _06556_ 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_2_0_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_0_0_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_1_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_25_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_3_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_41_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_45_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_49_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_6_62_0_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_0__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_100__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_101__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_103__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_105__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_106__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_107__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_108__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_10__leaf_clk 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_110__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_112__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_113__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_115__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_116__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_117__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_118__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_119__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_120__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_122__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_123__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_124__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_126__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_127__leaf_clk 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_128__leaf_clk 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_129__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_132__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_133__leaf_clk 14 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_136__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_138__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_139__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_140__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_141__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_142__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_143__leaf_clk 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_144__leaf_clk 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_145__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_146__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_147__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_148__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_149__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_14__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_151__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_152__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_153__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_154__leaf_clk 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_155__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_158__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_159__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_15__leaf_clk 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_161__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_162__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_163__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_165__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_167__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_168__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_16__leaf_clk 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_171__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_172__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_173__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_174__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_177__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_178__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_180__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_181__leaf_clk 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_183__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_184__leaf_clk 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_185__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_186__leaf_clk 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_187__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_188__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_189__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_190__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_192__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_193__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_194__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_196__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_197__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_198__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_199__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_200__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_202__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_203__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_204__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_205__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_206__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_207__leaf_clk 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_208__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_209__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_20__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_212__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_213__leaf_clk 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_215__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_216__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_217__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_218__leaf_clk 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_219__leaf_clk 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_21__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_220__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_222__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_223__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_224__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_225__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_228__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_229__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_22__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_230__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_231__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_232__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_233__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_234__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_235__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_236__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_237__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_238__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_239__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_240__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_241__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_242__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_243__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_244__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_245__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_248__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_24__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_250__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_251__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_254__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_25__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_26__leaf_clk 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_27__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_28__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_29__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_30__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_31__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_32__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_33__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_34__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_35__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_36__leaf_clk 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_37__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_38__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_39__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_3__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_40__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_41__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_42__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_43__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_45__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_46__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_47__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_4__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_52__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_53__leaf_clk 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_54__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_55__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_56__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_57__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_59__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_5__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_60__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_61__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_62__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_63__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_64__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_65__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_66__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_67__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_68__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_71__leaf_clk 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_72__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_73__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_74__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_75__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_77__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_78__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_79__leaf_clk 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_80__leaf_clk 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_81__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_83__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_84__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_85__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_86__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_88__leaf_clk 5 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_8__leaf_clk 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_90__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_91__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_92__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_94__leaf_clk 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_95__leaf_clk 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_96__leaf_clk 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_97__leaf_clk 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_98__leaf_clk 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] clknet_8_99__leaf_clk 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_addr_q\[14\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_addr_q\[16\] 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_addr_q\[7\] 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_dst_q\[14\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_left_q\[13\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_left_q\[14\] 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_left_q\[29\] 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_left_q\[4\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_len_q\[16\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_len_q\[23\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_len_q\[24\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_len_q\[29\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_len_q\[4\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_len_q\[5\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dma_len_q\[6\] 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] dstate\[2\] 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net1 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net10 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net11 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net12 26 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net13 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net14 15 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net16 50 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net17 73 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net18 23 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net19 62 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net20 65 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net21 68 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net22 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net24 27 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net25 69 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net26 58 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net27 56 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net28 77 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net29 68 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net30 53 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net31 56 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net32 41 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net33 44 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net34 78 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net35 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net36 27 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net37 46 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net38 44 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net39 26 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net40 62 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net41 45 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net42 18 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net43 54 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net44 49 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net45 54 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net46 62 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net47 43 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net48 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net49 42 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net50 48 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net51 46 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net52 38 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net53 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net54 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net55 10 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net56 21 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net57 44 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net58 35 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net59 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net60 25 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net61 20 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net62 25 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net63 45 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net64 41 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net65 24 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net66 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net67 47 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net68 29 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net69 16 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net70 71 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net71 49 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net72 20 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net73 23 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net74 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net75 39 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net76 22 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net77 11 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net78 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net79 18 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net80 17 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net81 51 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net82 46 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net83 13 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net84 59 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net85 41 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net87 63 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net88 75 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net89 60 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net9 12 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net90 53 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net91 33 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net92 9 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] net93 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] rd_addr\[4\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] reg_addr\[4\] 3 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] u_regs/_137_ 32 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] u_regs/_151_ 6 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] u_regs/_176_ 19 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] u_regs/w_v 2 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[0\]\[17\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[14\]\[13\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[16\]\[17\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[21\]\[29\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[23\]\[19\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[29\]\[21\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[29\]\[3\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[31\]\[30\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[40\]\[19\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[45\]\[31\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[53\]\[0\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[53\]\[24\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[54\]\[24\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[56\]\[8\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[58\]\[30\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_mem\[58\]\[5\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_pop 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_rp\[0\] 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_rp\[1\] 8 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_rp\[3\] 7 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_rp\[5\] 4 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_rp\[6\] 1 pin not visited, fall back to feedthrough mode.
+[WARNING DRT-0225] up_wp\[5\] 3 pin not visited, fall back to feedthrough mode.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0035]   Complete FR_MASTERSLICE (guide).
+[INFO DRT-0035]   Complete Fr_VIA (guide).
+[INFO DRT-0035]   Complete li1 (guide).
+[INFO DRT-0035]   Complete mcon (guide).
+[INFO DRT-0035]   Complete met1 (guide).
+[INFO DRT-0035]   Complete via (guide).
+[INFO DRT-0035]   Complete met2 (guide).
+[INFO DRT-0035]   Complete via2 (guide).
+[INFO DRT-0035]   Complete met3 (guide).
+[INFO DRT-0035]   Complete via3 (guide).
+[INFO DRT-0035]   Complete met4 (guide).
+[INFO DRT-0035]   Complete via4 (guide).
+[INFO DRT-0035]   Complete met5 (guide).
+[INFO DRT-0036] FR_MASTERSLICE guide region query size = 0.
+[INFO DRT-0036] FR_VIA guide region query size = 0.
+[INFO DRT-0036] li1 guide region query size = 31037.
+[INFO DRT-0036] mcon guide region query size = 0.
+[INFO DRT-0036] met1 guide region query size = 17191.
+[INFO DRT-0036] via guide region query size = 0.
+[INFO DRT-0036] met2 guide region query size = 2410.
+[INFO DRT-0036] via2 guide region query size = 0.
+[INFO DRT-0036] met3 guide region query size = 20.
+[INFO DRT-0036] via3 guide region query size = 0.
+[INFO DRT-0036] met4 guide region query size = 3.
+[INFO DRT-0036] via4 guide region query size = 0.
+[INFO DRT-0036] met5 guide region query size = 3.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 33450 vertical wires in 3 frboxes and 17214 horizontal wires in 3 frboxes.
+[INFO DRT-0186] Done with 11615 vertical wires in 3 frboxes and 5777 horizontal wires in 3 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:02, memory = 463.48 (MB), peak = 463.48 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 463.48 (MB), peak = 463.48 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:00:11, memory = 609.56 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:01:01, memory = 864.78 (MB).
+    Completing 30% with 5580 violations.
+    elapsed time = 00:01:36, memory = 955.05 (MB).
+    Completing 40% with 5580 violations.
+    elapsed time = 00:01:56, memory = 1016.04 (MB).
+    Completing 50% with 5580 violations.
+    elapsed time = 00:02:47, memory = 1046.48 (MB).
+    Completing 60% with 10819 violations.
+    elapsed time = 00:03:06, memory = 1007.70 (MB).
+    Completing 70% with 10819 violations.
+    elapsed time = 00:03:58, memory = 1067.26 (MB).
+    Completing 80% with 15497 violations.
+    elapsed time = 00:04:28, memory = 1072.36 (MB).
+    Completing 90% with 15497 violations.
+    elapsed time = 00:05:14, memory = 1087.71 (MB).
+    Completing 100% with 21056 violations.
+    elapsed time = 00:05:59, memory = 1000.78 (MB).
+[INFO DRT-0199]   Number of violations = 23951.
+Viol/Layer         li1   mcon   met1    via   met2   met3   met5
+Cut Spacing          0    124      0      3      0      0      0
+Metal Spacing     7650      0   1507      0    217      0      2
+Min Hole             0      0     11      0      0      0      0
+NS Metal             5      0      0      0      0      0      0
+Recheck           1818      0    836      0    235      2      4
+Short             5744    246   5275     18    250      0      4
+[INFO DRT-0267] cpu time = 00:23:18, elapsed time = 00:06:00, memory = 1200.28 (MB), peak = 1200.28 (MB)
+Total wire length = 589584 um.
+Total wire length on LAYER li1 = 93373 um.
+Total wire length on LAYER met1 = 305639 um.
+Total wire length on LAYER met2 = 184674 um.
+Total wire length on LAYER met3 = 5542 um.
+Total wire length on LAYER met4 = 111 um.
+Total wire length on LAYER met5 = 242 um.
+Total number of vias = 102676.
+Up-via summary (total 102676):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1     68460
+           met1     33965
+           met2       245
+           met3         3
+           met4         3
+-------------------------
+                   102676
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 23951 violations.
+    elapsed time = 00:00:03, memory = 1200.28 (MB).
+    Completing 20% with 23951 violations.
+    elapsed time = 00:00:40, memory = 1213.94 (MB).
+    Completing 30% with 19805 violations.
+    elapsed time = 00:01:08, memory = 1216.75 (MB).
+    Completing 40% with 19805 violations.
+    elapsed time = 00:01:16, memory = 1216.75 (MB).
+    Completing 50% with 19805 violations.
+    elapsed time = 00:01:59, memory = 1216.84 (MB).
+    Completing 60% with 16027 violations.
+    elapsed time = 00:02:22, memory = 1216.84 (MB).
+    Completing 70% with 16027 violations.
+    elapsed time = 00:02:45, memory = 1216.84 (MB).
+    Completing 80% with 11209 violations.
+    elapsed time = 00:03:19, memory = 1274.96 (MB).
+    Completing 90% with 11209 violations.
+    elapsed time = 00:03:45, memory = 1262.46 (MB).
+    Completing 100% with 7137 violations.
+    elapsed time = 00:04:22, memory = 1262.46 (MB).
+[INFO DRT-0199]   Number of violations = 7149.
+Viol/Layer         li1   mcon   met1    via   met2   met5
+Cut Spacing          0      2      0      0      0      0
+Metal Spacing     3213      0    552      0     64      2
+Min Hole             0      0      7      0      0      0
+Recheck              0      0     11      0      2      0
+Short               98      0   3091      1    106      0
+[INFO DRT-0267] cpu time = 00:16:44, elapsed time = 00:04:23, memory = 1217.58 (MB), peak = 1274.96 (MB)
+Total wire length = 583533 um.
+Total wire length on LAYER li1 = 84255 um.
+Total wire length on LAYER met1 = 302678 um.
+Total wire length on LAYER met2 = 190515 um.
+Total wire length on LAYER met3 = 5708 um.
+Total wire length on LAYER met4 = 133 um.
+Total wire length on LAYER met5 = 242 um.
+Total number of vias = 99816.
+Up-via summary (total 99816):
+
+------------------------
+ FR_MASTERSLICE        0
+            li1    65902
+           met1    33610
+           met2      293
+           met3        8
+           met4        3
+------------------------
+                   99816
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 7149 violations.
+    elapsed time = 00:00:05, memory = 1217.58 (MB).
+    Completing 20% with 7149 violations.
+    elapsed time = 00:00:45, memory = 1217.58 (MB).
+    Completing 30% with 6961 violations.
+    elapsed time = 00:01:02, memory = 1217.58 (MB).
+    Completing 40% with 6961 violations.
+    elapsed time = 00:01:32, memory = 1217.58 (MB).
+    Completing 50% with 6961 violations.
+    elapsed time = 00:02:09, memory = 1217.58 (MB).
+    Completing 60% with 6941 violations.
+    elapsed time = 00:02:21, memory = 1217.58 (MB).
+    Completing 70% with 6941 violations.
+    elapsed time = 00:02:53, memory = 1217.58 (MB).
+    Completing 80% with 6556 violations.
+    elapsed time = 00:03:11, memory = 1217.58 (MB).
+    Completing 90% with 6556 violations.
+    elapsed time = 00:03:42, memory = 1217.58 (MB).
+    Completing 100% with 6463 violations.
+    elapsed time = 00:04:18, memory = 1217.58 (MB).
+[INFO DRT-0199]   Number of violations = 6471.
+Viol/Layer         li1   mcon   met1   met2   met5
+Cut Spacing          0      2      0      0      0
+Metal Spacing     3157      0    447     56      2
+Min Hole             0      0      9      0      0
+Recheck              0      0      8      0      0
+Short              110      0   2574    106      0
+[INFO DRT-0267] cpu time = 00:16:29, elapsed time = 00:04:19, memory = 1220.39 (MB), peak = 1274.96 (MB)
+Total wire length = 582123 um.
+Total wire length on LAYER li1 = 83438 um.
+Total wire length on LAYER met1 = 302701 um.
+Total wire length on LAYER met2 = 189804 um.
+Total wire length on LAYER met3 = 5762 um.
+Total wire length on LAYER met4 = 174 um.
+Total wire length on LAYER met5 = 242 um.
+Total number of vias = 99400.
+Up-via summary (total 99400):
+
+------------------------
+ FR_MASTERSLICE        0
+            li1    65896
+           met1    33228
+           met2      263
+           met3       10
+           met4        3
+------------------------
+                   99400
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 582123 um.
+Total wire length on LAYER li1 = 83438 um.
+Total wire length on LAYER met1 = 302701 um.
+Total wire length on LAYER met2 = 189804 um.
+Total wire length on LAYER met3 = 5762 um.
+Total wire length on LAYER met4 = 174 um.
+Total wire length on LAYER met5 = 242 um.
+Total number of vias = 99400.
+Up-via summary (total 99400):
+
+------------------------
+ FR_MASTERSLICE        0
+            li1    65896
+           met1    33228
+           met2      263
+           met3       10
+           met4        3
+------------------------
+                   99400
+
+
+[INFO DRT-0267] cpu time = 00:56:32, elapsed time = 00:14:44, memory = 1220.39 (MB), peak = 1274.96 (MB)
+
+[INFO DRT-0180] Post processing.

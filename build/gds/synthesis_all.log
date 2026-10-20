@@ -1,0 +1,35 @@
+########## BLOCK display (ember_display)  ##########
+PASS display
+########## BLOCK xbar (ember_xbar)  ##########
+PASS xbar
+########## BLOCK ram_slave (ember_ram_slave)  ##########
+PASS ram_slave
+########## BLOCK blit (ember_blit)  ##########
+PASS blit
+########## BLOCK fpu4 (ember_fpu4) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+PASS fpu4
+########## BLOCK gsx (ember_gsx) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+PASS gsx
+########## BLOCK tu (ember_tu) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+PASS tu
+########## BLOCK core (ember_core) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+PASS core
+########## BLOCK rtr_setup (ember_rtr_setup) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+FAIL rtr_setup
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $ne.
+ERROR: Technology map yielded processes -> this is not supported (use -autoproc to run 'proc' automatically).
+########## BLOCK rtr_scan (ember_rtr_scan) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+PASS rtr_scan
+########## BLOCK rtr_top (ember_rtr_top) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+FAIL rtr_top
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $ne.
+ERROR: Technology map yielded processes -> this is not supported (use -autoproc to run 'proc' automatically).
+########## BLOCK cp (ember_cp) [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400] ##########
+PASS cp
+SUITE PASS=10 FAIL=2 rtr_setup rtr_top

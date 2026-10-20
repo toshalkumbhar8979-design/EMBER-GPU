@@ -1,0 +1,59 @@
+
+14. Printing statistics.
+
+=== ember_rtr_top ===
+
+   Number of wires:               1560
+   Number of wire bits:           3983
+   Number of public wires:          77
+   Number of public wire bits:    2500
+   Number of ports:                 13
+   Number of port bits:            171
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               2144
+     ember_rtr_scan                  1
+     ember_rtr_setup                 1
+     sky130_fd_sc_hd__a211oi_1       2
+     sky130_fd_sc_hd__a21oi_1       12
+     sky130_fd_sc_hd__a22oi_1        3
+     sky130_fd_sc_hd__a31oi_1        3
+     sky130_fd_sc_hd__a32oi_1       22
+     sky130_fd_sc_hd__a41oi_1        1
+     sky130_fd_sc_hd__and2_2         1
+     sky130_fd_sc_hd__and3_2         3
+     sky130_fd_sc_hd__clkinv_1     159
+     sky130_fd_sc_hd__dfrtp_1       36
+     sky130_fd_sc_hd__dfstp_2        4
+     sky130_fd_sc_hd__dfxtp_1      548
+     sky130_fd_sc_hd__maj3_1         2
+     sky130_fd_sc_hd__mux2_2       296
+     sky130_fd_sc_hd__nand2_1      419
+     sky130_fd_sc_hd__nand3_1       73
+     sky130_fd_sc_hd__nand3b_1       2
+     sky130_fd_sc_hd__nand4_1       32
+     sky130_fd_sc_hd__nor2_1       118
+     sky130_fd_sc_hd__nor3_1        14
+     sky130_fd_sc_hd__nor3b_1        1
+     sky130_fd_sc_hd__nor4_1        12
+     sky130_fd_sc_hd__o2111ai_1      1
+     sky130_fd_sc_hd__o211ai_1       5
+     sky130_fd_sc_hd__o21ai_0      310
+     sky130_fd_sc_hd__o21bai_1       4
+     sky130_fd_sc_hd__o221ai_1       1
+     sky130_fd_sc_hd__o22ai_1        2
+     sky130_fd_sc_hd__o2bb2ai_1      1
+     sky130_fd_sc_hd__o31ai_1        4
+     sky130_fd_sc_hd__o32ai_1        1
+     sky130_fd_sc_hd__o41ai_1        1
+     sky130_fd_sc_hd__or2_2         12
+     sky130_fd_sc_hd__xnor2_1        2
+     sky130_fd_sc_hd__xor2_1        35
+
+   Area for cell type \ember_rtr_setup is unknown!
+   Area for cell type \ember_rtr_scan is unknown!
+
+   Chip area for module '\ember_rtr_top': 21127.763200
+     of which used for sequential elements: 11976.486400 (56.69%)
+

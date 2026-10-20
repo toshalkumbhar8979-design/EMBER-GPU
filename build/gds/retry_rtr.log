@@ -1,0 +1,7 @@
+SYNTHESIS rtr_setup
+PASS rtr_setup
+SYNTHESIS rtr_scan
+FAIL rtr_scan
+SYNTHESIS rtr_top
+FAIL rtr_top
+FAILED: ['rtr_scan', 'rtr_top']

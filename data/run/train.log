@@ -1,0 +1,2 @@
+epoch 0: loss=3.8550 (20s)
+  float val: 36/200 = 18.0% | int8 val accuracy: 35/200 = 17.5%

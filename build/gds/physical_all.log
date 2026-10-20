@@ -1,0 +1,7 @@
+BLOCK display []
+PASS display: validated GDS and zero routing/Magic DRC
+BLOCK ram_slave []
+PASS ram_slave: validated GDS and zero routing/Magic DRC
+BLOCK blit []
+PASS blit: validated GDS and zero routing/Magic DRC
+BLOCK fpu4 [GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400]

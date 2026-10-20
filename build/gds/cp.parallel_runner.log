@@ -1,0 +1,4 @@
+Started cp: PID 714; 3 GiB RSS budget; log /work/build/gds/cp.parallel.log
+cp: flow exit 0
+cp: content-bound zero-routing/DRC evidence verified (LVS/timing pending)
+cp: independently verified exported GDS; paper counts can be refreshed

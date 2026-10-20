@@ -1,0 +1,3112 @@
+OpenROAD edf00dff99f6c40d67a30c0e22a8191c5d2ed9d6 
+Features included (+) or not (-): +Charts +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0227] LEF file: /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef, created 13 layers, 25 vias
+[WARNING ODB-0220] WARNING (LEFPARS-2008): NOWIREEXTENSIONATPIN statement is obsolete in version 5.6 or later.
+The NOWIREEXTENSIONATPIN statement will be ignored. See file /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef at line 2.
+
+[INFO ODB-0227] LEF file: /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef, created 437 library cells
+[WARNING IFP-0028] Core area lower left (10.000, 10.000) snapped to (10.120, 10.880).
+[INFO IFP-0001] Added 692 rows of 4097 site unithd.
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[INFO PPL-0007] Random pin placement.
+[INFO GPL-0002] DBU: 1000
+[INFO GPL-0003] SiteSize: (  0.460  2.720 ) um
+[INFO GPL-0004] CoreBBox: ( 10.120 10.880 ) ( 1894.740 1893.120 ) um
+[INFO GPL-0006] NumInstances:            132188
+[INFO GPL-0007] NumPlaceInstances:       132188
+[INFO GPL-0008] NumFixedInstances:            0
+[INFO GPL-0009] NumDummyInstances:            0
+[INFO GPL-0010] NumNets:                 132258
+[INFO GPL-0011] NumPins:                 459608
+[INFO GPL-0012] DieBBox:  (  0.000  0.000 ) ( 1904.790 1904.790 ) um
+[INFO GPL-0013] CoreBBox: ( 10.120 10.880 ) ( 1894.740 1893.120 ) um
+[INFO GPL-0016] CoreArea:            3547307.149 um^2
+[INFO GPL-0017] NonPlaceInstsArea:        0.000 um^2
+[INFO GPL-0018] PlaceInstsArea:      710485.162 um^2
+[INFO GPL-0019] Util:                    20.029 %
+[INFO GPL-0020] StdInstsArea:        710485.162 um^2
+[INFO GPL-0021] MacroInstsArea:           0.000 um^2
+[InitialPlace]  Iter: 1 CG residual: 0.00196382 HPWL: 898988230
+[InitialPlace]  Iter: 2 CG residual: 0.00006970 HPWL: 897902698
+[InitialPlace]  Iter: 3 CG residual: 0.00001146 HPWL: 892563996
+[InitialPlace]  Iter: 4 CG residual: 0.00001192 HPWL: 896287606
+[InitialPlace]  Iter: 5 CG residual: 0.00001233 HPWL: 893583091
+[InitialPlace]  Iter: 6 CG residual: 0.00000867 HPWL: 896511584
+[INFO GPL-0031] FillerInit:NumGCells:    203835
+[INFO GPL-0032] FillerInit:NumGNets:     132258
+[INFO GPL-0033] FillerInit:NumGPins:     459608
+[INFO GPL-0023] TargetDensity:            0.300
+[INFO GPL-0024] AvrgPlaceInstArea:        5.375 um^2
+[INFO GPL-0025] IdealBinArea:            17.916 um^2
+[INFO GPL-0026] IdealBinCnt:             197996
+[INFO GPL-0027] TotalBinArea:        3547307.149 um^2
+[INFO GPL-0028] BinCnt:       256    256
+[INFO GPL-0029] BinSize: (  7.362  7.353 )
+[INFO GPL-0030] NumBins: 65536
+[NesterovSolve] Iter:    1 overflow: 0.998 HPWL: 318091094
+[NesterovSolve] Iter:   10 overflow: 0.993 HPWL: 438687123
+[NesterovSolve] Iter:   20 overflow: 0.989 HPWL: 379574778
+[NesterovSolve] Iter:   30 overflow: 0.987 HPWL: 383038743
+[NesterovSolve] Iter:   40 overflow: 0.986 HPWL: 389867538
+[NesterovSolve] Iter:   50 overflow: 0.986 HPWL: 392594476
+[NesterovSolve] Iter:   60 overflow: 0.986 HPWL: 392769668
+[NesterovSolve] Iter:   70 overflow: 0.986 HPWL: 393210999
+[NesterovSolve] Iter:   80 overflow: 0.986 HPWL: 394279874
+[NesterovSolve] Iter:   90 overflow: 0.985 HPWL: 396421714
+[NesterovSolve] Iter:  100 overflow: 0.985 HPWL: 399431015
+[NesterovSolve] Iter:  110 overflow: 0.985 HPWL: 403094077
+[NesterovSolve] Iter:  120 overflow: 0.985 HPWL: 408448592
+[NesterovSolve] Iter:  130 overflow: 0.985 HPWL: 418978629
+[NesterovSolve] Iter:  140 overflow: 0.985 HPWL: 440904088
+[NesterovSolve] Iter:  150 overflow: 0.984 HPWL: 476648167
+[NesterovSolve] Iter:  160 overflow: 0.983 HPWL: 525476000
+[NesterovSolve] Iter:  170 overflow: 0.981 HPWL: 585451748
+[NesterovSolve] Iter:  180 overflow: 0.978 HPWL: 655967193
+[NesterovSolve] Iter:  190 overflow: 0.973 HPWL: 741123343
+[NesterovSolve] Iter:  200 overflow: 0.966 HPWL: 842669389
+[NesterovSolve] Iter:  210 overflow: 0.955 HPWL: 960514636
+[NesterovSolve] Iter:  220 overflow: 0.939 HPWL: 1093314238
+[NesterovSolve] Iter:  230 overflow: 0.920 HPWL: 1242113245
+[NesterovSolve] Iter:  240 overflow: 0.898 HPWL: 1435032729
+[NesterovSolve] Iter:  250 overflow: 0.870 HPWL: 1780127126
+[NesterovSolve] Iter:  260 overflow: 0.842 HPWL: 2023028279
+[NesterovSolve] Iter:  270 overflow: 0.810 HPWL: 2214009614
+[NesterovSolve] Iter:  280 overflow: 0.779 HPWL: 2365974990
+[NesterovSolve] Iter:  290 overflow: 0.744 HPWL: 2513823623
+[NesterovSolve] Iter:  300 overflow: 0.708 HPWL: 2686827362
+[NesterovSolve] Iter:  310 overflow: 0.670 HPWL: 2799351896
+[NesterovSolve] Iter:  320 overflow: 0.634 HPWL: 2922668815
+[NesterovSolve] Snapshot saved at iter = 327
+[NesterovSolve] Iter:  330 overflow: 0.589 HPWL: 3067087376
+[NesterovSolve] Iter:  340 overflow: 0.548 HPWL: 3055446198
+[NesterovSolve] Iter:  350 overflow: 0.502 HPWL: 3145509454
+[NesterovSolve] Iter:  360 overflow: 0.463 HPWL: 3173321566
+[NesterovSolve] Iter:  370 overflow: 0.420 HPWL: 3092308238
+[NesterovSolve] Iter:  380 overflow: 0.378 HPWL: 3102178886
+[NesterovSolve] Iter:  390 overflow: 0.344 HPWL: 3045651639
+[NesterovSolve] Iter:  400 overflow: 0.317 HPWL: 3006126045
+[INFO GPL-0075] Routability numCall: 1 inflationIterCnt: 1 bloatIterCnt: 0
+[INFO GPL-0036] TileBBox: (    0    0 ) ( 6900 6900 ) DBU
+[INFO GPL-0038] TileCnt:     276  276
+[INFO GPL-0040] NumTiles: 76176
+[INFO GPL-0081] TotalRouteOverflow: 0.9178184270858765
+[INFO GPL-0082] OverflowTileCnt: 12
+[INFO GPL-0083] 0.5%RC: 0.779621019920339
+[INFO GPL-0084] 1.0%RC: 0.7240849339899429
+[INFO GPL-0085] 2.0%RC: 0.666119913612138
+[INFO GPL-0086] 5.0%RC: 0.579397374898563
+[INFO GPL-0087] FinalRC: 0.751853
+[INFO GPL-0077] FinalRC lower than targetRC(1.01), routability not needed.
+[NesterovSolve] Iter:  410 overflow: 0.289 HPWL: 2963453735
+[NesterovSolve] Iter:  420 overflow: 0.261 HPWL: 2926839165
+[NesterovSolve] Iter:  430 overflow: 0.237 HPWL: 2895371141
+[NesterovSolve] Iter:  440 overflow: 0.212 HPWL: 2871656947
+[NesterovSolve] Iter:  450 overflow: 0.187 HPWL: 2853478221
+[NesterovSolve] Iter:  460 overflow: 0.164 HPWL: 2841270355
+[NesterovSolve] Iter:  470 overflow: 0.142 HPWL: 2833474144
+[NesterovSolve] Iter:  480 overflow: 0.122 HPWL: 2828852559
+[NesterovSolve] Iter:  490 overflow: 0.105 HPWL: 2826498861
+[NesterovSolve] Finished with Overflow: 0.099003
+[INFO RSZ-0058] Using max wire length 3199um.
+[INFO RSZ-0034] Found 1087 slew violations.
+[INFO RSZ-0036] Found 135 capacitance violations.
+[INFO RSZ-0038] Inserted 483 buffers in 1088 nets.
+[INFO RSZ-0039] Resized 30359 instances.
+Placement Analysis
+---------------------------------
+total displacement     232628.6 u
+average displacement        1.8 u
+max displacement           12.0 u
+original HPWL         2887704.8 u
+legalized HPWL        3036452.8 u
+delta HPWL                    5 %
+
+[INFO CTS-0050] Root buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0051] Sink buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    sky130_fd_sc_hd__clkbuf_16
+[INFO CTS-0049] Characterization buffer is sky130_fd_sc_hd__clkbuf_16.
+[INFO CTS-0007] Net "clk" found for clock "clk".
+[INFO CTS-0010]  Clock net "clk" has 2553 sinks.
+[INFO CTS-0008] TritonCTS found 1 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0200] 0 placement blockages have been identified.
+[INFO CTS-0201] 0 placed hard macros will be treated like blockages.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 2553.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 13600  dbu (13 um).
+[INFO CTS-0023]  Original sink region: [(264765, 534420), (1077585, 1355860)].
+[INFO CTS-0024]  Normalized sink region: [(19.468, 39.2956), (79.2342, 99.6956)].
+[INFO CTS-0025]     Width:  59.7662.
+[INFO CTS-0026]     Height: 60.4000.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 1277
+    Sub-region size: 59.7662 X 30.2000
+[INFO CTS-0034]     Segment length (rounded): 16.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 639
+    Sub-region size: 29.8831 X 30.2000
+[INFO CTS-0034]     Segment length (rounded): 14.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 320
+    Sub-region size: 29.8831 X 15.1000
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 160
+    Sub-region size: 14.9415 X 15.1000
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 80
+    Sub-region size: 14.9415 X 7.5500
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 6
+    Direction: Horizontal
+    Sinks per sub-region: 40
+    Sub-region size: 7.4708 X 7.5500
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 7
+    Direction: Vertical
+    Sinks per sub-region: 20
+    Sub-region size: 7.4708 X 3.7750
+[INFO CTS-0034]     Segment length (rounded): 2.
+ Level 8
+    Direction: Horizontal
+    Sinks per sub-region: 10
+    Sub-region size: 3.7354 X 3.7750
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0032]  Stop criterion found. Max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 2553.
+[INFO CTS-0018]     Created 325 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 4.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 4.
+[INFO CTS-0015]     Created 325 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:1, 4:3, 5:10, 6:18, 7:21, 8:32, 9:26, 10:42, 11:29, 12:26, 13:18, 14:11, 15:8, 16:5, 17:4, 18:2..
+[INFO CTS-0017]     Max level of the clock tree: 8.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 2738
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 1629.81 um
+[INFO CTS-0102]  Path depth 4 - 4
+[INFO CTS-0207]  Leaf load cells 185
+[INFO RSZ-0094] Found 128 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 12 out of 128 (10.00%) violating endpoints...
+[INFO RSZ-0045] Inserted 3 buffers, 1 to split loads.
+[INFO RSZ-0041] Resized 4 instances.
+[INFO RSZ-0043] Swapped pins on 9 instances.
+[INFO RSZ-0049] Cloned 8 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0033] No hold violations found.
+[INFO TAP-0005] Inserted 47192 tapcells.
+Placement Analysis
+---------------------------------
+total displacement      33381.9 u
+average displacement        0.2 u
+max displacement            8.7 u
+original HPWL         3069439.0 u
+legalized HPWL        3093539.7 u
+delta HPWL                    1 %
+
+[INFO PDN-0001] Inserting grid: stdcell
+[INFO DRT-0149] Reading tech and libs.
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer mcon
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via2
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via3
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+[WARNING DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
+
+Units:                1000
+Number of layers:     13
+Number of macros:     437
+Number of vias:       29
+Number of viarulegen: 25
+
+[INFO DRT-0150] Reading design.
+[WARNING DRT-0120] Large net _03916_ has 119 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _03917_ has 108 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _05027_ has 200 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _05065_ has 193 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _09437_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _10951_ has 117 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _10991_ has 111 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _14570_ has 197 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _14572_ has 151 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _15508_ has 134 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _16137_ has 130 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net _16138_ has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_011377_ has 108 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_011928_ has 107 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_012478_ has 107 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_014126_ has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_015420_ has 101 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_015643_ has 106 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_015835_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_015867_ has 101 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_015899_ has 107 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_017686_ has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_017884_ has 132 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_017906_ has 172 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_018159_ has 104 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035232_ has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035238_ has 103 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035246_ has 108 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035249_ has 104 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035271_ has 132 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035273_ has 172 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035305_ has 108 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_035476_ has 105 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_039198_ has 158 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_039202_ has 119 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_039206_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_039207_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_039210_ has 113 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_039396_ has 130 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_056713_ has 158 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_056746_ has 119 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_056790_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_056801_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_056834_ has 113 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_066021_ has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_066028_ has 103 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_066035_ has 109 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_066039_ has 105 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_066063_ has 172 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_066095_ has 106 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_066265_ has 104 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_069994_ has 158 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_069998_ has 119 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_070002_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_070003_ has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_070006_ has 113 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_070180_ has 135 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_096801_ has 129 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_096807_ has 111 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_096815_ has 108 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_096819_ has 105 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_096841_ has 116 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_096875_ has 110 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_097045_ has 103 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_100765_ has 135 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_100768_ has 101 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/_104212_ has 109 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s0\[36\] has 114 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s0\[38\] has 102 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s0\[40\] has 106 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s1\[36\] has 113 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s1\[38\] has 103 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s1\[40\] has 109 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s2\[40\] has 107 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net u_fpu4/s3\[36\] has 112 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net377 has 149 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net390 has 111 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net441 has 141 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net474 has 102 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net475 has 133 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net476 has 103 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net477 has 124 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net478 has 123 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net479 has 134 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net480 has 109 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net481 has 116 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net482 has 124 pins which may impact routing performance. Consider optimization.
+[WARNING DRT-0120] Large net net483 has 143 pins which may impact routing performance. Consider optimization.
+
+Design:                   ember_gsx
+Die area:                 ( 0 0 ) ( 1904790 1904790 )
+Number of track patterns: 12
+Number of DEF vias:       0
+Number of components:     180384
+Number of terminals:      141
+Number of snets:          2
+Number of nets:           133077
+
+[INFO DRT-0167] List of default vias:
+  Layer via
+    default via: M1M2_PR
+  Layer via2
+    default via: M2M3_PR
+  Layer via3
+    default via: M3M4_PR
+  Layer via4
+    default via: M4M5_PR
+[INFO DRT-0162] Library cell analysis.
+[INFO DRT-0163] Instance analysis.
+  Complete 100000 instances.
+[INFO DRT-0164] Number of unique instances = 369.
+[INFO DRT-0168] Init region query.
+[INFO DRT-0018]   Complete 100000 insts.
+[INFO DRT-0024]   Complete FR_MASTERSLICE.
+[INFO DRT-0024]   Complete Fr_VIA.
+[INFO DRT-0024]   Complete li1.
+[INFO DRT-0024]   Complete mcon.
+[INFO DRT-0024]   Complete met1.
+[INFO DRT-0024]   Complete via.
+[INFO DRT-0024]   Complete met2.
+[INFO DRT-0024]   Complete via2.
+[INFO DRT-0024]   Complete met3.
+[INFO DRT-0024]   Complete via3.
+[INFO DRT-0024]   Complete met4.
+[INFO DRT-0024]   Complete via4.
+[INFO DRT-0024]   Complete met5.
+[INFO DRT-0033] FR_MASTERSLICE shape region query size = 0.
+[INFO DRT-0033] FR_VIA shape region query size = 0.
+[INFO DRT-0033] li1 shape region query size = 2639658.
+[INFO DRT-0033] mcon shape region query size = 1419005.
+[INFO DRT-0033] met1 shape region query size = 441741.
+[INFO DRT-0033] via shape region query size = 239177.
+[INFO DRT-0033] met2 shape region query size = 143557.
+[INFO DRT-0033] via2 shape region query size = 191360.
+[INFO DRT-0033] met3 shape region query size = 143502.
+[INFO DRT-0033] via3 shape region query size = 191370.
+[INFO DRT-0033] met4 shape region query size = 57528.
+[INFO DRT-0033] via4 shape region query size = 9553.
+[INFO DRT-0033] met5 shape region query size = 9716.
+[INFO DRT-0165] Start pin access.
+[INFO DRT-0076]   Complete 1000 pins.
+[INFO DRT-0078]   Complete 1514 pins.
+[INFO DRT-0079]   Complete 100 unique inst patterns.
+[INFO DRT-0079]   Complete 200 unique inst patterns.
+[INFO DRT-0079]   Complete 300 unique inst patterns.
+[INFO DRT-0081]   Complete 367 unique inst patterns.
+[INFO DRT-0082]   Complete 10000 groups.
+[INFO DRT-0082]   Complete 20000 groups.
+[INFO DRT-0082]   Complete 30000 groups.
+[INFO DRT-0082]   Complete 40000 groups.
+[INFO DRT-0082]   Complete 50000 groups.
+[INFO DRT-0082]   Complete 60000 groups.
+[INFO DRT-0082]   Complete 70000 groups.
+[INFO DRT-0084]   Complete 79530 groups.
+#scanned instances     = 180384
+#unique  instances     = 369
+#stdCellGenAp          = 11583
+#stdCellValidPlanarAp  = 472
+#stdCellValidViaAp     = 8520
+#stdCellPinNoAp        = 0
+#stdCellPinCnt         = 461306
+#instTermValidViaApCnt = 0
+#macroGenAp            = 0
+#macroValidPlanarAp    = 0
+#macroValidViaAp       = 0
+#macroNoAp             = 0
+[INFO DRT-0166] Complete pin access.
+[INFO DRT-0267] cpu time = 00:12:29, elapsed time = 00:12:29, memory = 3186.01 (MB), peak = 3220.98 (MB)
+[INFO DRT-0156] guideIn read 100000 guides.
+[INFO DRT-0156] guideIn read 200000 guides.
+[INFO DRT-0156] guideIn read 300000 guides.
+[INFO DRT-0156] guideIn read 400000 guides.
+[INFO DRT-0156] guideIn read 500000 guides.
+[INFO DRT-0156] guideIn read 600000 guides.
+[INFO DRT-0156] guideIn read 700000 guides.
+[INFO DRT-0156] guideIn read 800000 guides.
+[INFO DRT-0156] guideIn read 900000 guides.
+[INFO DRT-0156] guideIn read 1000000 guides.
+
+[INFO DRT-0157] Number of guides:     1301878
+
+[INFO DRT-0169] Post process guides.
+[INFO DRT-0176] GCELLGRID X 0 DO 276 STEP 6900 ;
+[INFO DRT-0177] GCELLGRID Y 0 DO 276 STEP 6900 ;
+[INFO DRT-0026]   Complete 100000 origin guides.
+[INFO DRT-0026]   Complete 200000 origin guides.
+[INFO DRT-0026]   Complete 300000 origin guides.
+[INFO DRT-0026]   Complete 400000 origin guides.
+[INFO DRT-0026]   Complete 500000 origin guides.
+[INFO DRT-0026]   Complete 600000 origin guides.
+[INFO DRT-0026]   Complete 700000 origin guides.
+[INFO DRT-0026]   Complete 800000 origin guides.
+[INFO DRT-0026]   Complete 900000 origin guides.
+[INFO DRT-0027]   Complete 1000000 origin guides.
+[INFO DRT-0028]   Complete FR_MASTERSLICE.
+[INFO DRT-0028]   Complete Fr_VIA.
+[INFO DRT-0028]   Complete li1.
+[INFO DRT-0028]   Complete mcon.
+[INFO DRT-0028]   Complete met1.
+[INFO DRT-0028]   Complete via.
+[INFO DRT-0028]   Complete met2.
+[INFO DRT-0028]   Complete via2.
+[INFO DRT-0028]   Complete met3.
+[INFO DRT-0028]   Complete via3.
+[INFO DRT-0028]   Complete met4.
+[INFO DRT-0028]   Complete via4.
+[INFO DRT-0028]   Complete met5.
+  complete 100000 nets.
+[INFO DRT-0178] Init guide query.
+[INFO DRT-0029]   Complete 100000 nets (guide).
+[INFO DRT-0035]   Complete FR_MASTERSLICE (guide).
+[INFO DRT-0035]   Complete Fr_VIA (guide).
+[INFO DRT-0035]   Complete li1 (guide).
+[INFO DRT-0035]   Complete mcon (guide).
+[INFO DRT-0035]   Complete met1 (guide).
+[INFO DRT-0035]   Complete via (guide).
+[INFO DRT-0035]   Complete met2 (guide).
+[INFO DRT-0035]   Complete via2 (guide).
+[INFO DRT-0035]   Complete met3 (guide).
+[INFO DRT-0035]   Complete via3 (guide).
+[INFO DRT-0035]   Complete met4 (guide).
+[INFO DRT-0035]   Complete via4 (guide).
+[INFO DRT-0035]   Complete met5 (guide).
+[INFO DRT-0036] FR_MASTERSLICE guide region query size = 0.
+[INFO DRT-0036] FR_VIA guide region query size = 0.
+[INFO DRT-0036] li1 guide region query size = 348105.
+[INFO DRT-0036] mcon guide region query size = 0.
+[INFO DRT-0036] met1 guide region query size = 251959.
+[INFO DRT-0036] via guide region query size = 0.
+[INFO DRT-0036] met2 guide region query size = 193189.
+[INFO DRT-0036] via2 guide region query size = 0.
+[INFO DRT-0036] met3 guide region query size = 83185.
+[INFO DRT-0036] via3 guide region query size = 0.
+[INFO DRT-0036] met4 guide region query size = 1650.
+[INFO DRT-0036] via4 guide region query size = 0.
+[INFO DRT-0036] met5 guide region query size = 822.
+[INFO DRT-0179] Init gr pin query.
+[INFO DRT-0245] skipped writing guide updates to database.
+[INFO DRT-0185] Post process initialize RPin region query.
+[INFO DRT-0181] Start track assignment.
+[INFO DRT-0184] Done with 542944 vertical wires in 6 frboxes and 335966 horizontal wires in 6 frboxes.
+[INFO DRT-0186] Done with 73418 vertical wires in 6 frboxes and 70029 horizontal wires in 6 frboxes.
+[INFO DRT-0182] Complete track assignment.
+[INFO DRT-0267] cpu time = 00:00:41, elapsed time = 00:00:41, memory = 4762.70 (MB), peak = 4762.70 (MB)
+[INFO DRT-0187] Start routing data preparation.
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 4762.70 (MB), peak = 4762.70 (MB)
+[INFO DRT-0194] Start detail routing.
+[INFO DRT-0195] Start 0th optimization iteration.
+    Completing 10% with 0 violations.
+    elapsed time = 00:02:28, memory = 4804.21 (MB).
+    Completing 20% with 0 violations.
+    elapsed time = 00:06:01, memory = 6376.33 (MB).
+    Completing 30% with 7851 violations.
+    elapsed time = 00:07:27, memory = 6963.51 (MB).
+    Completing 40% with 7851 violations.
+    elapsed time = 00:11:41, memory = 6963.51 (MB).
+    Completing 50% with 7851 violations.
+    elapsed time = 00:14:31, memory = 7068.24 (MB).
+    Completing 60% with 16848 violations.
+    elapsed time = 00:17:08, memory = 7137.99 (MB).
+    Completing 70% with 16848 violations.
+    elapsed time = 00:20:46, memory = 7137.99 (MB).
+    Completing 80% with 24609 violations.
+    elapsed time = 00:22:22, memory = 7300.36 (MB).
+    Completing 90% with 24609 violations.
+    elapsed time = 00:26:52, memory = 7300.36 (MB).
+    Completing 100% with 33527 violations.
+    elapsed time = 00:29:15, memory = 7457.22 (MB).
+[INFO DRT-0199]   Number of violations = 42972.
+Viol/Layer         li1   mcon   met1    via   met2   via2   met3   via3   met4   via4   met5
+Cut Spacing          0    273      0      3      0      3      0      0      0     10      0
+Metal Spacing     1275      0   8370      0   2868      0   1028      0     37      0    109
+Min Hole             0      0     69      0      1      0      0      0      0      0      0
+NS Metal             4      0      1      0      0      0      0      0      0      0      0
+Recheck             43      0   4116      0   3811      0   1333      0     23      0    119
+Short                0     11  12352     11   4498      2   2384      3     17      3    195
+[INFO DRT-0267] cpu time = 00:29:20, elapsed time = 00:29:20, memory = 7457.22 (MB), peak = 7457.22 (MB)
+Total wire length = 4111207 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 906768 um.
+Total wire length on LAYER met2 = 1900166 um.
+Total wire length on LAYER met3 = 1215529 um.
+Total wire length on LAYER met4 = 31051 um.
+Total wire length on LAYER met5 = 57690 um.
+Total number of vias = 1005870.
+Up-via summary (total 1005870):
+
+--------------------------
+ FR_MASTERSLICE          0
+            li1     459750
+           met1     426619
+           met2     115877
+           met3       2340
+           met4       1284
+--------------------------
+                   1005870
+
+
+[INFO DRT-0195] Start 1st optimization iteration.
+    Completing 10% with 42972 violations.
+    elapsed time = 00:02:14, memory = 7457.22 (MB).
+    Completing 20% with 42972 violations.
+    elapsed time = 00:05:29, memory = 7457.22 (MB).
+    Completing 30% with 35858 violations.
+    elapsed time = 00:06:52, memory = 7457.22 (MB).
+    Completing 40% with 35858 violations.
+    elapsed time = 00:10:11, memory = 7457.22 (MB).
+    Completing 50% with 35858 violations.
+    elapsed time = 00:12:46, memory = 7457.22 (MB).
+    Completing 60% with 28560 violations.
+    elapsed time = 00:15:15, memory = 7460.04 (MB).
+    Completing 70% with 28560 violations.
+    elapsed time = 00:18:19, memory = 7460.04 (MB).
+    Completing 80% with 21822 violations.
+    elapsed time = 00:19:36, memory = 7461.16 (MB).
+    Completing 90% with 21822 violations.
+    elapsed time = 00:23:10, memory = 7461.16 (MB).
+    Completing 100% with 14711 violations.
+    elapsed time = 00:25:18, memory = 7461.16 (MB).
+[INFO DRT-0199]   Number of violations = 14726.
+Viol/Layer         li1   mcon   met1    via   met2   met3   met4   met5
+Cut Spacing          0     12      0      0      0      0      0      0
+Metal Spacing        4      0   4108      0   1162    140      7     14
+Min Hole             0      0     13      0      2      0      0      0
+Recheck              0      0     13      0      5      0      0      0
+Short                0      0   8028      3   1167     38      0     10
+[INFO DRT-0267] cpu time = 00:25:23, elapsed time = 00:25:23, memory = 7465.29 (MB), peak = 7465.29 (MB)
+Total wire length = 4077200 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 932147 um.
+Total wire length on LAYER met2 = 1882161 um.
+Total wire length on LAYER met3 = 1176209 um.
+Total wire length on LAYER met4 = 31248 um.
+Total wire length on LAYER met5 = 55434 um.
+Total number of vias = 994654.
+Up-via summary (total 994654):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459488
+           met1    427209
+           met2    104658
+           met3      2224
+           met4      1075
+-------------------------
+                   994654
+
+
+[INFO DRT-0195] Start 2nd optimization iteration.
+    Completing 10% with 14726 violations.
+    elapsed time = 00:01:57, memory = 7465.29 (MB).
+    Completing 20% with 14726 violations.
+    elapsed time = 00:05:10, memory = 7465.29 (MB).
+    Completing 30% with 14595 violations.
+    elapsed time = 00:06:21, memory = 7465.29 (MB).
+    Completing 40% with 14595 violations.
+    elapsed time = 00:09:51, memory = 7322.41 (MB).
+    Completing 50% with 14595 violations.
+    elapsed time = 00:12:49, memory = 6476.41 (MB).
+    Completing 60% with 14104 violations.
+    elapsed time = 00:15:03, memory = 6478.10 (MB).
+    Completing 70% with 14104 violations.
+    elapsed time = 00:18:09, memory = 6479.79 (MB).
+    Completing 80% with 14029 violations.
+    elapsed time = 00:19:27, memory = 6479.79 (MB).
+    Completing 90% with 14029 violations.
+    elapsed time = 00:23:02, memory = 6481.66 (MB).
+    Completing 100% with 13633 violations.
+    elapsed time = 00:25:43, memory = 6481.66 (MB).
+[INFO DRT-0199]   Number of violations = 13661.
+Viol/Layer        mcon   met1   met2   met3   met4
+Cut Spacing         15      0      0      0      0
+Metal Spacing        0   3820   1093    112      6
+Min Hole             0     13      1      0      0
+Recheck              0     24      4      0      0
+Short                0   7377   1151     45      0
+[INFO DRT-0267] cpu time = 00:25:48, elapsed time = 00:25:49, memory = 6482.60 (MB), peak = 7465.29 (MB)
+Total wire length = 4068962 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 935421 um.
+Total wire length on LAYER met2 = 1878796 um.
+Total wire length on LAYER met3 = 1169981 um.
+Total wire length on LAYER met4 = 30648 um.
+Total wire length on LAYER met5 = 54113 um.
+Total number of vias = 992215.
+Up-via summary (total 992215):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    427073
+           met2    102547
+           met3      2128
+           met4       983
+-------------------------
+                   992215
+
+
+[INFO DRT-0195] Start 3rd optimization iteration.
+    Completing 10% with 13661 violations.
+    elapsed time = 00:01:48, memory = 6483.35 (MB).
+    Completing 20% with 13661 violations.
+    elapsed time = 00:03:53, memory = 6483.35 (MB).
+    Completing 30% with 10777 violations.
+    elapsed time = 00:04:46, memory = 6483.35 (MB).
+    Completing 40% with 10777 violations.
+    elapsed time = 00:07:14, memory = 6483.54 (MB).
+    Completing 50% with 10777 violations.
+    elapsed time = 00:08:55, memory = 6483.54 (MB).
+    Completing 60% with 7804 violations.
+    elapsed time = 00:10:50, memory = 6483.91 (MB).
+    Completing 70% with 7804 violations.
+    elapsed time = 00:13:09, memory = 6484.10 (MB).
+    Completing 80% with 5290 violations.
+    elapsed time = 00:14:11, memory = 6484.10 (MB).
+    Completing 90% with 5290 violations.
+    elapsed time = 00:16:45, memory = 6484.47 (MB).
+    Completing 100% with 2482 violations.
+    elapsed time = 00:18:16, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 2482.
+Viol/Layer        mcon   met1    via   met2   met3
+Cut Spacing          3      0      2      0      0
+Metal Spacing        0    808      0    154     22
+Min Hole             0      2      0      1      0
+NS Metal             0      1      0      0      0
+Short                0   1301      0    182      6
+[INFO DRT-0267] cpu time = 00:18:18, elapsed time = 00:18:18, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073487 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 973620 um.
+Total wire length on LAYER met2 = 1870798 um.
+Total wire length on LAYER met3 = 1136250 um.
+Total wire length on LAYER met4 = 38893 um.
+Total wire length on LAYER met5 = 53923 um.
+Total number of vias = 994478.
+Up-via summary (total 994478):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    431945
+           met2     99120
+           met3      2950
+           met4       979
+-------------------------
+                   994478
+
+
+[INFO DRT-0195] Start 4th optimization iteration.
+    Completing 10% with 2482 violations.
+    elapsed time = 00:00:13, memory = 6484.47 (MB).
+    Completing 20% with 2482 violations.
+    elapsed time = 00:00:36, memory = 6484.47 (MB).
+    Completing 30% with 2103 violations.
+    elapsed time = 00:00:41, memory = 6484.47 (MB).
+    Completing 40% with 2103 violations.
+    elapsed time = 00:01:01, memory = 6484.47 (MB).
+    Completing 50% with 2103 violations.
+    elapsed time = 00:01:21, memory = 6484.47 (MB).
+    Completing 60% with 1528 violations.
+    elapsed time = 00:02:11, memory = 6484.47 (MB).
+    Completing 70% with 1528 violations.
+    elapsed time = 00:02:51, memory = 6484.47 (MB).
+    Completing 80% with 881 violations.
+    elapsed time = 00:02:57, memory = 6484.47 (MB).
+    Completing 90% with 881 violations.
+    elapsed time = 00:03:43, memory = 6484.47 (MB).
+    Completing 100% with 390 violations.
+    elapsed time = 00:03:59, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 390.
+Viol/Layer        met1   met2
+Metal Spacing      134     11
+Short              233     12
+[INFO DRT-0267] cpu time = 00:04:00, elapsed time = 00:04:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073770 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977297 um.
+Total wire length on LAYER met2 = 1869951 um.
+Total wire length on LAYER met3 = 1132815 um.
+Total wire length on LAYER met4 = 39810 um.
+Total wire length on LAYER met5 = 53894 um.
+Total number of vias = 994606.
+Up-via summary (total 994606):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432360
+           met2     98781
+           met3      3003
+           met4       978
+-------------------------
+                   994606
+
+
+[INFO DRT-0195] Start 5th optimization iteration.
+    Completing 10% with 390 violations.
+    elapsed time = 00:00:05, memory = 6484.47 (MB).
+    Completing 20% with 390 violations.
+    elapsed time = 00:00:14, memory = 6484.47 (MB).
+    Completing 30% with 330 violations.
+    elapsed time = 00:00:14, memory = 6484.47 (MB).
+    Completing 40% with 330 violations.
+    elapsed time = 00:00:20, memory = 6484.47 (MB).
+    Completing 50% with 330 violations.
+    elapsed time = 00:00:22, memory = 6484.47 (MB).
+    Completing 60% with 319 violations.
+    elapsed time = 00:00:32, memory = 6484.47 (MB).
+    Completing 70% with 319 violations.
+    elapsed time = 00:00:36, memory = 6484.47 (MB).
+    Completing 80% with 208 violations.
+    elapsed time = 00:00:38, memory = 6484.47 (MB).
+    Completing 90% with 208 violations.
+    elapsed time = 00:00:55, memory = 6484.47 (MB).
+    Completing 100% with 57 violations.
+    elapsed time = 00:00:56, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 57.
+Viol/Layer        met1   met2
+Metal Spacing       26      1
+Short               29      1
+[INFO DRT-0267] cpu time = 00:00:56, elapsed time = 00:00:56, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073822 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977619 um.
+Total wire length on LAYER met2 = 1869866 um.
+Total wire length on LAYER met3 = 1132588 um.
+Total wire length on LAYER met4 = 39865 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994604.
+Up-via summary (total 994604):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432389
+           met2     98747
+           met3      3006
+           met4       978
+-------------------------
+                   994604
+
+
+[INFO DRT-0195] Start 6th optimization iteration.
+    Completing 10% with 57 violations.
+    elapsed time = 00:00:03, memory = 6484.47 (MB).
+    Completing 20% with 57 violations.
+    elapsed time = 00:00:05, memory = 6484.47 (MB).
+    Completing 30% with 39 violations.
+    elapsed time = 00:00:05, memory = 6484.47 (MB).
+    Completing 40% with 39 violations.
+    elapsed time = 00:00:11, memory = 6484.47 (MB).
+    Completing 50% with 39 violations.
+    elapsed time = 00:00:11, memory = 6484.47 (MB).
+    Completing 60% with 39 violations.
+    elapsed time = 00:00:16, memory = 6484.47 (MB).
+    Completing 70% with 39 violations.
+    elapsed time = 00:00:19, memory = 6484.47 (MB).
+    Completing 80% with 34 violations.
+    elapsed time = 00:00:19, memory = 6484.47 (MB).
+    Completing 90% with 34 violations.
+    elapsed time = 00:00:26, memory = 6484.47 (MB).
+    Completing 100% with 18 violations.
+    elapsed time = 00:00:26, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 18.
+Viol/Layer        met1
+Metal Spacing       10
+Short                8
+[INFO DRT-0267] cpu time = 00:00:26, elapsed time = 00:00:26, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073802 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977655 um.
+Total wire length on LAYER met2 = 1869860 um.
+Total wire length on LAYER met3 = 1132540 um.
+Total wire length on LAYER met4 = 39865 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994607.
+Up-via summary (total 994607):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432400
+           met2     98739
+           met3      3006
+           met4       978
+-------------------------
+                   994607
+
+
+[INFO DRT-0195] Start 7th optimization iteration.
+    Completing 10% with 18 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 20% with 18 violations.
+    elapsed time = 00:00:02, memory = 6484.47 (MB).
+    Completing 30% with 16 violations.
+    elapsed time = 00:00:02, memory = 6484.47 (MB).
+    Completing 40% with 16 violations.
+    elapsed time = 00:00:08, memory = 6484.47 (MB).
+    Completing 50% with 16 violations.
+    elapsed time = 00:00:08, memory = 6484.47 (MB).
+    Completing 60% with 15 violations.
+    elapsed time = 00:00:08, memory = 6484.47 (MB).
+    Completing 70% with 15 violations.
+    elapsed time = 00:00:12, memory = 6484.47 (MB).
+    Completing 80% with 14 violations.
+    elapsed time = 00:00:12, memory = 6484.47 (MB).
+    Completing 90% with 14 violations.
+    elapsed time = 00:00:15, memory = 6484.47 (MB).
+    Completing 100% with 14 violations.
+    elapsed time = 00:00:15, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 14.
+Viol/Layer        met1
+Metal Spacing       11
+Short                3
+[INFO DRT-0267] cpu time = 00:00:16, elapsed time = 00:00:16, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073814 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977688 um.
+Total wire length on LAYER met2 = 1869817 um.
+Total wire length on LAYER met3 = 1132521 um.
+Total wire length on LAYER met4 = 39905 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994618.
+Up-via summary (total 994618):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432413
+           met2     98734
+           met3      3009
+           met4       978
+-------------------------
+                   994618
+
+
+[INFO DRT-0195] Start 8th optimization iteration.
+    Completing 10% with 14 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 14 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 30% with 12 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 40% with 12 violations.
+    elapsed time = 00:00:02, memory = 6484.47 (MB).
+    Completing 50% with 12 violations.
+    elapsed time = 00:00:10, memory = 6484.47 (MB).
+    Completing 60% with 11 violations.
+    elapsed time = 00:00:10, memory = 6484.47 (MB).
+    Completing 70% with 11 violations.
+    elapsed time = 00:00:11, memory = 6484.47 (MB).
+    Completing 80% with 11 violations.
+    elapsed time = 00:00:11, memory = 6484.47 (MB).
+    Completing 90% with 11 violations.
+    elapsed time = 00:00:15, memory = 6484.47 (MB).
+    Completing 100% with 11 violations.
+    elapsed time = 00:00:15, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 11.
+Viol/Layer        met1
+Metal Spacing        8
+Short                3
+[INFO DRT-0267] cpu time = 00:00:15, elapsed time = 00:00:15, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073822 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977730 um.
+Total wire length on LAYER met2 = 1869816 um.
+Total wire length on LAYER met3 = 1132488 um.
+Total wire length on LAYER met4 = 39905 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994615.
+Up-via summary (total 994615):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432411
+           met2     98733
+           met3      3009
+           met4       978
+-------------------------
+                   994615
+
+
+[INFO DRT-0195] Start 9th optimization iteration.
+    Completing 10% with 11 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 11 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 30% with 11 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 40% with 11 violations.
+    elapsed time = 00:00:02, memory = 6484.47 (MB).
+    Completing 50% with 11 violations.
+    elapsed time = 00:00:10, memory = 6484.47 (MB).
+    Completing 60% with 11 violations.
+    elapsed time = 00:00:10, memory = 6484.47 (MB).
+    Completing 70% with 11 violations.
+    elapsed time = 00:00:10, memory = 6484.47 (MB).
+    Completing 80% with 11 violations.
+    elapsed time = 00:00:10, memory = 6484.47 (MB).
+    Completing 90% with 11 violations.
+    elapsed time = 00:00:14, memory = 6484.47 (MB).
+    Completing 100% with 11 violations.
+    elapsed time = 00:00:14, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 11.
+Viol/Layer        met1
+Metal Spacing        8
+Short                3
+[INFO DRT-0267] cpu time = 00:00:14, elapsed time = 00:00:14, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073822 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977731 um.
+Total wire length on LAYER met2 = 1869816 um.
+Total wire length on LAYER met3 = 1132488 um.
+Total wire length on LAYER met4 = 39905 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994615.
+Up-via summary (total 994615):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432411
+           met2     98733
+           met3      3009
+           met4       978
+-------------------------
+                   994615
+
+
+[INFO DRT-0195] Start 10th optimization iteration.
+    Completing 10% with 11 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 11 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 11 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 11 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 11 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 60% with 6 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 70% with 6 violations.
+    elapsed time = 00:00:02, memory = 6484.47 (MB).
+    Completing 80% with 3 violations.
+    elapsed time = 00:00:02, memory = 6484.47 (MB).
+    Completing 90% with 3 violations.
+    elapsed time = 00:00:03, memory = 6484.47 (MB).
+    Completing 100% with 2 violations.
+    elapsed time = 00:00:06, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 2.
+Viol/Layer        met1
+Short                2
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:06, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073839 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977828 um.
+Total wire length on LAYER met2 = 1869844 um.
+Total wire length on LAYER met3 = 1132402 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994611.
+Up-via summary (total 994611):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432417
+           met2     98725
+           met3      3007
+           met4       978
+-------------------------
+                   994611
+
+
+[INFO DRT-0195] Start 11th optimization iteration.
+    Completing 10% with 2 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 2 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:01, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073837 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977825 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132402 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994613.
+Up-via summary (total 994613):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432419
+           met2     98725
+           met3      3007
+           met4       978
+-------------------------
+                   994613
+
+
+[INFO DRT-0195] Start 12th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073838 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977826 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132402 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994613.
+Up-via summary (total 994613):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432419
+           met2     98725
+           met3      3007
+           met4       978
+-------------------------
+                   994613
+
+
+[INFO DRT-0195] Start 13th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073840 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977827 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132402 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994613.
+Up-via summary (total 994613):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432419
+           met2     98725
+           met3      3007
+           met4       978
+-------------------------
+                   994613
+
+
+[INFO DRT-0195] Start 14th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073838 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977824 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994614.
+Up-via summary (total 994614):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432418
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994614
+
+
+[INFO DRT-0195] Start 15th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073839 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977824 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994614.
+Up-via summary (total 994614):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432418
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994614
+
+
+[INFO DRT-0195] Start 16th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073840 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977825 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994614.
+Up-via summary (total 994614):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432418
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994614
+
+
+[INFO DRT-0195] Start 17th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:06, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:06, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:07, elapsed time = 00:00:07, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073840 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977825 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994614.
+Up-via summary (total 994614):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432418
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994614
+
+
+[INFO DRT-0195] Start 18th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073839 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977824 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994614.
+Up-via summary (total 994614):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432418
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994614
+
+
+[INFO DRT-0195] Start 19th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 100% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 1.
+Viol/Layer        met1
+Short                1
+[INFO DRT-0267] cpu time = 00:00:00, elapsed time = 00:00:00, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073840 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977825 um.
+Total wire length on LAYER met2 = 1869845 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994614.
+Up-via summary (total 994614):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432418
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994614
+
+
+[INFO DRT-0195] Start 20th optimization iteration.
+    Completing 10% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 20% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 30% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 40% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 50% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 60% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 70% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 80% with 1 violations.
+    elapsed time = 00:00:00, memory = 6484.47 (MB).
+    Completing 90% with 1 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:01, memory = 6484.47 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:01, elapsed time = 00:00:01, memory = 6484.47 (MB), peak = 7465.29 (MB)
+Total wire length = 4073906 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977886 um.
+Total wire length on LAYER met2 = 1869851 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994622.
+Up-via summary (total 994622):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432426
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994622
+
+
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 4073906 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 977886 um.
+Total wire length on LAYER met2 = 1869851 um.
+Total wire length on LAYER met3 = 1132404 um.
+Total wire length on LAYER met4 = 39883 um.
+Total wire length on LAYER met5 = 53881 um.
+Total number of vias = 994622.
+Up-via summary (total 994622):
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1    459484
+           met1    432426
+           met2     98727
+           met3      3007
+           met4       978
+-------------------------
+                   994622
+
+
+[INFO DRT-0267] cpu time = 01:45:25, elapsed time = 01:45:26, memory = 6484.47 (MB), peak = 7465.29 (MB)
+
+[INFO DRT-0180] Post processing.
+[INFO DPL-0001] Placed 393457 filler instances.
+Design area 874120 u^2 25% utilization.
+DESIGN_AREA=
+wns -48.35
+tns -6131.49
+Startpoint: u_fpu4/_225392_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_fpu4/_225291_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_fpu4/_225392_/CLK (sky130_fd_sc_hd__dfrtp_4)
+   0.88    0.88 ^ u_fpu4/_225392_/Q (sky130_fd_sc_hd__dfrtp_4)
+   0.29    1.17 v u_fpu4/_141040_/Y (sky130_fd_sc_hd__clkinv_16)
+   0.21    1.38 ^ u_fpu4/_144783_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13    1.51 v u_fpu4/_144786_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.16    1.68 ^ u_fpu4/_148606_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.09    1.77 v u_fpu4/_148607_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.24    2.00 ^ u_fpu4/_148608_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14    2.14 v u_fpu4/_148609_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.39    2.53 ^ u_fpu4/_148616_/Y (sky130_fd_sc_hd__a21oi_4)
+   0.22    2.75 ^ load_slew369/X (sky130_fd_sc_hd__buf_16)
+   0.20    2.94 ^ max_cap368/X (sky130_fd_sc_hd__buf_12)
+   0.11    3.05 v u_fpu4/_148941_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16    3.22 v u_fpu4/_148942_/X (sky130_fd_sc_hd__o211a_1)
+   0.19    3.41 ^ u_fpu4/_148954_/Y (sky130_fd_sc_hd__nor2_1)
+   0.12    3.53 v u_fpu4/_148955_/Y (sky130_fd_sc_hd__nand4_1)
+   0.21    3.74 v u_fpu4/_148995_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.28    4.02 ^ u_fpu4/_148996_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13    4.15 v u_fpu4/_148997_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.59    4.74 ^ u_fpu4/_149032_/Y (sky130_fd_sc_hd__a211oi_4)
+   0.19    4.92 v u_fpu4/_149245_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17    5.09 ^ u_fpu4/_149252_/Y (sky130_fd_sc_hd__nand3_1)
+   0.10    5.20 v u_fpu4/_149253_/Y (sky130_fd_sc_hd__inv_1)
+   0.23    5.43 ^ u_fpu4/_149428_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16    5.59 v u_fpu4/_149432_/Y (sky130_fd_sc_hd__nand3_1)
+   0.39    5.97 ^ u_fpu4/_149433_/Y (sky130_fd_sc_hd__nor4_2)
+   0.28    6.26 v u_fpu4/_149436_/Y (sky130_fd_sc_hd__nand4_4)
+   0.66    6.92 ^ u_fpu4/_149437_/Y (sky130_fd_sc_hd__nand4_4)
+   0.28    7.20 v u_fpu4/_149659_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.27    7.47 v u_fpu4/_149669_/X (sky130_fd_sc_hd__and3_1)
+   0.14    7.61 ^ u_fpu4/_149676_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    7.74 v u_fpu4/_149680_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27    8.01 ^ u_fpu4/_149722_/Y (sky130_fd_sc_hd__nor3_1)
+   0.13    8.14 v u_fpu4/_149804_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.17    8.30 ^ u_fpu4/_149805_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.40    8.70 v u_fpu4/_149830_/Y (sky130_fd_sc_hd__o2111ai_4)
+   0.44    9.14 ^ u_fpu4/_149891_/Y (sky130_fd_sc_hd__nor2_8)
+   0.17    9.30 v u_fpu4/_150082_/Y (sky130_fd_sc_hd__nand2_1)
+   0.19    9.49 v u_fpu4/_150108_/X (sky130_fd_sc_hd__and3_1)
+   0.17    9.66 ^ u_fpu4/_150109_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    9.80 v u_fpu4/_150114_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27   10.07 ^ u_fpu4/_150165_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   10.24 v u_fpu4/_150251_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   10.41 ^ u_fpu4/_150252_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   10.60 v u_fpu4/_150400_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   11.08 ^ u_fpu4/_150466_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   11.34 ^ load_slew334/X (sky130_fd_sc_hd__buf_6)
+   0.20   11.55 ^ load_slew332/X (sky130_fd_sc_hd__buf_6)
+   0.23   11.78 ^ u_fpu4/_150830_/X (sky130_fd_sc_hd__o21a_1)
+   0.22   11.99 ^ u_fpu4/_151107_/X (sky130_fd_sc_hd__and2_0)
+   0.14   12.14 v u_fpu4/_151108_/Y (sky130_fd_sc_hd__nand4_2)
+   0.33   12.46 ^ u_fpu4/_151111_/Y (sky130_fd_sc_hd__nor3_1)
+   0.17   12.64 v u_fpu4/_151112_/Y (sky130_fd_sc_hd__nand4_2)
+   0.39   13.03 ^ u_fpu4/_151113_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   13.20 v u_fpu4/_151129_/Y (sky130_fd_sc_hd__clkinv_4)
+   0.43   13.63 ^ u_fpu4/_151130_/Y (sky130_fd_sc_hd__nand4_4)
+   0.22   13.85 v u_fpu4/_151294_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   14.03 v u_fpu4/_151319_/X (sky130_fd_sc_hd__o211a_1)
+   0.17   14.19 ^ u_fpu4/_151320_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14   14.33 v u_fpu4/_151325_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   14.68 ^ u_fpu4/_151364_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   14.83 v u_fpu4/_151450_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   14.98 ^ u_fpu4/_151451_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.18   15.17 v u_fpu4/_151663_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   15.65 ^ u_fpu4/_151740_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   15.87 ^ load_slew305/X (sky130_fd_sc_hd__buf_6)
+   0.18   16.05 ^ load_slew303/X (sky130_fd_sc_hd__buf_6)
+   0.09   16.14 v u_fpu4/_151829_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   16.31 ^ u_fpu4/_151832_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   16.41 v u_fpu4/_151833_/Y (sky130_fd_sc_hd__nor2_1)
+   0.23   16.63 ^ u_fpu4/_151834_/Y (sky130_fd_sc_hd__nor2_2)
+   0.24   16.88 ^ u_fpu4/_151859_/X (sky130_fd_sc_hd__o2111a_1)
+   0.08   16.96 v u_fpu4/_151863_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.24   17.20 ^ u_fpu4/_152084_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   17.40 v u_fpu4/_152282_/Y (sky130_fd_sc_hd__nand4_4)
+   0.57   17.97 ^ u_fpu4/_152357_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   18.25 ^ max_cap288/X (sky130_fd_sc_hd__buf_6)
+   0.17   18.42 ^ max_cap287/X (sky130_fd_sc_hd__probe_p_8)
+   0.08   18.50 v u_fpu4/_152530_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   18.64 ^ u_fpu4/_152531_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.13   18.77 v u_fpu4/_152533_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   18.91 ^ u_fpu4/_152535_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   19.04 v u_fpu4/_152570_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   19.35 ^ u_fpu4/_152609_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   19.53 v u_fpu4/_152696_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   19.69 ^ u_fpu4/_152697_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   19.89 v u_fpu4/_152898_/Y (sky130_fd_sc_hd__nand4_4)
+   0.56   20.45 ^ u_fpu4/_152967_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   20.68 ^ load_slew270/X (sky130_fd_sc_hd__probe_p_8)
+   0.17   20.85 ^ max_cap269/X (sky130_fd_sc_hd__buf_6)
+   0.08   20.93 v u_fpu4/_153124_/Y (sky130_fd_sc_hd__nand2_1)
+   0.09   21.02 ^ u_fpu4/_153125_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.07   21.08 v u_fpu4/_153545_/Y (sky130_fd_sc_hd__inv_1)
+   0.24   21.32 ^ u_fpu4/_153546_/Y (sky130_fd_sc_hd__nor2_1)
+   0.09   21.41 v u_fpu4/_153547_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   21.72 ^ u_fpu4/_153550_/Y (sky130_fd_sc_hd__nor3_1)
+   0.18   21.90 v u_fpu4/_153551_/Y (sky130_fd_sc_hd__nand4_2)
+   0.43   22.33 ^ u_fpu4/_153594_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   22.50 v u_fpu4/_153595_/Y (sky130_fd_sc_hd__inv_2)
+   0.37   22.87 ^ u_fpu4/_153596_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   23.03 v u_fpu4/_153765_/Y (sky130_fd_sc_hd__nand2_1)
+   0.18   23.21 v u_fpu4/_153773_/X (sky130_fd_sc_hd__o211a_1)
+   0.18   23.38 ^ u_fpu4/_153774_/Y (sky130_fd_sc_hd__nor2_2)
+   0.17   23.56 v u_fpu4/_153793_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   23.85 ^ u_fpu4/_153834_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   24.03 v u_fpu4/_154256_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   24.18 ^ u_fpu4/_154257_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   24.36 v u_fpu4/_154258_/Y (sky130_fd_sc_hd__nand4_4)
+   0.35   24.71 ^ u_fpu4/_154260_/Y (sky130_fd_sc_hd__nor4_2)
+   0.24   24.95 ^ load_slew239/X (sky130_fd_sc_hd__buf_6)
+   0.07   25.02 v u_fpu4/_154281_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   25.19 ^ u_fpu4/_154282_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.21   25.40 ^ u_fpu4/_154380_/X (sky130_fd_sc_hd__or2_0)
+   0.09   25.49 v u_fpu4/_154381_/Y (sky130_fd_sc_hd__nand2_1)
+   0.32   25.81 ^ u_fpu4/_154382_/Y (sky130_fd_sc_hd__nor4b_1)
+   0.15   25.96 v u_fpu4/_154383_/Y (sky130_fd_sc_hd__nand3_1)
+   0.18   26.14 ^ u_fpu4/_154888_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   26.33 v u_fpu4/_154889_/Y (sky130_fd_sc_hd__nand4_4)
+   0.40   26.74 ^ u_fpu4/_154891_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   26.99 ^ wire224/X (sky130_fd_sc_hd__buf_6)
+   0.20   27.19 ^ load_slew223/X (sky130_fd_sc_hd__buf_6)
+   0.19   27.38 ^ load_slew222/X (sky130_fd_sc_hd__buf_6)
+   0.07   27.45 v u_fpu4/_155217_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   27.61 ^ u_fpu4/_155218_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   27.71 v u_fpu4/_155219_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   27.93 ^ u_fpu4/_155475_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   28.10 v u_fpu4/_155476_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   28.38 ^ u_fpu4/_155477_/Y (sky130_fd_sc_hd__nor2_2)
+   0.22   28.60 v u_fpu4/_155478_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   28.90 ^ u_fpu4/_155479_/Y (sky130_fd_sc_hd__nor2_4)
+   0.17   29.07 v u_fpu4/_155480_/Y (sky130_fd_sc_hd__inv_2)
+   0.39   29.46 ^ u_fpu4/_155481_/Y (sky130_fd_sc_hd__nand4_4)
+   0.19   29.65 v u_fpu4/_155655_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   29.80 v u_fpu4/_155663_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   29.99 ^ u_fpu4/_155664_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   30.16 v u_fpu4/_155685_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   30.51 ^ u_fpu4/_155728_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   30.68 v u_fpu4/_156152_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   30.84 ^ u_fpu4/_156153_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.22   31.07 v u_fpu4/_156154_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   31.66 ^ u_fpu4/_156156_/Y (sky130_fd_sc_hd__nor4_4)
+   0.21   31.87 ^ max_cap195/X (sky130_fd_sc_hd__buf_16)
+   0.19   32.06 ^ load_slew194/X (sky130_fd_sc_hd__buf_6)
+   0.20   32.26 ^ load_slew193/X (sky130_fd_sc_hd__buf_6)
+   0.07   32.34 v u_fpu4/_156481_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   32.46 ^ u_fpu4/_156482_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   32.58 v u_fpu4/_156483_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   32.79 ^ u_fpu4/_156742_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.18   32.97 v u_fpu4/_156744_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   33.25 ^ u_fpu4/_156745_/Y (sky130_fd_sc_hd__nor3_2)
+   0.21   33.46 v u_fpu4/_156746_/Y (sky130_fd_sc_hd__nand4_2)
+   0.26   33.72 ^ u_fpu4/_156747_/Y (sky130_fd_sc_hd__nor2_4)
+   0.15   33.87 v u_fpu4/_156748_/Y (sky130_fd_sc_hd__inv_2)
+   0.40   34.27 ^ u_fpu4/_156749_/Y (sky130_fd_sc_hd__nand4_4)
+   0.18   34.45 v u_fpu4/_156926_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   34.61 v u_fpu4/_156954_/X (sky130_fd_sc_hd__o211a_1)
+   0.21   34.83 ^ u_fpu4/_156955_/Y (sky130_fd_sc_hd__nor2_1)
+   0.17   34.99 v u_fpu4/_156960_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   35.30 ^ u_fpu4/_157000_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   35.46 v u_fpu4/_157082_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.16   35.62 ^ u_fpu4/_157083_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.19   35.82 v u_fpu4/_157296_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   36.45 ^ u_fpu4/_157412_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   36.73 ^ load_slew165/X (sky130_fd_sc_hd__buf_6)
+   0.10   36.83 v u_fpu4/_157631_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   36.97 ^ u_fpu4/_157632_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   37.08 v u_fpu4/_157643_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   37.24 ^ u_fpu4/_157648_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.11   37.35 v u_fpu4/_157672_/Y (sky130_fd_sc_hd__nand3_1)
+   0.22   37.58 ^ u_fpu4/_157713_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.11   37.69 v u_fpu4/_158045_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   37.84 ^ u_fpu4/_158046_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.21   38.05 v u_fpu4/_158047_/Y (sky130_fd_sc_hd__nand4_4)
+   0.53   38.58 ^ u_fpu4/_158048_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   38.83 ^ load_slew150/X (sky130_fd_sc_hd__buf_6)
+   0.21   39.04 ^ wire149/X (sky130_fd_sc_hd__buf_6)
+   0.20   39.24 ^ load_slew148/X (sky130_fd_sc_hd__buf_6)
+   0.06   39.30 v u_fpu4/_158365_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   39.45 ^ u_fpu4/_158366_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   39.56 v u_fpu4/_158618_/Y (sky130_fd_sc_hd__inv_1)
+   0.18   39.74 ^ u_fpu4/_158619_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.18   39.92 v u_fpu4/_158620_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   40.21 ^ u_fpu4/_158621_/Y (sky130_fd_sc_hd__nor3_2)
+   0.22   40.43 v u_fpu4/_158632_/Y (sky130_fd_sc_hd__nand4_2)
+   0.41   40.84 ^ u_fpu4/_158633_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   41.01 v u_fpu4/_158634_/Y (sky130_fd_sc_hd__inv_2)
+   0.35   41.36 ^ u_fpu4/_158635_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   41.53 v u_fpu4/_158812_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   41.68 v u_fpu4/_158820_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   41.87 ^ u_fpu4/_158821_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   42.03 v u_fpu4/_158841_/Y (sky130_fd_sc_hd__nand4_1)
+   0.37   42.40 ^ u_fpu4/_158887_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   42.56 v u_fpu4/_159308_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   42.72 ^ u_fpu4/_159309_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.17   42.89 v u_fpu4/_159310_/Y (sky130_fd_sc_hd__nand4_4)
+   0.54   43.42 ^ u_fpu4/_159312_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   43.70 ^ load_slew115/X (sky130_fd_sc_hd__buf_6)
+   0.17   43.87 ^ load_slew114/X (sky130_fd_sc_hd__buf_6)
+   0.19   44.06 ^ load_slew113/X (sky130_fd_sc_hd__buf_6)
+   0.07   44.12 v u_fpu4/_159644_/Y (sky130_fd_sc_hd__nand2_1)
+   0.11   44.24 ^ u_fpu4/_159645_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.08   44.32 v u_fpu4/_159646_/Y (sky130_fd_sc_hd__inv_1)
+   0.28   44.60 ^ u_fpu4/_159647_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   44.75 v u_fpu4/_159664_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   45.07 ^ u_fpu4/_159719_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   45.35 v u_fpu4/_159816_/Y (sky130_fd_sc_hd__nand4_4)
+   0.69   46.04 ^ u_fpu4/_159893_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   46.31 ^ load_slew99/X (sky130_fd_sc_hd__buf_6)
+   0.21   46.52 ^ load_slew98/X (sky130_fd_sc_hd__buf_6)
+   0.20   46.72 ^ load_slew97/X (sky130_fd_sc_hd__buf_6)
+   0.14   46.85 v u_fpu4/_160346_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   47.02 ^ u_fpu4/_160347_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   47.16 v u_fpu4/_160360_/Y (sky130_fd_sc_hd__nand4_1)
+   0.44   47.59 ^ u_fpu4/_160386_/Y (sky130_fd_sc_hd__nor4_2)
+   0.25   47.85 v u_fpu4/_160453_/Y (sky130_fd_sc_hd__nand4_4)
+   0.61   48.45 ^ u_fpu4/_160596_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   48.71 ^ load_slew83/X (sky130_fd_sc_hd__buf_6)
+   0.20   48.91 ^ load_slew82/X (sky130_fd_sc_hd__buf_6)
+   0.18   49.09 ^ load_slew81/X (sky130_fd_sc_hd__buf_6)
+   0.19   49.28 ^ load_slew80/X (sky130_fd_sc_hd__buf_6)
+   0.06   49.34 v u_fpu4/_160756_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   49.51 v u_fpu4/_160757_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.15   49.66 ^ u_fpu4/_161194_/Y (sky130_fd_sc_hd__nor2_1)
+   0.10   49.75 v u_fpu4/_161195_/Y (sky130_fd_sc_hd__nand3_1)
+   0.50   50.26 ^ u_fpu4/_161205_/Y (sky130_fd_sc_hd__nor4_2)
+   0.29   50.54 v u_fpu4/_161216_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   51.19 ^ u_fpu4/_161225_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   51.46 ^ load_slew67/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.66 ^ load_slew66/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.86 ^ wire65/X (sky130_fd_sc_hd__buf_6)
+   0.09   51.95 v u_fpu4/_161598_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   52.12 v u_fpu4/_161599_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.36   52.48 ^ u_fpu4/_161606_/Y (sky130_fd_sc_hd__nor4_1)
+   0.19   52.68 v u_fpu4/_161638_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   52.98 ^ u_fpu4/_161639_/Y (sky130_fd_sc_hd__nor3_4)
+   0.27   53.25 v u_fpu4/_161828_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   53.84 ^ u_fpu4/_161829_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   54.09 ^ load_slew52/X (sky130_fd_sc_hd__buf_6)
+   0.20   54.29 ^ load_slew51/X (sky130_fd_sc_hd__buf_6)
+   0.06   54.35 v u_fpu4/_162123_/Y (sky130_fd_sc_hd__nand2_1)
+   0.10   54.45 ^ u_fpu4/_162124_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.11   54.56 v u_fpu4/_162125_/Y (sky130_fd_sc_hd__inv_1)
+   0.31   54.87 ^ u_fpu4/_162136_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   55.02 v u_fpu4/_162160_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   55.33 ^ u_fpu4/_162223_/Y (sky130_fd_sc_hd__nor3_4)
+   0.24   55.57 v u_fpu4/_162314_/Y (sky130_fd_sc_hd__nand4_4)
+   0.70   56.27 ^ u_fpu4/_162400_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   56.54 ^ load_slew39/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.74 ^ load_slew38/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.94 ^ load_slew37/X (sky130_fd_sc_hd__buf_6)
+   0.22   57.16 ^ u_fpu4/_162824_/X (sky130_fd_sc_hd__o21a_1)
+   0.16   57.32 v u_fpu4/_162830_/Y (sky130_fd_sc_hd__nand4_1)
+   0.46   57.78 ^ u_fpu4/_162857_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   58.04 v u_fpu4/_163112_/Y (sky130_fd_sc_hd__nand4_4)
+   0.55   58.59 ^ u_fpu4/_163114_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   58.86 ^ load_slew26/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.06 ^ load_slew25/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.26 ^ load_slew24/X (sky130_fd_sc_hd__buf_6)
+   0.09   59.36 v u_fpu4/_163439_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.30   59.66 ^ u_fpu4/_163440_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   59.82 v u_fpu4/_163456_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   60.11 ^ u_fpu4/_163510_/Y (sky130_fd_sc_hd__nor3_2)
+   0.34   60.46 v u_fpu4/_163602_/Y (sky130_fd_sc_hd__nand4_4)
+   0.77   61.22 ^ u_fpu4/_163771_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   61.50 ^ load_slew14/X (sky130_fd_sc_hd__buf_6)
+   0.20   61.70 ^ load_slew13/X (sky130_fd_sc_hd__buf_6)
+   0.17   61.87 ^ load_slew12/X (sky130_fd_sc_hd__buf_6)
+   0.09   61.96 v u_fpu4/_163966_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.28   62.24 ^ u_fpu4/_164401_/Y (sky130_fd_sc_hd__nor4_1)
+   0.10   62.34 v u_fpu4/_164404_/Y (sky130_fd_sc_hd__nand2_1)
+   0.33   62.67 ^ u_fpu4/_164407_/Y (sky130_fd_sc_hd__nor3_1)
+   0.22   62.89 v u_fpu4/_164416_/Y (sky130_fd_sc_hd__nand4_2)
+   0.69   63.58 ^ u_fpu4/_164438_/Y (sky130_fd_sc_hd__nor4_4)
+   0.24   63.82 ^ load_slew4/X (sky130_fd_sc_hd__buf_6)
+   0.17   63.99 ^ load_slew3/X (sky130_fd_sc_hd__buf_6)
+   0.07   64.06 v u_fpu4/_164705_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06   64.12 ^ u_fpu4/_164706_/Y (sky130_fd_sc_hd__nand2_1)
+   0.22   64.35 ^ u_fpu4/_164707_/X (sky130_fd_sc_hd__o2111a_1)
+   0.15   64.50 v u_fpu4/_164708_/Y (sky130_fd_sc_hd__nand4_2)
+   0.37   64.87 ^ u_fpu4/_164796_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   65.15 v u_fpu4/_164798_/Y (sky130_fd_sc_hd__nand4_4)
+   0.20   65.35 ^ u_fpu4/_164801_/Y (sky130_fd_sc_hd__nand4_2)
+   0.55   65.90 v u_fpu4/_164811_/Y (sky130_fd_sc_hd__nand4_4)
+   0.63   66.54 ^ u_fpu4/_164812_/Y (sky130_fd_sc_hd__nor2_8)
+   0.27   66.81 ^ u_fpu4/_166594_/X (sky130_fd_sc_hd__o2111a_1)
+   0.07   66.87 v u_fpu4/_166602_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14   67.01 ^ u_fpu4/_166604_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.09   67.10 v u_fpu4/_166606_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13   67.24 ^ u_fpu4/_166608_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.09   67.33 v u_fpu4/_166610_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13   67.46 ^ u_fpu4/_166612_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.07   67.53 v u_fpu4/_166614_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   67.70 ^ u_fpu4/_166616_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.09   67.79 v u_fpu4/_166617_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.18   67.97 ^ u_fpu4/_166618_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.18   68.15 v u_fpu4/_166619_/Y (sky130_fd_sc_hd__nand4_2)
+   0.13   68.28 ^ u_fpu4/_166620_/Y (sky130_fd_sc_hd__nand2_1)
+   0.00   68.28 ^ u_fpu4/_225291_/D (sky130_fd_sc_hd__dfrtp_1)
+          68.28   data arrival time
+
+  20.00   20.00   clock clk (rise edge)
+   0.00   20.00   clock network delay (ideal)
+   0.00   20.00   clock reconvergence pessimism
+          20.00 ^ u_fpu4/_225291_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.07   19.93   library setup time
+          19.93   data required time
+---------------------------------------------------------
+          19.93   data required time
+         -68.28   data arrival time
+---------------------------------------------------------
+         -48.35   slack (VIOLATED)
+
+
+Startpoint: u_fpu4/_225392_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_fpu4/_225300_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_fpu4/_225392_/CLK (sky130_fd_sc_hd__dfrtp_4)
+   0.88    0.88 ^ u_fpu4/_225392_/Q (sky130_fd_sc_hd__dfrtp_4)
+   0.29    1.17 v u_fpu4/_141040_/Y (sky130_fd_sc_hd__clkinv_16)
+   0.21    1.38 ^ u_fpu4/_144783_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13    1.51 v u_fpu4/_144786_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.16    1.68 ^ u_fpu4/_148606_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.09    1.77 v u_fpu4/_148607_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.24    2.00 ^ u_fpu4/_148608_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14    2.14 v u_fpu4/_148609_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.39    2.53 ^ u_fpu4/_148616_/Y (sky130_fd_sc_hd__a21oi_4)
+   0.22    2.75 ^ load_slew369/X (sky130_fd_sc_hd__buf_16)
+   0.20    2.94 ^ max_cap368/X (sky130_fd_sc_hd__buf_12)
+   0.11    3.05 v u_fpu4/_148941_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16    3.22 v u_fpu4/_148942_/X (sky130_fd_sc_hd__o211a_1)
+   0.19    3.41 ^ u_fpu4/_148954_/Y (sky130_fd_sc_hd__nor2_1)
+   0.12    3.53 v u_fpu4/_148955_/Y (sky130_fd_sc_hd__nand4_1)
+   0.21    3.74 v u_fpu4/_148995_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.28    4.02 ^ u_fpu4/_148996_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13    4.15 v u_fpu4/_148997_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.59    4.74 ^ u_fpu4/_149032_/Y (sky130_fd_sc_hd__a211oi_4)
+   0.19    4.92 v u_fpu4/_149245_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17    5.09 ^ u_fpu4/_149252_/Y (sky130_fd_sc_hd__nand3_1)
+   0.10    5.20 v u_fpu4/_149253_/Y (sky130_fd_sc_hd__inv_1)
+   0.23    5.43 ^ u_fpu4/_149428_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16    5.59 v u_fpu4/_149432_/Y (sky130_fd_sc_hd__nand3_1)
+   0.39    5.97 ^ u_fpu4/_149433_/Y (sky130_fd_sc_hd__nor4_2)
+   0.28    6.26 v u_fpu4/_149436_/Y (sky130_fd_sc_hd__nand4_4)
+   0.66    6.92 ^ u_fpu4/_149437_/Y (sky130_fd_sc_hd__nand4_4)
+   0.28    7.20 v u_fpu4/_149659_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.27    7.47 v u_fpu4/_149669_/X (sky130_fd_sc_hd__and3_1)
+   0.14    7.61 ^ u_fpu4/_149676_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    7.74 v u_fpu4/_149680_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27    8.01 ^ u_fpu4/_149722_/Y (sky130_fd_sc_hd__nor3_1)
+   0.13    8.14 v u_fpu4/_149804_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.17    8.30 ^ u_fpu4/_149805_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.40    8.70 v u_fpu4/_149830_/Y (sky130_fd_sc_hd__o2111ai_4)
+   0.44    9.14 ^ u_fpu4/_149891_/Y (sky130_fd_sc_hd__nor2_8)
+   0.17    9.30 v u_fpu4/_150082_/Y (sky130_fd_sc_hd__nand2_1)
+   0.19    9.49 v u_fpu4/_150108_/X (sky130_fd_sc_hd__and3_1)
+   0.17    9.66 ^ u_fpu4/_150109_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    9.80 v u_fpu4/_150114_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27   10.07 ^ u_fpu4/_150165_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   10.24 v u_fpu4/_150251_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   10.41 ^ u_fpu4/_150252_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   10.60 v u_fpu4/_150400_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   11.08 ^ u_fpu4/_150466_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   11.34 ^ load_slew334/X (sky130_fd_sc_hd__buf_6)
+   0.20   11.55 ^ load_slew332/X (sky130_fd_sc_hd__buf_6)
+   0.23   11.78 ^ u_fpu4/_150830_/X (sky130_fd_sc_hd__o21a_1)
+   0.22   11.99 ^ u_fpu4/_151107_/X (sky130_fd_sc_hd__and2_0)
+   0.14   12.14 v u_fpu4/_151108_/Y (sky130_fd_sc_hd__nand4_2)
+   0.33   12.46 ^ u_fpu4/_151111_/Y (sky130_fd_sc_hd__nor3_1)
+   0.17   12.64 v u_fpu4/_151112_/Y (sky130_fd_sc_hd__nand4_2)
+   0.39   13.03 ^ u_fpu4/_151113_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   13.20 v u_fpu4/_151129_/Y (sky130_fd_sc_hd__clkinv_4)
+   0.43   13.63 ^ u_fpu4/_151130_/Y (sky130_fd_sc_hd__nand4_4)
+   0.22   13.85 v u_fpu4/_151294_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   14.03 v u_fpu4/_151319_/X (sky130_fd_sc_hd__o211a_1)
+   0.17   14.19 ^ u_fpu4/_151320_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14   14.33 v u_fpu4/_151325_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   14.68 ^ u_fpu4/_151364_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   14.83 v u_fpu4/_151450_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   14.98 ^ u_fpu4/_151451_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.18   15.17 v u_fpu4/_151663_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   15.65 ^ u_fpu4/_151740_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   15.87 ^ load_slew305/X (sky130_fd_sc_hd__buf_6)
+   0.18   16.05 ^ load_slew303/X (sky130_fd_sc_hd__buf_6)
+   0.09   16.14 v u_fpu4/_151829_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   16.31 ^ u_fpu4/_151832_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   16.41 v u_fpu4/_151833_/Y (sky130_fd_sc_hd__nor2_1)
+   0.23   16.63 ^ u_fpu4/_151834_/Y (sky130_fd_sc_hd__nor2_2)
+   0.24   16.88 ^ u_fpu4/_151859_/X (sky130_fd_sc_hd__o2111a_1)
+   0.08   16.96 v u_fpu4/_151863_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.24   17.20 ^ u_fpu4/_152084_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   17.40 v u_fpu4/_152282_/Y (sky130_fd_sc_hd__nand4_4)
+   0.57   17.97 ^ u_fpu4/_152357_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   18.25 ^ max_cap288/X (sky130_fd_sc_hd__buf_6)
+   0.17   18.42 ^ max_cap287/X (sky130_fd_sc_hd__probe_p_8)
+   0.08   18.50 v u_fpu4/_152530_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   18.64 ^ u_fpu4/_152531_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.13   18.77 v u_fpu4/_152533_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   18.91 ^ u_fpu4/_152535_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   19.04 v u_fpu4/_152570_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   19.35 ^ u_fpu4/_152609_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   19.53 v u_fpu4/_152696_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   19.69 ^ u_fpu4/_152697_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   19.89 v u_fpu4/_152898_/Y (sky130_fd_sc_hd__nand4_4)
+   0.56   20.45 ^ u_fpu4/_152967_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   20.68 ^ load_slew270/X (sky130_fd_sc_hd__probe_p_8)
+   0.17   20.85 ^ max_cap269/X (sky130_fd_sc_hd__buf_6)
+   0.08   20.93 v u_fpu4/_153124_/Y (sky130_fd_sc_hd__nand2_1)
+   0.09   21.02 ^ u_fpu4/_153125_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.07   21.08 v u_fpu4/_153545_/Y (sky130_fd_sc_hd__inv_1)
+   0.24   21.32 ^ u_fpu4/_153546_/Y (sky130_fd_sc_hd__nor2_1)
+   0.09   21.41 v u_fpu4/_153547_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   21.72 ^ u_fpu4/_153550_/Y (sky130_fd_sc_hd__nor3_1)
+   0.18   21.90 v u_fpu4/_153551_/Y (sky130_fd_sc_hd__nand4_2)
+   0.43   22.33 ^ u_fpu4/_153594_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   22.50 v u_fpu4/_153595_/Y (sky130_fd_sc_hd__inv_2)
+   0.37   22.87 ^ u_fpu4/_153596_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   23.03 v u_fpu4/_153765_/Y (sky130_fd_sc_hd__nand2_1)
+   0.18   23.21 v u_fpu4/_153773_/X (sky130_fd_sc_hd__o211a_1)
+   0.18   23.38 ^ u_fpu4/_153774_/Y (sky130_fd_sc_hd__nor2_2)
+   0.17   23.56 v u_fpu4/_153793_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   23.85 ^ u_fpu4/_153834_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   24.03 v u_fpu4/_154256_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   24.18 ^ u_fpu4/_154257_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   24.36 v u_fpu4/_154258_/Y (sky130_fd_sc_hd__nand4_4)
+   0.35   24.71 ^ u_fpu4/_154260_/Y (sky130_fd_sc_hd__nor4_2)
+   0.24   24.95 ^ load_slew239/X (sky130_fd_sc_hd__buf_6)
+   0.07   25.02 v u_fpu4/_154281_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   25.19 ^ u_fpu4/_154282_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.21   25.40 ^ u_fpu4/_154380_/X (sky130_fd_sc_hd__or2_0)
+   0.09   25.49 v u_fpu4/_154381_/Y (sky130_fd_sc_hd__nand2_1)
+   0.32   25.81 ^ u_fpu4/_154382_/Y (sky130_fd_sc_hd__nor4b_1)
+   0.15   25.96 v u_fpu4/_154383_/Y (sky130_fd_sc_hd__nand3_1)
+   0.18   26.14 ^ u_fpu4/_154888_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   26.33 v u_fpu4/_154889_/Y (sky130_fd_sc_hd__nand4_4)
+   0.40   26.74 ^ u_fpu4/_154891_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   26.99 ^ wire224/X (sky130_fd_sc_hd__buf_6)
+   0.20   27.19 ^ load_slew223/X (sky130_fd_sc_hd__buf_6)
+   0.19   27.38 ^ load_slew222/X (sky130_fd_sc_hd__buf_6)
+   0.07   27.45 v u_fpu4/_155217_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   27.61 ^ u_fpu4/_155218_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   27.71 v u_fpu4/_155219_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   27.93 ^ u_fpu4/_155475_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   28.10 v u_fpu4/_155476_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   28.38 ^ u_fpu4/_155477_/Y (sky130_fd_sc_hd__nor2_2)
+   0.22   28.60 v u_fpu4/_155478_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   28.90 ^ u_fpu4/_155479_/Y (sky130_fd_sc_hd__nor2_4)
+   0.17   29.07 v u_fpu4/_155480_/Y (sky130_fd_sc_hd__inv_2)
+   0.39   29.46 ^ u_fpu4/_155481_/Y (sky130_fd_sc_hd__nand4_4)
+   0.19   29.65 v u_fpu4/_155655_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   29.80 v u_fpu4/_155663_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   29.99 ^ u_fpu4/_155664_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   30.16 v u_fpu4/_155685_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   30.51 ^ u_fpu4/_155728_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   30.68 v u_fpu4/_156152_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   30.84 ^ u_fpu4/_156153_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.22   31.07 v u_fpu4/_156154_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   31.66 ^ u_fpu4/_156156_/Y (sky130_fd_sc_hd__nor4_4)
+   0.21   31.87 ^ max_cap195/X (sky130_fd_sc_hd__buf_16)
+   0.19   32.06 ^ load_slew194/X (sky130_fd_sc_hd__buf_6)
+   0.20   32.26 ^ load_slew193/X (sky130_fd_sc_hd__buf_6)
+   0.07   32.34 v u_fpu4/_156481_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   32.46 ^ u_fpu4/_156482_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   32.58 v u_fpu4/_156483_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   32.79 ^ u_fpu4/_156742_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.18   32.97 v u_fpu4/_156744_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   33.25 ^ u_fpu4/_156745_/Y (sky130_fd_sc_hd__nor3_2)
+   0.21   33.46 v u_fpu4/_156746_/Y (sky130_fd_sc_hd__nand4_2)
+   0.26   33.72 ^ u_fpu4/_156747_/Y (sky130_fd_sc_hd__nor2_4)
+   0.15   33.87 v u_fpu4/_156748_/Y (sky130_fd_sc_hd__inv_2)
+   0.40   34.27 ^ u_fpu4/_156749_/Y (sky130_fd_sc_hd__nand4_4)
+   0.18   34.45 v u_fpu4/_156926_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   34.61 v u_fpu4/_156954_/X (sky130_fd_sc_hd__o211a_1)
+   0.21   34.83 ^ u_fpu4/_156955_/Y (sky130_fd_sc_hd__nor2_1)
+   0.17   34.99 v u_fpu4/_156960_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   35.30 ^ u_fpu4/_157000_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   35.46 v u_fpu4/_157082_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.16   35.62 ^ u_fpu4/_157083_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.19   35.82 v u_fpu4/_157296_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   36.45 ^ u_fpu4/_157412_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   36.73 ^ load_slew165/X (sky130_fd_sc_hd__buf_6)
+   0.10   36.83 v u_fpu4/_157631_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   36.97 ^ u_fpu4/_157632_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   37.08 v u_fpu4/_157643_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   37.24 ^ u_fpu4/_157648_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.11   37.35 v u_fpu4/_157672_/Y (sky130_fd_sc_hd__nand3_1)
+   0.22   37.58 ^ u_fpu4/_157713_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.11   37.69 v u_fpu4/_158045_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   37.84 ^ u_fpu4/_158046_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.21   38.05 v u_fpu4/_158047_/Y (sky130_fd_sc_hd__nand4_4)
+   0.53   38.58 ^ u_fpu4/_158048_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   38.83 ^ load_slew150/X (sky130_fd_sc_hd__buf_6)
+   0.21   39.04 ^ wire149/X (sky130_fd_sc_hd__buf_6)
+   0.20   39.24 ^ load_slew148/X (sky130_fd_sc_hd__buf_6)
+   0.06   39.30 v u_fpu4/_158365_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   39.45 ^ u_fpu4/_158366_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   39.56 v u_fpu4/_158618_/Y (sky130_fd_sc_hd__inv_1)
+   0.18   39.74 ^ u_fpu4/_158619_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.18   39.92 v u_fpu4/_158620_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   40.21 ^ u_fpu4/_158621_/Y (sky130_fd_sc_hd__nor3_2)
+   0.22   40.43 v u_fpu4/_158632_/Y (sky130_fd_sc_hd__nand4_2)
+   0.41   40.84 ^ u_fpu4/_158633_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   41.01 v u_fpu4/_158634_/Y (sky130_fd_sc_hd__inv_2)
+   0.35   41.36 ^ u_fpu4/_158635_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   41.53 v u_fpu4/_158812_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   41.68 v u_fpu4/_158820_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   41.87 ^ u_fpu4/_158821_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   42.03 v u_fpu4/_158841_/Y (sky130_fd_sc_hd__nand4_1)
+   0.37   42.40 ^ u_fpu4/_158887_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   42.56 v u_fpu4/_159308_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   42.72 ^ u_fpu4/_159309_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.17   42.89 v u_fpu4/_159310_/Y (sky130_fd_sc_hd__nand4_4)
+   0.54   43.42 ^ u_fpu4/_159312_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   43.70 ^ load_slew115/X (sky130_fd_sc_hd__buf_6)
+   0.17   43.87 ^ load_slew114/X (sky130_fd_sc_hd__buf_6)
+   0.19   44.06 ^ load_slew113/X (sky130_fd_sc_hd__buf_6)
+   0.07   44.12 v u_fpu4/_159644_/Y (sky130_fd_sc_hd__nand2_1)
+   0.11   44.24 ^ u_fpu4/_159645_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.08   44.32 v u_fpu4/_159646_/Y (sky130_fd_sc_hd__inv_1)
+   0.28   44.60 ^ u_fpu4/_159647_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   44.75 v u_fpu4/_159664_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   45.07 ^ u_fpu4/_159719_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   45.35 v u_fpu4/_159816_/Y (sky130_fd_sc_hd__nand4_4)
+   0.69   46.04 ^ u_fpu4/_159893_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   46.31 ^ load_slew99/X (sky130_fd_sc_hd__buf_6)
+   0.21   46.52 ^ load_slew98/X (sky130_fd_sc_hd__buf_6)
+   0.20   46.72 ^ load_slew97/X (sky130_fd_sc_hd__buf_6)
+   0.14   46.85 v u_fpu4/_160346_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   47.02 ^ u_fpu4/_160347_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   47.16 v u_fpu4/_160360_/Y (sky130_fd_sc_hd__nand4_1)
+   0.44   47.59 ^ u_fpu4/_160386_/Y (sky130_fd_sc_hd__nor4_2)
+   0.25   47.85 v u_fpu4/_160453_/Y (sky130_fd_sc_hd__nand4_4)
+   0.61   48.45 ^ u_fpu4/_160596_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   48.71 ^ load_slew83/X (sky130_fd_sc_hd__buf_6)
+   0.20   48.91 ^ load_slew82/X (sky130_fd_sc_hd__buf_6)
+   0.18   49.09 ^ load_slew81/X (sky130_fd_sc_hd__buf_6)
+   0.19   49.28 ^ load_slew80/X (sky130_fd_sc_hd__buf_6)
+   0.06   49.34 v u_fpu4/_160756_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   49.51 v u_fpu4/_160757_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.15   49.66 ^ u_fpu4/_161194_/Y (sky130_fd_sc_hd__nor2_1)
+   0.10   49.75 v u_fpu4/_161195_/Y (sky130_fd_sc_hd__nand3_1)
+   0.50   50.26 ^ u_fpu4/_161205_/Y (sky130_fd_sc_hd__nor4_2)
+   0.29   50.54 v u_fpu4/_161216_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   51.19 ^ u_fpu4/_161225_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   51.46 ^ load_slew67/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.66 ^ load_slew66/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.86 ^ wire65/X (sky130_fd_sc_hd__buf_6)
+   0.09   51.95 v u_fpu4/_161598_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   52.12 v u_fpu4/_161599_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.36   52.48 ^ u_fpu4/_161606_/Y (sky130_fd_sc_hd__nor4_1)
+   0.19   52.68 v u_fpu4/_161638_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   52.98 ^ u_fpu4/_161639_/Y (sky130_fd_sc_hd__nor3_4)
+   0.27   53.25 v u_fpu4/_161828_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   53.84 ^ u_fpu4/_161829_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   54.09 ^ load_slew52/X (sky130_fd_sc_hd__buf_6)
+   0.20   54.29 ^ load_slew51/X (sky130_fd_sc_hd__buf_6)
+   0.06   54.35 v u_fpu4/_162123_/Y (sky130_fd_sc_hd__nand2_1)
+   0.10   54.45 ^ u_fpu4/_162124_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.11   54.56 v u_fpu4/_162125_/Y (sky130_fd_sc_hd__inv_1)
+   0.31   54.87 ^ u_fpu4/_162136_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   55.02 v u_fpu4/_162160_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   55.33 ^ u_fpu4/_162223_/Y (sky130_fd_sc_hd__nor3_4)
+   0.24   55.57 v u_fpu4/_162314_/Y (sky130_fd_sc_hd__nand4_4)
+   0.70   56.27 ^ u_fpu4/_162400_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   56.54 ^ load_slew39/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.74 ^ load_slew38/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.94 ^ load_slew37/X (sky130_fd_sc_hd__buf_6)
+   0.22   57.16 ^ u_fpu4/_162824_/X (sky130_fd_sc_hd__o21a_1)
+   0.16   57.32 v u_fpu4/_162830_/Y (sky130_fd_sc_hd__nand4_1)
+   0.46   57.78 ^ u_fpu4/_162857_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   58.04 v u_fpu4/_163112_/Y (sky130_fd_sc_hd__nand4_4)
+   0.55   58.59 ^ u_fpu4/_163114_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   58.86 ^ load_slew26/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.06 ^ load_slew25/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.26 ^ load_slew24/X (sky130_fd_sc_hd__buf_6)
+   0.09   59.36 v u_fpu4/_163439_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.30   59.66 ^ u_fpu4/_163440_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   59.82 v u_fpu4/_163456_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   60.11 ^ u_fpu4/_163510_/Y (sky130_fd_sc_hd__nor3_2)
+   0.34   60.46 v u_fpu4/_163602_/Y (sky130_fd_sc_hd__nand4_4)
+   0.77   61.22 ^ u_fpu4/_163771_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   61.50 ^ load_slew14/X (sky130_fd_sc_hd__buf_6)
+   0.20   61.70 ^ load_slew13/X (sky130_fd_sc_hd__buf_6)
+   0.17   61.87 ^ load_slew12/X (sky130_fd_sc_hd__buf_6)
+   0.09   61.96 v u_fpu4/_163966_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.28   62.24 ^ u_fpu4/_164401_/Y (sky130_fd_sc_hd__nor4_1)
+   0.10   62.34 v u_fpu4/_164404_/Y (sky130_fd_sc_hd__nand2_1)
+   0.33   62.67 ^ u_fpu4/_164407_/Y (sky130_fd_sc_hd__nor3_1)
+   0.22   62.89 v u_fpu4/_164416_/Y (sky130_fd_sc_hd__nand4_2)
+   0.69   63.58 ^ u_fpu4/_164438_/Y (sky130_fd_sc_hd__nor4_4)
+   0.24   63.82 ^ load_slew4/X (sky130_fd_sc_hd__buf_6)
+   0.17   63.99 ^ load_slew3/X (sky130_fd_sc_hd__buf_6)
+   0.07   64.06 v u_fpu4/_164705_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06   64.12 ^ u_fpu4/_164706_/Y (sky130_fd_sc_hd__nand2_1)
+   0.22   64.35 ^ u_fpu4/_164707_/X (sky130_fd_sc_hd__o2111a_1)
+   0.15   64.50 v u_fpu4/_164708_/Y (sky130_fd_sc_hd__nand4_2)
+   0.37   64.87 ^ u_fpu4/_164796_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   65.15 v u_fpu4/_164798_/Y (sky130_fd_sc_hd__nand4_4)
+   0.20   65.35 ^ u_fpu4/_164801_/Y (sky130_fd_sc_hd__nand4_2)
+   0.55   65.90 v u_fpu4/_164811_/Y (sky130_fd_sc_hd__nand4_4)
+   0.63   66.54 ^ u_fpu4/_164812_/Y (sky130_fd_sc_hd__nor2_8)
+   0.16   66.70 v u_fpu4/_167872_/Y (sky130_fd_sc_hd__nand4_1)
+   0.17   66.87 ^ u_fpu4/_167873_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.08   66.95 v u_fpu4/_167875_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.16   67.11 ^ u_fpu4/_167877_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.08   67.19 v u_fpu4/_167879_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.15   67.34 ^ u_fpu4/_167881_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.08   67.42 v u_fpu4/_167883_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.25   67.68 ^ u_fpu4/_167885_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.10   67.78 v u_fpu4/_167887_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.15   67.93 ^ u_fpu4/_167888_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.09   68.02 v u_fpu4/_167889_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.10   68.12 ^ u_fpu4/_167890_/Y (sky130_fd_sc_hd__nand4_2)
+   0.08   68.20 v u_fpu4/_167891_/Y (sky130_fd_sc_hd__nand2_1)
+   0.00   68.20 v u_fpu4/_225300_/D (sky130_fd_sc_hd__dfrtp_1)
+          68.20   data arrival time
+
+  20.00   20.00   clock clk (rise edge)
+   0.00   20.00   clock network delay (ideal)
+   0.00   20.00   clock reconvergence pessimism
+          20.00 ^ u_fpu4/_225300_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.13   19.87   library setup time
+          19.87   data required time
+---------------------------------------------------------
+          19.87   data required time
+         -68.20   data arrival time
+---------------------------------------------------------
+         -48.33   slack (VIOLATED)
+
+
+Startpoint: u_fpu4/_225392_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_fpu4/_225279_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_fpu4/_225392_/CLK (sky130_fd_sc_hd__dfrtp_4)
+   0.88    0.88 ^ u_fpu4/_225392_/Q (sky130_fd_sc_hd__dfrtp_4)
+   0.29    1.17 v u_fpu4/_141040_/Y (sky130_fd_sc_hd__clkinv_16)
+   0.21    1.38 ^ u_fpu4/_144783_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13    1.51 v u_fpu4/_144786_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.16    1.68 ^ u_fpu4/_148606_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.09    1.77 v u_fpu4/_148607_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.24    2.00 ^ u_fpu4/_148608_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14    2.14 v u_fpu4/_148609_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.39    2.53 ^ u_fpu4/_148616_/Y (sky130_fd_sc_hd__a21oi_4)
+   0.22    2.75 ^ load_slew369/X (sky130_fd_sc_hd__buf_16)
+   0.20    2.94 ^ max_cap368/X (sky130_fd_sc_hd__buf_12)
+   0.11    3.05 v u_fpu4/_148941_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16    3.22 v u_fpu4/_148942_/X (sky130_fd_sc_hd__o211a_1)
+   0.19    3.41 ^ u_fpu4/_148954_/Y (sky130_fd_sc_hd__nor2_1)
+   0.12    3.53 v u_fpu4/_148955_/Y (sky130_fd_sc_hd__nand4_1)
+   0.21    3.74 v u_fpu4/_148995_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.28    4.02 ^ u_fpu4/_148996_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13    4.15 v u_fpu4/_148997_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.59    4.74 ^ u_fpu4/_149032_/Y (sky130_fd_sc_hd__a211oi_4)
+   0.19    4.92 v u_fpu4/_149245_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17    5.09 ^ u_fpu4/_149252_/Y (sky130_fd_sc_hd__nand3_1)
+   0.10    5.20 v u_fpu4/_149253_/Y (sky130_fd_sc_hd__inv_1)
+   0.23    5.43 ^ u_fpu4/_149428_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16    5.59 v u_fpu4/_149432_/Y (sky130_fd_sc_hd__nand3_1)
+   0.39    5.97 ^ u_fpu4/_149433_/Y (sky130_fd_sc_hd__nor4_2)
+   0.28    6.26 v u_fpu4/_149436_/Y (sky130_fd_sc_hd__nand4_4)
+   0.66    6.92 ^ u_fpu4/_149437_/Y (sky130_fd_sc_hd__nand4_4)
+   0.28    7.20 v u_fpu4/_149659_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.27    7.47 v u_fpu4/_149669_/X (sky130_fd_sc_hd__and3_1)
+   0.14    7.61 ^ u_fpu4/_149676_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    7.74 v u_fpu4/_149680_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27    8.01 ^ u_fpu4/_149722_/Y (sky130_fd_sc_hd__nor3_1)
+   0.13    8.14 v u_fpu4/_149804_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.17    8.30 ^ u_fpu4/_149805_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.40    8.70 v u_fpu4/_149830_/Y (sky130_fd_sc_hd__o2111ai_4)
+   0.44    9.14 ^ u_fpu4/_149891_/Y (sky130_fd_sc_hd__nor2_8)
+   0.17    9.30 v u_fpu4/_150082_/Y (sky130_fd_sc_hd__nand2_1)
+   0.19    9.49 v u_fpu4/_150108_/X (sky130_fd_sc_hd__and3_1)
+   0.17    9.66 ^ u_fpu4/_150109_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    9.80 v u_fpu4/_150114_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27   10.07 ^ u_fpu4/_150165_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   10.24 v u_fpu4/_150251_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   10.41 ^ u_fpu4/_150252_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   10.60 v u_fpu4/_150400_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   11.08 ^ u_fpu4/_150466_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   11.34 ^ load_slew334/X (sky130_fd_sc_hd__buf_6)
+   0.20   11.55 ^ load_slew332/X (sky130_fd_sc_hd__buf_6)
+   0.23   11.78 ^ u_fpu4/_150830_/X (sky130_fd_sc_hd__o21a_1)
+   0.22   11.99 ^ u_fpu4/_151107_/X (sky130_fd_sc_hd__and2_0)
+   0.14   12.14 v u_fpu4/_151108_/Y (sky130_fd_sc_hd__nand4_2)
+   0.33   12.46 ^ u_fpu4/_151111_/Y (sky130_fd_sc_hd__nor3_1)
+   0.17   12.64 v u_fpu4/_151112_/Y (sky130_fd_sc_hd__nand4_2)
+   0.39   13.03 ^ u_fpu4/_151113_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   13.20 v u_fpu4/_151129_/Y (sky130_fd_sc_hd__clkinv_4)
+   0.43   13.63 ^ u_fpu4/_151130_/Y (sky130_fd_sc_hd__nand4_4)
+   0.22   13.85 v u_fpu4/_151294_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   14.03 v u_fpu4/_151319_/X (sky130_fd_sc_hd__o211a_1)
+   0.17   14.19 ^ u_fpu4/_151320_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14   14.33 v u_fpu4/_151325_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   14.68 ^ u_fpu4/_151364_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   14.83 v u_fpu4/_151450_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   14.98 ^ u_fpu4/_151451_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.18   15.17 v u_fpu4/_151663_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   15.65 ^ u_fpu4/_151740_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   15.87 ^ load_slew305/X (sky130_fd_sc_hd__buf_6)
+   0.18   16.05 ^ load_slew303/X (sky130_fd_sc_hd__buf_6)
+   0.09   16.14 v u_fpu4/_151829_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   16.31 ^ u_fpu4/_151832_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   16.41 v u_fpu4/_151833_/Y (sky130_fd_sc_hd__nor2_1)
+   0.23   16.63 ^ u_fpu4/_151834_/Y (sky130_fd_sc_hd__nor2_2)
+   0.24   16.88 ^ u_fpu4/_151859_/X (sky130_fd_sc_hd__o2111a_1)
+   0.08   16.96 v u_fpu4/_151863_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.24   17.20 ^ u_fpu4/_152084_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   17.40 v u_fpu4/_152282_/Y (sky130_fd_sc_hd__nand4_4)
+   0.57   17.97 ^ u_fpu4/_152357_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   18.25 ^ max_cap288/X (sky130_fd_sc_hd__buf_6)
+   0.17   18.42 ^ max_cap287/X (sky130_fd_sc_hd__probe_p_8)
+   0.08   18.50 v u_fpu4/_152530_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   18.64 ^ u_fpu4/_152531_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.13   18.77 v u_fpu4/_152533_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   18.91 ^ u_fpu4/_152535_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   19.04 v u_fpu4/_152570_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   19.35 ^ u_fpu4/_152609_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   19.53 v u_fpu4/_152696_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   19.69 ^ u_fpu4/_152697_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   19.89 v u_fpu4/_152898_/Y (sky130_fd_sc_hd__nand4_4)
+   0.56   20.45 ^ u_fpu4/_152967_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   20.68 ^ load_slew270/X (sky130_fd_sc_hd__probe_p_8)
+   0.17   20.85 ^ max_cap269/X (sky130_fd_sc_hd__buf_6)
+   0.08   20.93 v u_fpu4/_153124_/Y (sky130_fd_sc_hd__nand2_1)
+   0.09   21.02 ^ u_fpu4/_153125_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.07   21.08 v u_fpu4/_153545_/Y (sky130_fd_sc_hd__inv_1)
+   0.24   21.32 ^ u_fpu4/_153546_/Y (sky130_fd_sc_hd__nor2_1)
+   0.09   21.41 v u_fpu4/_153547_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   21.72 ^ u_fpu4/_153550_/Y (sky130_fd_sc_hd__nor3_1)
+   0.18   21.90 v u_fpu4/_153551_/Y (sky130_fd_sc_hd__nand4_2)
+   0.43   22.33 ^ u_fpu4/_153594_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   22.50 v u_fpu4/_153595_/Y (sky130_fd_sc_hd__inv_2)
+   0.37   22.87 ^ u_fpu4/_153596_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   23.03 v u_fpu4/_153765_/Y (sky130_fd_sc_hd__nand2_1)
+   0.18   23.21 v u_fpu4/_153773_/X (sky130_fd_sc_hd__o211a_1)
+   0.18   23.38 ^ u_fpu4/_153774_/Y (sky130_fd_sc_hd__nor2_2)
+   0.17   23.56 v u_fpu4/_153793_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   23.85 ^ u_fpu4/_153834_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   24.03 v u_fpu4/_154256_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   24.18 ^ u_fpu4/_154257_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   24.36 v u_fpu4/_154258_/Y (sky130_fd_sc_hd__nand4_4)
+   0.35   24.71 ^ u_fpu4/_154260_/Y (sky130_fd_sc_hd__nor4_2)
+   0.24   24.95 ^ load_slew239/X (sky130_fd_sc_hd__buf_6)
+   0.07   25.02 v u_fpu4/_154281_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   25.19 ^ u_fpu4/_154282_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.21   25.40 ^ u_fpu4/_154380_/X (sky130_fd_sc_hd__or2_0)
+   0.09   25.49 v u_fpu4/_154381_/Y (sky130_fd_sc_hd__nand2_1)
+   0.32   25.81 ^ u_fpu4/_154382_/Y (sky130_fd_sc_hd__nor4b_1)
+   0.15   25.96 v u_fpu4/_154383_/Y (sky130_fd_sc_hd__nand3_1)
+   0.18   26.14 ^ u_fpu4/_154888_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   26.33 v u_fpu4/_154889_/Y (sky130_fd_sc_hd__nand4_4)
+   0.40   26.74 ^ u_fpu4/_154891_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   26.99 ^ wire224/X (sky130_fd_sc_hd__buf_6)
+   0.20   27.19 ^ load_slew223/X (sky130_fd_sc_hd__buf_6)
+   0.19   27.38 ^ load_slew222/X (sky130_fd_sc_hd__buf_6)
+   0.07   27.45 v u_fpu4/_155217_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   27.61 ^ u_fpu4/_155218_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   27.71 v u_fpu4/_155219_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   27.93 ^ u_fpu4/_155475_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   28.10 v u_fpu4/_155476_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   28.38 ^ u_fpu4/_155477_/Y (sky130_fd_sc_hd__nor2_2)
+   0.22   28.60 v u_fpu4/_155478_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   28.90 ^ u_fpu4/_155479_/Y (sky130_fd_sc_hd__nor2_4)
+   0.17   29.07 v u_fpu4/_155480_/Y (sky130_fd_sc_hd__inv_2)
+   0.39   29.46 ^ u_fpu4/_155481_/Y (sky130_fd_sc_hd__nand4_4)
+   0.19   29.65 v u_fpu4/_155655_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   29.80 v u_fpu4/_155663_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   29.99 ^ u_fpu4/_155664_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   30.16 v u_fpu4/_155685_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   30.51 ^ u_fpu4/_155728_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   30.68 v u_fpu4/_156152_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   30.84 ^ u_fpu4/_156153_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.22   31.07 v u_fpu4/_156154_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   31.66 ^ u_fpu4/_156156_/Y (sky130_fd_sc_hd__nor4_4)
+   0.21   31.87 ^ max_cap195/X (sky130_fd_sc_hd__buf_16)
+   0.19   32.06 ^ load_slew194/X (sky130_fd_sc_hd__buf_6)
+   0.20   32.26 ^ load_slew193/X (sky130_fd_sc_hd__buf_6)
+   0.07   32.34 v u_fpu4/_156481_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   32.46 ^ u_fpu4/_156482_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   32.58 v u_fpu4/_156483_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   32.79 ^ u_fpu4/_156742_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.18   32.97 v u_fpu4/_156744_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   33.25 ^ u_fpu4/_156745_/Y (sky130_fd_sc_hd__nor3_2)
+   0.21   33.46 v u_fpu4/_156746_/Y (sky130_fd_sc_hd__nand4_2)
+   0.26   33.72 ^ u_fpu4/_156747_/Y (sky130_fd_sc_hd__nor2_4)
+   0.15   33.87 v u_fpu4/_156748_/Y (sky130_fd_sc_hd__inv_2)
+   0.40   34.27 ^ u_fpu4/_156749_/Y (sky130_fd_sc_hd__nand4_4)
+   0.18   34.45 v u_fpu4/_156926_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   34.61 v u_fpu4/_156954_/X (sky130_fd_sc_hd__o211a_1)
+   0.21   34.83 ^ u_fpu4/_156955_/Y (sky130_fd_sc_hd__nor2_1)
+   0.17   34.99 v u_fpu4/_156960_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   35.30 ^ u_fpu4/_157000_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   35.46 v u_fpu4/_157082_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.16   35.62 ^ u_fpu4/_157083_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.19   35.82 v u_fpu4/_157296_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   36.45 ^ u_fpu4/_157412_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   36.73 ^ load_slew165/X (sky130_fd_sc_hd__buf_6)
+   0.10   36.83 v u_fpu4/_157631_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   36.97 ^ u_fpu4/_157632_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   37.08 v u_fpu4/_157643_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   37.24 ^ u_fpu4/_157648_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.11   37.35 v u_fpu4/_157672_/Y (sky130_fd_sc_hd__nand3_1)
+   0.22   37.58 ^ u_fpu4/_157713_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.11   37.69 v u_fpu4/_158045_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   37.84 ^ u_fpu4/_158046_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.21   38.05 v u_fpu4/_158047_/Y (sky130_fd_sc_hd__nand4_4)
+   0.53   38.58 ^ u_fpu4/_158048_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   38.83 ^ load_slew150/X (sky130_fd_sc_hd__buf_6)
+   0.21   39.04 ^ wire149/X (sky130_fd_sc_hd__buf_6)
+   0.20   39.24 ^ load_slew148/X (sky130_fd_sc_hd__buf_6)
+   0.06   39.30 v u_fpu4/_158365_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   39.45 ^ u_fpu4/_158366_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   39.56 v u_fpu4/_158618_/Y (sky130_fd_sc_hd__inv_1)
+   0.18   39.74 ^ u_fpu4/_158619_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.18   39.92 v u_fpu4/_158620_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   40.21 ^ u_fpu4/_158621_/Y (sky130_fd_sc_hd__nor3_2)
+   0.22   40.43 v u_fpu4/_158632_/Y (sky130_fd_sc_hd__nand4_2)
+   0.41   40.84 ^ u_fpu4/_158633_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   41.01 v u_fpu4/_158634_/Y (sky130_fd_sc_hd__inv_2)
+   0.35   41.36 ^ u_fpu4/_158635_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   41.53 v u_fpu4/_158812_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   41.68 v u_fpu4/_158820_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   41.87 ^ u_fpu4/_158821_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   42.03 v u_fpu4/_158841_/Y (sky130_fd_sc_hd__nand4_1)
+   0.37   42.40 ^ u_fpu4/_158887_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   42.56 v u_fpu4/_159308_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   42.72 ^ u_fpu4/_159309_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.17   42.89 v u_fpu4/_159310_/Y (sky130_fd_sc_hd__nand4_4)
+   0.54   43.42 ^ u_fpu4/_159312_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   43.70 ^ load_slew115/X (sky130_fd_sc_hd__buf_6)
+   0.17   43.87 ^ load_slew114/X (sky130_fd_sc_hd__buf_6)
+   0.19   44.06 ^ load_slew113/X (sky130_fd_sc_hd__buf_6)
+   0.07   44.12 v u_fpu4/_159644_/Y (sky130_fd_sc_hd__nand2_1)
+   0.11   44.24 ^ u_fpu4/_159645_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.08   44.32 v u_fpu4/_159646_/Y (sky130_fd_sc_hd__inv_1)
+   0.28   44.60 ^ u_fpu4/_159647_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   44.75 v u_fpu4/_159664_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   45.07 ^ u_fpu4/_159719_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   45.35 v u_fpu4/_159816_/Y (sky130_fd_sc_hd__nand4_4)
+   0.69   46.04 ^ u_fpu4/_159893_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   46.31 ^ load_slew99/X (sky130_fd_sc_hd__buf_6)
+   0.21   46.52 ^ load_slew98/X (sky130_fd_sc_hd__buf_6)
+   0.20   46.72 ^ load_slew97/X (sky130_fd_sc_hd__buf_6)
+   0.14   46.85 v u_fpu4/_160346_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   47.02 ^ u_fpu4/_160347_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   47.16 v u_fpu4/_160360_/Y (sky130_fd_sc_hd__nand4_1)
+   0.44   47.59 ^ u_fpu4/_160386_/Y (sky130_fd_sc_hd__nor4_2)
+   0.25   47.85 v u_fpu4/_160453_/Y (sky130_fd_sc_hd__nand4_4)
+   0.61   48.45 ^ u_fpu4/_160596_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   48.71 ^ load_slew83/X (sky130_fd_sc_hd__buf_6)
+   0.20   48.91 ^ load_slew82/X (sky130_fd_sc_hd__buf_6)
+   0.18   49.09 ^ load_slew81/X (sky130_fd_sc_hd__buf_6)
+   0.19   49.28 ^ load_slew80/X (sky130_fd_sc_hd__buf_6)
+   0.06   49.34 v u_fpu4/_160756_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   49.51 v u_fpu4/_160757_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.15   49.66 ^ u_fpu4/_161194_/Y (sky130_fd_sc_hd__nor2_1)
+   0.10   49.75 v u_fpu4/_161195_/Y (sky130_fd_sc_hd__nand3_1)
+   0.50   50.26 ^ u_fpu4/_161205_/Y (sky130_fd_sc_hd__nor4_2)
+   0.29   50.54 v u_fpu4/_161216_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   51.19 ^ u_fpu4/_161225_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   51.46 ^ load_slew67/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.66 ^ load_slew66/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.86 ^ wire65/X (sky130_fd_sc_hd__buf_6)
+   0.09   51.95 v u_fpu4/_161598_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   52.12 v u_fpu4/_161599_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.36   52.48 ^ u_fpu4/_161606_/Y (sky130_fd_sc_hd__nor4_1)
+   0.19   52.68 v u_fpu4/_161638_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   52.98 ^ u_fpu4/_161639_/Y (sky130_fd_sc_hd__nor3_4)
+   0.27   53.25 v u_fpu4/_161828_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   53.84 ^ u_fpu4/_161829_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   54.09 ^ load_slew52/X (sky130_fd_sc_hd__buf_6)
+   0.20   54.29 ^ load_slew51/X (sky130_fd_sc_hd__buf_6)
+   0.06   54.35 v u_fpu4/_162123_/Y (sky130_fd_sc_hd__nand2_1)
+   0.10   54.45 ^ u_fpu4/_162124_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.11   54.56 v u_fpu4/_162125_/Y (sky130_fd_sc_hd__inv_1)
+   0.31   54.87 ^ u_fpu4/_162136_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   55.02 v u_fpu4/_162160_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   55.33 ^ u_fpu4/_162223_/Y (sky130_fd_sc_hd__nor3_4)
+   0.24   55.57 v u_fpu4/_162314_/Y (sky130_fd_sc_hd__nand4_4)
+   0.70   56.27 ^ u_fpu4/_162400_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   56.54 ^ load_slew39/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.74 ^ load_slew38/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.94 ^ load_slew37/X (sky130_fd_sc_hd__buf_6)
+   0.22   57.16 ^ u_fpu4/_162824_/X (sky130_fd_sc_hd__o21a_1)
+   0.16   57.32 v u_fpu4/_162830_/Y (sky130_fd_sc_hd__nand4_1)
+   0.46   57.78 ^ u_fpu4/_162857_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   58.04 v u_fpu4/_163112_/Y (sky130_fd_sc_hd__nand4_4)
+   0.55   58.59 ^ u_fpu4/_163114_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   58.86 ^ load_slew26/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.06 ^ load_slew25/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.26 ^ load_slew24/X (sky130_fd_sc_hd__buf_6)
+   0.09   59.36 v u_fpu4/_163439_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.30   59.66 ^ u_fpu4/_163440_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   59.82 v u_fpu4/_163456_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   60.11 ^ u_fpu4/_163510_/Y (sky130_fd_sc_hd__nor3_2)
+   0.34   60.46 v u_fpu4/_163602_/Y (sky130_fd_sc_hd__nand4_4)
+   0.77   61.22 ^ u_fpu4/_163771_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   61.50 ^ load_slew14/X (sky130_fd_sc_hd__buf_6)
+   0.20   61.70 ^ load_slew13/X (sky130_fd_sc_hd__buf_6)
+   0.17   61.87 ^ load_slew12/X (sky130_fd_sc_hd__buf_6)
+   0.09   61.96 v u_fpu4/_163966_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.28   62.24 ^ u_fpu4/_164401_/Y (sky130_fd_sc_hd__nor4_1)
+   0.10   62.34 v u_fpu4/_164404_/Y (sky130_fd_sc_hd__nand2_1)
+   0.33   62.67 ^ u_fpu4/_164407_/Y (sky130_fd_sc_hd__nor3_1)
+   0.22   62.89 v u_fpu4/_164416_/Y (sky130_fd_sc_hd__nand4_2)
+   0.69   63.58 ^ u_fpu4/_164438_/Y (sky130_fd_sc_hd__nor4_4)
+   0.24   63.82 ^ load_slew4/X (sky130_fd_sc_hd__buf_6)
+   0.17   63.99 ^ load_slew3/X (sky130_fd_sc_hd__buf_6)
+   0.07   64.06 v u_fpu4/_164705_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06   64.12 ^ u_fpu4/_164706_/Y (sky130_fd_sc_hd__nand2_1)
+   0.22   64.35 ^ u_fpu4/_164707_/X (sky130_fd_sc_hd__o2111a_1)
+   0.15   64.50 v u_fpu4/_164708_/Y (sky130_fd_sc_hd__nand4_2)
+   0.37   64.87 ^ u_fpu4/_164796_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   65.15 v u_fpu4/_164798_/Y (sky130_fd_sc_hd__nand4_4)
+   0.20   65.35 ^ u_fpu4/_164801_/Y (sky130_fd_sc_hd__nand4_2)
+   0.55   65.90 v u_fpu4/_164811_/Y (sky130_fd_sc_hd__nand4_4)
+   0.63   66.54 ^ u_fpu4/_164812_/Y (sky130_fd_sc_hd__nor2_8)
+   0.28   66.81 ^ u_fpu4/_164892_/X (sky130_fd_sc_hd__o2111a_1)
+   0.07   66.88 v u_fpu4/_164906_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13   67.01 ^ u_fpu4/_164908_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.10   67.11 v u_fpu4/_164910_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   67.26 ^ u_fpu4/_164912_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.10   67.35 v u_fpu4/_164914_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13   67.49 ^ u_fpu4/_164916_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.10   67.59 v u_fpu4/_164919_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13   67.72 ^ u_fpu4/_164921_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.09   67.80 v u_fpu4/_164922_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   67.97 ^ u_fpu4/_164923_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.16   68.13 v u_fpu4/_164924_/Y (sky130_fd_sc_hd__nand4_2)
+   0.12   68.25 ^ u_fpu4/_164925_/Y (sky130_fd_sc_hd__nand2_1)
+   0.00   68.25 ^ u_fpu4/_225279_/D (sky130_fd_sc_hd__dfrtp_1)
+          68.25   data arrival time
+
+  20.00   20.00   clock clk (rise edge)
+   0.00   20.00   clock network delay (ideal)
+   0.00   20.00   clock reconvergence pessimism
+          20.00 ^ u_fpu4/_225279_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.07   19.93   library setup time
+          19.93   data required time
+---------------------------------------------------------
+          19.93   data required time
+         -68.25   data arrival time
+---------------------------------------------------------
+         -48.32   slack (VIOLATED)
+
+
+Startpoint: u_fpu4/_225392_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_fpu4/_225307_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_fpu4/_225392_/CLK (sky130_fd_sc_hd__dfrtp_4)
+   0.88    0.88 ^ u_fpu4/_225392_/Q (sky130_fd_sc_hd__dfrtp_4)
+   0.29    1.17 v u_fpu4/_141040_/Y (sky130_fd_sc_hd__clkinv_16)
+   0.21    1.38 ^ u_fpu4/_144783_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13    1.51 v u_fpu4/_144786_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.16    1.68 ^ u_fpu4/_148606_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.09    1.77 v u_fpu4/_148607_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.24    2.00 ^ u_fpu4/_148608_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14    2.14 v u_fpu4/_148609_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.39    2.53 ^ u_fpu4/_148616_/Y (sky130_fd_sc_hd__a21oi_4)
+   0.22    2.75 ^ load_slew369/X (sky130_fd_sc_hd__buf_16)
+   0.20    2.94 ^ max_cap368/X (sky130_fd_sc_hd__buf_12)
+   0.11    3.05 v u_fpu4/_148941_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16    3.22 v u_fpu4/_148942_/X (sky130_fd_sc_hd__o211a_1)
+   0.19    3.41 ^ u_fpu4/_148954_/Y (sky130_fd_sc_hd__nor2_1)
+   0.12    3.53 v u_fpu4/_148955_/Y (sky130_fd_sc_hd__nand4_1)
+   0.21    3.74 v u_fpu4/_148995_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.28    4.02 ^ u_fpu4/_148996_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13    4.15 v u_fpu4/_148997_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.59    4.74 ^ u_fpu4/_149032_/Y (sky130_fd_sc_hd__a211oi_4)
+   0.19    4.92 v u_fpu4/_149245_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17    5.09 ^ u_fpu4/_149252_/Y (sky130_fd_sc_hd__nand3_1)
+   0.10    5.20 v u_fpu4/_149253_/Y (sky130_fd_sc_hd__inv_1)
+   0.23    5.43 ^ u_fpu4/_149428_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16    5.59 v u_fpu4/_149432_/Y (sky130_fd_sc_hd__nand3_1)
+   0.39    5.97 ^ u_fpu4/_149433_/Y (sky130_fd_sc_hd__nor4_2)
+   0.28    6.26 v u_fpu4/_149436_/Y (sky130_fd_sc_hd__nand4_4)
+   0.66    6.92 ^ u_fpu4/_149437_/Y (sky130_fd_sc_hd__nand4_4)
+   0.28    7.20 v u_fpu4/_149659_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.27    7.47 v u_fpu4/_149669_/X (sky130_fd_sc_hd__and3_1)
+   0.14    7.61 ^ u_fpu4/_149676_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    7.74 v u_fpu4/_149680_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27    8.01 ^ u_fpu4/_149722_/Y (sky130_fd_sc_hd__nor3_1)
+   0.13    8.14 v u_fpu4/_149804_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.17    8.30 ^ u_fpu4/_149805_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.40    8.70 v u_fpu4/_149830_/Y (sky130_fd_sc_hd__o2111ai_4)
+   0.44    9.14 ^ u_fpu4/_149891_/Y (sky130_fd_sc_hd__nor2_8)
+   0.17    9.30 v u_fpu4/_150082_/Y (sky130_fd_sc_hd__nand2_1)
+   0.19    9.49 v u_fpu4/_150108_/X (sky130_fd_sc_hd__and3_1)
+   0.17    9.66 ^ u_fpu4/_150109_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    9.80 v u_fpu4/_150114_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27   10.07 ^ u_fpu4/_150165_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   10.24 v u_fpu4/_150251_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   10.41 ^ u_fpu4/_150252_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   10.60 v u_fpu4/_150400_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   11.08 ^ u_fpu4/_150466_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   11.34 ^ load_slew334/X (sky130_fd_sc_hd__buf_6)
+   0.20   11.55 ^ load_slew332/X (sky130_fd_sc_hd__buf_6)
+   0.23   11.78 ^ u_fpu4/_150830_/X (sky130_fd_sc_hd__o21a_1)
+   0.22   11.99 ^ u_fpu4/_151107_/X (sky130_fd_sc_hd__and2_0)
+   0.14   12.14 v u_fpu4/_151108_/Y (sky130_fd_sc_hd__nand4_2)
+   0.33   12.46 ^ u_fpu4/_151111_/Y (sky130_fd_sc_hd__nor3_1)
+   0.17   12.64 v u_fpu4/_151112_/Y (sky130_fd_sc_hd__nand4_2)
+   0.39   13.03 ^ u_fpu4/_151113_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   13.20 v u_fpu4/_151129_/Y (sky130_fd_sc_hd__clkinv_4)
+   0.43   13.63 ^ u_fpu4/_151130_/Y (sky130_fd_sc_hd__nand4_4)
+   0.22   13.85 v u_fpu4/_151294_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   14.03 v u_fpu4/_151319_/X (sky130_fd_sc_hd__o211a_1)
+   0.17   14.19 ^ u_fpu4/_151320_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14   14.33 v u_fpu4/_151325_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   14.68 ^ u_fpu4/_151364_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   14.83 v u_fpu4/_151450_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   14.98 ^ u_fpu4/_151451_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.18   15.17 v u_fpu4/_151663_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   15.65 ^ u_fpu4/_151740_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   15.87 ^ load_slew305/X (sky130_fd_sc_hd__buf_6)
+   0.18   16.05 ^ load_slew303/X (sky130_fd_sc_hd__buf_6)
+   0.09   16.14 v u_fpu4/_151829_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   16.31 ^ u_fpu4/_151832_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   16.41 v u_fpu4/_151833_/Y (sky130_fd_sc_hd__nor2_1)
+   0.23   16.63 ^ u_fpu4/_151834_/Y (sky130_fd_sc_hd__nor2_2)
+   0.24   16.88 ^ u_fpu4/_151859_/X (sky130_fd_sc_hd__o2111a_1)
+   0.08   16.96 v u_fpu4/_151863_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.24   17.20 ^ u_fpu4/_152084_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   17.40 v u_fpu4/_152282_/Y (sky130_fd_sc_hd__nand4_4)
+   0.57   17.97 ^ u_fpu4/_152357_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   18.25 ^ max_cap288/X (sky130_fd_sc_hd__buf_6)
+   0.17   18.42 ^ max_cap287/X (sky130_fd_sc_hd__probe_p_8)
+   0.08   18.50 v u_fpu4/_152530_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   18.64 ^ u_fpu4/_152531_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.13   18.77 v u_fpu4/_152533_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   18.91 ^ u_fpu4/_152535_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   19.04 v u_fpu4/_152570_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   19.35 ^ u_fpu4/_152609_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   19.53 v u_fpu4/_152696_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   19.69 ^ u_fpu4/_152697_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   19.89 v u_fpu4/_152898_/Y (sky130_fd_sc_hd__nand4_4)
+   0.56   20.45 ^ u_fpu4/_152967_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   20.68 ^ load_slew270/X (sky130_fd_sc_hd__probe_p_8)
+   0.17   20.85 ^ max_cap269/X (sky130_fd_sc_hd__buf_6)
+   0.08   20.93 v u_fpu4/_153124_/Y (sky130_fd_sc_hd__nand2_1)
+   0.09   21.02 ^ u_fpu4/_153125_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.07   21.08 v u_fpu4/_153545_/Y (sky130_fd_sc_hd__inv_1)
+   0.24   21.32 ^ u_fpu4/_153546_/Y (sky130_fd_sc_hd__nor2_1)
+   0.09   21.41 v u_fpu4/_153547_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   21.72 ^ u_fpu4/_153550_/Y (sky130_fd_sc_hd__nor3_1)
+   0.18   21.90 v u_fpu4/_153551_/Y (sky130_fd_sc_hd__nand4_2)
+   0.43   22.33 ^ u_fpu4/_153594_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   22.50 v u_fpu4/_153595_/Y (sky130_fd_sc_hd__inv_2)
+   0.37   22.87 ^ u_fpu4/_153596_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   23.03 v u_fpu4/_153765_/Y (sky130_fd_sc_hd__nand2_1)
+   0.18   23.21 v u_fpu4/_153773_/X (sky130_fd_sc_hd__o211a_1)
+   0.18   23.38 ^ u_fpu4/_153774_/Y (sky130_fd_sc_hd__nor2_2)
+   0.17   23.56 v u_fpu4/_153793_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   23.85 ^ u_fpu4/_153834_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   24.03 v u_fpu4/_154256_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   24.18 ^ u_fpu4/_154257_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   24.36 v u_fpu4/_154258_/Y (sky130_fd_sc_hd__nand4_4)
+   0.35   24.71 ^ u_fpu4/_154260_/Y (sky130_fd_sc_hd__nor4_2)
+   0.24   24.95 ^ load_slew239/X (sky130_fd_sc_hd__buf_6)
+   0.07   25.02 v u_fpu4/_154281_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   25.19 ^ u_fpu4/_154282_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.21   25.40 ^ u_fpu4/_154380_/X (sky130_fd_sc_hd__or2_0)
+   0.09   25.49 v u_fpu4/_154381_/Y (sky130_fd_sc_hd__nand2_1)
+   0.32   25.81 ^ u_fpu4/_154382_/Y (sky130_fd_sc_hd__nor4b_1)
+   0.15   25.96 v u_fpu4/_154383_/Y (sky130_fd_sc_hd__nand3_1)
+   0.18   26.14 ^ u_fpu4/_154888_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   26.33 v u_fpu4/_154889_/Y (sky130_fd_sc_hd__nand4_4)
+   0.40   26.74 ^ u_fpu4/_154891_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   26.99 ^ wire224/X (sky130_fd_sc_hd__buf_6)
+   0.20   27.19 ^ load_slew223/X (sky130_fd_sc_hd__buf_6)
+   0.19   27.38 ^ load_slew222/X (sky130_fd_sc_hd__buf_6)
+   0.07   27.45 v u_fpu4/_155217_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   27.61 ^ u_fpu4/_155218_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   27.71 v u_fpu4/_155219_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   27.93 ^ u_fpu4/_155475_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   28.10 v u_fpu4/_155476_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   28.38 ^ u_fpu4/_155477_/Y (sky130_fd_sc_hd__nor2_2)
+   0.22   28.60 v u_fpu4/_155478_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   28.90 ^ u_fpu4/_155479_/Y (sky130_fd_sc_hd__nor2_4)
+   0.17   29.07 v u_fpu4/_155480_/Y (sky130_fd_sc_hd__inv_2)
+   0.39   29.46 ^ u_fpu4/_155481_/Y (sky130_fd_sc_hd__nand4_4)
+   0.19   29.65 v u_fpu4/_155655_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   29.80 v u_fpu4/_155663_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   29.99 ^ u_fpu4/_155664_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   30.16 v u_fpu4/_155685_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   30.51 ^ u_fpu4/_155728_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   30.68 v u_fpu4/_156152_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   30.84 ^ u_fpu4/_156153_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.22   31.07 v u_fpu4/_156154_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   31.66 ^ u_fpu4/_156156_/Y (sky130_fd_sc_hd__nor4_4)
+   0.21   31.87 ^ max_cap195/X (sky130_fd_sc_hd__buf_16)
+   0.19   32.06 ^ load_slew194/X (sky130_fd_sc_hd__buf_6)
+   0.20   32.26 ^ load_slew193/X (sky130_fd_sc_hd__buf_6)
+   0.07   32.34 v u_fpu4/_156481_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   32.46 ^ u_fpu4/_156482_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   32.58 v u_fpu4/_156483_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   32.79 ^ u_fpu4/_156742_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.18   32.97 v u_fpu4/_156744_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   33.25 ^ u_fpu4/_156745_/Y (sky130_fd_sc_hd__nor3_2)
+   0.21   33.46 v u_fpu4/_156746_/Y (sky130_fd_sc_hd__nand4_2)
+   0.26   33.72 ^ u_fpu4/_156747_/Y (sky130_fd_sc_hd__nor2_4)
+   0.15   33.87 v u_fpu4/_156748_/Y (sky130_fd_sc_hd__inv_2)
+   0.40   34.27 ^ u_fpu4/_156749_/Y (sky130_fd_sc_hd__nand4_4)
+   0.18   34.45 v u_fpu4/_156926_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   34.61 v u_fpu4/_156954_/X (sky130_fd_sc_hd__o211a_1)
+   0.21   34.83 ^ u_fpu4/_156955_/Y (sky130_fd_sc_hd__nor2_1)
+   0.17   34.99 v u_fpu4/_156960_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   35.30 ^ u_fpu4/_157000_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   35.46 v u_fpu4/_157082_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.16   35.62 ^ u_fpu4/_157083_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.19   35.82 v u_fpu4/_157296_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   36.45 ^ u_fpu4/_157412_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   36.73 ^ load_slew165/X (sky130_fd_sc_hd__buf_6)
+   0.10   36.83 v u_fpu4/_157631_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   36.97 ^ u_fpu4/_157632_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   37.08 v u_fpu4/_157643_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   37.24 ^ u_fpu4/_157648_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.11   37.35 v u_fpu4/_157672_/Y (sky130_fd_sc_hd__nand3_1)
+   0.22   37.58 ^ u_fpu4/_157713_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.11   37.69 v u_fpu4/_158045_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   37.84 ^ u_fpu4/_158046_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.21   38.05 v u_fpu4/_158047_/Y (sky130_fd_sc_hd__nand4_4)
+   0.53   38.58 ^ u_fpu4/_158048_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   38.83 ^ load_slew150/X (sky130_fd_sc_hd__buf_6)
+   0.21   39.04 ^ wire149/X (sky130_fd_sc_hd__buf_6)
+   0.20   39.24 ^ load_slew148/X (sky130_fd_sc_hd__buf_6)
+   0.06   39.30 v u_fpu4/_158365_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   39.45 ^ u_fpu4/_158366_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   39.56 v u_fpu4/_158618_/Y (sky130_fd_sc_hd__inv_1)
+   0.18   39.74 ^ u_fpu4/_158619_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.18   39.92 v u_fpu4/_158620_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   40.21 ^ u_fpu4/_158621_/Y (sky130_fd_sc_hd__nor3_2)
+   0.22   40.43 v u_fpu4/_158632_/Y (sky130_fd_sc_hd__nand4_2)
+   0.41   40.84 ^ u_fpu4/_158633_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   41.01 v u_fpu4/_158634_/Y (sky130_fd_sc_hd__inv_2)
+   0.35   41.36 ^ u_fpu4/_158635_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   41.53 v u_fpu4/_158812_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   41.68 v u_fpu4/_158820_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   41.87 ^ u_fpu4/_158821_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   42.03 v u_fpu4/_158841_/Y (sky130_fd_sc_hd__nand4_1)
+   0.37   42.40 ^ u_fpu4/_158887_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   42.56 v u_fpu4/_159308_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   42.72 ^ u_fpu4/_159309_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.17   42.89 v u_fpu4/_159310_/Y (sky130_fd_sc_hd__nand4_4)
+   0.54   43.42 ^ u_fpu4/_159312_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   43.70 ^ load_slew115/X (sky130_fd_sc_hd__buf_6)
+   0.17   43.87 ^ load_slew114/X (sky130_fd_sc_hd__buf_6)
+   0.19   44.06 ^ load_slew113/X (sky130_fd_sc_hd__buf_6)
+   0.07   44.12 v u_fpu4/_159644_/Y (sky130_fd_sc_hd__nand2_1)
+   0.11   44.24 ^ u_fpu4/_159645_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.08   44.32 v u_fpu4/_159646_/Y (sky130_fd_sc_hd__inv_1)
+   0.28   44.60 ^ u_fpu4/_159647_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   44.75 v u_fpu4/_159664_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   45.07 ^ u_fpu4/_159719_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   45.35 v u_fpu4/_159816_/Y (sky130_fd_sc_hd__nand4_4)
+   0.69   46.04 ^ u_fpu4/_159893_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   46.31 ^ load_slew99/X (sky130_fd_sc_hd__buf_6)
+   0.21   46.52 ^ load_slew98/X (sky130_fd_sc_hd__buf_6)
+   0.20   46.72 ^ load_slew97/X (sky130_fd_sc_hd__buf_6)
+   0.14   46.85 v u_fpu4/_160346_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   47.02 ^ u_fpu4/_160347_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   47.16 v u_fpu4/_160360_/Y (sky130_fd_sc_hd__nand4_1)
+   0.44   47.59 ^ u_fpu4/_160386_/Y (sky130_fd_sc_hd__nor4_2)
+   0.25   47.85 v u_fpu4/_160453_/Y (sky130_fd_sc_hd__nand4_4)
+   0.61   48.45 ^ u_fpu4/_160596_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   48.71 ^ load_slew83/X (sky130_fd_sc_hd__buf_6)
+   0.20   48.91 ^ load_slew82/X (sky130_fd_sc_hd__buf_6)
+   0.18   49.09 ^ load_slew81/X (sky130_fd_sc_hd__buf_6)
+   0.19   49.28 ^ load_slew80/X (sky130_fd_sc_hd__buf_6)
+   0.06   49.34 v u_fpu4/_160756_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   49.51 v u_fpu4/_160757_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.15   49.66 ^ u_fpu4/_161194_/Y (sky130_fd_sc_hd__nor2_1)
+   0.10   49.75 v u_fpu4/_161195_/Y (sky130_fd_sc_hd__nand3_1)
+   0.50   50.26 ^ u_fpu4/_161205_/Y (sky130_fd_sc_hd__nor4_2)
+   0.29   50.54 v u_fpu4/_161216_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   51.19 ^ u_fpu4/_161225_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   51.46 ^ load_slew67/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.66 ^ load_slew66/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.86 ^ wire65/X (sky130_fd_sc_hd__buf_6)
+   0.09   51.95 v u_fpu4/_161598_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   52.12 v u_fpu4/_161599_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.36   52.48 ^ u_fpu4/_161606_/Y (sky130_fd_sc_hd__nor4_1)
+   0.19   52.68 v u_fpu4/_161638_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   52.98 ^ u_fpu4/_161639_/Y (sky130_fd_sc_hd__nor3_4)
+   0.27   53.25 v u_fpu4/_161828_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   53.84 ^ u_fpu4/_161829_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   54.09 ^ load_slew52/X (sky130_fd_sc_hd__buf_6)
+   0.20   54.29 ^ load_slew51/X (sky130_fd_sc_hd__buf_6)
+   0.06   54.35 v u_fpu4/_162123_/Y (sky130_fd_sc_hd__nand2_1)
+   0.10   54.45 ^ u_fpu4/_162124_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.11   54.56 v u_fpu4/_162125_/Y (sky130_fd_sc_hd__inv_1)
+   0.31   54.87 ^ u_fpu4/_162136_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   55.02 v u_fpu4/_162160_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   55.33 ^ u_fpu4/_162223_/Y (sky130_fd_sc_hd__nor3_4)
+   0.24   55.57 v u_fpu4/_162314_/Y (sky130_fd_sc_hd__nand4_4)
+   0.70   56.27 ^ u_fpu4/_162400_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   56.54 ^ load_slew39/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.74 ^ load_slew38/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.94 ^ load_slew37/X (sky130_fd_sc_hd__buf_6)
+   0.22   57.16 ^ u_fpu4/_162824_/X (sky130_fd_sc_hd__o21a_1)
+   0.16   57.32 v u_fpu4/_162830_/Y (sky130_fd_sc_hd__nand4_1)
+   0.46   57.78 ^ u_fpu4/_162857_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   58.04 v u_fpu4/_163112_/Y (sky130_fd_sc_hd__nand4_4)
+   0.55   58.59 ^ u_fpu4/_163114_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   58.86 ^ load_slew26/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.06 ^ load_slew25/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.26 ^ load_slew24/X (sky130_fd_sc_hd__buf_6)
+   0.09   59.36 v u_fpu4/_163439_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.30   59.66 ^ u_fpu4/_163440_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   59.82 v u_fpu4/_163456_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   60.11 ^ u_fpu4/_163510_/Y (sky130_fd_sc_hd__nor3_2)
+   0.34   60.46 v u_fpu4/_163602_/Y (sky130_fd_sc_hd__nand4_4)
+   0.77   61.22 ^ u_fpu4/_163771_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   61.50 ^ load_slew14/X (sky130_fd_sc_hd__buf_6)
+   0.20   61.70 ^ load_slew13/X (sky130_fd_sc_hd__buf_6)
+   0.17   61.87 ^ load_slew12/X (sky130_fd_sc_hd__buf_6)
+   0.09   61.96 v u_fpu4/_163966_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.28   62.24 ^ u_fpu4/_164401_/Y (sky130_fd_sc_hd__nor4_1)
+   0.10   62.34 v u_fpu4/_164404_/Y (sky130_fd_sc_hd__nand2_1)
+   0.33   62.67 ^ u_fpu4/_164407_/Y (sky130_fd_sc_hd__nor3_1)
+   0.22   62.89 v u_fpu4/_164416_/Y (sky130_fd_sc_hd__nand4_2)
+   0.69   63.58 ^ u_fpu4/_164438_/Y (sky130_fd_sc_hd__nor4_4)
+   0.24   63.82 ^ load_slew4/X (sky130_fd_sc_hd__buf_6)
+   0.17   63.99 ^ load_slew3/X (sky130_fd_sc_hd__buf_6)
+   0.07   64.06 v u_fpu4/_164705_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06   64.12 ^ u_fpu4/_164706_/Y (sky130_fd_sc_hd__nand2_1)
+   0.22   64.35 ^ u_fpu4/_164707_/X (sky130_fd_sc_hd__o2111a_1)
+   0.15   64.50 v u_fpu4/_164708_/Y (sky130_fd_sc_hd__nand4_2)
+   0.37   64.87 ^ u_fpu4/_164796_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   65.15 v u_fpu4/_164798_/Y (sky130_fd_sc_hd__nand4_4)
+   0.22   65.36 ^ u_fpu4/_164802_/Y (sky130_fd_sc_hd__nand3_4)
+   0.06   65.42 v u_fpu4/_164863_/Y (sky130_fd_sc_hd__nand2_1)
+   0.11   65.53 ^ u_fpu4/_164864_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.66   66.19 ^ u_fpu4/_164876_/Y (sky130_fd_sc_hd__nor3b_4)
+   0.31   66.50 v u_fpu4/_164902_/Y (sky130_fd_sc_hd__nand3b_4)
+   0.24   66.74 ^ u_fpu4/_168117_/Y (sky130_fd_sc_hd__inv_6)
+   0.12   66.87 v u_fpu4/_168641_/Y (sky130_fd_sc_hd__o211ai_4)
+   0.18   67.05 ^ u_fpu4/_168643_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.10   67.15 v u_fpu4/_168645_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.15   67.29 ^ u_fpu4/_168647_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.10   67.40 v u_fpu4/_168649_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.15   67.55 ^ u_fpu4/_168651_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.10   67.65 v u_fpu4/_168653_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.20   67.85 ^ u_fpu4/_168654_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.10   67.95 v u_fpu4/_168655_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.13   68.07 ^ u_fpu4/_168656_/Y (sky130_fd_sc_hd__nand3_1)
+   0.11   68.18 v u_fpu4/_168657_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.00   68.18 v u_fpu4/_225307_/D (sky130_fd_sc_hd__dfrtp_1)
+          68.18   data arrival time
+
+  20.00   20.00   clock clk (rise edge)
+   0.00   20.00   clock network delay (ideal)
+   0.00   20.00   clock reconvergence pessimism
+          20.00 ^ u_fpu4/_225307_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.14   19.86   library setup time
+          19.86   data required time
+---------------------------------------------------------
+          19.86   data required time
+         -68.18   data arrival time
+---------------------------------------------------------
+         -48.32   slack (VIOLATED)
+
+
+Startpoint: u_fpu4/_225392_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_fpu4/_225283_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock clk (rise edge)
+   0.00    0.00   clock network delay (ideal)
+   0.00    0.00 ^ u_fpu4/_225392_/CLK (sky130_fd_sc_hd__dfrtp_4)
+   0.88    0.88 ^ u_fpu4/_225392_/Q (sky130_fd_sc_hd__dfrtp_4)
+   0.29    1.17 v u_fpu4/_141040_/Y (sky130_fd_sc_hd__clkinv_16)
+   0.21    1.38 ^ u_fpu4/_144783_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13    1.51 v u_fpu4/_144786_/Y (sky130_fd_sc_hd__o211ai_1)
+   0.16    1.68 ^ u_fpu4/_148606_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.09    1.77 v u_fpu4/_148607_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.24    2.00 ^ u_fpu4/_148608_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14    2.14 v u_fpu4/_148609_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.39    2.53 ^ u_fpu4/_148616_/Y (sky130_fd_sc_hd__a21oi_4)
+   0.22    2.75 ^ load_slew369/X (sky130_fd_sc_hd__buf_16)
+   0.20    2.94 ^ max_cap368/X (sky130_fd_sc_hd__buf_12)
+   0.11    3.05 v u_fpu4/_148941_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16    3.22 v u_fpu4/_148942_/X (sky130_fd_sc_hd__o211a_1)
+   0.19    3.41 ^ u_fpu4/_148954_/Y (sky130_fd_sc_hd__nor2_1)
+   0.12    3.53 v u_fpu4/_148955_/Y (sky130_fd_sc_hd__nand4_1)
+   0.21    3.74 v u_fpu4/_148995_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.28    4.02 ^ u_fpu4/_148996_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13    4.15 v u_fpu4/_148997_/Y (sky130_fd_sc_hd__o21bai_4)
+   0.59    4.74 ^ u_fpu4/_149032_/Y (sky130_fd_sc_hd__a211oi_4)
+   0.19    4.92 v u_fpu4/_149245_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17    5.09 ^ u_fpu4/_149252_/Y (sky130_fd_sc_hd__nand3_1)
+   0.10    5.20 v u_fpu4/_149253_/Y (sky130_fd_sc_hd__inv_1)
+   0.23    5.43 ^ u_fpu4/_149428_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16    5.59 v u_fpu4/_149432_/Y (sky130_fd_sc_hd__nand3_1)
+   0.39    5.97 ^ u_fpu4/_149433_/Y (sky130_fd_sc_hd__nor4_2)
+   0.28    6.26 v u_fpu4/_149436_/Y (sky130_fd_sc_hd__nand4_4)
+   0.66    6.92 ^ u_fpu4/_149437_/Y (sky130_fd_sc_hd__nand4_4)
+   0.28    7.20 v u_fpu4/_149659_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.27    7.47 v u_fpu4/_149669_/X (sky130_fd_sc_hd__and3_1)
+   0.14    7.61 ^ u_fpu4/_149676_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    7.74 v u_fpu4/_149680_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27    8.01 ^ u_fpu4/_149722_/Y (sky130_fd_sc_hd__nor3_1)
+   0.13    8.14 v u_fpu4/_149804_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.17    8.30 ^ u_fpu4/_149805_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.40    8.70 v u_fpu4/_149830_/Y (sky130_fd_sc_hd__o2111ai_4)
+   0.44    9.14 ^ u_fpu4/_149891_/Y (sky130_fd_sc_hd__nor2_8)
+   0.17    9.30 v u_fpu4/_150082_/Y (sky130_fd_sc_hd__nand2_1)
+   0.19    9.49 v u_fpu4/_150108_/X (sky130_fd_sc_hd__and3_1)
+   0.17    9.66 ^ u_fpu4/_150109_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14    9.80 v u_fpu4/_150114_/Y (sky130_fd_sc_hd__nand4_1)
+   0.27   10.07 ^ u_fpu4/_150165_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   10.24 v u_fpu4/_150251_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   10.41 ^ u_fpu4/_150252_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   10.60 v u_fpu4/_150400_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   11.08 ^ u_fpu4/_150466_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   11.34 ^ load_slew334/X (sky130_fd_sc_hd__buf_6)
+   0.20   11.55 ^ load_slew332/X (sky130_fd_sc_hd__buf_6)
+   0.23   11.78 ^ u_fpu4/_150830_/X (sky130_fd_sc_hd__o21a_1)
+   0.22   11.99 ^ u_fpu4/_151107_/X (sky130_fd_sc_hd__and2_0)
+   0.14   12.14 v u_fpu4/_151108_/Y (sky130_fd_sc_hd__nand4_2)
+   0.33   12.46 ^ u_fpu4/_151111_/Y (sky130_fd_sc_hd__nor3_1)
+   0.17   12.64 v u_fpu4/_151112_/Y (sky130_fd_sc_hd__nand4_2)
+   0.39   13.03 ^ u_fpu4/_151113_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   13.20 v u_fpu4/_151129_/Y (sky130_fd_sc_hd__clkinv_4)
+   0.43   13.63 ^ u_fpu4/_151130_/Y (sky130_fd_sc_hd__nand4_4)
+   0.22   13.85 v u_fpu4/_151294_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   14.03 v u_fpu4/_151319_/X (sky130_fd_sc_hd__o211a_1)
+   0.17   14.19 ^ u_fpu4/_151320_/Y (sky130_fd_sc_hd__nor2_1)
+   0.14   14.33 v u_fpu4/_151325_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   14.68 ^ u_fpu4/_151364_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   14.83 v u_fpu4/_151450_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   14.98 ^ u_fpu4/_151451_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.18   15.17 v u_fpu4/_151663_/Y (sky130_fd_sc_hd__nand4_4)
+   0.48   15.65 ^ u_fpu4/_151740_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   15.87 ^ load_slew305/X (sky130_fd_sc_hd__buf_6)
+   0.18   16.05 ^ load_slew303/X (sky130_fd_sc_hd__buf_6)
+   0.09   16.14 v u_fpu4/_151829_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   16.31 ^ u_fpu4/_151832_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   16.41 v u_fpu4/_151833_/Y (sky130_fd_sc_hd__nor2_1)
+   0.23   16.63 ^ u_fpu4/_151834_/Y (sky130_fd_sc_hd__nor2_2)
+   0.24   16.88 ^ u_fpu4/_151859_/X (sky130_fd_sc_hd__o2111a_1)
+   0.08   16.96 v u_fpu4/_151863_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.24   17.20 ^ u_fpu4/_152084_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   17.40 v u_fpu4/_152282_/Y (sky130_fd_sc_hd__nand4_4)
+   0.57   17.97 ^ u_fpu4/_152357_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   18.25 ^ max_cap288/X (sky130_fd_sc_hd__buf_6)
+   0.17   18.42 ^ max_cap287/X (sky130_fd_sc_hd__probe_p_8)
+   0.08   18.50 v u_fpu4/_152530_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   18.64 ^ u_fpu4/_152531_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.13   18.77 v u_fpu4/_152533_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   18.91 ^ u_fpu4/_152535_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   19.04 v u_fpu4/_152570_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   19.35 ^ u_fpu4/_152609_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   19.53 v u_fpu4/_152696_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   19.69 ^ u_fpu4/_152697_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.20   19.89 v u_fpu4/_152898_/Y (sky130_fd_sc_hd__nand4_4)
+   0.56   20.45 ^ u_fpu4/_152967_/Y (sky130_fd_sc_hd__nor4_4)
+   0.23   20.68 ^ load_slew270/X (sky130_fd_sc_hd__probe_p_8)
+   0.17   20.85 ^ max_cap269/X (sky130_fd_sc_hd__buf_6)
+   0.08   20.93 v u_fpu4/_153124_/Y (sky130_fd_sc_hd__nand2_1)
+   0.09   21.02 ^ u_fpu4/_153125_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.07   21.08 v u_fpu4/_153545_/Y (sky130_fd_sc_hd__inv_1)
+   0.24   21.32 ^ u_fpu4/_153546_/Y (sky130_fd_sc_hd__nor2_1)
+   0.09   21.41 v u_fpu4/_153547_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   21.72 ^ u_fpu4/_153550_/Y (sky130_fd_sc_hd__nor3_1)
+   0.18   21.90 v u_fpu4/_153551_/Y (sky130_fd_sc_hd__nand4_2)
+   0.43   22.33 ^ u_fpu4/_153594_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   22.50 v u_fpu4/_153595_/Y (sky130_fd_sc_hd__inv_2)
+   0.37   22.87 ^ u_fpu4/_153596_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   23.03 v u_fpu4/_153765_/Y (sky130_fd_sc_hd__nand2_1)
+   0.18   23.21 v u_fpu4/_153773_/X (sky130_fd_sc_hd__o211a_1)
+   0.18   23.38 ^ u_fpu4/_153774_/Y (sky130_fd_sc_hd__nor2_2)
+   0.17   23.56 v u_fpu4/_153793_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   23.85 ^ u_fpu4/_153834_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   24.03 v u_fpu4/_154256_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   24.18 ^ u_fpu4/_154257_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   24.36 v u_fpu4/_154258_/Y (sky130_fd_sc_hd__nand4_4)
+   0.35   24.71 ^ u_fpu4/_154260_/Y (sky130_fd_sc_hd__nor4_2)
+   0.24   24.95 ^ load_slew239/X (sky130_fd_sc_hd__buf_6)
+   0.07   25.02 v u_fpu4/_154281_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   25.19 ^ u_fpu4/_154282_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.21   25.40 ^ u_fpu4/_154380_/X (sky130_fd_sc_hd__or2_0)
+   0.09   25.49 v u_fpu4/_154381_/Y (sky130_fd_sc_hd__nand2_1)
+   0.32   25.81 ^ u_fpu4/_154382_/Y (sky130_fd_sc_hd__nor4b_1)
+   0.15   25.96 v u_fpu4/_154383_/Y (sky130_fd_sc_hd__nand3_1)
+   0.18   26.14 ^ u_fpu4/_154888_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.19   26.33 v u_fpu4/_154889_/Y (sky130_fd_sc_hd__nand4_4)
+   0.40   26.74 ^ u_fpu4/_154891_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   26.99 ^ wire224/X (sky130_fd_sc_hd__buf_6)
+   0.20   27.19 ^ load_slew223/X (sky130_fd_sc_hd__buf_6)
+   0.19   27.38 ^ load_slew222/X (sky130_fd_sc_hd__buf_6)
+   0.07   27.45 v u_fpu4/_155217_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   27.61 ^ u_fpu4/_155218_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.10   27.71 v u_fpu4/_155219_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   27.93 ^ u_fpu4/_155475_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.17   28.10 v u_fpu4/_155476_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   28.38 ^ u_fpu4/_155477_/Y (sky130_fd_sc_hd__nor2_2)
+   0.22   28.60 v u_fpu4/_155478_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   28.90 ^ u_fpu4/_155479_/Y (sky130_fd_sc_hd__nor2_4)
+   0.17   29.07 v u_fpu4/_155480_/Y (sky130_fd_sc_hd__inv_2)
+   0.39   29.46 ^ u_fpu4/_155481_/Y (sky130_fd_sc_hd__nand4_4)
+   0.19   29.65 v u_fpu4/_155655_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   29.80 v u_fpu4/_155663_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   29.99 ^ u_fpu4/_155664_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   30.16 v u_fpu4/_155685_/Y (sky130_fd_sc_hd__nand4_1)
+   0.35   30.51 ^ u_fpu4/_155728_/Y (sky130_fd_sc_hd__nor4_1)
+   0.17   30.68 v u_fpu4/_156152_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   30.84 ^ u_fpu4/_156153_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.22   31.07 v u_fpu4/_156154_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   31.66 ^ u_fpu4/_156156_/Y (sky130_fd_sc_hd__nor4_4)
+   0.21   31.87 ^ max_cap195/X (sky130_fd_sc_hd__buf_16)
+   0.19   32.06 ^ load_slew194/X (sky130_fd_sc_hd__buf_6)
+   0.20   32.26 ^ load_slew193/X (sky130_fd_sc_hd__buf_6)
+   0.07   32.34 v u_fpu4/_156481_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   32.46 ^ u_fpu4/_156482_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   32.58 v u_fpu4/_156483_/Y (sky130_fd_sc_hd__inv_1)
+   0.22   32.79 ^ u_fpu4/_156742_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.18   32.97 v u_fpu4/_156744_/Y (sky130_fd_sc_hd__nand4_1)
+   0.28   33.25 ^ u_fpu4/_156745_/Y (sky130_fd_sc_hd__nor3_2)
+   0.21   33.46 v u_fpu4/_156746_/Y (sky130_fd_sc_hd__nand4_2)
+   0.26   33.72 ^ u_fpu4/_156747_/Y (sky130_fd_sc_hd__nor2_4)
+   0.15   33.87 v u_fpu4/_156748_/Y (sky130_fd_sc_hd__inv_2)
+   0.40   34.27 ^ u_fpu4/_156749_/Y (sky130_fd_sc_hd__nand4_4)
+   0.18   34.45 v u_fpu4/_156926_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   34.61 v u_fpu4/_156954_/X (sky130_fd_sc_hd__o211a_1)
+   0.21   34.83 ^ u_fpu4/_156955_/Y (sky130_fd_sc_hd__nor2_1)
+   0.17   34.99 v u_fpu4/_156960_/Y (sky130_fd_sc_hd__nand4_1)
+   0.30   35.30 ^ u_fpu4/_157000_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   35.46 v u_fpu4/_157082_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.16   35.62 ^ u_fpu4/_157083_/Y (sky130_fd_sc_hd__o22ai_4)
+   0.19   35.82 v u_fpu4/_157296_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   36.45 ^ u_fpu4/_157412_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   36.73 ^ load_slew165/X (sky130_fd_sc_hd__buf_6)
+   0.10   36.83 v u_fpu4/_157631_/Y (sky130_fd_sc_hd__nand2_1)
+   0.14   36.97 ^ u_fpu4/_157632_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   37.08 v u_fpu4/_157643_/Y (sky130_fd_sc_hd__nand2_1)
+   0.16   37.24 ^ u_fpu4/_157648_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.11   37.35 v u_fpu4/_157672_/Y (sky130_fd_sc_hd__nand3_1)
+   0.22   37.58 ^ u_fpu4/_157713_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.11   37.69 v u_fpu4/_158045_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.15   37.84 ^ u_fpu4/_158046_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.21   38.05 v u_fpu4/_158047_/Y (sky130_fd_sc_hd__nand4_4)
+   0.53   38.58 ^ u_fpu4/_158048_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   38.83 ^ load_slew150/X (sky130_fd_sc_hd__buf_6)
+   0.21   39.04 ^ wire149/X (sky130_fd_sc_hd__buf_6)
+   0.20   39.24 ^ load_slew148/X (sky130_fd_sc_hd__buf_6)
+   0.06   39.30 v u_fpu4/_158365_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   39.45 ^ u_fpu4/_158366_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.11   39.56 v u_fpu4/_158618_/Y (sky130_fd_sc_hd__inv_1)
+   0.18   39.74 ^ u_fpu4/_158619_/Y (sky130_fd_sc_hd__a21oi_2)
+   0.18   39.92 v u_fpu4/_158620_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   40.21 ^ u_fpu4/_158621_/Y (sky130_fd_sc_hd__nor3_2)
+   0.22   40.43 v u_fpu4/_158632_/Y (sky130_fd_sc_hd__nand4_2)
+   0.41   40.84 ^ u_fpu4/_158633_/Y (sky130_fd_sc_hd__nor3_4)
+   0.17   41.01 v u_fpu4/_158634_/Y (sky130_fd_sc_hd__inv_2)
+   0.35   41.36 ^ u_fpu4/_158635_/Y (sky130_fd_sc_hd__nand4_4)
+   0.16   41.53 v u_fpu4/_158812_/Y (sky130_fd_sc_hd__nand2_1)
+   0.15   41.68 v u_fpu4/_158820_/X (sky130_fd_sc_hd__o211a_1)
+   0.20   41.87 ^ u_fpu4/_158821_/Y (sky130_fd_sc_hd__nor2_1)
+   0.16   42.03 v u_fpu4/_158841_/Y (sky130_fd_sc_hd__nand4_1)
+   0.37   42.40 ^ u_fpu4/_158887_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   42.56 v u_fpu4/_159308_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   42.72 ^ u_fpu4/_159309_/Y (sky130_fd_sc_hd__o22ai_2)
+   0.17   42.89 v u_fpu4/_159310_/Y (sky130_fd_sc_hd__nand4_4)
+   0.54   43.42 ^ u_fpu4/_159312_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   43.70 ^ load_slew115/X (sky130_fd_sc_hd__buf_6)
+   0.17   43.87 ^ load_slew114/X (sky130_fd_sc_hd__buf_6)
+   0.19   44.06 ^ load_slew113/X (sky130_fd_sc_hd__buf_6)
+   0.07   44.12 v u_fpu4/_159644_/Y (sky130_fd_sc_hd__nand2_1)
+   0.11   44.24 ^ u_fpu4/_159645_/Y (sky130_fd_sc_hd__o21ai_1)
+   0.08   44.32 v u_fpu4/_159646_/Y (sky130_fd_sc_hd__inv_1)
+   0.28   44.60 ^ u_fpu4/_159647_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   44.75 v u_fpu4/_159664_/Y (sky130_fd_sc_hd__nand4_1)
+   0.32   45.07 ^ u_fpu4/_159719_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   45.35 v u_fpu4/_159816_/Y (sky130_fd_sc_hd__nand4_4)
+   0.69   46.04 ^ u_fpu4/_159893_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   46.31 ^ load_slew99/X (sky130_fd_sc_hd__buf_6)
+   0.21   46.52 ^ load_slew98/X (sky130_fd_sc_hd__buf_6)
+   0.20   46.72 ^ load_slew97/X (sky130_fd_sc_hd__buf_6)
+   0.14   46.85 v u_fpu4/_160346_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   47.02 ^ u_fpu4/_160347_/Y (sky130_fd_sc_hd__nand2_1)
+   0.13   47.16 v u_fpu4/_160360_/Y (sky130_fd_sc_hd__nand4_1)
+   0.44   47.59 ^ u_fpu4/_160386_/Y (sky130_fd_sc_hd__nor4_2)
+   0.25   47.85 v u_fpu4/_160453_/Y (sky130_fd_sc_hd__nand4_4)
+   0.61   48.45 ^ u_fpu4/_160596_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   48.71 ^ load_slew83/X (sky130_fd_sc_hd__buf_6)
+   0.20   48.91 ^ load_slew82/X (sky130_fd_sc_hd__buf_6)
+   0.18   49.09 ^ load_slew81/X (sky130_fd_sc_hd__buf_6)
+   0.19   49.28 ^ load_slew80/X (sky130_fd_sc_hd__buf_6)
+   0.06   49.34 v u_fpu4/_160756_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   49.51 v u_fpu4/_160757_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.15   49.66 ^ u_fpu4/_161194_/Y (sky130_fd_sc_hd__nor2_1)
+   0.10   49.75 v u_fpu4/_161195_/Y (sky130_fd_sc_hd__nand3_1)
+   0.50   50.26 ^ u_fpu4/_161205_/Y (sky130_fd_sc_hd__nor4_2)
+   0.29   50.54 v u_fpu4/_161216_/Y (sky130_fd_sc_hd__nand4_4)
+   0.64   51.19 ^ u_fpu4/_161225_/Y (sky130_fd_sc_hd__nor4_4)
+   0.28   51.46 ^ load_slew67/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.66 ^ load_slew66/X (sky130_fd_sc_hd__buf_6)
+   0.20   51.86 ^ wire65/X (sky130_fd_sc_hd__buf_6)
+   0.09   51.95 v u_fpu4/_161598_/Y (sky130_fd_sc_hd__nand2_1)
+   0.17   52.12 v u_fpu4/_161599_/Y (sky130_fd_sc_hd__a21boi_1)
+   0.36   52.48 ^ u_fpu4/_161606_/Y (sky130_fd_sc_hd__nor4_1)
+   0.19   52.68 v u_fpu4/_161638_/Y (sky130_fd_sc_hd__nand4_2)
+   0.30   52.98 ^ u_fpu4/_161639_/Y (sky130_fd_sc_hd__nor3_4)
+   0.27   53.25 v u_fpu4/_161828_/Y (sky130_fd_sc_hd__nand4_4)
+   0.59   53.84 ^ u_fpu4/_161829_/Y (sky130_fd_sc_hd__nor4_4)
+   0.25   54.09 ^ load_slew52/X (sky130_fd_sc_hd__buf_6)
+   0.20   54.29 ^ load_slew51/X (sky130_fd_sc_hd__buf_6)
+   0.06   54.35 v u_fpu4/_162123_/Y (sky130_fd_sc_hd__nand2_1)
+   0.10   54.45 ^ u_fpu4/_162124_/Y (sky130_fd_sc_hd__o21ai_0)
+   0.11   54.56 v u_fpu4/_162125_/Y (sky130_fd_sc_hd__inv_1)
+   0.31   54.87 ^ u_fpu4/_162136_/Y (sky130_fd_sc_hd__nor4_1)
+   0.15   55.02 v u_fpu4/_162160_/Y (sky130_fd_sc_hd__nand2_1)
+   0.31   55.33 ^ u_fpu4/_162223_/Y (sky130_fd_sc_hd__nor3_4)
+   0.24   55.57 v u_fpu4/_162314_/Y (sky130_fd_sc_hd__nand4_4)
+   0.70   56.27 ^ u_fpu4/_162400_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   56.54 ^ load_slew39/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.74 ^ load_slew38/X (sky130_fd_sc_hd__buf_6)
+   0.20   56.94 ^ load_slew37/X (sky130_fd_sc_hd__buf_6)
+   0.22   57.16 ^ u_fpu4/_162824_/X (sky130_fd_sc_hd__o21a_1)
+   0.16   57.32 v u_fpu4/_162830_/Y (sky130_fd_sc_hd__nand4_1)
+   0.46   57.78 ^ u_fpu4/_162857_/Y (sky130_fd_sc_hd__nor4_4)
+   0.26   58.04 v u_fpu4/_163112_/Y (sky130_fd_sc_hd__nand4_4)
+   0.55   58.59 ^ u_fpu4/_163114_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   58.86 ^ load_slew26/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.06 ^ load_slew25/X (sky130_fd_sc_hd__buf_6)
+   0.20   59.26 ^ load_slew24/X (sky130_fd_sc_hd__buf_6)
+   0.09   59.36 v u_fpu4/_163439_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.30   59.66 ^ u_fpu4/_163440_/Y (sky130_fd_sc_hd__nor4_1)
+   0.16   59.82 v u_fpu4/_163456_/Y (sky130_fd_sc_hd__nand4_1)
+   0.29   60.11 ^ u_fpu4/_163510_/Y (sky130_fd_sc_hd__nor3_2)
+   0.34   60.46 v u_fpu4/_163602_/Y (sky130_fd_sc_hd__nand4_4)
+   0.77   61.22 ^ u_fpu4/_163771_/Y (sky130_fd_sc_hd__nor4_4)
+   0.27   61.50 ^ load_slew14/X (sky130_fd_sc_hd__buf_6)
+   0.20   61.70 ^ load_slew13/X (sky130_fd_sc_hd__buf_6)
+   0.17   61.87 ^ load_slew12/X (sky130_fd_sc_hd__buf_6)
+   0.09   61.96 v u_fpu4/_163966_/Y (sky130_fd_sc_hd__o21ai_2)
+   0.28   62.24 ^ u_fpu4/_164401_/Y (sky130_fd_sc_hd__nor4_1)
+   0.10   62.34 v u_fpu4/_164404_/Y (sky130_fd_sc_hd__nand2_1)
+   0.33   62.67 ^ u_fpu4/_164407_/Y (sky130_fd_sc_hd__nor3_1)
+   0.22   62.89 v u_fpu4/_164416_/Y (sky130_fd_sc_hd__nand4_2)
+   0.69   63.58 ^ u_fpu4/_164438_/Y (sky130_fd_sc_hd__nor4_4)
+   0.24   63.82 ^ load_slew4/X (sky130_fd_sc_hd__buf_6)
+   0.17   63.99 ^ load_slew3/X (sky130_fd_sc_hd__buf_6)
+   0.07   64.06 v u_fpu4/_164705_/Y (sky130_fd_sc_hd__nand2_1)
+   0.06   64.12 ^ u_fpu4/_164706_/Y (sky130_fd_sc_hd__nand2_1)
+   0.22   64.35 ^ u_fpu4/_164707_/X (sky130_fd_sc_hd__o2111a_1)
+   0.15   64.50 v u_fpu4/_164708_/Y (sky130_fd_sc_hd__nand4_2)
+   0.37   64.87 ^ u_fpu4/_164796_/Y (sky130_fd_sc_hd__nor3_2)
+   0.28   65.15 v u_fpu4/_164798_/Y (sky130_fd_sc_hd__nand4_4)
+   0.20   65.35 ^ u_fpu4/_164801_/Y (sky130_fd_sc_hd__nand4_2)
+   0.55   65.90 v u_fpu4/_164811_/Y (sky130_fd_sc_hd__nand4_4)
+   0.63   66.54 ^ u_fpu4/_164812_/Y (sky130_fd_sc_hd__nor2_8)
+   0.27   66.81 ^ u_fpu4/_165463_/X (sky130_fd_sc_hd__o2111a_1)
+   0.07   66.87 v u_fpu4/_165470_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.13   67.01 ^ u_fpu4/_165472_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.08   67.09 v u_fpu4/_165474_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14   67.23 ^ u_fpu4/_165476_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.08   67.32 v u_fpu4/_165478_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14   67.46 ^ u_fpu4/_165480_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.09   67.55 v u_fpu4/_165482_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.14   67.69 ^ u_fpu4/_165484_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.08   67.78 v u_fpu4/_165485_/Y (sky130_fd_sc_hd__a21oi_1)
+   0.16   67.94 ^ u_fpu4/_165486_/Y (sky130_fd_sc_hd__o21bai_1)
+   0.17   68.11 v u_fpu4/_165487_/Y (sky130_fd_sc_hd__nand4_2)
+   0.12   68.23 ^ u_fpu4/_165488_/Y (sky130_fd_sc_hd__nand2_1)
+   0.00   68.23 ^ u_fpu4/_225283_/D (sky130_fd_sc_hd__dfrtp_1)
+          68.23   data arrival time
+
+  20.00   20.00   clock clk (rise edge)
+   0.00   20.00   clock network delay (ideal)
+   0.00   20.00   clock reconvergence pessimism
+          20.00 ^ u_fpu4/_225283_/CLK (sky130_fd_sc_hd__dfrtp_1)
+  -0.07   19.93   library setup time
+          19.93   data required time
+---------------------------------------------------------
+          19.93   data required time
+         -68.23   data arrival time
+---------------------------------------------------------
+         -48.30   slack (VIOLATED)
+
+

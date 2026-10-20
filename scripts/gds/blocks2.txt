@@ -1,0 +1,6 @@
+# name|top|sv2v sources (build/gds/<name>.v is self-contained)
+blit|ember_blit|rtl/ember_pkg.sv rtl/ember_blit.sv
+display|ember_display|rtl/ember_pkg.sv rtl/ember_display.sv
+gsx|ember_gsx|rtl/ember_pkg.sv rtl/ember_fpu4.sv rtl/ember_gsx.sv
+core|ember_core|rtl/ember_pkg.sv rtl/ember_core.sv
+tu|ember_tu|rtl/ember_pkg.sv rtl/ember_tu.sv

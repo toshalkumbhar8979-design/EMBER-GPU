@@ -1,0 +1,15 @@
+== [rtr_setup] 1/4 Yosys synthesis ==
+Generated ripple_techmap.v from /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+YOSYS FAIL (timeout / RSS limit / error)
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000001000010 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000001000001 for cells of type $fa.
+Using template $paramod$7771edcff16823dc6718501da45b2d48ec8690bf\_90_alu for cells of type $alu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000001000011 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000001001010 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000001100000 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Running "alumacc" on wrapper $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$neg:Y_WIDTH=118:A_WIDTH=118:A_SIGNED=0:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $ne.
+ERROR: Technology map yielded processes -> this is not supported (use -autoproc to run 'proc' automatically).

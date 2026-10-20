@@ -1,0 +1,12 @@
+== [cp] 1/4 Yosys synthesis ==
+Mapped logic verified: ember_cp
+   (validated physical-only cache; synthesis not repeated)
+   cells: 7593
+== [cp] 2/4 OpenROAD floorplan/place/CTS/route ==
+   route ok
+== [cp] 3/4 Magic GDS merge + DRC ==
+   using DEF: final.def (detailed-route)
+DRC_COUNT=0
+== [cp] 4/4 KLayout finalize ==
+-rw-r--r-- 1 root root 41421890 Oct  2 20:02 cp.gds
+== [cp] DONE (validated GDS, routing and Magic DRC zero) ==

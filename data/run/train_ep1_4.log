@@ -1,0 +1,9 @@
+resumed from data/mnist_trained.json
+epoch 0: loss=0.4630 (20s)
+  float val: 180/200 = 90.0% | int8 val accuracy: 181/200 = 90.5%
+epoch 1: loss=0.3828 (20s)
+  float val: 183/200 = 91.5% | int8 val accuracy: 184/200 = 92.0%
+epoch 2: loss=0.3454 (20s)
+  float val: 176/200 = 88.0% | int8 val accuracy: 176/200 = 88.0%
+epoch 3: loss=0.3062 (21s)
+  float val: 185/200 = 92.5% | int8 val accuracy: 185/200 = 92.5%

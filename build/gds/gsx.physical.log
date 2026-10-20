@@ -1,0 +1,8 @@
+== [gsx] 1/4 Yosys synthesis ==
+Mapped logic verified: ember_gsx
+   (validated physical-only cache; synthesis not repeated)
+   cells: 113334
+== [gsx] 2/4 OpenROAD floorplan/place/CTS/route ==
+   route ok
+== [gsx] 3/4 Magic GDS merge + DRC ==
+   using DEF: final.def (detailed-route)

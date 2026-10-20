@@ -1,0 +1,8 @@
+*.odb filter=lfs diff=lfs merge=lfs -text
+*.gds filter=lfs diff=lfs merge=lfs -text
+*.def filter=lfs diff=lfs merge=lfs -text
+*.json filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
+*.gch filter=lfs diff=lfs merge=lfs -text
+*.out filter=lfs diff=lfs merge=lfs -text
+build/gds/*/synth.v filter=lfs diff=lfs merge=lfs -text

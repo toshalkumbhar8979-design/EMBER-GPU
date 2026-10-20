@@ -1,0 +1,12 @@
+########## BLOCK display (ember_display)  ##########
+PASS display
+########## BLOCK xbar (ember_xbar)  ##########
+FAIL xbar
+[INFO IFP-0001] Added 33 rows of 198 site unithd.
+Found 0 macro blocks.
+Using 2 tracks default min distance between IO pins.
+[ERROR PPL-0024] Number of IO pins (610) exceeds maximum number of available positions (562). Increase the die perimeter from 445.86um to 561.20um.
+Error: floorplan.tcl, 15 PPL-0024
+########## BLOCK ram_slave (ember_ram_slave)  ##########
+PASS ram_slave
+########## BLOCK blit (ember_blit)  ##########

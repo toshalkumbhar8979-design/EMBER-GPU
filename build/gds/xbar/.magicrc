@@ -1,0 +1,10 @@
+set PDKPATH /root/.volare/volare/sky130/versions/fa87f8f4bbcc7255b6f0c0fb506960f531ae2392/sky130A
+tech load $PDKPATH/libs.tech/magic/sky130A.tech
+# 'addpath' is Magic's canonical search-path command -- the PDK's own
+# sky130A.magicrc uses it. The 'path cell/search' commands parsed fine but did
+# NOT affect the load path, so every child stayed a LEF abstract and gds write
+# refused (fill_8 was the first cell it named). Full .mag views go FIRST so
+# they win over the LEF abstracts during 'load -dereference'.
+addpath $PDKPATH/libs.ref/sky130_fd_sc_hd/mag
+addpath $PDKPATH/libs.ref/sky130_fd_sc_hd/maglef
+drc euclidean on

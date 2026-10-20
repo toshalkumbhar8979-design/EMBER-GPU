@@ -1,0 +1,649 @@
+Loaded SDC plugin
+
+-- Executing script file `/work/scripts/gds/check_ripple.ys' --
+
+1. Executing Verilog-2005 frontend: /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+Parameter \WIDTH = 118
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\_90_lcu_brent_kung'.
+Parameter \WIDTH = 118
+Generating RTLIL representation for module `$paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000001110110'.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \_90_lcu_brent_kung
+
+3.2. Analyzing design hierarchy..
+Top module:  \_90_lcu_brent_kung
+Removing unused module `\_90_demux'.
+Removing unused module `\_90_pmux'.
+Removing unused module `\_90_pow'.
+Removing unused module `\_90_modfloor'.
+Removing unused module `\_90_divfloor'.
+Removing unused module `\$__div_mod_floor'.
+Removing unused module `\_90_mod'.
+Removing unused module `\_90_div'.
+Removing unused module `\$__div_mod_trunc'.
+Removing unused module `\$__div_mod_u'.
+Removing unused module `\_90_alu'.
+Removing unused module `\_90_fa'.
+Removing unused module `\_90_shift_shiftx'.
+Removing unused module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Removed 14 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 238 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\_90_lcu_brent_kung.$proc$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:226$78'.
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\_90_lcu_brent_kung.\i' from process `\_90_lcu_brent_kung.$proc$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:226$78'.
+No latch inferred for signal `\_90_lcu_brent_kung.\j' from process `\_90_lcu_brent_kung.$proc$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:226$78'.
+No latch inferred for signal `\_90_lcu_brent_kung.\p' from process `\_90_lcu_brent_kung.$proc$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:226$78'.
+No latch inferred for signal `\_90_lcu_brent_kung.\g' from process `\_90_lcu_brent_kung.$proc$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:226$78'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `_90_lcu_brent_kung.$proc$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:226$78'.
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module _90_lcu_brent_kung.
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module _90_lcu_brent_kung.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\_90_lcu_brent_kung'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \_90_lcu_brent_kung..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \_90_lcu_brent_kung.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\_90_lcu_brent_kung'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \_90_lcu_brent_kung..
+Removed 117 unused cells and 240 unused wires.
+<suppressed ~118 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module _90_lcu_brent_kung.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \_90_lcu_brent_kung..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \_90_lcu_brent_kung.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\_90_lcu_brent_kung'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \_90_lcu_brent_kung..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module _90_lcu_brent_kung.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+Renaming module \_90_lcu_brent_kung to \gold.
+
+6. Executing Verilog-2005 frontend: /work/scripts/gds/ripple_lcu.v
+Parsing Verilog input from `/work/scripts/gds/ripple_lcu.v' to AST representation.
+Generating RTLIL representation for module `\ember_ripple_lcu'.
+Successfully finished Verilog frontend.
+Parameter \WIDTH = 118
+
+7. Executing AST frontend in derive mode using pre-parsed AST for module `\ember_ripple_lcu'.
+Parameter \WIDTH = 118
+Generating RTLIL representation for module `$paramod\ember_ripple_lcu\WIDTH=32'00000000000000000000000001110110'.
+
+8. Executing PROC pass (convert processes to netlists).
+
+8.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+8.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+8.4. Executing PROC_INIT pass (extract init attributes).
+
+8.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+8.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+8.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+8.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+8.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+8.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_ripple_lcu.
+Optimizing module gold.
+
+9. Executing OPT pass (performing simple optimizations).
+
+9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_ripple_lcu.
+Optimizing module gold.
+
+9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_ripple_lcu'.
+Finding identical cells in module `\gold'.
+Removed a total of 0 cells.
+
+9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_ripple_lcu..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \gold..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_ripple_lcu.
+  Optimizing cells in module \gold.
+Performed a total of 0 changes.
+
+9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_ripple_lcu'.
+Finding identical cells in module `\gold'.
+Removed a total of 0 cells.
+
+9.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_ripple_lcu..
+Finding unused cells or wires in module \gold..
+Removed 0 unused cells and 118 unused wires.
+<suppressed ~1 debug messages>
+
+9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_ripple_lcu.
+Optimizing module gold.
+
+9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ember_ripple_lcu..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \gold..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_ripple_lcu.
+  Optimizing cells in module \gold.
+Performed a total of 0 changes.
+
+9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_ripple_lcu'.
+Finding identical cells in module `\gold'.
+Removed a total of 0 cells.
+
+9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ember_ripple_lcu..
+Finding unused cells or wires in module \gold..
+
+9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_ripple_lcu.
+Optimizing module gold.
+
+9.16. Finished OPT passes. (There is nothing left to do.)
+Renaming module \ember_ripple_lcu to \gate.
+
+10. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: CI_gold (\CI_gold), CI_gate (\CI_gate) -> CI
+Presumably equivalent wires: CO_gold (\CO_gold), CO_gate ({ \CO_gate [117] \carry_gate [117:1] }) -> CO
+Presumably equivalent wires: G_gold (\G_gold), G_gate (\G_gate) -> G
+Presumably equivalent wires: P_gold (\P_gold), P_gate (\P_gate) -> P
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$759_gate ($and): \carry_gate [1] -> \CO [0]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$761_gate ($and): \carry_gate [2] -> \CO [1]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$763_gate ($and): \carry_gate [3] -> \CO [2]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$765_gate ($and): \carry_gate [4] -> \CO [3]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$767_gate ($and): \carry_gate [5] -> \CO [4]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$769_gate ($and): \carry_gate [6] -> \CO [5]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$771_gate ($and): \carry_gate [7] -> \CO [6]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$773_gate ($and): \carry_gate [8] -> \CO [7]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$775_gate ($and): \carry_gate [9] -> \CO [8]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$777_gate ($and): \carry_gate [10] -> \CO [9]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$779_gate ($and): \carry_gate [11] -> \CO [10]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$781_gate ($and): \carry_gate [12] -> \CO [11]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$783_gate ($and): \carry_gate [13] -> \CO [12]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$785_gate ($and): \carry_gate [14] -> \CO [13]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$787_gate ($and): \carry_gate [15] -> \CO [14]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$789_gate ($and): \carry_gate [16] -> \CO [15]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$791_gate ($and): \carry_gate [17] -> \CO [16]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$793_gate ($and): \carry_gate [18] -> \CO [17]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$795_gate ($and): \carry_gate [19] -> \CO [18]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$797_gate ($and): \carry_gate [20] -> \CO [19]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$799_gate ($and): \carry_gate [21] -> \CO [20]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$801_gate ($and): \carry_gate [22] -> \CO [21]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$803_gate ($and): \carry_gate [23] -> \CO [22]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$805_gate ($and): \carry_gate [24] -> \CO [23]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$807_gate ($and): \carry_gate [25] -> \CO [24]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$809_gate ($and): \carry_gate [26] -> \CO [25]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$811_gate ($and): \carry_gate [27] -> \CO [26]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$813_gate ($and): \carry_gate [28] -> \CO [27]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$815_gate ($and): \carry_gate [29] -> \CO [28]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$817_gate ($and): \carry_gate [30] -> \CO [29]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$819_gate ($and): \carry_gate [31] -> \CO [30]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$821_gate ($and): \carry_gate [32] -> \CO [31]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$823_gate ($and): \carry_gate [33] -> \CO [32]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$825_gate ($and): \carry_gate [34] -> \CO [33]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$827_gate ($and): \carry_gate [35] -> \CO [34]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$829_gate ($and): \carry_gate [36] -> \CO [35]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$831_gate ($and): \carry_gate [37] -> \CO [36]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$833_gate ($and): \carry_gate [38] -> \CO [37]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$835_gate ($and): \carry_gate [39] -> \CO [38]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$837_gate ($and): \carry_gate [40] -> \CO [39]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$839_gate ($and): \carry_gate [41] -> \CO [40]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$841_gate ($and): \carry_gate [42] -> \CO [41]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$843_gate ($and): \carry_gate [43] -> \CO [42]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$845_gate ($and): \carry_gate [44] -> \CO [43]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$847_gate ($and): \carry_gate [45] -> \CO [44]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$849_gate ($and): \carry_gate [46] -> \CO [45]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$851_gate ($and): \carry_gate [47] -> \CO [46]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$853_gate ($and): \carry_gate [48] -> \CO [47]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$855_gate ($and): \carry_gate [49] -> \CO [48]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$857_gate ($and): \carry_gate [50] -> \CO [49]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$859_gate ($and): \carry_gate [51] -> \CO [50]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$861_gate ($and): \carry_gate [52] -> \CO [51]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$863_gate ($and): \carry_gate [53] -> \CO [52]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$865_gate ($and): \carry_gate [54] -> \CO [53]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$867_gate ($and): \carry_gate [55] -> \CO [54]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$869_gate ($and): \carry_gate [56] -> \CO [55]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$871_gate ($and): \carry_gate [57] -> \CO [56]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$873_gate ($and): \carry_gate [58] -> \CO [57]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$875_gate ($and): \carry_gate [59] -> \CO [58]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$877_gate ($and): \carry_gate [60] -> \CO [59]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$879_gate ($and): \carry_gate [61] -> \CO [60]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$881_gate ($and): \carry_gate [62] -> \CO [61]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$883_gate ($and): \carry_gate [63] -> \CO [62]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$885_gate ($and): \carry_gate [64] -> \CO [63]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$887_gate ($and): \carry_gate [65] -> \CO [64]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$889_gate ($and): \carry_gate [66] -> \CO [65]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$891_gate ($and): \carry_gate [67] -> \CO [66]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$893_gate ($and): \carry_gate [68] -> \CO [67]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$895_gate ($and): \carry_gate [69] -> \CO [68]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$897_gate ($and): \carry_gate [70] -> \CO [69]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$899_gate ($and): \carry_gate [71] -> \CO [70]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$901_gate ($and): \carry_gate [72] -> \CO [71]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$903_gate ($and): \carry_gate [73] -> \CO [72]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$905_gate ($and): \carry_gate [74] -> \CO [73]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$907_gate ($and): \carry_gate [75] -> \CO [74]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$909_gate ($and): \carry_gate [76] -> \CO [75]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$911_gate ($and): \carry_gate [77] -> \CO [76]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$913_gate ($and): \carry_gate [78] -> \CO [77]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$915_gate ($and): \carry_gate [79] -> \CO [78]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$917_gate ($and): \carry_gate [80] -> \CO [79]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$919_gate ($and): \carry_gate [81] -> \CO [80]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$921_gate ($and): \carry_gate [82] -> \CO [81]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$923_gate ($and): \carry_gate [83] -> \CO [82]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$925_gate ($and): \carry_gate [84] -> \CO [83]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$927_gate ($and): \carry_gate [85] -> \CO [84]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$929_gate ($and): \carry_gate [86] -> \CO [85]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$931_gate ($and): \carry_gate [87] -> \CO [86]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$933_gate ($and): \carry_gate [88] -> \CO [87]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$935_gate ($and): \carry_gate [89] -> \CO [88]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$937_gate ($and): \carry_gate [90] -> \CO [89]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$939_gate ($and): \carry_gate [91] -> \CO [90]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$941_gate ($and): \carry_gate [92] -> \CO [91]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$943_gate ($and): \carry_gate [93] -> \CO [92]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$945_gate ($and): \carry_gate [94] -> \CO [93]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$947_gate ($and): \carry_gate [95] -> \CO [94]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$949_gate ($and): \carry_gate [96] -> \CO [95]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$951_gate ($and): \carry_gate [97] -> \CO [96]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$953_gate ($and): \carry_gate [98] -> \CO [97]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$955_gate ($and): \carry_gate [99] -> \CO [98]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$957_gate ($and): \carry_gate [100] -> \CO [99]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$959_gate ($and): \carry_gate [101] -> \CO [100]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$961_gate ($and): \carry_gate [102] -> \CO [101]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$963_gate ($and): \carry_gate [103] -> \CO [102]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$965_gate ($and): \carry_gate [104] -> \CO [103]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$967_gate ($and): \carry_gate [105] -> \CO [104]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$969_gate ($and): \carry_gate [106] -> \CO [105]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$971_gate ($and): \carry_gate [107] -> \CO [106]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$973_gate ($and): \carry_gate [108] -> \CO [107]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$975_gate ($and): \carry_gate [109] -> \CO [108]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$977_gate ($and): \carry_gate [110] -> \CO [109]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$979_gate ($and): \carry_gate [111] -> \CO [110]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$981_gate ($and): \carry_gate [112] -> \CO [111]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$983_gate ($and): \carry_gate [113] -> \CO [112]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$985_gate ($and): \carry_gate [114] -> \CO [113]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$987_gate ($and): \carry_gate [115] -> \CO [114]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$989_gate ($and): \carry_gate [116] -> \CO [115]
+Changing input B of cell $and$/work/scripts/gds/ripple_lcu.v:14$991_gate ($and): \carry_gate [117] -> \CO [116]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:240$258_gold ($and): \CO_gold [1] -> \CO [1]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:240$345_gold ($and): \CO_gold [3] -> \CO [3]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:240$387_gold ($and): \CO_gold [7] -> \CO [7]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:240$408_gold ($and): \CO_gold [15] -> \CO [15]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:240$417_gold ($and): \CO_gold [31] -> \CO [31]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:240$81_gold ($and): \CO_gold [0] -> \CO [0]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$420_gold ($and): \CO_gold [63] -> \CO [63]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$423_gold ($and): \CO_gold [31] -> \CO [31]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$426_gold ($and): \CO_gold [63] -> \CO [63]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$429_gold ($and): \CO_gold [95] -> \CO [95]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$432_gold ($and): \CO_gold [15] -> \CO [15]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$435_gold ($and): \CO_gold [31] -> \CO [31]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$438_gold ($and): \CO_gold [47] -> \CO [47]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$441_gold ($and): \CO_gold [63] -> \CO [63]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$444_gold ($and): \CO_gold [79] -> \CO [79]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$447_gold ($and): \CO_gold [95] -> \CO [95]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$450_gold ($and): \CO_gold [7] -> \CO [7]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$453_gold ($and): \CO_gold [15] -> \CO [15]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$456_gold ($and): \CO_gold [23] -> \CO [23]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$459_gold ($and): \CO_gold [31] -> \CO [31]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$462_gold ($and): \CO_gold [39] -> \CO [39]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$465_gold ($and): \CO_gold [47] -> \CO [47]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$468_gold ($and): \CO_gold [55] -> \CO [55]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$471_gold ($and): \CO_gold [63] -> \CO [63]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$474_gold ($and): \CO_gold [71] -> \CO [71]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$477_gold ($and): \CO_gold [79] -> \CO [79]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$480_gold ($and): \CO_gold [87] -> \CO [87]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$483_gold ($and): \CO_gold [95] -> \CO [95]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$486_gold ($and): \CO_gold [103] -> \CO [103]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$489_gold ($and): \CO_gold [111] -> \CO [111]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$492_gold ($and): \CO_gold [3] -> \CO [3]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$495_gold ($and): \CO_gold [7] -> \CO [7]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$498_gold ($and): \CO_gold [11] -> \CO [11]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$501_gold ($and): \CO_gold [15] -> \CO [15]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$504_gold ($and): \CO_gold [19] -> \CO [19]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$507_gold ($and): \CO_gold [23] -> \CO [23]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$510_gold ($and): \CO_gold [27] -> \CO [27]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$513_gold ($and): \CO_gold [31] -> \CO [31]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$516_gold ($and): \CO_gold [35] -> \CO [35]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$519_gold ($and): \CO_gold [39] -> \CO [39]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$522_gold ($and): \CO_gold [43] -> \CO [43]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$525_gold ($and): \CO_gold [47] -> \CO [47]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$528_gold ($and): \CO_gold [51] -> \CO [51]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$531_gold ($and): \CO_gold [55] -> \CO [55]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$534_gold ($and): \CO_gold [59] -> \CO [59]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$537_gold ($and): \CO_gold [63] -> \CO [63]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$540_gold ($and): \CO_gold [67] -> \CO [67]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$543_gold ($and): \CO_gold [71] -> \CO [71]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$546_gold ($and): \CO_gold [75] -> \CO [75]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$549_gold ($and): \CO_gold [79] -> \CO [79]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$552_gold ($and): \CO_gold [83] -> \CO [83]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$555_gold ($and): \CO_gold [87] -> \CO [87]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$558_gold ($and): \CO_gold [91] -> \CO [91]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$561_gold ($and): \CO_gold [95] -> \CO [95]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$564_gold ($and): \CO_gold [99] -> \CO [99]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$567_gold ($and): \CO_gold [103] -> \CO [103]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$570_gold ($and): \CO_gold [107] -> \CO [107]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$573_gold ($and): \CO_gold [111] -> \CO [111]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$576_gold ($and): \CO_gold [115] -> \CO [115]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$579_gold ($and): \CO_gold [1] -> \CO [1]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$582_gold ($and): \CO_gold [3] -> \CO [3]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$585_gold ($and): \CO_gold [5] -> \CO [5]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$588_gold ($and): \CO_gold [7] -> \CO [7]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$591_gold ($and): \CO_gold [9] -> \CO [9]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$594_gold ($and): \CO_gold [11] -> \CO [11]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$597_gold ($and): \CO_gold [13] -> \CO [13]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$600_gold ($and): \CO_gold [15] -> \CO [15]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$603_gold ($and): \CO_gold [17] -> \CO [17]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$606_gold ($and): \CO_gold [19] -> \CO [19]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$609_gold ($and): \CO_gold [21] -> \CO [21]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$612_gold ($and): \CO_gold [23] -> \CO [23]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$615_gold ($and): \CO_gold [25] -> \CO [25]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$618_gold ($and): \CO_gold [27] -> \CO [27]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$621_gold ($and): \CO_gold [29] -> \CO [29]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$624_gold ($and): \CO_gold [31] -> \CO [31]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$627_gold ($and): \CO_gold [33] -> \CO [33]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$630_gold ($and): \CO_gold [35] -> \CO [35]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$633_gold ($and): \CO_gold [37] -> \CO [37]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$636_gold ($and): \CO_gold [39] -> \CO [39]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$639_gold ($and): \CO_gold [41] -> \CO [41]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$642_gold ($and): \CO_gold [43] -> \CO [43]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$645_gold ($and): \CO_gold [45] -> \CO [45]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$648_gold ($and): \CO_gold [47] -> \CO [47]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$651_gold ($and): \CO_gold [49] -> \CO [49]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$654_gold ($and): \CO_gold [51] -> \CO [51]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$657_gold ($and): \CO_gold [53] -> \CO [53]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$660_gold ($and): \CO_gold [55] -> \CO [55]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$663_gold ($and): \CO_gold [57] -> \CO [57]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$666_gold ($and): \CO_gold [59] -> \CO [59]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$669_gold ($and): \CO_gold [61] -> \CO [61]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$672_gold ($and): \CO_gold [63] -> \CO [63]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$675_gold ($and): \CO_gold [65] -> \CO [65]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$678_gold ($and): \CO_gold [67] -> \CO [67]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$681_gold ($and): \CO_gold [69] -> \CO [69]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$684_gold ($and): \CO_gold [71] -> \CO [71]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$687_gold ($and): \CO_gold [73] -> \CO [73]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$690_gold ($and): \CO_gold [75] -> \CO [75]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$693_gold ($and): \CO_gold [77] -> \CO [77]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$696_gold ($and): \CO_gold [79] -> \CO [79]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$699_gold ($and): \CO_gold [81] -> \CO [81]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$702_gold ($and): \CO_gold [83] -> \CO [83]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$705_gold ($and): \CO_gold [85] -> \CO [85]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$708_gold ($and): \CO_gold [87] -> \CO [87]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$711_gold ($and): \CO_gold [89] -> \CO [89]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$714_gold ($and): \CO_gold [91] -> \CO [91]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$717_gold ($and): \CO_gold [93] -> \CO [93]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$720_gold ($and): \CO_gold [95] -> \CO [95]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$723_gold ($and): \CO_gold [97] -> \CO [97]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$726_gold ($and): \CO_gold [99] -> \CO [99]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$729_gold ($and): \CO_gold [101] -> \CO [101]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$732_gold ($and): \CO_gold [103] -> \CO [103]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$735_gold ($and): \CO_gold [105] -> \CO [105]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$738_gold ($and): \CO_gold [107] -> \CO [107]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$741_gold ($and): \CO_gold [109] -> \CO [109]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$744_gold ($and): \CO_gold [111] -> \CO [111]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$747_gold ($and): \CO_gold [113] -> \CO [113]
+Changing input B of cell $and$/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v:248$750_gold ($and): \CO_gold [115] -> \CO [115]
+Setting undriven nets to undef: \p_gold [117:1]
+
+11. Executing EQUIV_SIMPLE pass.
+Found 118 unproven $equiv cells (1 groups) in equiv:
+ Grouping SAT models for \CO:
+  Trying to prove $equiv for \CO [0]: success!
+  Trying to prove $equiv for \CO [1]: success!
+  Trying to prove $equiv for \CO [2]: success!
+  Trying to prove $equiv for \CO [3]: success!
+  Trying to prove $equiv for \CO [4]: success!
+  Trying to prove $equiv for \CO [5]: success!
+  Trying to prove $equiv for \CO [6]: success!
+  Trying to prove $equiv for \CO [7]: success!
+  Trying to prove $equiv for \CO [8]: success!
+  Trying to prove $equiv for \CO [9]: success!
+  Trying to prove $equiv for \CO [10]: success!
+  Trying to prove $equiv for \CO [11]: success!
+  Trying to prove $equiv for \CO [12]: success!
+  Trying to prove $equiv for \CO [13]: success!
+  Trying to prove $equiv for \CO [14]: success!
+  Trying to prove $equiv for \CO [15]: success!
+  Trying to prove $equiv for \CO [16]: success!
+  Trying to prove $equiv for \CO [17]: success!
+  Trying to prove $equiv for \CO [18]: success!
+  Trying to prove $equiv for \CO [19]: success!
+  Trying to prove $equiv for \CO [20]: success!
+  Trying to prove $equiv for \CO [21]: success!
+  Trying to prove $equiv for \CO [22]: success!
+  Trying to prove $equiv for \CO [23]: success!
+  Trying to prove $equiv for \CO [24]: success!
+  Trying to prove $equiv for \CO [25]: success!
+  Trying to prove $equiv for \CO [26]: success!
+  Trying to prove $equiv for \CO [27]: success!
+  Trying to prove $equiv for \CO [28]: success!
+  Trying to prove $equiv for \CO [29]: success!
+  Trying to prove $equiv for \CO [30]: success!
+  Trying to prove $equiv for \CO [31]: success!
+  Trying to prove $equiv for \CO [32]: success!
+  Trying to prove $equiv for \CO [33]: success!
+  Trying to prove $equiv for \CO [34]: success!
+  Trying to prove $equiv for \CO [35]: success!
+  Trying to prove $equiv for \CO [36]: success!
+  Trying to prove $equiv for \CO [37]: success!
+  Trying to prove $equiv for \CO [38]: success!
+  Trying to prove $equiv for \CO [39]: success!
+  Trying to prove $equiv for \CO [40]: success!
+  Trying to prove $equiv for \CO [41]: success!
+  Trying to prove $equiv for \CO [42]: success!
+  Trying to prove $equiv for \CO [43]: success!
+  Trying to prove $equiv for \CO [44]: success!
+  Trying to prove $equiv for \CO [45]: success!
+  Trying to prove $equiv for \CO [46]: success!
+  Trying to prove $equiv for \CO [47]: success!
+  Trying to prove $equiv for \CO [48]: success!
+  Trying to prove $equiv for \CO [49]: success!
+  Trying to prove $equiv for \CO [50]: success!
+  Trying to prove $equiv for \CO [51]: success!
+  Trying to prove $equiv for \CO [52]: success!
+  Trying to prove $equiv for \CO [53]: success!
+  Trying to prove $equiv for \CO [54]: success!
+  Trying to prove $equiv for \CO [55]: success!
+  Trying to prove $equiv for \CO [56]: success!
+  Trying to prove $equiv for \CO [57]: success!
+  Trying to prove $equiv for \CO [58]: success!
+  Trying to prove $equiv for \CO [59]: success!
+  Trying to prove $equiv for \CO [60]: success!
+  Trying to prove $equiv for \CO [61]: success!
+  Trying to prove $equiv for \CO [62]: success!
+  Trying to prove $equiv for \CO [63]: success!
+  Trying to prove $equiv for \CO [64]: success!
+  Trying to prove $equiv for \CO [65]: success!
+  Trying to prove $equiv for \CO [66]: success!
+  Trying to prove $equiv for \CO [67]: success!
+  Trying to prove $equiv for \CO [68]: success!
+  Trying to prove $equiv for \CO [69]: success!
+  Trying to prove $equiv for \CO [70]: success!
+  Trying to prove $equiv for \CO [71]: success!
+  Trying to prove $equiv for \CO [72]: success!
+  Trying to prove $equiv for \CO [73]: success!
+  Trying to prove $equiv for \CO [74]: success!
+  Trying to prove $equiv for \CO [75]: success!
+  Trying to prove $equiv for \CO [76]: success!
+  Trying to prove $equiv for \CO [77]: success!
+  Trying to prove $equiv for \CO [78]: success!
+  Trying to prove $equiv for \CO [79]: success!
+  Trying to prove $equiv for \CO [80]: success!
+  Trying to prove $equiv for \CO [81]: success!
+  Trying to prove $equiv for \CO [82]: success!
+  Trying to prove $equiv for \CO [83]: success!
+  Trying to prove $equiv for \CO [84]: success!
+  Trying to prove $equiv for \CO [85]: success!
+  Trying to prove $equiv for \CO [86]: success!
+  Trying to prove $equiv for \CO [87]: success!
+  Trying to prove $equiv for \CO [88]: success!
+  Trying to prove $equiv for \CO [89]: success!
+  Trying to prove $equiv for \CO [90]: success!
+  Trying to prove $equiv for \CO [91]: success!
+  Trying to prove $equiv for \CO [92]: success!
+  Trying to prove $equiv for \CO [93]: success!
+  Trying to prove $equiv for \CO [94]: success!
+  Trying to prove $equiv for \CO [95]: success!
+  Trying to prove $equiv for \CO [96]: success!
+  Trying to prove $equiv for \CO [97]: success!
+  Trying to prove $equiv for \CO [98]: success!
+  Trying to prove $equiv for \CO [99]: success!
+  Trying to prove $equiv for \CO [100]: success!
+  Trying to prove $equiv for \CO [101]: success!
+  Trying to prove $equiv for \CO [102]: success!
+  Trying to prove $equiv for \CO [103]: success!
+  Trying to prove $equiv for \CO [104]: success!
+  Trying to prove $equiv for \CO [105]: success!
+  Trying to prove $equiv for \CO [106]: success!
+  Trying to prove $equiv for \CO [107]: success!
+  Trying to prove $equiv for \CO [108]: success!
+  Trying to prove $equiv for \CO [109]: success!
+  Trying to prove $equiv for \CO [110]: success!
+  Trying to prove $equiv for \CO [111]: success!
+  Trying to prove $equiv for \CO [112]: success!
+  Trying to prove $equiv for \CO [113]: success!
+  Trying to prove $equiv for \CO [114]: success!
+  Trying to prove $equiv for \CO [115]: success!
+  Trying to prove $equiv for \CO [116]: success!
+  Trying to prove $equiv for \CO [117]: success!
+Proved 118 previously unproven $equiv cells.
+
+12. Executing EQUIV_STATUS pass.
+Found 118 $equiv cells in equiv:
+  Of those cells 118 are proven and 0 are unproven.
+  Equivalence successfully proven!
+No $equiv cells found in gate.
+No $equiv cells found in gold.

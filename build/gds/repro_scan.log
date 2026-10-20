@@ -1,0 +1,531 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.46 (git sha1 e97731b9dda91fa5fa53ed87df7c34163ba59a41, clang++ 17.0.6 -fPIC -O3)
+Loaded SDC plugin
+
+-- Running command `
+read_verilog rtr_scan.v
+hierarchy -check -top ember_rtr_scan
+synth -top ember_rtr_scan -noalumacc -run begin:coarse
+opt -fast -full
+memory_map
+opt -full
+techmap -autoproc -map /work/build/gds/ripple_techmap.v
+proc
+opt -fast
+hierarchy -check
+check
+' --
+
+1. Executing Verilog-2005 frontend: rtr_scan.v
+Parsing Verilog input from `rtr_scan.v' to AST representation.
+Generating RTLIL representation for module `\ember_rtr_scan'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ember_rtr_scan
+
+2.2. Analyzing design hierarchy..
+Top module:  \ember_rtr_scan
+Removed 0 unused modules.
+
+3. Executing SYNTH pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ember_rtr_scan
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ember_rtr_scan
+Removed 0 unused modules.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_rtr_scan.
+<suppressed ~330 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_rtr_scan'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+4.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+4.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module ember_rtr_scan because it contains processes (run 'proc' command first).
+
+4.5. Finished fast OPT passes.
+
+5. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+Warning: Ignoring module ember_rtr_scan because it contains processes (run 'proc' command first).
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_rtr_scan.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_rtr_scan'.
+Removed a total of 0 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Warning: Ignoring module ember_rtr_scan because it contains processes (run 'proc' command first).
+Removed 0 multiplexer ports.
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_rtr_scan.
+    Consolidated identical input bits for $mux cell $ternary$rtr_scan.v:348$559:
+      Old ports: A=4'1011, B=4'1000, Y=$ternary$rtr_scan.v:348$559_Y
+      New ports: A=1'1, B=1'0, Y=$ternary$rtr_scan.v:348$559_Y [0]
+      New connections: $ternary$rtr_scan.v:348$559_Y [3:1] = { 2'10 $ternary$rtr_scan.v:348$559_Y [0] }
+  Optimizing cells in module \ember_rtr_scan.
+Performed a total of 1 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_rtr_scan'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_SHARE pass.
+
+6.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module ember_rtr_scan because it contains processes (run 'proc' command first).
+
+6.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_rtr_scan.
+<suppressed ~1 debug messages>
+
+6.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Warning: Ignoring module ember_rtr_scan because it contains processes (run 'proc' command first).
+Removed 0 multiplexer ports.
+
+6.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ember_rtr_scan.
+Performed a total of 0 changes.
+
+6.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ember_rtr_scan'.
+Removed a total of 0 cells.
+
+6.14. Executing OPT_SHARE pass.
+
+6.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+6.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Warning: Ignoring module ember_rtr_scan because it contains processes (run 'proc' command first).
+
+6.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ember_rtr_scan.
+
+6.18. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing TECHMAP pass (map to technology primitives).
+
+7.1. Executing Verilog-2005 frontend: /work/build/gds/ripple_techmap.v
+Parsing Verilog input from `/work/build/gds/ripple_techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+7.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $reduce_or.
+No more expansions possible.
+<suppressed ~79 debug messages>
+
+8. Executing PROC pass (convert processes to netlists).
+
+8.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+8.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 17 switch rules as full_case in process $proc$rtr_scan.v:240$65 in module ember_rtr_scan.
+Removed a total of 0 dead cases.
+
+8.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 110 assignments to connections.
+
+8.4. Executing PROC_INIT pass (extract init attributes).
+
+8.5. Executing PROC_ARST pass (detect async resets in processes).
+
+8.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~19 debug messages>
+
+8.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ember_rtr_scan.$proc$rtr_scan.v:240$65'.
+     1/333: $5\clamp8$func$rtr_scan.v:334$14.$result[7:0]$557
+     2/333: $4\clamp8$func$rtr_scan.v:334$14.$result[7:0]$555
+     3/333: $5\clamp8$func$rtr_scan.v:333$13.$result[7:0]$552
+     4/333: $4\clamp8$func$rtr_scan.v:333$13.$result[7:0]$550
+     5/333: $5\clamp8$func$rtr_scan.v:332$12.$result[7:0]$547
+     6/333: $4\clamp8$func$rtr_scan.v:332$12.$result[7:0]$545
+     7/333: $3\clamp8$func$rtr_scan.v:334$14.t[95:0]$542
+     8/333: $3\clamp8$func$rtr_scan.v:334$14.v[95:0]$541
+     9/333: $3\clamp8$func$rtr_scan.v:334$14.$result[7:0]$540
+    10/333: $3\clamp8$func$rtr_scan.v:333$13.t[95:0]$539
+    11/333: $3\clamp8$func$rtr_scan.v:333$13.v[95:0]$538
+    12/333: $3\clamp8$func$rtr_scan.v:333$13.$result[7:0]$537
+    13/333: $3\clamp8$func$rtr_scan.v:332$12.t[95:0]$536
+    14/333: $3\clamp8$func$rtr_scan.v:332$12.v[95:0]$535
+    15/333: $3\clamp8$func$rtr_scan.v:332$12.$result[7:0]$534
+    16/333: $3\pdiv$func$rtr_scan.v:328$11.$result[95:0]$528
+    17/333: $3\pdiv$func$rtr_scan.v:328$11.q[191:0]$531
+    18/333: $3\pdiv$func$rtr_scan.v:328$11.d[191:0]$530
+    19/333: $3\pdiv$func$rtr_scan.v:328$11.n[191:0]$529
+    20/333: $3\pdiv$func$rtr_scan.v:327$10.$result[95:0]$521
+    21/333: $3\pdiv$func$rtr_scan.v:327$10.q[191:0]$524
+    22/333: $3\pdiv$func$rtr_scan.v:327$10.d[191:0]$523
+    23/333: $3\pdiv$func$rtr_scan.v:327$10.n[191:0]$522
+    24/333: $3\peval$func$rtr_scan.v:311$7.$result[95:0]$470
+    25/333: $3\peval$func$rtr_scan.v:311$7.sh[95:0]$477
+    26/333: $3\peval$func$rtr_scan.v:311$7.s[95:0]$476
+    27/333: $3\peval$func$rtr_scan.v:311$7.py[63:0]$475
+    28/333: $3\peval$func$rtr_scan.v:311$7.px[63:0]$474
+    29/333: $3\peval$func$rtr_scan.v:311$7.C[63:0]$473
+    30/333: $3\peval$func$rtr_scan.v:311$7.B[63:0]$472
+    31/333: $3\peval$func$rtr_scan.v:311$7.A[63:0]$471
+    32/333: $3\peval$func$rtr_scan.v:310$6.$result[95:0]$462
+    33/333: $3\peval$func$rtr_scan.v:310$6.sh[95:0]$469
+    34/333: $3\peval$func$rtr_scan.v:310$6.s[95:0]$468
+    35/333: $3\peval$func$rtr_scan.v:310$6.py[63:0]$467
+    36/333: $3\peval$func$rtr_scan.v:310$6.px[63:0]$466
+    37/333: $3\peval$func$rtr_scan.v:310$6.C[63:0]$465
+    38/333: $3\peval$func$rtr_scan.v:310$6.B[63:0]$464
+    39/333: $3\peval$func$rtr_scan.v:310$6.A[63:0]$463
+    40/333: $3\peval$func$rtr_scan.v:309$5.$result[95:0]$454
+    41/333: $3\peval$func$rtr_scan.v:309$5.sh[95:0]$461
+    42/333: $3\peval$func$rtr_scan.v:309$5.s[95:0]$460
+    43/333: $3\peval$func$rtr_scan.v:309$5.py[63:0]$459
+    44/333: $3\peval$func$rtr_scan.v:309$5.px[63:0]$458
+    45/333: $3\peval$func$rtr_scan.v:309$5.C[63:0]$457
+    46/333: $3\peval$func$rtr_scan.v:309$5.B[63:0]$456
+    47/333: $3\peval$func$rtr_scan.v:309$5.A[63:0]$455
+    48/333: $3\peval$func$rtr_scan.v:308$4.$result[95:0]$446
+    49/333: $3\peval$func$rtr_scan.v:308$4.sh[95:0]$453
+    50/333: $3\peval$func$rtr_scan.v:308$4.s[95:0]$452
+    51/333: $3\peval$func$rtr_scan.v:308$4.py[63:0]$451
+    52/333: $3\peval$func$rtr_scan.v:308$4.px[63:0]$450
+    53/333: $3\peval$func$rtr_scan.v:308$4.C[63:0]$449
+    54/333: $3\peval$func$rtr_scan.v:308$4.B[63:0]$448
+    55/333: $3\peval$func$rtr_scan.v:308$4.A[63:0]$447
+    56/333: $3\peval$func$rtr_scan.v:307$3.$result[95:0]$438
+    57/333: $3\peval$func$rtr_scan.v:307$3.sh[95:0]$445
+    58/333: $3\peval$func$rtr_scan.v:307$3.s[95:0]$444
+    59/333: $3\peval$func$rtr_scan.v:307$3.py[63:0]$443
+    60/333: $3\peval$func$rtr_scan.v:307$3.px[63:0]$442
+    61/333: $3\peval$func$rtr_scan.v:307$3.C[63:0]$441
+    62/333: $3\peval$func$rtr_scan.v:307$3.B[63:0]$440
+    63/333: $3\peval$func$rtr_scan.v:307$3.A[63:0]$439
+    64/333: $3\peval$func$rtr_scan.v:306$2.$result[95:0]$430
+    65/333: $3\peval$func$rtr_scan.v:306$2.sh[95:0]$437
+    66/333: $3\peval$func$rtr_scan.v:306$2.s[95:0]$436
+    67/333: $3\peval$func$rtr_scan.v:306$2.py[63:0]$435
+    68/333: $3\peval$func$rtr_scan.v:306$2.px[63:0]$434
+    69/333: $3\peval$func$rtr_scan.v:306$2.C[63:0]$433
+    70/333: $3\peval$func$rtr_scan.v:306$2.B[63:0]$432
+    71/333: $3\peval$func$rtr_scan.v:306$2.A[63:0]$431
+    72/333: $3\peval$func$rtr_scan.v:305$1.$result[95:0]$422
+    73/333: $3\peval$func$rtr_scan.v:305$1.sh[95:0]$429
+    74/333: $3\peval$func$rtr_scan.v:305$1.s[95:0]$428
+    75/333: $3\peval$func$rtr_scan.v:305$1.py[63:0]$427
+    76/333: $3\peval$func$rtr_scan.v:305$1.px[63:0]$426
+    77/333: $3\peval$func$rtr_scan.v:305$1.C[63:0]$425
+    78/333: $3\peval$func$rtr_scan.v:305$1.B[63:0]$424
+    79/333: $3\peval$func$rtr_scan.v:305$1.A[63:0]$423
+    80/333: $2\avg2$func$rtr_scan.v:359$23.s[8:0]$396
+    81/333: $2\avg2$func$rtr_scan.v:359$23.b[7:0]$395
+    82/333: $2\avg2$func$rtr_scan.v:359$23.a[7:0]$394
+    83/333: $2\avg2$func$rtr_scan.v:359$23.$result[7:0]$393
+    84/333: $2\expand565_b$func$rtr_scan.v:359$22.p[15:0]$392
+    85/333: $2\expand565_b$func$rtr_scan.v:359$22.$result[7:0]$391
+    86/333: $2\half_get$func$rtr_scan.v:359$21.hi[0:0]$390
+    87/333: $2\half_get$func$rtr_scan.v:359$21.w[31:0]$389
+    88/333: $2\half_get$func$rtr_scan.v:359$21.$result[15:0]$388
+    89/333: $2\avg2$func$rtr_scan.v:358$20.s[8:0]$387
+    90/333: $2\avg2$func$rtr_scan.v:358$20.b[7:0]$386
+    91/333: $2\avg2$func$rtr_scan.v:358$20.a[7:0]$385
+    92/333: $2\avg2$func$rtr_scan.v:358$20.$result[7:0]$384
+    93/333: $2\expand565_g$func$rtr_scan.v:358$19.p[15:0]$383
+    94/333: $2\expand565_g$func$rtr_scan.v:358$19.$result[7:0]$382
+    95/333: $2\half_get$func$rtr_scan.v:358$18.hi[0:0]$381
+    96/333: $2\half_get$func$rtr_scan.v:358$18.w[31:0]$380
+    97/333: $2\half_get$func$rtr_scan.v:358$18.$result[15:0]$379
+    98/333: $2\avg2$func$rtr_scan.v:357$17.s[8:0]$378
+    99/333: $2\avg2$func$rtr_scan.v:357$17.b[7:0]$377
+   100/333: $2\avg2$func$rtr_scan.v:357$17.a[7:0]$376
+   101/333: $2\avg2$func$rtr_scan.v:357$17.$result[7:0]$375
+   102/333: $2\expand565_r$func$rtr_scan.v:357$16.p[15:0]$374
+   103/333: $2\expand565_r$func$rtr_scan.v:357$16.$result[7:0]$373
+   104/333: $2\half_get$func$rtr_scan.v:357$15.hi[0:0]$372
+   105/333: $2\half_get$func$rtr_scan.v:357$15.w[31:0]$371
+   106/333: $2\half_get$func$rtr_scan.v:357$15.$result[15:0]$370
+   107/333: $2\clamp8$func$rtr_scan.v:334$14.t[95:0]$369
+   108/333: $2\clamp8$func$rtr_scan.v:334$14.v[95:0]$368
+   109/333: $2\clamp8$func$rtr_scan.v:334$14.$result[7:0]$367
+   110/333: $2\clamp8$func$rtr_scan.v:333$13.t[95:0]$366
+   111/333: $2\clamp8$func$rtr_scan.v:333$13.v[95:0]$365
+   112/333: $2\clamp8$func$rtr_scan.v:333$13.$result[7:0]$364
+   113/333: $2\clamp8$func$rtr_scan.v:332$12.t[95:0]$363
+   114/333: $2\clamp8$func$rtr_scan.v:332$12.v[95:0]$362
+   115/333: $2\clamp8$func$rtr_scan.v:332$12.$result[7:0]$361
+   116/333: $2\pdiv$func$rtr_scan.v:328$11.q[191:0]$360
+   117/333: $2\pdiv$func$rtr_scan.v:328$11.d[191:0]$359
+   118/333: $2\pdiv$func$rtr_scan.v:328$11.n[191:0]$358
+   119/333: $2\pdiv$func$rtr_scan.v:328$11.den[95:0]$357
+   120/333: $2\pdiv$func$rtr_scan.v:328$11.num[95:0]$356
+   121/333: $2\pdiv$func$rtr_scan.v:328$11.$result[95:0]$355
+   122/333: $2\pdiv$func$rtr_scan.v:327$10.q[191:0]$354
+   123/333: $2\pdiv$func$rtr_scan.v:327$10.d[191:0]$353
+   124/333: $2\pdiv$func$rtr_scan.v:327$10.n[191:0]$352
+   125/333: $2\pdiv$func$rtr_scan.v:327$10.den[95:0]$351
+   126/333: $2\pdiv$func$rtr_scan.v:327$10.num[95:0]$350
+   127/333: $2\pdiv$func$rtr_scan.v:327$10.$result[95:0]$349
+   128/333: $2\half_get$func$rtr_scan.v:321$9.hi[0:0]$348
+   129/333: $2\half_get$func$rtr_scan.v:321$9.w[31:0]$347
+   130/333: $2\half_get$func$rtr_scan.v:321$9.$result[15:0]$346
+   131/333: $2\half_get$func$rtr_scan.v:320$8.hi[0:0]$345
+   132/333: $2\half_get$func$rtr_scan.v:320$8.w[31:0]$344
+   133/333: $2\half_get$func$rtr_scan.v:320$8.$result[15:0]$343
+   134/333: $2\peval$func$rtr_scan.v:311$7.sh[95:0]$342
+   135/333: $2\peval$func$rtr_scan.v:311$7.s[95:0]$341
+   136/333: $2\peval$func$rtr_scan.v:311$7.py[63:0]$340
+   137/333: $2\peval$func$rtr_scan.v:311$7.px[63:0]$339
+   138/333: $2\peval$func$rtr_scan.v:311$7.C[63:0]$338
+   139/333: $2\peval$func$rtr_scan.v:311$7.B[63:0]$337
+   140/333: $2\peval$func$rtr_scan.v:311$7.A[63:0]$336
+   141/333: $2\peval$func$rtr_scan.v:311$7.$result[95:0]$335
+   142/333: $2\peval$func$rtr_scan.v:310$6.sh[95:0]$334
+   143/333: $2\peval$func$rtr_scan.v:310$6.s[95:0]$333
+   144/333: $2\peval$func$rtr_scan.v:310$6.py[63:0]$332
+   145/333: $2\peval$func$rtr_scan.v:310$6.px[63:0]$331
+   146/333: $2\peval$func$rtr_scan.v:310$6.C[63:0]$330
+   147/333: $2\peval$func$rtr_scan.v:310$6.B[63:0]$329
+   148/333: $2\peval$func$rtr_scan.v:310$6.A[63:0]$328
+   149/333: $2\peval$func$rtr_scan.v:310$6.$result[95:0]$327
+   150/333: $2\peval$func$rtr_scan.v:309$5.sh[95:0]$326
+   151/333: $2\peval$func$rtr_scan.v:309$5.s[95:0]$325
+   152/333: $2\peval$func$rtr_scan.v:309$5.py[63:0]$324
+   153/333: $2\peval$func$rtr_scan.v:309$5.px[63:0]$323
+   154/333: $2\peval$func$rtr_scan.v:309$5.C[63:0]$322
+   155/333: $2\peval$func$rtr_scan.v:309$5.B[63:0]$321
+   156/333: $2\peval$func$rtr_scan.v:309$5.A[63:0]$320
+   157/333: $2\peval$func$rtr_scan.v:309$5.$result[95:0]$319
+   158/333: $2\peval$func$rtr_scan.v:308$4.sh[95:0]$318
+   159/333: $2\peval$func$rtr_scan.v:308$4.s[95:0]$317
+   160/333: $2\peval$func$rtr_scan.v:308$4.py[63:0]$316
+   161/333: $2\peval$func$rtr_scan.v:308$4.px[63:0]$315
+   162/333: $2\peval$func$rtr_scan.v:308$4.C[63:0]$314
+   163/333: $2\peval$func$rtr_scan.v:308$4.B[63:0]$313
+   164/333: $2\peval$func$rtr_scan.v:308$4.A[63:0]$312
+   165/333: $2\peval$func$rtr_scan.v:308$4.$result[95:0]$311
+   166/333: $2\peval$func$rtr_scan.v:307$3.sh[95:0]$310
+   167/333: $2\peval$func$rtr_scan.v:307$3.s[95:0]$309
+   168/333: $2\peval$func$rtr_scan.v:307$3.py[63:0]$308
+   169/333: $2\peval$func$rtr_scan.v:307$3.px[63:0]$307
+   170/333: $2\peval$func$rtr_scan.v:307$3.C[63:0]$306
+   171/333: $2\peval$func$rtr_scan.v:307$3.B[63:0]$305
+   172/333: $2\peval$func$rtr_scan.v:307$3.A[63:0]$304
+   173/333: $2\peval$func$rtr_scan.v:307$3.$result[95:0]$303
+   174/333: $2\peval$func$rtr_scan.v:306$2.sh[95:0]$302
+   175/333: $2\peval$func$rtr_scan.v:306$2.s[95:0]$301
+   176/333: $2\peval$func$rtr_scan.v:306$2.py[63:0]$300
+   177/333: $2\peval$func$rtr_scan.v:306$2.px[63:0]$299
+   178/333: $2\peval$func$rtr_scan.v:306$2.C[63:0]$298
+   179/333: $2\peval$func$rtr_scan.v:306$2.B[63:0]$297
+   180/333: $2\peval$func$rtr_scan.v:306$2.A[63:0]$296
+   181/333: $2\peval$func$rtr_scan.v:306$2.$result[95:0]$295
+   182/333: $2\peval$func$rtr_scan.v:305$1.sh[95:0]$294
+   183/333: $2\peval$func$rtr_scan.v:305$1.s[95:0]$293
+   184/333: $2\peval$func$rtr_scan.v:305$1.py[63:0]$292
+   185/333: $2\peval$func$rtr_scan.v:305$1.px[63:0]$291
+   186/333: $2\peval$func$rtr_scan.v:305$1.C[63:0]$290
+   187/333: $2\peval$func$rtr_scan.v:305$1.B[63:0]$289
+   188/333: $2\peval$func$rtr_scan.v:305$1.A[63:0]$288
+   189/333: $2\peval$func$rtr_scan.v:305$1.$result[95:0]$287
+   190/333: $0\fpa2_req[0:0]
+   191/333: $0\fpa_we[0:0]
+   192/333: $0\fpa_req[0:0]
+   193/333: $0\done[0:0]
+   194/333: $1\avg2$func$rtr_scan.v:359$23.s[8:0]$286
+   195/333: $1\avg2$func$rtr_scan.v:359$23.b[7:0]$285
+   196/333: $1\avg2$func$rtr_scan.v:359$23.a[7:0]$284
+   197/333: $1\avg2$func$rtr_scan.v:359$23.$result[7:0]$283
+   198/333: $1\expand565_b$func$rtr_scan.v:359$22.p[15:0]$282
+   199/333: $1\expand565_b$func$rtr_scan.v:359$22.$result[7:0]$281
+   200/333: $1\half_get$func$rtr_scan.v:359$21.hi[0:0]$280
+   201/333: $1\half_get$func$rtr_scan.v:359$21.w[31:0]$279
+   202/333: $1\half_get$func$rtr_scan.v:359$21.$result[15:0]$278
+   203/333: $1\avg2$func$rtr_scan.v:358$20.s[8:0]$277
+   204/333: $1\avg2$func$rtr_scan.v:358$20.b[7:0]$276
+   205/333: $1\avg2$func$rtr_scan.v:358$20.a[7:0]$275
+   206/333: $1\avg2$func$rtr_scan.v:358$20.$result[7:0]$274
+   207/333: $1\expand565_g$func$rtr_scan.v:358$19.p[15:0]$273
+   208/333: $1\expand565_g$func$rtr_scan.v:358$19.$result[7:0]$272
+   209/333: $1\half_get$func$rtr_scan.v:358$18.hi[0:0]$271
+   210/333: $1\half_get$func$rtr_scan.v:358$18.w[31:0]$270
+   211/333: $1\half_get$func$rtr_scan.v:358$18.$result[15:0]$269
+   212/333: $1\avg2$func$rtr_scan.v:357$17.s[8:0]$268
+   213/333: $1\avg2$func$rtr_scan.v:357$17.b[7:0]$267
+   214/333: $1\avg2$func$rtr_scan.v:357$17.a[7:0]$266
+   215/333: $1\avg2$func$rtr_scan.v:357$17.$result[7:0]$265
+   216/333: $1\expand565_r$func$rtr_scan.v:357$16.p[15:0]$264
+   217/333: $1\expand565_r$func$rtr_scan.v:357$16.$result[7:0]$263
+   218/333: $1\half_get$func$rtr_scan.v:357$15.hi[0:0]$262
+   219/333: $1\half_get$func$rtr_scan.v:357$15.w[31:0]$261
+   220/333: $1\half_get$func$rtr_scan.v:357$15.$result[15:0]$260
+   221/333: $1\clamp8$func$rtr_scan.v:334$14.t[95:0]$259
+   222/333: $1\clamp8$func$rtr_scan.v:334$14.v[95:0]$258
+   223/333: $1\clamp8$func$rtr_scan.v:334$14.$result[7:0]$257
+   224/333: $1\clamp8$func$rtr_scan.v:333$13.t[95:0]$256
+   225/333: $1\clamp8$func$rtr_scan.v:333$13.v[95:0]$255
+   226/333: $1\clamp8$func$rtr_scan.v:333$13.$result[7:0]$254
+   227/333: $1\clamp8$func$rtr_scan.v:332$12.t[95:0]$253
+   228/333: $1\clamp8$func$rtr_scan.v:332$12.v[95:0]$252
+   229/333: $1\clamp8$func$rtr_scan.v:332$12.$result[7:0]$251
+   230/333: $1\pdiv$func$rtr_scan.v:328$11.q[191:0]$250
+   231/333: $1\pdiv$func$rtr_scan.v:328$11.d[191:0]$249
+   232/333: $1\pdiv$func$rtr_scan.v:328$11.n[191:0]$248
+   233/333: $1\pdiv$func$rtr_scan.v:328$11.den[95:0]$247
+   234/333: $1\pdiv$func$rtr_scan.v:328$11.num[95:0]$246
+   235/333: $1\pdiv$func$rtr_scan.v:328$11.$result[95:0]$245
+   236/333: $1\pdiv$func$rtr_scan.v:327$10.q[191:0]$244
+   237/333: $1\pdiv$func$rtr_scan.v:327$10.d[191:0]$243
+   238/333: $1\pdiv$func$rtr_scan.v:327$10.n[191:0]$242
+   239/333: $1\pdiv$func$rtr_scan.v:327$10.den[95:0]$241
+   240/333: $1\pdiv$func$rtr_scan.v:327$10.num[95:0]$240
+   241/333: $1\pdiv$func$rtr_scan.v:327$10.$result[95:0]$239
+   242/333: $1\half_get$func$rtr_scan.v:321$9.hi[0:0]$238
+   243/333: $1\half_get$func$rtr_scan.v:321$9.w[31:0]$237
+   244/333: $1\half_get$func$rtr_scan.v:321$9.$result[15:0]$236
+   245/333: $1\half_get$func$rtr_scan.v:320$8.hi[0:0]$235
+   246/333: $1\half_get$func$rtr_scan.v:320$8.w[31:0]$234
+   247/333: $1\half_get$func$rtr_scan.v:320$8.$result[15:0]$233
+   248/333: $1\peval$func$rtr_scan.v:311$7.sh[95:0]$232
+   249/333: $1\peval$func$rtr_scan.v:311$7.s[95:0]$231
+   250/333: $1\peval$func$rtr_scan.v:311$7.py[63:0]$230
+   251/333: $1\peval$func$rtr_scan.v:311$7.px[63:0]$229
+   252/333: $1\peval$func$rtr_scan.v:311$7.C[63:0]$228
+   253/333: $1\peval$func$rtr_scan.v:311$7.B[63:0]$227
+   254/333: $1\peval$func$rtr_scan.v:311$7.A[63:0]$226
+   255/333: $1\peval$func$rtr_scan.v:311$7.$result[95:0]$225
+   256/333: $1\peval$func$rtr_scan.v:310$6.sh[95:0]$224
+   257/333: $1\peval$func$rtr_scan.v:310$6.s[95:0]$223
+   258/333: $1\peval$func$rtr_scan.v:310$6.py[63:0]$222
+   259/333: $1\peval$func$rtr_scan.v:310$6.px[63:0]$221
+   260/333: $1\peval$func$rtr_scan.v:310$6.C[63:0]$220
+   261/333: $1\peval$func$rtr_scan.v:310$6.B[63:0]$219
+   262/333: $1\peval$func$rtr_scan.v:310$6.A[63:0]$218
+   263/333: $1\peval$func$rtr_scan.v:310$6.$result[95:0]$217
+   264/333: $1\peval$func$rtr_scan.v:309$5.sh[95:0]$216
+   265/333: $1\peval$func$rtr_scan.v:309$5.s[95:0]$215
+   266/333: $1\peval$func$rtr_scan.v:309$5.py[63:0]$214
+   267/333: $1\peval$func$rtr_scan.v:309$5.px[63:0]$213
+   268/333: $1\peval$func$rtr_scan.v:309$5.C[63:0]$212
+   269/333: $1\peval$func$rtr_scan.v:309$5.B[63:0]$211
+   270/333: $1\peval$func$rtr_scan.v:309$5.A[63:0]$210
+   271/333: $1\peval$func$rtr_scan.v:309$5.$result[95:0]$209
+   272/333: $1\peval$func$rtr_scan.v:308$4.sh[95:0]$208
+   273/333: $1\peval$func$rtr_scan.v:308$4.s[95:0]$207
+   274/333: $1\peval$func$rtr_scan.v:308$4.py[63:0]$206
+   275/333: $1\peval$func$rtr_scan.v:308$4.px[63:0]$205
+   276/333: $1\peval$func$rtr_scan.v:308$4.C[63:0]$204
+   277/333: $1\peval$func$rtr_scan.v:308$4.B[63:0]$203
+   278/333: $1\peval$func$rtr_scan.v:308$4.A[63:0]$202
+   279/333: $1\peval$func$rtr_scan.v:308$4.$result[95:0]$201
+   280/333: $1\peval$func$rtr_scan.v:307$3.sh[95:0]$200
+   281/333: $1\peval$func$rtr_scan.v:307$3.s[95:0]$199
+   282/333: $1\peval$func$rtr_scan.v:307$3.py[63:0]$198
+   283/333: $1\peval$func$rtr_scan.v:307$3.px[63:0]$197
+   284/333: $1\peval$func$rtr_scan.v:307$3.C[63:0]$196
+   285/333: $1\peval$func$rtr_scan.v:307$3.B[63:0]$195
+   286/333: $1\peval$func$rtr_scan.v:307$3.A[63:0]$194
+   287/333: $1\peval$func$rtr_scan.v:307$3.$result[95:0]$193
+   288/333: $1\peval$func$rtr_scan.v:306$2.sh[95:0]$192
+   289/333: $1\peval$func$rtr_scan.v:306$2.s[95:0]$191
+   290/333: $1\peval$func$rtr_scan.v:306$2.py[63:0]$190
+   291/333: $1\peval$func$rtr_scan.v:306$2.px[63:0]$189
+   292/333: $1\peval$func$rtr_scan.v:306$2.C[63:0]$188
+   293/333: $1\peval$func$rtr_scan.v:306$2.B[63:0]$187
+   294/333: $1\peval$func$rtr_scan.v:306$2.A[63:0]$186
+   295/333: $1\peval$func$rtr_scan.v:306$2.$result[95:0]$185
+   296/333: $1\peval$func$rtr_scan.v:305$1.sh[95:0]$184
+   297/333: $1\peval$func$rtr_scan.v:305$1.s[95:0]$183
+   298/333: $1\peval$func$rtr_scan.v:305$1.py[63:0]$182
+   299/333: $1\peval$func$rtr_scan.v:305$1.px[63:0]$181
+   300/333: $1\peval$func$rtr_scan.v:305$1.C[63:0]$180
+   301/333: $1\peval$func$rtr_scan.v:305$1.B[63:0]$179
+   302/333: $1\peval$func$rtr_scan.v:305$1.A[63:0]$178
+   303/333: $1\peval$func$rtr_scan.v:305$1.$result[95:0]$177
+   304/333: $0\faddr[31:0]
+   305/333: $0\zaddr[31:0]
+   306/333: $0\mb[7:0]
+   307/333: $0\mg[7:0]
+   308/333: $0\mr[7:0]
+   309/333: $0\cb[7:0]
+   310/333: $0\cg[7:0]
+   311/333: $0\cr[7:0]
+   312/333: $0\z_pass[0:0]
+   313/333: $0\v_fin[95:0]
+   314/333: $0\u_fin[95:0]
+   315/333: $0\inv_w_v[95:0]
+   316/333: $0\v_raw[95:0]
+   317/333: $0\u_raw[95:0]
+   318/333: $0\z_v[95:0]
+   319/333: $0\b_v[95:0]
+   320/333: $0\g_v[95:0]
+   321/333: $0\r_v[95:0]
+   322/333: $0\e20[95:0]
+   323/333: $0\e12[95:0]
+   324/333: $0\e01[95:0]
+   325/333: $0\cy[63:0]
+   326/333: $0\cx[63:0]
+   327/333: $0\iy[15:0]
+   328/333: $0\ix[15:0]
+   329/333: $0\st[3:0]
+   330/333: $0\fpa2_addr[31:0]
+   331/333: $0\fpa_be[3:0]
+   332/333: $0\fpa_wdata[31:0]
+   333/333: $0\fpa_addr[31:0]
+
+8.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+8.9. Executing PROC_DFF pass (convert process syncs to FFs).
+ERROR: Multiple edge sensitive events found for this signal!

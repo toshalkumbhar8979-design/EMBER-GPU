@@ -1,0 +1,324 @@
+Loaded SDC plugin
+
+-- Running command `read_verilog /work/build/gds/divider_equiv.v
+chparam -set WIDTH 4 gold
+chparam -set WIDTH 4 gate
+proc
+opt
+equiv_make gold gate equiv
+hierarchy -top equiv
+flatten
+techmap
+opt
+equiv_simple
+equiv_status -assert
+' --
+
+1. Executing Verilog-2005 frontend: /work/build/gds/divider_equiv.v
+Parsing Verilog input from `/work/build/gds/divider_equiv.v' to AST representation.
+Generating RTLIL representation for module `\gold'.
+Generating RTLIL representation for module `\gate'.
+Successfully finished Verilog frontend.
+Parameter \WIDTH = 4
+
+2. Executing AST frontend in derive mode using pre-parsed AST for module `\gold'.
+Parameter \WIDTH = 4
+Generating RTLIL representation for module `$paramod\gold\WIDTH=32'00000000000000000000000000000100'.
+Parameter \WIDTH = 4
+
+3. Executing AST frontend in derive mode using pre-parsed AST for module `\gate'.
+Parameter \WIDTH = 4
+Generating RTLIL representation for module `$paramod\gate\WIDTH=32'00000000000000000000000000000100'.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 5 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\gate.$proc$/work/build/gds/divider_equiv.v:0$180'.
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\gate.\rem[0]' from process `\gate.$proc$/work/build/gds/divider_equiv.v:0$180'.
+No latch inferred for signal `\gate.\rem[1]' from process `\gate.$proc$/work/build/gds/divider_equiv.v:0$180'.
+No latch inferred for signal `\gate.\rem[2]' from process `\gate.$proc$/work/build/gds/divider_equiv.v:0$180'.
+No latch inferred for signal `\gate.\rem[3]' from process `\gate.$proc$/work/build/gds/divider_equiv.v:0$180'.
+No latch inferred for signal `\gate.\rem[4]' from process `\gate.$proc$/work/build/gds/divider_equiv.v:0$180'.
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `gate.$proc$/work/build/gds/divider_equiv.v:0$180'.
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate.
+<suppressed ~44 debug messages>
+Optimizing module gold.
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate.
+Optimizing module gold.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate'.
+Finding identical cells in module `\gold'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $ternary$/work/build/gds/divider_equiv.v:54$181: \stage[0].diff -> { 1'0 \stage[0].diff [3:0] }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gold..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate.
+  Optimizing cells in module \gold.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate'.
+Finding identical cells in module `\gold'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate..
+Finding unused cells or wires in module \gold..
+Removed 0 unused cells and 103 unused wires.
+<suppressed ~5 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate.
+Optimizing module gold.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \gate..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \gold..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \gate.
+  Optimizing cells in module \gold.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\gate'.
+Finding identical cells in module `\gold'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \gate..
+Finding unused cells or wires in module \gold..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module gate.
+Optimizing module gold.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing EQUIV_MAKE pass (creating equiv checking module).
+Presumably equivalent wires: A_gold (\A_gold), A_gate (\A_gate) -> A
+Presumably equivalent wires: B_gold (\B_gold), B_gate (\B_gate) -> B
+Presumably equivalent wires: R_gold (\R_gold), R_gate (\rem[4]_gate [3:0]) -> R
+Presumably equivalent wires: Y_gold (\Y_gold), Y_gate (\Y_gate) -> Y
+Changing input S of cell $ternary$/work/build/gds/divider_equiv.v:26$24_gold ($mux): \Y_gold [3] -> \Y [3]
+Changing input S of cell $ternary$/work/build/gds/divider_equiv.v:26$28_gold ($mux): \Y_gold [2] -> \Y [2]
+Changing input S of cell $ternary$/work/build/gds/divider_equiv.v:26$32_gold ($mux): \Y_gold [1] -> \Y [1]
+Changing input S of cell $ternary$/work/build/gds/divider_equiv.v:26$35_gold ($mux): \Y_gold [0] -> \Y [0]
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1. Analyzing design hierarchy..
+Top module:  \equiv
+
+7.2. Analyzing design hierarchy..
+Top module:  \equiv
+Removing unused module `\gate'.
+Removing unused module `\gold'.
+Removed 2 unused modules.
+
+8. Executing FLATTEN pass (flatten design).
+
+9. Executing TECHMAP pass (map to technology primitives).
+
+9.1. Executing Verilog-2005 frontend: /nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/nix/store/9r0bh7sp051dpm8km8bqlb028anpd3v3-yosys/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+9.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $xor.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=4:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=4:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=4:Y_WIDTH=4:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=5:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=6:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=7:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=7:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$sub:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=7:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=4:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=4:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=4:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=5:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=6:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Running "alumacc" on wrapper $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using template $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47 for cells of type $extern:wrap:$ge:A_SIGNED=0:A_WIDTH=4:B_SIGNED=0:B_WIDTH=7:Y_WIDTH=1:394426c56d1a028ba8fdd5469b163e04011def47.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod$740b056ede97228d3eae64ea2fdc81f0a33e0fe7\_90_alu for cells of type $alu.
+Using template $paramod$83dd457849c736323edf2edb15923eb27f99c683\_90_alu for cells of type $alu.
+Using template $paramod$5bb6c3f3e4a5303115f41a182fad517280ea0b25\_90_alu for cells of type $alu.
+Using template $paramod$4bdb94ac02745db6fc41e2e497d9b9793cd51dc6\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_and.
+Using extmapper simplemap for cells of type $reduce_or.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000101 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000111 for cells of type $lcu.
+No more expansions possible.
+<suppressed ~1041 debug messages>
+
+10. Executing OPT pass (performing simple optimizations).
+
+10.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv.
+<suppressed ~205 debug messages>
+
+10.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\equiv'.
+<suppressed ~282 debug messages>
+Removed a total of 94 cells.
+
+10.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \equiv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \equiv.
+Performed a total of 0 changes.
+
+10.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\equiv'.
+Removed a total of 0 cells.
+
+10.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \equiv..
+Removed 32 unused cells and 343 unused wires.
+<suppressed ~33 debug messages>
+
+10.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv.
+
+10.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \equiv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+10.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \equiv.
+Performed a total of 0 changes.
+
+10.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\equiv'.
+Removed a total of 0 cells.
+
+10.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \equiv..
+
+10.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module equiv.
+
+10.16. Finished OPT passes. (There is nothing left to do.)
+
+11. Executing EQUIV_SIMPLE pass.
+Found 8 unproven $equiv cells (2 groups) in equiv:
+ Grouping SAT models for \R:
+  Trying to prove $equiv for \R [0]: success!
+  Trying to prove $equiv for \R [1]: success!
+  Trying to prove $equiv for \R [2]: success!
+  Trying to prove $equiv for \R [3]: success!
+ Grouping SAT models for \Y:
+  Trying to prove $equiv for \Y [0]: success!
+  Trying to prove $equiv for \Y [1]: success!
+  Trying to prove $equiv for \Y [2]: success!
+  Trying to prove $equiv for \Y [3]: success!
+Proved 8 previously unproven $equiv cells.
+
+12. Executing EQUIV_STATUS pass.
+Found 8 $equiv cells in equiv:
+  Of those cells 8 are proven and 0 are unproven.
+  Equivalence successfully proven!

@@ -1,0 +1,17 @@
+# cocotb 2.x runner flow for the FULL Ember chip (pad ring + die + memif + SRAMs)
+TOPLEVEL_LANG    := verilog
+SIM              := verilator
+COMPILE_ARGS     += --timing -I../rtl
+COMPILE_ARGS     += -Wno-WIDTHEXPAND
+TOPLEVEL         := chip_tb
+MODULE           := tb_chip
+SIM_BUILD        := sim_build_chip
+VERILOG_SOURCES  := ../rtl/ember_pkg.sv ../rtl/ember_ram_slave.sv ../rtl/ember_vram.sv \
+                    ../rtl/ember_xbar.sv ../rtl/ember_cp.sv ../rtl/ember_rtr_setup.sv \
+                    ../rtl/ember_rtr_scan.sv ../rtl/ember_rtr_top.sv ../rtl/ember_blit.sv \
+                    ../rtl/ember_fpu4.sv ../rtl/ember_gsx.sv ../rtl/ember_core.sv \
+                    ../rtl/ember_tu.sv ../rtl/ember_display.sv ../rtl/ember_die.sv \
+                    ../rtl/ember_memif.sv ../rtl/pad_models.sv ../rtl/ember_chip.sv \
+                    chip_tb.sv sram_model.sv
+
+include $(shell cocotb-config --makefiles)/Makefile.sim

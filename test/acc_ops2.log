@@ -1,0 +1,71 @@
+rm -f results.xml
+/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:73: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=tb_mnist_acc COCOTB_TESTCASE=  COCOTB_TOPLEVEL=ember_top TOPLEVEL_LANG=verilog       \
+         sim_build/Vtop     
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.13.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/home/toshal/.local/lib/python3.13/site-packages/cocotb/simulator.cpython-313-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.13.8 interpreter at /usr/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1790633285
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /home/toshal/.local/lib/python3.13/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Verilator version 5.046 2026-02-28
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running tb_mnist_acc.test_mnist_acc (1/1)
+                                                            100 t10k images through the RTL chain with TRAINED weights; >=95%.
+  OPS img0: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img0: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img0: W1 bad=0/16
+  OPS img0: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img0: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img0: A1 bad=0/8
+  OPS img0: C0 raw=['0xe10e0015', '0x0', '0x0', '0x0']
+  OPS img0: c1_pre[0:8]=[21, 0, 14, -31, 21, 0, 14, -31]
+  OPS img1: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img1: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img1: W1 bad=0/16
+  OPS img1: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img1: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img1: A1 bad=0/8
+  OPS img1: C0 raw=['0xe10e0015', '0x0', '0x0', '0x0']
+  OPS img1: c1_pre[0:8]=[21, 0, 14, -31, 21, 0, 14, -31]
+  DIAG img1 c1: 1300 mismatches [(0, 21, 17), (2, 14, 0), (4, 21, 17), (6, 14, 0), (8, 21, 17), (10, 14, 0)]
+  DIAG img1 p1: 376 mismatches [(0, 21, 17), (1, 21, 17), (2, 21, 17), (3, 21, 17), (4, 21, 17), (5, 21, 17)]
+  DIAG img1 p2: 39 mismatches [(2, 0, 7), (22, 0, 5), (23, 0, 7), (24, 0, 2), (26, 5, 0), (27, 9, 1)]
+  DIAG img1 d1r: 6 mismatches [(3, 2, 3), (12, 3, 0), (17, 3, 0), (18, 2, 0), (27, 3, 8), (29, 4, 0)]
+  DIAG img1 logits: 9 mismatches [(1, 0, -2), (2, 5, 10), (3, 0, 2), (4, 3, 5), (5, -2, -5), (6, 3, 0)]
+  DIAG img1 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img1 A1: 32 bad words [(0, 33554432, 2155905152), (1, 0, 2155905152), (2, 0, 25264000), (3, 3, 0)]
+  OPS img2: W1 rtl =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img2: W1 exp =['0x3448cb90', '0x0', '0x0', '0x0', '0xe451ef3', '0x0']
+  OPS img2: W1 bad=0/16
+  OPS img2: A1 rtl =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img2: A1 exp =['0x80808080', '0x80808080', '0x1817f80', '0x0']
+  OPS img2: A1 bad=0/8
+  OPS img2: C0 raw=['0xe10e0015', '0x0', '0x0', '0x0']
+  OPS img2: c1_pre[0:8]=[21, 0, 14, -31, 21, 0, 14, -31]
+  DIAG img2 c1: 1335 mismatches [(0, 21, 17), (2, 14, 0), (4, 21, 17), (6, 14, 0), (8, 21, 17), (10, 14, 0)]
+  DIAG img2 p1: 350 mismatches [(0, 21, 17), (1, 21, 17), (2, 21, 17), (3, 21, 17), (4, 21, 17), (5, 21, 17)]
+  DIAG img2 p2: 18 mismatches [(33, 5, 0), (38, 2, 0), (43, 3, 0), (47, 4, 0), (53, 0, 9), (57, 0, 3)]
+  DIAG img2 d1r: 6 mismatches [(0, 0, 12), (6, 0, 1), (13, 2, 0), (15, 0, 6), (17, 1, 0), (27, 1, 0)]
+  DIAG img2 logits: 10 mismatches [(0, -1, -8), (1, -1, 25), (2, 1, -2), (3, 0, -5), (4, 1, 11), (5, -2, -16)]
+  DIAG img2 W1: 30 bad words [(0, 435713264, 877185936), (1, 302763779, 0), (2, 13071, 0), (4, 3324521685, 239410931)]
+  DIAG img2 A1: 31 bad words [(0, 0, 2155905152), (1, 0, 2155905152), (2, 0, 25264000), (3, 512, 0)]
+RTL ACCURACY: 1/3 = 33.3%  (software mirror: 100.0%)
+RTL-vs-software disagreements: [(1, 0, 2, 2), (2, 8, 1, 1)] (total 2)
+6807700.00ns WARNING  cocotb.regression                  tb_mnist_acc.test_mnist_acc failed
+                                                        Traceback (most recent call last):
+                                                          File "/mnt/c/Users/tosha/Downloads/GPU/test/tb_mnist_acc.py", line 507, in test_mnist_acc
+                                                            assert not mismatched, \
+                                                                f"RTL logits disagree with the software mirror on {len(mismatched)} images"
+                                                        AssertionError: RTL logits disagree with the software mirror on 2 images
+                                                        assert not [(1, 0, 2, 2), (2, 8, 1, 1)]
+6807700.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** tb_mnist_acc.test_mnist_acc    FAIL     6807700.00          13.41     507593.33  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=0 FAIL=1 SKIP=0            6807700.00          13.42     507238.84  **
+                                                        **************************************************************************************
+- :0: Verilog $finish
+make: *** [/home/toshal/.local/lib/python3.13/site-packages/cocotb_tools/makefiles/simulators/Makefile.verilator:74: results.xml] Error 1
