@@ -47,6 +47,14 @@ read_lef /work/build/gds/rtr_setup/rtr_setup.lef
 read_lef /work/build/gds/rtr_scan/rtr_scan.lef
 read_verilog /work/build/gds/rtr_top/synth.v
 link_design $TOP
+# PARALLELISM (lesson from harden_block.sh: the router ran on ONE core for
+# days before set_thread_count was added). Applies to resizer/CTS/DRT workers.
+set_thread_count ${GDS_THREADS:-8}
+# Probe family ban (fpu4/gsx lesson): probe_p_8 / probec_p_8 carry met4/met5
+# landing pads with no OBS blockage; the resizer inserts them as measurement
+# stubs and PDN stripes then violate met4.2/via4.2 spacing in Magic DRC.
+# Synthesis never emits these masters, so banning them costs nothing.
+set_dont_use {sky130_fd_sc_hd__probe_p_8 sky130_fd_sc_hd__probec_p_8}
 
 # die: sum of macro extents + channels + glue band + margins (auto-sized below
 # from the actual macro LEF sizes read from the DB).
@@ -60,6 +68,20 @@ set sc_h [expr {[\$sc_master getHeight] / double(\$dbu)}]
 set band_h [expr {\$su_h > \$sc_h ? \$su_h : \$sc_h}]
 set die_w [expr {25 + \$su_w + 40 + \$sc_w + 25}]
 set die_h [expr {25 + \$band_h + 40 + 120 + 25}]
+# PPL-0024 guard (xbar lesson): place_pins packs ~0.79um of perimeter per IO
+# pin BIT and aborts the whole block if the die is too small. Budget 1.0um/pin
+# and grow the die if the macro-derived size cannot hold every pin bit.
+set npins 0
+set blk0 [ord::get_db_block]
+foreach bterm [\$blk0 getBTerms] { incr npins }
+set min_perim [expr {2.0 * (\$die_w + \$die_h)}]
+set need_perim [expr {\$npins * 1.0 + 40.0}]
+if {\$need_perim > \$min_perim} {
+  set grow [expr {(\$need_perim - \$min_perim) / 4.0 + 25.0}]
+  set die_w [expr {\$die_w + \$grow}]
+  set die_h [expr {\$die_h + \$grow}]
+  puts "PIN_BUDGET: grew die by \$grow um/side for \$npins pin bits"
+}
 initialize_floorplan -die_area [list 0 0 \$die_w \$die_h] \
     -core_area [list 25 [expr {25 + \$band_h + 40}] [expr {\$die_w - 25}] [expr {\$die_h - 25}]] -site unithd
 make_tracks
@@ -81,7 +103,7 @@ if {![catch {get_ports clk}]} { create_clock -name clk -period 20.0 [get_ports c
 set_wire_rc -signal -layer met2
 set_wire_rc -clock -layer met3
 
-global_placement -density 0.30
+global_placement -routability_driven -density ${GDS_PL_DENSITY:-0.30}
 estimate_parasitics -placement
 repair_design
 detailed_placement
@@ -104,15 +126,31 @@ add_pdn_stripe -grid stdcell -layer met1 -width 0.48 -followpins
 add_pdn_stripe -grid stdcell -layer met4 -width 1.6 -pitch 27.14 -offset 13.57
 add_pdn_stripe -grid stdcell -layer met5 -width 1.6 -pitch 27.2 -offset 13.6
 add_pdn_connect -grid stdcell -layers {met1 met4}
-add_pdn_connect -grid stdcell -layers {met4 met5}
+# via4 cut pitch 1.3um (fpu4 lesson): pdngen's default ~1.0um pitch violates
+# sky130 via4.2 cut spacing (0.42um effective); fpu4's first route failed
+# Magic DRC on exactly this rule. 1.3um pitch -> 0.5um cut spacing.
+add_pdn_connect -grid stdcell -layers {met4 met5} -cut_pitch 1.3
 define_pdn_grid -name macros -macro -cells {ember_rtr_setup ember_rtr_scan} -pins {met1 met4 met5}
 add_pdn_connect -grid macros -layers {met1 met4}
-add_pdn_connect -grid macros -layers {met4 met5}
+add_pdn_connect -grid macros -layers {met4 met5} -cut_pitch 1.3
 pdngen
+# PROBE PURGE (fpu4 lesson, verified live 34->0): delete any probe-family
+# instance the repair stages inserted, right before routing -- passive
+# measurement stubs with no logical function, so removal is electrically safe.
+set _probe_purged 0
+set _purge_block [ord::get_db_block]
+foreach _purge_inst [\$_purge_block getInsts] {
+  set _purge_master [[\$_purge_inst getMaster] getName]
+  if {[string first "probe" \$_purge_master] >= 0} {
+    odb::dbInst_destroy \$_purge_inst
+    incr _probe_purged
+  }
+}
+puts "PROBE_PURGE: removed \$_probe_purged probe-family instances before route"
 global_route
 write_def global_route.def
 
-detailed_route -bottom_routing_layer met1 -top_routing_layer met5 -output_drc route_drc.rpt -droute_end_iter 30 -verbose 1
+detailed_route -bottom_routing_layer met1 -top_routing_layer met5 -output_drc route_drc.rpt -droute_end_iter ${GDS_DRT_ITER:-30} -verbose 1
 if {[catch {filler_placement {sky130_fd_sc_hd__fill_1 sky130_fd_sc_hd__fill_2 sky130_fd_sc_hd__fill_4 sky130_fd_sc_hd__fill_8}} fmsg]} {
   puts "FILLER_WARN: \$fmsg"
 }
@@ -122,7 +160,7 @@ write_verilog final_nl.v
 report_wns
 report_tns
 EOF
-timeout 14400 openroad -no_init -exit pnr.tcl > openroad.log 2>&1 \
+timeout ${GDS_PNR_TIMEOUT:-14400} openroad -no_init -exit pnr.tcl > openroad.log 2>&1 \
   || { echo "OPENROAD FAIL"; tail -25 openroad.log; exit 1; }
 echo "   route ok"
 
@@ -160,7 +198,7 @@ set drcerr [drc list count total]
 puts "DRC_DETAILS=[drc listall why]"
 puts "DRC_COUNT=\$drcerr"
 EOFMAG
-timeout 2700 magic -rcfile .magicrc -dnull -noconsole magic.tcl > magic.log 2>&1 \
+timeout ${GDS_MAGIC_TIMEOUT:-2700} magic -rcfile .magicrc -dnull -noconsole magic.tcl > magic.log 2>&1 \
   || echo "MAGIC FAIL (KLayout merge still runs; audit decides)"
 grep -m1 DRC_COUNT magic.log || echo "DRC_COUNT=?"
 

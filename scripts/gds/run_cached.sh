@@ -42,9 +42,13 @@ PY
   read -r -a settings <<< "$overrides"
   echo "BLOCK $name [$overrides]"
   if [ "$name" = rtr_top ]; then
+    # Pass the blocks.txt tuning through (2026-10-21 fix: this branch used to
+    # run rtr_top_pnr.sh bare, so GDS_DRT_ITER=60 / GDS_PL_DENSITY=0.25 /
+    # GDS_PNR_TIMEOUT=86400 were silently ignored and the block ran with the
+    # script's conservative defaults instead of its tuned values).
     if bash scripts/gds/make_rtr_top_netlist.sh < /dev/null \
         > build/gds/rtr_top.hier_synth.log 2>&1 \
-        && bash scripts/gds/rtr_top_pnr.sh < /dev/null \
+        && env "${settings[@]}" GDS_FLOW_TAG=h2 bash scripts/gds/rtr_top_pnr.sh < /dev/null \
         > build/gds/rtr_top.physical.log 2>&1; then
       result=0
     else
