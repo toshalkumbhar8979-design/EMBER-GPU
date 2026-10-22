@@ -34,6 +34,18 @@ package ember_pkg;
   localparam int unsigned TEX_BYTES   = 64 * 1024;
   localparam int unsigned CMDBUF_BASE = TEX_BASE + TEX_BYTES;          // 0x05B000
   localparam int unsigned CMDBUF_BYTES= 32 * 1024;
+
+  // Palette (CLUT) for indexed textures, 256 entries x RGB888, one word per
+  // entry: {8'h0, b, g, r} — the same {b,g,r,x} field order as the GSX color
+  // words. Lives in the VRAM scratch tail (above CMDBUF, below the demo
+  // buffers at 0x070000) and is read through the fpa2 texel port, so the
+  // hardware needs no second read port and no palette registers: SW DMA's
+  // 1 KB once and every texel byte from then on resolves to true color.
+  // Palette mode is per-triangle (RTR cmd word0 bit6); with it off the RTR
+  // keeps the original gray expand, bit-for-bit.
+  localparam int unsigned PAL_BASE    = 32'h0007_4000;
+  localparam int unsigned PAL_BYTES   = 256 * 4;                       // 1 KB
+
   // tail of VRAM above CMDBUF_BASE+CMDBUF_BYTES: scratch
 
   // ------------------------------------------------------------------ //
@@ -67,8 +79,9 @@ package ember_pkg;
   localparam logic [11:0] CP_GSX_COL  = 12'h040; // W: vertex color word, auto-inc ptr (3 words, {b,g,r,x})
   localparam logic [11:0] CP_GSX_GO   = 12'h044; // W1P: [0]=1 transform+emit one triangle
   localparam logic [11:0] CP_GSX_CFG  = 12'h048; // W: bit31=1 -> [7:0] tri_count write
-                                                 //     bit31=0 -> [24] ztest [26] blend
-                                                 //               [27] tex  [29] overw
+                                                //     bit31=0 -> [24] ztest [26] blend
+                                                //               [27] tex  [25] tex_pal
+                                                //               [29] overw
 
   // Compute cluster (Phase 5) — dispatcher regs (block scheduling inside
   // ember_core v1: it loops blocks internally)
@@ -138,7 +151,8 @@ package ember_pkg;
   localparam int unsigned RTR_CMDQ_WORDS = 1024;        // 4 KB command queue
 
   // CMD word 0: [0] tri_valid [1] blend [2] ztest [3] tex_en
-  //             [4] dbg_dither [5] dbg_rgbmap [15:8] texture page
+  //             [4] dbg_dither [5] dbg_rgbmap [6] tex_pal
+  //             [15:8] texture page
   // CMD 1..6:   vx0,vy0,vx1,vy1,vx2,vy2   (s32 Q10.22)
   // CMD 7..9:   z0,z1,z2                  (u16, raw depth)
   // CMD 10..12: {b,g,r,x} per vertex      (u8 x3, byte-packed)

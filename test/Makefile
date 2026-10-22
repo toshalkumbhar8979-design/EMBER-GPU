@@ -6,7 +6,7 @@ COMPILE_ARGS     += --timing -I../rtl
 # instance (ember_core.sv constant add) is benign and was clean on the old tool.
 COMPILE_ARGS     += -Wno-WIDTHEXPAND
 TOPLEVEL         := ember_top
-MODULE           := tb_memory,tb_rtr,tb_display,tb_blit,tb_gsx,tb_core,tb_tu,tb_tex,tb_mnist,tb_scene,tb_mnist_e2e,tb_pool,tb_anim,tb_mnist_acc,tb_fly,tb_input
+MODULE           := tb_memory,tb_rtr,tb_display,tb_blit,tb_gsx,tb_core,tb_tu,tb_tex,tb_mnist,tb_scene,tb_mnist_e2e,tb_pool,tb_anim,tb_mnist_acc,tb_fly,tb_input,tb_doom
 VERILOG_SOURCES  := ../rtl/ember_pkg.sv ../rtl/ember_vram.sv ../rtl/ember_ram_slave.sv \
                     ../rtl/ember_xbar.sv ../rtl/ember_cp.sv ../rtl/ember_fpu4.sv \
                     ../rtl/ember_gsx.sv ../rtl/ember_core.sv ../rtl/ember_tu.sv \

@@ -80,7 +80,7 @@ module ember_gsx
 
   logic [7:0]  tri_count;          // cmdq write pointer (triangle slots)
   logic        cfg_overw;          // overwrite mode (no advance/terminator)
-  logic        cfg_blend, cfg_ztest, cfg_tex;
+  logic        cfg_blend, cfg_ztest, cfg_tex, cfg_pal;
   logic [7:0]  cfg_page;           // texture page (w0 [15:8])
 
   // CSR write decode
@@ -122,6 +122,7 @@ module ember_gsx
       cfg_blend <= 1'b0;
       cfg_ztest <= 1'b0;
       cfg_tex   <= 1'b0;
+      cfg_pal   <= 1'b0;
       cfg_page  <= 8'd0;
     end else begin
       if (cfg_cnt_we) begin
@@ -134,6 +135,7 @@ module ember_gsx
         cfg_blend <= csr_wdata[26];
         cfg_ztest <= csr_wdata[24];
         cfg_tex   <= csr_wdata[27];
+        cfg_pal   <= csr_wdata[25];
         cfg_page  <= csr_wdata[23:16];
       end
     end
@@ -407,8 +409,12 @@ module ember_gsx
           //             RTR's DITHER bit) with a literal 0 on tex bit3 —
           //             textured tris rendered BLACK; latent because the
           //             tb_tex golden frame never textured its own side.
-          gxa_wdata <= {16'h0, 3'h0, cfg_page, 1'b0, cfg_tex, cfg_ztest,
-                        cfg_blend, 1'b1};   // w0: 16+3+8+1+1+1+1+1 = 32
+          // [7]=0 [6]=tex_pal [5]=0(rgbmap) [4]=0(dither) [3]=tex
+          // [2]=ztest [1]=blend [0]=valid   +   [15:8]=page
+          gxa_wdata <= {16'h0, cfg_page, 1'b0, cfg_pal, 1'b0, 1'b0,
+                        cfg_tex, cfg_ztest, cfg_blend, 1'b1};
+          // w0 bit6 = tex_pal: palette-mode textured triangles resolve the
+          // texel byte through the VRAM CLUT instead of gray-expanding it.
           eidx      <= 5'd1;
           st        <= S_EMIT;
         end

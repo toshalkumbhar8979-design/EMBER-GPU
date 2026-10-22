@@ -82,6 +82,7 @@
 #define VRAM_FB0       0x000000u
 #define VRAM_ZBUF      0x025800u
 #define VRAM_TEX       0x04B000u
+#define VRAM_PAL       0x074000u   /* 256 x {8'h0,b,g,r} indexed-texture CLUT */
 #define VRAM_CMDBUF    0x05B000u
 #define VRAM_CODEBUF   (VRAM_CMDBUF + 0x400u)
 #define VRAM_GS        0x071000u   /* gamestate kernel state (8 words)   */
@@ -168,7 +169,10 @@ static inline void cp_download(uint32_t vram_off, uint32_t *words,
 /* ------------------------------------------------------------------ */
 /* GSX (geometry)                                                      */
 /* ------------------------------------------------------------------ */
-/* mode_flags: bit24 ztest, bit26 blend, bit27 tex. Resets the emit slot */
+/* mode_flags: bit24 ztest, bit25 tex_pal, bit26 blend, bit27 tex.
+ * tex_pal makes textured triangles resolve the texel byte through the VRAM
+ * palette at VRAM_PAL (true color); without it the byte gray-expands.
+ * Resets the emit slot. */
 static inline void cp_gsx_setup(uint32_t mode_flags) {
     cp_write(CP_GSX_CFG, mode_flags & 0x7FFFFFFFu);
     cp_write(CP_GSX_CFG, 0x80000000u);           /* append mode */

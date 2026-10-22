@@ -200,6 +200,7 @@ module ember_rtr_top
     .start(scan_start),
     .t_blend(cmd_q[0][1]), .t_ztest(cmd_q[0][2]), .t_tex(cmd_q[0][3]),
     .t_dither(cmd_q[0][4]), .t_rgbmap(cmd_q[0][5]),
+    .t_texpal(cmd_q[0][6]),
     .t_texpage(cmd_q[0][15:8]),
     .iwA(iwA), .iwB(iwB), .iwC(iwC),
     .rA(rA), .rB(rB), .rC(rC),

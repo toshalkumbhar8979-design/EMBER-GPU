@@ -11,7 +11,13 @@
 // FB/Z PIXEL LAYOUT: byte-packed at 2*(y*320+x) — a pixel lands in the LOW
 // halfword of its 32-bit word when x is even, HIGH when odd (w={odd,even}).
 // All FB/Z accesses use the WORD address with correct byte lanes.
-// Texel: TEX_BASE + (v8<<8) + u8, gray expand; u8 picks the byte lane.
+// Texel: TEX_BASE + (v8<<8) + u8; u8 picks the byte lane. Two resolutions
+// of that byte:
+//   * t_texpal = 0 (v1 default): GRAY expand, cr=cg=cb=byte — bit-for-bit
+//     what the pre-palette RTL did.
+//   * t_texpal = 1: the byte indexes the 256-entry CLUT at PAL_BASE
+//     (VRAM, {8'h0,b,g,r} per entry), read on the same fpa2 port — the
+//     texel byte is registered while the palette word is in flight.
 // ROP order (== golden): clamp/texel -> [rgbmap swap] -> [blend 50%] ->
 // [dither +/-1] -> pack RGB565. Implemented as combinational muxes on the
 // registered color so one cycle performs dither+pack coherently.
@@ -72,6 +78,7 @@ module ember_rtr_scan
 
   input  logic               start,
   input  logic               t_blend, t_ztest, t_tex, t_dither, t_rgbmap,
+  input  logic               t_texpal,
   input  logic [7:0]         t_texpage,          // reserved in v1 (unused)
   input  logic signed [63:0] iwA, iwB, iwC,
   input  logic signed [63:0] rA, rB, rC,
@@ -103,10 +110,12 @@ module ember_rtr_scan
   // fpa/fpa2 ports take BUS addresses (ember_vram.addr2word strips VRAM_BASE)
   localparam logic [31:0] FB0 = VRAM_BASE + FB0_BASE;
   localparam logic [31:0] ZB  = VRAM_BASE + ZBUF_BASE;
+  localparam logic [31:0] PAL = VRAM_BASE + PAL_BASE;
 
-  typedef enum logic [3:0] {
-    S_IDLE, S_PIX, S_EVAL, S_ZRD, S_ATR, S_TRQ, S_TRD, S_TRC, S_FRQ, S_FRD,
-    S_FRC, S_WR, S_WRZ, S_NEXT
+  // 17 states: 4 bits no longer hold them (palette mode added PRQ/PRD/PRC)
+  typedef enum logic [4:0] {
+    S_IDLE, S_PIX, S_EVAL, S_ZRD, S_ATR, S_TRQ, S_TRD, S_TRC,
+    S_PRQ, S_PRD, S_PRC, S_FRQ, S_FRD, S_FRC, S_WR, S_WRZ, S_NEXT
   } state_e;
   state_e st;
 
@@ -403,13 +412,38 @@ module ember_rtr_scan
         end
 
         // ------------------------------------------------------------
-        // Texel byte arrived (low lane), gray expand
+        // Texel byte arrived (low lane)
         // ------------------------------------------------------------
         S_TRC: begin
-          // gray expand of the texel byte (u8 picks the byte lane)
-          cr <= texel_byte;
-          cg <= texel_byte;
-          cb <= texel_byte;
+          if (t_texpal) begin
+            // palette mode: latch the byte, then read CLUT[byte] (fpa2 is
+            // idle again next cycle; the texel word is already consumed)
+            fpa2_req  <= 1'b1;
+            fpa2_addr <= PAL + {22'b0, texel_byte, 2'b00};
+            st        <= S_PRD;
+          end else begin
+            // gray expand of the texel byte (u8 picks the byte lane)
+            cr <= texel_byte;
+            cg <= texel_byte;
+            cb <= texel_byte;
+            st <= t_blend ? S_FRQ : S_WR;
+          end
+        end
+
+        // ------------------------------------------------------------
+        // CLUT read in flight (fpa2_req fired in S_TRC)
+        // ------------------------------------------------------------
+        S_PRD: begin
+          st <= S_PRC;
+        end
+
+        // ------------------------------------------------------------
+        // Palette word arrived: {8'h0, b, g, r}
+        // ------------------------------------------------------------
+        S_PRC: begin
+          cr <= fpa2_rdata[7:0];
+          cg <= fpa2_rdata[15:8];
+          cb <= fpa2_rdata[23:16];
           st <= t_blend ? S_FRQ : S_WR;
         end
 
