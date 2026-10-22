@@ -29,8 +29,9 @@ Architecture, Bit-Exact Verification, and Block-Level Physical Design on SkyWate
 
 \begin{abstract}
 I present \ember{}, a GPU built completely from scratch without vendor IP,
-HLS or a borrowed rasterizer. It runs both a real 3D game loop and a real
-neural network in RTL simulation. I am also evaluating its logic blocks
+HLS or a borrowed rasterizer. It runs a real 3D game loop, a complete Doom
+level rasterized from the shareware IWAD, and a real neural network in RTL
+simulation. I am also evaluating its logic blocks
 through an open-source physical design flow to GDS-II on SkyWater 130\,nm.
 The logical design contains a command processor with DMA and fences, a 512\,KB unified VRAM, a
 four-lane IEEE-754 single-precision vector FPU, a geometry/setup engine, a
@@ -101,6 +102,10 @@ Section~\ref{sec:lessons}.
   \item \textbf{An int8 tensor unit that actually infers} (Section~\ref{sec:tu}):
         a LeNet-class CNN trained in pure Python, quantized, and executed
         through the RTL at 98.0\% accuracy, bit-identical to a software mirror.
+  \item \textbf{A real game level through the same pipeline} (Section~\ref{sec:doom}):
+        10{,}774 textured triangles built from Doom's own BSP geometry, composed
+        wall textures, flats and light tables, rasterized by the RTL
+        bit-exactly against the golden model (76{,}800 of 76{,}800 pixels).
   \item \textbf{A verification methodology that scales down} (Section~\ref{sec:verify}):
         one golden model per block, differential testing, structural assertions
         for demos where no golden pixel exists, and a 31/31 suite.
@@ -339,6 +344,53 @@ every frame; 16 of the 32 frames are rasterized to keep simulation time sane.}
 \label{fig:input}
 \end{figure*}
 
+\subsection{A real level: Doom E1M1}
+\label{sec:doom}
+
+A spinning cube proves the pipeline adds up; a real game level proves it is
+actually correct, because every wall, flat, light level and texture offset is
+someone else's ground truth. \ember{} renders the first level of Doom from the
+shareware IWAD (\texttt{data/doom1.wad}) by reading the WAD itself: BSP nodes
+and subsectors select the visible segs, sector light levels index the
+\textsc{colormap} table for light diminishing, patch-composed wall textures and
+64$\times$64 flats are assembled from the WAD's patch directory, and the
+vanilla projection is reproduced exactly.
+
+Geometry fidelity comes from emitting Doom's own decomposition instead of
+dicing triangles in screen space. Every wall column becomes one quad with $u$
+constant and $v$ affine in $y$; every plane row becomes one quad, since a level
+camera puts all pixels of a row at a single distance, making $u$ affine in $x$
+and $v$ constant. Depth is $1-\mathit{near}/\mathit{dist}$, which is affine in
+screen space, so the 16-bit $z$ plane interpolates exactly. The result is
+10{,}774 textured triangles in 12 texture-atlas batches, streamed into the real
+command queue over the command processor's DMA engine with one 1\,KB palette
+load; the rasterizer resolves each texel through that CLUT with the per-triangle
+palette bit rather than grey-expanding it.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.32\textwidth]{doom_ref.png}\hfill
+\includegraphics[width=0.32\textwidth]{doom_golden.png}\hfill
+\includegraphics[width=0.32\textwidth]{doom_rtl.png}
+\caption{Doom E1M1. (a) the real engine at the player start, for reference;
+(b) \ember{}'s golden rasterizer fed 10{,}774 triangles built from the WAD;
+(c) the same frame read back out of \texttt{ember\_rtr\_top} in Verilator after
+being DMA'd into the command queue. Frames (b) and (c) are identical: 76{,}800
+of 76{,}800 pixels, 0 mismatches. 68.4\,ms of simulated time, 232\,s of wall
+clock. The reference is letterboxed: Doom renders 320$\times$200, \ember{}
+320$\times$240.}
+\label{fig:doom}
+\end{figure*}
+
+Figure~\ref{fig:doom} is the strongest evidence in this paper that the graphics
+pipeline is correct, precisely because no part of the level was designed to
+flatter it. The frame out of the RTL is bit-identical to the golden model,
+which is itself an independent implementation of Doom's projection and texture
+lookup. What is missing is equally clear: sprites, and therefore monsters,
+items and the weapon, because sprite patches are transparent-columned and the
+rasterizer has no colour-key or alpha path yet; a sprite quad today would be
+drawn inside a black box.
+
 \section{Tensor Unit}
 \label{sec:tu}
 
@@ -405,7 +457,10 @@ covers memory and DMA round trips, bit-exact rasterization including
 affine texturing and Z-ordering, the FPU (6{,}720 comparisons, zero
 mismatches), the geometry engine, the compute core (including divergence and
 barriers), the tensor unit (small multi-tile, quantized, and a 256-cube gate),
-MNIST layer by layer and end to end, animation, and the interactive demos.
+MNIST layer by layer and end to end, animation, and the interactive demos. The
+Doom bench (Section~\ref{sec:doom}) goes further than the scene demos: it
+compares a complete 320$\times$240 level frame against the golden rasterizer,
+pixel for pixel, and reports zero mismatches.
 
 \subsection{Verifying a demo with no golden pixels}
 

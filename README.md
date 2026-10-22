@@ -90,12 +90,8 @@ comparison throughout (not eyeball checks).
 <table>
   <tr>
     <td align="center"><img src="paper/figures/architecture.png" width="260"><br><sub>EMBER architecture</sub></td>
-    <td align="center"><img src="paper/figures/die_shot.png" width="260"><br><sub>Logic die — 8 hardened macros, sky130</sub></td>
     <td align="center"><img src="paper/figures/gds_block.png" width="260"><br><sub>Hardened block GDS</sub></td>
-  </tr>
-  <tr>
     <td align="center"><img src="paper/figures/gds_cp.png" width="260"><br><sub>Command processor GDS</sub></td>
-    <td></td><td></td>
   </tr>
 </table>
 </div>
