@@ -128,7 +128,13 @@ fi
 # Container has no awk/sed: pure-bash parse. Keep the LAST "Number of cells"
 # line -- yosys prints one stat per module and the top module's is last.
 CELLS=$(grep "Number of cells" yosys.log); CELLS=${CELLS##* }
-echo "   cells: $CELLS"
+# Cache hit: this run never invoked yosys, so yosys.log holds an older run's
+# output (or none) and the grep comes back empty. Read the count from the
+# netlist JSON instead, so every rung log states the size it is routing.
+if [ -z "$CELLS" ] && [ -f synth.json ]; then
+  CELLS=$(python3 -c 'import json,sys; d=json.load(open("synth.json")); print(max(len(m["cells"]) for m in d["modules"].values()))' 2>/dev/null)
+fi
+echo "   cells: ${CELLS:-unknown}"
 
 echo "== [$NAME] 2/4 OpenROAD floorplan/place/CTS/route =="
 # (the die/core size is derived by initialize_floorplan from -utilization
@@ -207,6 +213,18 @@ set_dont_use {sky130_fd_sc_hd__probe_p_8 sky130_fd_sc_hd__probec_p_8}
 # also leaked shell redirections into the Tcl and STA-0565-aborted every
 # block in the first h2 run.)
 global_placement -routability_driven -density ${GDS_PL_DENSITY:-0.45}
+# PIN-ACCESS CORRIDORS (GDS_PL_PAD, default 0 = off so proven blocks keep
+# their recipe). sky130 hd cells put their inputs on met1 and detailed routing
+# has to escape them; with cells abutted row-wide every escape competes for the
+# same few met1 tracks, which is exactly how core's first runs opened with
+# 477K violations at iteration 0 and climbed from there. Padding every cell by
+# N sites (2 = 0.92um on the unithd site) buys each cell a vertical escape
+# channel and is the cheapest congestion fix there is: it costs area, which
+# this flow has (GDS_UTIL is deliberately small), and buys routing room.
+if {${GDS_PL_PAD:-0} > 0} {
+  set_placement_padding -global -left ${GDS_PL_PAD} -right ${GDS_PL_PAD}
+  puts "PL_PAD: ${GDS_PL_PAD} site(s) left/right per cell"
+}
 estimate_parasitics -placement
 repair_design
 detailed_placement
@@ -261,6 +279,15 @@ foreach _purge_inst [\$_purge_block getInsts] {
   }
 }
 puts "PROBE_PURGE: removed \$_probe_purged probe-family instances before route"
+# GLOBAL-ROUTE LAYER TILT (GDS_GRT_TILT, default off). The value is the
+# capacity *reduction* fraction for met2, so 0.25 makes the bulk of the wire
+# move up to met3/met4 and leaves met2 track for the met1 pin-access escapes
+# and the short met2 jog every pin needs. core's plateau of 105 violations was
+# 67 met1 shorts + 31 met1 spacings: pin access, not long-wire congestion.
+if {[info exists ::env(GDS_GRT_TILT)] && \$::env(GDS_GRT_TILT) ne ""} {
+  set_global_routing_layer_adjustment met2 \$::env(GDS_GRT_TILT)
+  puts "GRT_TILT: met2 capacity reduced by \$::env(GDS_GRT_TILT)"
+}
 global_route
 # Always keep a globally-routed DEF: if detailed routing cannot converge inside
 # the timebox, this still gives a real GDS (labelled "global-route").
@@ -270,7 +297,17 @@ if {[info exists ::env(GDS_SKIP_DRT)]} {
 } else {
   # More iterations = more chances to remove violations. The router reports
   # per-iteration DRC counts into route_drc.rpt; we keep the best DEF it reaches.
-  detailed_route -bottom_routing_layer met1 -top_routing_layer met5 -output_drc route_drc.rpt -droute_end_iter ${GDS_DRT_ITER:-20} -verbose 1
+  # -drc_report_iter_step 2: write the violation count every other iteration.
+  # Without it the report only lands at the end, so an exploding run burns its
+  # whole timebox before anyone sees the number (core's 4M-violation surprise).
+  # -bottom_routing_layer: met2 (GDS_DRT_BOTTOM) keeps DRT from ROUTING on
+  # met1 — it still builds the met1 pin-access stubs every cell needs, but no
+  # long met1 wire, so met1 can never short against the followpin rails or a
+  # neighbour's pins. set_routing_layers already reserves met1 (signal met2..5),
+  # and yet the core plateau was 67 met1 shorts + 31 met1 spacings: the DRT
+  # argument was quietly handing met1 back to the router. Default stays met1 so
+  # blocks with a proven zero-violation run keep their exact recipe.
+  detailed_route -bottom_routing_layer ${GDS_DRT_BOTTOM:-met1} -top_routing_layer met5 -output_drc route_drc.rpt -drc_report_iter_step 2 -droute_end_iter ${GDS_DRT_ITER:-20} -verbose 1
 }
 # FILL AFTER ROUTE: the master list must be ONE braced Tcl list (unbraced
 # args = [ERROR STA-0565] "filler_placement requires one positional argument",

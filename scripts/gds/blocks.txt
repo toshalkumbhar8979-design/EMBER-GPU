@@ -12,7 +12,26 @@ blit|ember_blit|rtl/ember_pkg.sv rtl/ember_blit.sv|
 fpu4|ember_fpu4|rtl/ember_pkg.sv rtl/ember_fpu4.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400 GDS_MAGIC_TIMEOUT=21600
 gsx|ember_gsx|rtl/ember_pkg.sv rtl/ember_fpu4.sv rtl/ember_gsx.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400 GDS_MAGIC_TIMEOUT=36000
 #tu|ember_tu|rtl/ember_pkg.sv rtl/ember_tu.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=43200 GDS_MAGIC_TIMEOUT=43200
-core|ember_core|rtl/ember_pkg.sv rtl/ember_core.sv|GDS_UTIL=15 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=43200 GDS_MAGIC_TIMEOUT=21600
+# CORE (609K cells, the biggest block; every rebuild used to open routing with
+# hundreds of thousands of violations and climb). Recipe for the next rebuild:
+#   util 12 + density 0.18  -> ~25% more area and real whitespace per row
+#   GDS_PL_PAD=2            -> 2 sites of padding per cell = met1 pin-access
+#                              corridors (the plateau was 67 met1 shorts +
+#                              31 met1 spacings, i.e. pin access, not long wire)
+#   GDS_GRT_TILT=0.25       -> met2 loses 25% capacity so bulk wire moves to
+#                              met3/met4 and met2 stays free for those escapes
+#   60 DRT iterations + per-iteration DRC reports, so the count is visible
+#   while it moves instead of only at the end
+#   NOTE: GDS_DRT_BOTTOM=met2 was TRIED AND REJECTED (2026-10-23). GRT still
+#   emits met1 guide segments at the pins, so DRT aborts with
+#   "DRT-0155 Guide in net _000_ uses layer met1 ... outside allowed range".
+#   met1 stays the bottom layer; the met1 DRCs are pin-access stubs, so the
+#   levers are whitespace and padding, not layer bans.
+# NOTE: ember_fpu4 must be in the source list -- ember_core instantiates it and
+# sv2v only inlines what it is given, so a core.v built without it fails synth
+# with "Module `\ember_fpu4' referenced in module `\ember_core' ... is not part
+# of the design" (exactly what happened to the 2026-10-16 regeneration).
+core|ember_core|rtl/ember_pkg.sv rtl/ember_fpu4.sv rtl/ember_core.sv|GDS_UTIL=12 GDS_PL_DENSITY=0.18 GDS_PL_PAD=2 GDS_GRT_TILT=0.25 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=43200 GDS_MAGIC_TIMEOUT=21600
 rtr_setup|ember_rtr_setup|rtl/ember_pkg.sv rtl/ember_rtr_setup.sv|GDS_UTIL=20 GDS_PL_DENSITY=0.30 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=14400
 # ENABLED 2026-10-04: hierarchical netlist (509,562 cells) synth-cache installed; see agentbible.
 # ENABLED 2026-10-04: builds via make_rtr_top_netlist.sh + rtr_top_pnr.sh once rtr_scan verifies clean.

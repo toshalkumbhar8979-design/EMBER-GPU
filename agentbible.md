@@ -191,3 +191,44 @@
 - BUG 2 (fixed): autostart's flock FD 9 was inherited by the chain children (setsid nohup does not close it); chip_watch waits for die.gds for hours, so it held the lock forever and blocked every later auto-revive ("another autostart holds the lock"). Fix: `9>&-` on every launched child. An orphaned `sleep 60` from the killed old chip_watch briefly held it too; recycled chip_watch (idempotent waiter).
 - Gotcha: pgrep -f probes self-match if the probe's own command line contains the literal pattern text (escaped form with backslashes does NOT self-match). Keep probe patterns escaped in any manual status command.
 - Relaunched 20:32:15 via the fixed autostart (through the silent EmberWSLPin task): recover skipped tu (already verified), queue KEEPed 8 sealed blocks, BLOCK core running OpenROAD for real (GDS_UTIL=15 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=40 GDS_PNR_TIMEOUT=86400). Next: core -> rtr_scan -> rtr_top -> die -> chip.gds.
+
+
+## 2026-10-23 01:30 - core rebuild: three independent failures, all fixed, ladder restarted
+- SYMPTOM: `scripts/gds/core_rebuild.sh` exhausted its whole ladder in 48 seconds
+  at 00:14 (3x `rc=1 violations=none`), i.e. it never routed at all. Two causes
+  stacked, and a THIRD (the watchdog) then killed the first healthy rung.
+- CAUSE 1 (netlist): build/gds/core.v was regenerated 2026-10-16 by sv2vall.sh
+  WITHOUT rtl/ember_fpu4.sv, but ember_core instantiates ember_fpu4. Yosys:
+  `Module \ember_fpu4 referenced in module \ember_core in cell \u_fpu is not part
+  of the design`. core.v is 11.7 kB = package+core only; fpu4 was silently
+  dropped. Fix: sv2vall.sh `run core` now lists rtl/ember_fpu4.sv, blocks.txt
+  core line too. Regenerated core.v is BYTE-IDENTICAL to the Oct-2 one whose
+  synth is cached (md5 chain bacecc07297d6608b5e464b3579e25b5 = .synthkey), so
+  the 47 MB synth.v (265,280 cells, valid_synth: "Mapped logic verified") is
+  reusable -- no re-synthesis needed.
+- CAUSE 2 (env): harden_block.sh's synthesis RSS watchdog imports psutil; the
+  login-shell python3 has none -> `ModuleNotFoundError` -> "YOSYS FAIL" even
+  though yosys never ran. `~/.local/emberbin/python3` has it; core_rebuild.sh
+  now prepends $HOME/.venvs/cocotb2/bin (also has psutil 7.2.2) to PATH.
+- CAUSE 3 (watchdog kills healthy runs): the first stall watchdog watched
+  rebuild_rN.log, which only receives harden_block.sh's stage headers. RUNG 1
+  was killed at 00:42 while repair_timing ran at 342% CPU with a log frozen
+  since 00:26:50. Replacement measures CPU time of the whole process tree from
+  /proc (stdlib only, no psutil dependency) and declares a stall only when CPU
+  stops advancing for GDS_STALL_MIN minutes. Verified by test/watch_stall_test.sh
+  (busy-but-quiet survives 90 s at mins=1; wedged sleep 600 is killed at 120 s
+  with a "no CPU progress" line).
+- Also fixed: the stall kill leaked orphans. `kill -TERM -- -pgid` did not reach
+  the openroad child, and by 01:29 THREE openroad runs (27/19/15 min) were
+  competing for the 8 cores. Added kill_tree() (recursive pgrep -P) used for
+  both TERM and KILL; all orphans reaped by explicit PID before relaunch.
+- LESSON (repeat of an old one, now in the script): never pkill -f a pattern that
+  appears in your own probe command line -- `pkill -TERM -f core_rebuild.sh`
+  killed the invoking shell (exit 15) and left the flow half-dead.
+- Rung-log cosmetic: on a synth-cache hit the `cells:` line printed empty (it
+  greps yosys.log, which this run never wrote). Now falls back to synth.json.
+- STATE 01:01:48: ladder relaunched (util 12 / dens 0.18 / pad 2 / met2 tilt
+  0.25, 60 DRT iters, 4 h per rung, 6 threads). At 01:29 rung 1 is inside
+  repair_timing after CTS, 6.0 GB RSS, 312% CPU, log silent 24 min -- the exact
+  case that used to be a false stall, and it survived. Full run: 2x01:03 IST
+  logs in build/gds/core/{CORE_STATUS.log,rebuild_r1.log,openroad.log}.

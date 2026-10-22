@@ -28,7 +28,7 @@ run vram       rtl/ember_pkg.sv rtl/ember_vram.sv
 run blit       rtl/ember_pkg.sv rtl/ember_blit.sv
 run display    rtl/ember_pkg.sv rtl/ember_display.sv
 run gsx        rtl/ember_pkg.sv rtl/ember_fpu4.sv rtl/ember_gsx.sv
-run core       rtl/ember_pkg.sv rtl/ember_core.sv
+run core       rtl/ember_pkg.sv rtl/ember_fpu4.sv rtl/ember_core.sv
 run tu         rtl/ember_pkg.sv rtl/ember_tu.sv
 run memif      rtl/ember_pkg.sv rtl/ember_memif.sv
 run chip       rtl/ember_pkg.sv rtl/ember_ram_slave.sv rtl/ember_vram.sv rtl/ember_xbar.sv rtl/ember_cp.sv rtl/ember_rtr_setup.sv rtl/ember_rtr_scan.sv rtl/ember_rtr_top.sv rtl/ember_blit.sv rtl/ember_fpu4.sv rtl/ember_gsx.sv rtl/ember_core.sv rtl/ember_tu.sv rtl/ember_display.sv rtl/ember_die.sv rtl/ember_memif.sv rtl/pad_models.sv rtl/ember_chip.sv

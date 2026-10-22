@@ -91,3 +91,55 @@ vendor-locked tools for the core design flow. Vendor tools allowed only for boar
 programming (e.g. openFPGALoader preferred).
 **Consequences:** Slightly narrower FPGA target list up front; guarantees the project
 stays reproducible and free forever.
+
+## D11 — Core rebuild recipe: buy routing room with area, not iterations (2026-10-22)
+**Context:** ember_core is the biggest block in the flow (609,288 placed
+instances, 389,498 nets). Every rebuild opened detailed routing with hundreds of
+thousands of violations and climbed from there (477K at iteration 0 on the first
+attempt, 4M-class reports on the way), then plateaued at 105 residual DRCs. The
+plateau was 67 met1 shorts + 31 met1 spacings — pin access, not long-wire
+congestion: sky130 hd cells put their inputs on met1, and with cells abutted
+row-wide every escape competes for the same few tracks.
+**Choice:** for the next core rebuild, spend area up front instead of router
+hours: GDS_UTIL=12 and GDS_PL_DENSITY=0.18 (25% more area than the previous
+15/0.25 recipe), GDS_PL_PAD=2 (two unithd sites of left/right padding per cell,
+i.e. a met1 escape corridor per cell), GDS_GRT_TILT=0.25 (met2 loses 25% of its
+capacity so bulk wire climbs to met3/met4 and met2 stays free for the escapes),
+60 DRT iterations and -drc_report_iter_step 2 so the violation count is visible
+while it moves instead of only at the end.
+Both new knobs are off by default, so proven blocks keep their exact recipe.
+**Consequences:** the core die grows by roughly 12% per side, which this flow can
+afford; violations should start in the hundreds rather than the hundreds of
+thousands, and no rebuild can burn its whole timebox before the first count is
+reported. Blocks are only signed off on zero routing violations plus zero
+whole-layout Magic DRC, so a lower plateau is progress, not sign-off.
+
+**Update 2026-10-23 (why it never finished):** the residual 105 violations were
+all met1 (67 shorts + 31 spacings) even though `set_routing_layers -signal
+met2-met5` reserves met1 for pin access — the `detailed_route
+-bottom_routing_layer met1` argument handed it back to the router. **Rejected:**
+GDS_DRT_BOTTOM=met2, because global route still emits met1 guide segments at the
+pins and DRT then aborts with `DRT-0155 Guide in net _000_ uses layer met1 ...
+outside allowed range`. met1 stays the bottom layer; the levers are whitespace
+and per-cell padding, not layer bans.
+
+**Update 2026-10-23 (the rebuild never even started):** three independent
+failures made `core_rebuild.sh` burn its ladder in 48 s without routing once.
+(1) `build/gds/core.v` had been regenerated without `rtl/ember_fpu4.sv`, which
+`ember_core` instantiates — Yosys stopped at `Module \ember_fpu4 ... is not part
+of the design`. (2) `harden_block.sh`'s synthesis RSS watchdog imports psutil,
+which the login-shell python3 does not have, so yosys was reported as failed
+before it ran. (3) The stall watchdog watched `rebuild_rN.log`, which only
+receives stage headers, and killed a healthy rung whose OpenROAD had been at
+300% CPU for 16 minutes with an idle log. Fixes: fpu4 added to the sv2v source
+list (`sv2vall.sh`, `blocks.txt`), the flow's venv put on PATH, and the watchdog
+now measures CPU time of the process tree from `/proc` (stdlib only) and kills
+only when that stops advancing — covered by `test/watch_stall_test.sh`.
+
+On top of that, scripts/gds/core_rebuild.sh replaces the single 12-hour gamble:
+it walks a parameter ladder (util / density / padding / tilt), kills an attempt
+whose log stops growing (GRT once sat 4 h at 13.6 GB without printing), keeps
+the best routed DEF and escalates when a rung comes back worse than
+GDS_MAX_VIOL (default 1000). Its decision logic is covered by --self-test, and
+it refuses to start when the toolchain or PDK is not reachable instead of
+hanging.
