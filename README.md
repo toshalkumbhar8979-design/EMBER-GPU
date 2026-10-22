@@ -28,9 +28,15 @@ A real GPU, not a toy datapath:
 | Memory | `ember_xbar` + `ember_vram` + `ember_ram_slave` | Round-robin arbiter, 512 KB VRAM with 4 ports, AXI4-Lite slave |
 | Silicon | `ember_die` + `ember_chip` | Logic die with the 8 hardened blocks as routed macros + pad ring (373 signal pads) |
 
-The two headline demos both run **end-to-end through the real RTL** (CP DMA →
-accelerators → readback), each bit-exact against Python golden models:
+Three demos run **end-to-end through the real RTL** (CP DMA → accelerators →
+readback), each bit-exact against Python golden models:
 
+- **Doom** — E1M1 rasterized from `data/doom1.wad`: real BSP geometry, composed
+  wall textures and flats, COLORMAP light levels, CLUT, perspective-correct UVs
+  and the full Z-buffered ROP. **10,774 textured GSX triangles** streamed into
+  the RTL command queue; the framebuffer out of `ember_rtr_top` in Verilator is
+  **bit-identical to the golden rasterizer — 76,800 of 76,800 pixels**
+  (`test/tb_doom.py`, 68.4 M ns simulated).
 - **Game** — a textured 3D temple scene with real per-pixel Z-sorting,
   input-driven camera (game-state physics runs *as a kernel on the compute
   core*), HUD via the blitter. Worst frame **6.15 ms = 18.6% of the
@@ -50,6 +56,11 @@ comparison throughout (not eyeball checks).
 
 <div>
 <table>
+  <tr>
+    <td align="center"><img src="paper/figures/doom_ref.png" width="260"><br><sub>Doom E1M1 — real engine, player start (reference)</sub></td>
+    <td align="center"><img src="paper/figures/doom_golden.png" width="260"><br><sub>Doom E1M1 — golden rasterizer, 10,774 triangles</sub></td>
+    <td align="center"><img src="paper/figures/doom_rtl.png" width="260"><br><sub>Doom E1M1 — out of <code>ember_rtr_top</code>, 76,800/76,800 px exact</sub></td>
+  </tr>
   <tr>
     <td align="center"><img src="paper/figures/cube_rtl.png" width="260"><br><sub>Spinning cube — GSX + RTR end-to-end (tb_gsx)</sub></td>
     <td align="center"><img src="paper/figures/orbit_f0.png" width="260"><br><sub>Temple scene, orbit frame 0° (tb_anim)</sub></td>
@@ -114,6 +125,9 @@ exact evidence bar.
 
 ## Verification highlights
 
+- **Doom** — E1M1 from the shareware IWAD, 10,774 triangles: RTL framebuffer vs
+  golden rasterizer, **0 mismatches of 76,800 pixels** (texture atlas, CLUT and
+  triangles all DMA'd through the CP into the real RTL)
 - **FPU** — 6,720 comparisons / 0 mismatches vs `tools/golden/fpu.py`
 - **Raster** — 320×240 per-pixel bit-exact on gradient, perspective-correct
   textured quad, Z-ordering, full ROP chain

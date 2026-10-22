@@ -201,6 +201,21 @@ Deliverable: the two promises, kept.
       product needs 37 bits, kernel MUL truncates at 32), renders 16 of
       32 frames through GSX→RTR + HUD blit with structural asserts.
       Suite now **31/31 PASS**.
+- [x] **Game demo step 5 — REAL Doom E1M1 frame through the RTL**
+      (`tools/golden/doom_real.py` + `test/tb_doom.py`, 1/1 PASS): the actual
+      level from `data/doom1.wad` — real BSP segs/sectors, patch-composed
+      wall textures, 64x64 flats, COLORMAP light rows, vanilla projection —
+      built into 10,774 GSX textured triangles and streamed into the RTR's
+      command queue over CP DMA (12 texture-atlas batches, one CLUT load of
+      Doom's PLAYPAL). Result: **0 pixel mismatches of 76,800** against the
+      golden rasterizer, 68.4M ns of simulation in 232 s. Geometry fidelity
+      comes from emitting Doom's own decomposition rather than screen-space
+      dicing: one quad per wall COLUMN (u constant, v affine in y) and one
+      per plane ROW (a level camera puts every pixel of a row at one
+      distance, so u is affine in x and v constant). Depth is 1-NEAR/dist,
+      which is affine in screen space, so the 16-bit z plane interpolates
+      exactly. Artifacts: `test/doom_rtl.png`, `test/doom_cmp.html`.
+      Known gap: no sprites/weapon — the RTR has no colour-key/alpha path yet.
 - [x] **NEORV32 sim-side host gate** (`sw/cp_driver.h` + `sw/ember_demo.c`
       + `tools/neo_chk/`): the COMPLETE 32-frame game demo written as
       bare-metal host C over the real CP register map (polling MMIO, no
