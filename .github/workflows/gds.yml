@@ -145,7 +145,8 @@ jobs:
         run: |
           docker run --rm --user 0:0 --shm-size=2g \
             -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
-            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e HOME=/root -e GDS_ROOT=/work \
+            -e GDS_PDK="/root/.volare/volare/sky130/versions/$SKY130_VERSION/sky130A" \
             -e GDS_FLOW_TAG -e GDS_SYNTH_TIMEOUT -e GDS_RSS_LIMIT_KB \
             -e PYTHONPATH=/work/scripts/gds/ci/pystub \
             -w /work "$OPENLANE_IMAGE" \
@@ -230,7 +231,8 @@ jobs:
         run: |
           docker run --rm --user 0:0 --shm-size=2g \
             -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
-            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e HOME=/root -e GDS_ROOT=/work \
+            -e GDS_PDK="/root/.volare/volare/sky130/versions/$SKY130_VERSION/sky130A" \
             -e GDS_FLOW_TAG -e GDS_UTIL -e GDS_PL_DENSITY -e GDS_PL_PAD \
             -e GDS_REPAIR_TIMING -e GDS_STAGE_TIMEOUT -e GDS_THREADS="$(nproc)" \
             -w /work "$OPENLANE_IMAGE" \
@@ -310,7 +312,8 @@ jobs:
         run: |
           docker run --rm --user 0:0 --shm-size=2g \
             -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
-            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e HOME=/root -e GDS_ROOT=/work \
+            -e GDS_PDK="/root/.volare/volare/sky130/versions/$SKY130_VERSION/sky130A" \
             -e GDS_FLOW_TAG -e GDS_GRT_TILT -e GDS_STAGE_TIMEOUT \
             -e GDS_THREADS="$(nproc)" \
             -w /work "$OPENLANE_IMAGE" \
@@ -393,7 +396,8 @@ jobs:
         run: |
           docker run --rm --user 0:0 --shm-size=2g \
             -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
-            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e HOME=/root -e GDS_ROOT=/work \
+            -e GDS_PDK="/root/.volare/volare/sky130/versions/$SKY130_VERSION/sky130A" \
             -e GDS_FLOW_TAG -e GDS_DRT_ITER -e GDS_STAGE_TIMEOUT \
             -e GDS_WRITE_FINAL_ODB -e GDS_THREADS="$(nproc)" \
             -w /work "$OPENLANE_IMAGE" \
@@ -476,7 +480,8 @@ jobs:
         run: |
           docker run --rm --user 0:0 --shm-size=2g \
             -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
-            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e HOME=/root -e GDS_ROOT=/work \
+            -e GDS_PDK="/root/.volare/volare/sky130/versions/$SKY130_VERSION/sky130A" \
             -e GDS_MAGIC_TIMEOUT -e GDS_AUDIT_TIMEOUT -e GDS_STAGE_TIMEOUT \
             -w /work "$OPENLANE_IMAGE" \
             bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" gds
