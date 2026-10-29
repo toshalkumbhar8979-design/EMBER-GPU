@@ -120,8 +120,13 @@ jobs:
           sparse-checkout-cone-mode: false
       - name: Swap headroom (OpenROAD/Magic on a 16 GB runner)
         run: |
-          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
-          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          # The runner image already owns /swapfile (busy), so add a second one
+          # under a unique path. Best-effort: routing runs without it, closer to OOM.
+          SW=/mnt/swapfile-gds
+          sudo swapoff "$SW" 2>/dev/null || true
+          sudo rm -f "$SW"
+          sudo fallocate -l 4G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=4096 status=none
+          sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" || echo "swap unavailable"
           df -h / | tail -1; free -h | head -2
       - uses: actions/cache@v4
         with:
@@ -198,8 +203,12 @@ jobs:
         run: test -s build/gds/${{ matrix.block }}/synth.v || { echo "no synth.v checkpoint"; exit 1; }
       - name: Swap headroom
         run: |
-          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
-          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          # /swapfile is already owned by the runner image; use our own path.
+          SW=/mnt/swapfile-gds
+          sudo swapoff "$SW" 2>/dev/null || true
+          sudo rm -f "$SW"
+          sudo fallocate -l 4G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=4096 status=none
+          sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" || echo "swap unavailable"
           free -h | head -2
       - uses: actions/cache@v4
         with:
@@ -277,8 +286,12 @@ jobs:
         run: test -s build/gds/${{ matrix.block }}/placed.odb || { echo "no placed.odb checkpoint"; exit 1; }
       - name: Swap headroom
         run: |
-          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
-          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          # /swapfile is already owned by the runner image; use our own path.
+          SW=/mnt/swapfile-gds
+          sudo swapoff "$SW" 2>/dev/null || true
+          sudo rm -f "$SW"
+          sudo fallocate -l 4G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=4096 status=none
+          sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" || echo "swap unavailable"
           free -h | head -2
       - uses: actions/cache@v4
         with:
@@ -353,8 +366,12 @@ jobs:
         run: test -s build/gds/${{ matrix.block }}/grt.odb || { echo "no grt.odb checkpoint"; exit 1; }
       - name: Swap headroom
         run: |
-          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
-          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          # /swapfile is already owned by the runner image; use our own path.
+          SW=/mnt/swapfile-gds
+          sudo swapoff "$SW" 2>/dev/null || true
+          sudo rm -f "$SW"
+          sudo fallocate -l 4G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=4096 status=none
+          sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" || echo "swap unavailable"
           free -h | head -2
       - uses: actions/cache@v4
         with:
@@ -434,8 +451,12 @@ jobs:
         run: test -s build/gds/${{ matrix.block }}/final.def || { echo "no final.def checkpoint"; exit 1; }
       - name: Swap headroom (Magic flattening)
         run: |
-          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
-          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          # /swapfile is already owned by the runner image; use our own path.
+          SW=/mnt/swapfile-gds
+          sudo swapoff "$SW" 2>/dev/null || true
+          sudo rm -f "$SW"
+          sudo fallocate -l 4G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=4096 status=none
+          sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" || echo "swap unavailable"
           free -h | head -2
       - uses: actions/cache@v4
         with:
