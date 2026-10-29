@@ -7,8 +7,15 @@ import sys
 
 import pya
 
-root = Path('/work/build/gds')
-pdk = next((Path.home() / '.volare/volare/sky130/versions').glob('*/sky130A'))
+# GDS_ROOT/GDS_PDK let the same audit run in CI, where the checkout is not
+# necessarily at /work and the PDK is mounted somewhere else.
+root = Path(os.environ.get('GDS_ROOT', '/work')) / 'build/gds'
+_pdk_env = os.environ.get('GDS_PDK') or os.environ.get('PDK_ROOT')
+if _pdk_env:
+    _p = Path(_pdk_env)
+    pdk = _p if _p.name == 'sky130A' else _p / 'sky130A'
+else:
+    pdk = next((Path.home() / '.volare/volare/sky130/versions').glob('*/sky130A'))
 for name in sys.argv[1:]:
     directory = root / name
     src = directory / f'{name}.gds'

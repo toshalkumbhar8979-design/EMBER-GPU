@@ -1,0 +1,512 @@
+name: GDS
+
+# Staged place-and-route + GDS for the three blocks that are NOT signed off:
+#   core, rtr_scan, rtr_top
+# The nine finished blocks (display, xbar, ram_slave, blit, fpu4, gsx,
+# rtr_setup, cp, tu) are deliberately absent: their GDS files and zero-DRC
+# audits are already committed and nothing here touches their recipe.
+#
+# Why five jobs instead of one: a GitHub-hosted runner is killed at 6 h, and
+# core's P&R took a whole night locally. Each stage checkpoints (placed.odb,
+# grt.odb, final.def) and hands the next job an artifact, so a timeout costs
+# one stage, not the run. Re-dispatch with resume_run_id to continue from an
+# earlier run's checkpoints.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Which block(s) to build"
+        type: choice
+        default: core
+        options: [core, rtr_scan, rtr_top, remaining]
+      start_stage:
+        description: "First stage to run (earlier checkpoints are restored from artifacts)"
+        type: choice
+        default: all
+        options: [all, synth, place, grt, drt, gds]
+      resume_run_id:
+        description: "Optional: workflow run id to pull missing checkpoints from"
+        type: string
+        default: ""
+      util:
+        description: "Floorplan utilization % (blank = per-block value in blocks.txt)"
+        type: string
+        default: ""
+      density:
+        description: "Global placement density (blank = per-block value)"
+        type: string
+        default: ""
+      pad:
+        description: "Placement padding in sites (blank = per-block value; core uses 2)"
+        type: string
+        default: ""
+      tilt:
+        description: "met2 capacity reduction for global route (blank = per-block)"
+        type: string
+        default: ""
+      drt_iters:
+        description: "Detailed-route iterations (blank = per-block)"
+        type: string
+        default: ""
+      repair_timing:
+        description: "Run repair_timing (slow; off by default because timing is out of scope)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: gds-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  OPENLANE_IMAGE: efabless/openlane:latest
+  SKY130_VERSION: fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+  # Match the synth-cache tag used by the local flow, so a restored synth.v is
+  # accepted instead of re-synthesised.
+  GDS_FLOW_TAG: h2
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      blocks: ${{ steps.plan.outputs.blocks }}
+      run_synth: ${{ steps.plan.outputs.run_synth }}
+      run_place: ${{ steps.plan.outputs.run_place }}
+      run_grt: ${{ steps.plan.outputs.run_grt }}
+      run_drt: ${{ steps.plan.outputs.run_drt }}
+      run_gds: ${{ steps.plan.outputs.run_gds }}
+    steps:
+      - id: plan
+        run: |
+          case "${{ inputs.target }}" in
+            core)      BLOCKS='["core"]' ;;
+            rtr_scan)  BLOCKS='["rtr_scan"]' ;;
+            rtr_top)   BLOCKS='["rtr_top"]' ;;
+            remaining) BLOCKS='["core","rtr_scan","rtr_top"]' ;;
+            *) echo "bad target"; exit 2 ;;
+          esac
+          ORDER="synth place grt drt gds"
+          START="${{ inputs.start_stage }}"
+          [ "$START" = all ] && START=synth
+          reach=0
+          for s in $ORDER; do
+            [ "$s" = "$START" ] && reach=1
+            echo "run_$s=$reach" >> "$GITHUB_OUTPUT"
+          done
+          echo "blocks=$BLOCKS" >> "$GITHUB_OUTPUT"
+          echo "plan: blocks=$BLOCKS start=$START"
+
+  synth:
+    needs: plan
+    if: needs.plan.outputs.run_synth == 'true'
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        block: ${{ fromJSON(needs.plan.outputs.blocks) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /rtl/
+            /scripts/
+            /build/gds/*.v
+          sparse-checkout-cone-mode: false
+      - name: Swap headroom (OpenROAD/Magic on a 16 GB runner)
+        run: |
+          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          df -h / | tail -1; free -h | head -2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.volare
+          key: volare-sky130-fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+      - name: Install/restore sky130A PDK
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/gds/ci/pdk.sh
+      - name: Pull OpenLane container
+        run: docker pull "$OPENLANE_IMAGE"
+      - name: Synthesise
+        env:
+          GDS_SYNTH_TIMEOUT: "16000"
+          GDS_RSS_LIMIT_KB: "13000000"
+        run: |
+          docker run --rm --user 0:0 --shm-size=2g \
+            -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
+            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e GDS_FLOW_TAG -e GDS_SYNTH_TIMEOUT -e GDS_RSS_LIMIT_KB \
+            -e PYTHONPATH=/work/scripts/gds/ci/pystub \
+            -w /work "$OPENLANE_IMAGE" \
+            bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" synth
+      - name: Fix checkpoint ownership
+        if: always()
+        run: sudo chown -R "$(id -u):$(id -g)" build/gds 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.block }}-synth
+          path: |
+            build/gds/${{ matrix.block }}/**
+            !build/gds/${{ matrix.block }}/synth.json
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  place:
+    needs: [plan, synth]
+    if: |
+      always() && !cancelled() && needs.plan.outputs.run_place == 'true' &&
+      (needs.synth.result == 'success' || needs.synth.result == 'skipped')
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        block: ${{ fromJSON(needs.plan.outputs.blocks) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /rtl/
+            /scripts/
+            /build/gds/*.v
+          sparse-checkout-cone-mode: false
+      - name: Restore synthesis checkpoint
+        id: ckpt
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-synth
+          path: build/gds/${{ matrix.block }}
+      - name: Restore synthesis checkpoint (earlier run)
+        if: steps.ckpt.outcome == 'failure' && inputs.resume_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-synth
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/gds/${{ matrix.block }}
+      - name: Verify checkpoint
+        run: test -s build/gds/${{ matrix.block }}/synth.v || { echo "no synth.v checkpoint"; exit 1; }
+      - name: Swap headroom
+        run: |
+          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          free -h | head -2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.volare
+          key: volare-sky130-fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+      - name: Install/restore sky130A PDK
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/gds/ci/pdk.sh
+      - name: Pull OpenLane container
+        run: docker pull "$OPENLANE_IMAGE"
+      - name: Floorplan, place, CTS, PDN
+        env:
+          GDS_UTIL: ${{ inputs.util }}
+          GDS_PL_DENSITY: ${{ inputs.density }}
+          GDS_PL_PAD: ${{ inputs.pad }}
+          GDS_REPAIR_TIMING: ${{ inputs.repair_timing && '1' || '0' }}
+          GDS_STAGE_TIMEOUT: "15000"
+        run: |
+          docker run --rm --user 0:0 --shm-size=2g \
+            -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
+            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e GDS_FLOW_TAG -e GDS_UTIL -e GDS_PL_DENSITY -e GDS_PL_PAD \
+            -e GDS_REPAIR_TIMING -e GDS_STAGE_TIMEOUT -e GDS_THREADS="$(nproc)" \
+            -w /work "$OPENLANE_IMAGE" \
+            bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" place
+      - name: Fix checkpoint ownership
+        if: always()
+        run: sudo chown -R "$(id -u):$(id -g)" build/gds 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.block }}-place
+          path: build/gds/${{ matrix.block }}/**
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  grt:
+    needs: [plan, place]
+    if: |
+      always() && !cancelled() && needs.plan.outputs.run_grt == 'true' &&
+      (needs.place.result == 'success' || needs.place.result == 'skipped')
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        block: ${{ fromJSON(needs.plan.outputs.blocks) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /rtl/
+            /scripts/
+            /build/gds/*.v
+          sparse-checkout-cone-mode: false
+      - name: Restore placement checkpoint
+        id: ckpt
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-place
+          path: build/gds/${{ matrix.block }}
+      - name: Restore placement checkpoint (earlier run)
+        if: steps.ckpt.outcome == 'failure' && inputs.resume_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-place
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/gds/${{ matrix.block }}
+      - name: Verify checkpoint
+        run: test -s build/gds/${{ matrix.block }}/placed.odb || { echo "no placed.odb checkpoint"; exit 1; }
+      - name: Swap headroom
+        run: |
+          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          free -h | head -2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.volare
+          key: volare-sky130-fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+      - name: Install/restore sky130A PDK
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/gds/ci/pdk.sh
+      - name: Pull OpenLane container
+        run: docker pull "$OPENLANE_IMAGE"
+      - name: Global route
+        env:
+          GDS_GRT_TILT: ${{ inputs.tilt }}
+          GDS_STAGE_TIMEOUT: "18000"
+        run: |
+          docker run --rm --user 0:0 --shm-size=2g \
+            -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
+            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e GDS_FLOW_TAG -e GDS_GRT_TILT -e GDS_STAGE_TIMEOUT \
+            -e GDS_THREADS="$(nproc)" \
+            -w /work "$OPENLANE_IMAGE" \
+            bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" grt
+      - name: Fix checkpoint ownership
+        if: always()
+        run: sudo chown -R "$(id -u):$(id -g)" build/gds 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.block }}-grt
+          path: build/gds/${{ matrix.block }}/**
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  drt:
+    needs: [plan, grt]
+    if: |
+      always() && !cancelled() && needs.plan.outputs.run_drt == 'true' &&
+      (needs.grt.result == 'success' || needs.grt.result == 'skipped')
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        block: ${{ fromJSON(needs.plan.outputs.blocks) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /rtl/
+            /scripts/
+            /build/gds/*.v
+          sparse-checkout-cone-mode: false
+      - name: Restore global-route checkpoint
+        id: ckpt
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-grt
+          path: build/gds/${{ matrix.block }}
+      - name: Restore global-route checkpoint (earlier run)
+        if: steps.ckpt.outcome == 'failure' && inputs.resume_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-grt
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/gds/${{ matrix.block }}
+      - name: Verify checkpoint
+        run: test -s build/gds/${{ matrix.block }}/grt.odb || { echo "no grt.odb checkpoint"; exit 1; }
+      - name: Swap headroom
+        run: |
+          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          free -h | head -2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.volare
+          key: volare-sky130-fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+      - name: Install/restore sky130A PDK
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/gds/ci/pdk.sh
+      - name: Pull OpenLane container
+        run: docker pull "$OPENLANE_IMAGE"
+      - name: Detailed route
+        env:
+          GDS_DRT_ITER: ${{ inputs.drt_iters }}
+          GDS_STAGE_TIMEOUT: "18000"
+          # The routed ODB is 1.2 GB on core and the GDS stage only needs the
+          # DEF; skipping it keeps a 16 GB runner from running out of disk.
+          GDS_WRITE_FINAL_ODB: "0"
+        run: |
+          docker run --rm --user 0:0 --shm-size=2g \
+            -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
+            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e GDS_FLOW_TAG -e GDS_DRT_ITER -e GDS_STAGE_TIMEOUT \
+            -e GDS_WRITE_FINAL_ODB -e GDS_THREADS="$(nproc)" \
+            -w /work "$OPENLANE_IMAGE" \
+            bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" drt
+      - name: Fix checkpoint ownership
+        if: always()
+        run: sudo chown -R "$(id -u):$(id -g)" build/gds 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.block }}-drt
+          path: |
+            build/gds/${{ matrix.block }}/**
+            !build/gds/${{ matrix.block }}/final.odb
+          include-hidden-files: true
+          if-no-files-found: warn
+          retention-days: 14
+
+  gds:
+    needs: [plan, drt]
+    if: |
+      always() && !cancelled() && needs.plan.outputs.run_gds == 'true' &&
+      (needs.drt.result == 'success' || needs.drt.result == 'skipped')
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        block: ${{ fromJSON(needs.plan.outputs.blocks) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /rtl/
+            /scripts/
+            /build/gds/*.v
+          sparse-checkout-cone-mode: false
+      - name: Restore routed checkpoint
+        id: ckpt
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-drt
+          path: build/gds/${{ matrix.block }}
+      - name: Restore routed checkpoint (earlier run)
+        if: steps.ckpt.outcome == 'failure' && inputs.resume_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-drt
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/gds/${{ matrix.block }}
+      - name: Verify checkpoint
+        run: test -s build/gds/${{ matrix.block }}/final.def || { echo "no final.def checkpoint"; exit 1; }
+      - name: Swap headroom (Magic flattening)
+        run: |
+          sudo fallocate -l 4G /swapfile || sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+          sudo chmod 600 /swapfile && sudo mkswap /swapfile >/dev/null && sudo swapon /swapfile
+          free -h | head -2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.volare
+          key: volare-sky130-fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+      - name: Install/restore sky130A PDK
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/gds/ci/pdk.sh
+      - name: Pull OpenLane container
+        run: docker pull "$OPENLANE_IMAGE"
+      - name: Magic GDS + DRC, KLayout finalize, audit
+        env:
+          GDS_MAGIC_TIMEOUT: "15600"
+          GDS_AUDIT_TIMEOUT: "3600"
+          GDS_STAGE_TIMEOUT: "16800"
+        run: |
+          docker run --rm --user 0:0 --shm-size=2g \
+            -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
+            -e HOME=/root -e GDS_ROOT=/work -e GDS_PDK="$GDS_PDK" \
+            -e GDS_MAGIC_TIMEOUT -e GDS_AUDIT_TIMEOUT -e GDS_STAGE_TIMEOUT \
+            -w /work "$OPENLANE_IMAGE" \
+            bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" gds
+      - name: Fix checkpoint ownership
+        if: always()
+        run: sudo chown -R "$(id -u):$(id -g)" build/gds 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.block }}-gds
+          path: |
+            build/gds/${{ matrix.block }}/*.gds
+            build/gds/${{ matrix.block }}/export_audit.json
+            build/gds/${{ matrix.block }}/export_audit_run.log
+            build/gds/${{ matrix.block }}/magic.log
+            build/gds/${{ matrix.block }}/klayout*.log
+            build/gds/${{ matrix.block }}/gds_validation.json
+            build/gds/${{ matrix.block }}/flow.txt
+            build/gds/${{ matrix.block }}/ci_stage.json
+          if-no-files-found: warn
+          retention-days: 14
+
+  summary:
+    needs: [plan, synth, place, grt, drt, gds]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          path: artifacts
+          pattern: "*-*"
+      - name: Collect results
+        run: |
+          {
+            echo "## GDS run: ${{ inputs.target }} (start: ${{ inputs.start_stage }})"
+            echo
+            echo "| block | stage | rc | time | violations | area |"
+            echo "|---|---|---|---|---|---|"
+            found=0
+            for f in artifacts/*/ci_stage.json; do
+              [ -f "$f" ] || continue
+              found=1
+              python3 - "$f" <<'PY'
+          import json,sys
+          d=json.load(open(sys.argv[1]))
+          t="%dh%02dm" % (d["seconds"]//3600, d["seconds"]%3600//60)
+          print("| {block} | {stage} | {rc} | {t} | {v} | {a} |".format(
+              block=d["block"], stage=d["stage"], rc=d["rc"], t=t,
+              v=d.get("violations") or "-", a=d.get("design_area") or "-"))
+          PY
+            done
+            [ "$found" = 1 ] || echo "| - | - | - | no stage results were produced | - | - |"
+          } >> "$GITHUB_STEP_SUMMARY"

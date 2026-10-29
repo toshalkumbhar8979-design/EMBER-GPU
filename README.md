@@ -112,8 +112,11 @@ results auto-collected in [`paper/asic_table.tex`](paper/asic_table.tex):
 | Clean blocks | routing violations 0, full-layout Magic DRC 0, exported-audit DRC 0 |
 | Clock target | 20 ns (50 MHz) |
 
-Blocks in flight: `core`, `tu`, `gsx`, `fpu4`, `rtr_scan`, `rtr_top`, then die
-+ pad-ring chip assembly. LVS and chip-level timing sign-off are open and
+The unfinished blocks (`core`, `rtr_scan`, `rtr_top`) are rebuilt on GitHub
+Actions in staged, checkpointed jobs — see
+[`docs/gds_ci.md`](docs/gds_ci.md) and
+[`.github/workflows/gds.yml`](.github/workflows/gds.yml). Remaining after
+them: die + pad-ring chip assembly. LVS and chip-level timing sign-off are open and
 reported as such — see [`docs/roadmap.md`](docs/roadmap.md) Phase 8 for the
 exact evidence bar.
 
