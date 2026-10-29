@@ -95,7 +95,7 @@ jobs:
           reach=0
           for s in $ORDER; do
             [ "$s" = "$START" ] && reach=1
-            echo "run_$s=$reach" >> "$GITHUB_OUTPUT"
+            if [ "$reach" = 1 ]; then echo "run_$s=true" >> "$GITHUB_OUTPUT"; else echo "run_$s=false" >> "$GITHUB_OUTPUT"; fi
           done
           echo "blocks=$BLOCKS" >> "$GITHUB_OUTPUT"
           echo "plan: blocks=$BLOCKS start=$START"
