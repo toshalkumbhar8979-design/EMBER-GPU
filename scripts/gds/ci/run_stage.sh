@@ -34,6 +34,9 @@ PDK=${GDS_PDK:-}
 OUT=$ROOT/build/gds/$NAME
 mkdir -p "$OUT"
 export GDS_ROOT="$ROOT" GDS_PDK="$PDK" GDS_STAGE="$STAGE"
+# pnr.tcl reads these; exporting here keeps the workflow's docker command small
+# and keeps block/top in one place (blocks.txt).
+export CI_BLOCK="$NAME" CI_TOP="$TOP"
 
 TMO=${GDS_STAGE_TIMEOUT:-19800}
 START=$(date +%s)
