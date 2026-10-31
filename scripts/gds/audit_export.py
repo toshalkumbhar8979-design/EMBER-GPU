@@ -49,9 +49,17 @@ for name in sys.argv[1:]:
         raise SystemExit(f'Missing GDS: {name}')
     routed_def = next((p for p in (directory / 'final.def',
                                    directory / 'global_route.def') if p.is_file()), None)
-    if routed_def is None:
-        raise SystemExit(f'Missing DEF for {name}')
-    coords = die_area(routed_def)
+    validation = directory / 'gds_validation.json'
+    coords = None
+    if routed_def is not None:
+        coords = die_area(routed_def)
+    elif validation.is_file():
+        # CI: the DRC job downloads only the exported GDS, so the die box rides
+        # along in the export's own validation record.
+        import json
+        coords = json.loads(validation.read_text()).get('bbox_um')
+    if not coords:
+        raise SystemExit(f'Missing DEF and no bbox_um in {validation.name} for {name}')
     source_hash = sha256_of(src)
     source_stat = src.stat()
     rc = directory / 'audit_export.magicrc'
@@ -83,7 +91,8 @@ quit -noprompt
         raise SystemExit(f'No valid audit result for {name}')
     if sha256_of(src) != source_hash:
         raise SystemExit(f'GDS changed during audit: {name}')
-    evidence = {'top': f'ember_{name}', 'def': routed_def.name,
+    evidence = {'top': f'ember_{name}',
+                'def': routed_def.name if routed_def is not None else 'exported',
                 'bbox_um': coords,
                 'gds_bytes': source_stat.st_size,
                 'gds_mtime_ns': source_stat.st_mtime_ns,
