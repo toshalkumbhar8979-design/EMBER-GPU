@@ -64,7 +64,10 @@ permissions:
   actions: read
 
 concurrency:
-  group: gds-${{ github.ref }}
+  # Per-target, not per-branch: rtr_scan and rtr_top are independent designs
+  # and should not sit in a queue behind a six-hour core DRC. Re-dispatching
+  # the same target still queues instead of cancelling.
+  group: gds-${{ github.ref }}-${{ inputs.target }}
   cancel-in-progress: false
 
 env:
