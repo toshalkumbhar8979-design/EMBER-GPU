@@ -172,6 +172,10 @@ jobs:
           # ceiling the local box effectively had through swap.
           LIMIT=13000000
           case "${{ matrix.block }}" in rtr_scan|rtr_top) LIMIT=24000000;; esac
+          # $GITHUB_ENV only affects LATER steps, so export it for the docker
+          # run below as well; otherwise the container keeps harden_block.sh's
+          # 14 GB default and kills rtr_scan at 14.5 GB mid-ABC.
+          export GDS_RSS_LIMIT_KB=$LIMIT
           echo "GDS_RSS_LIMIT_KB=$LIMIT" >> "$GITHUB_ENV"
           echo "synth RSS limit: $LIMIT kB"
           docker run --rm --user 0:0 --shm-size=2g \
