@@ -37,11 +37,23 @@ PDK="$PDK" KLAYOUT_DEF="$DEF" KLAYOUT_TOP="$TOP" KLAYOUT_OUT="$NAME.gds" \
 [ -s "$NAME.gds" ] || { echo "KLAYOUT WROTE NO GDS"; tail -20 klayout_def.log; exit 2; }
 tail -3 klayout_def.log
 
-echo "== [$NAME] 2/2 KLayout finalize"
-KLAYOUT_IN="$NAME.gds" KLAYOUT_OUT="${NAME}_final.gds" KLAYOUT_TOP="$TOP" \
-  klayout -b -r "$ROOT/scripts/gds/finalize.py" > klayout.log 2>&1 \
-  || { echo "GDS VALIDATION FAILED"; tail -10 klayout.log; exit 2; }
-mv "${NAME}_final.gds" "$NAME.gds" || exit 2
-cat gds_validation.json 2>/dev/null || true
+echo "== [$NAME] 2/2 GDS completeness check (streaming)"
+# Not finalize.py: re-reading a routed core with pya.Layout costs several GB and
+# the rewrite was OOM-killed on a 16 GB runner. The failure that matters is
+# truncation, which the record walk detects in one streaming pass.
+python3 "$ROOT/scripts/gds/ci/check_gds.py" "$NAME.gds" gds_validation.json \
+  || { echo "GDS CHECK FAILED (truncated or not GDSII)"; exit 2; }
+python3 - "$TOP" "$DEF" "$FLOWN" <<'PY'
+import json
+import sys
+
+path = 'gds_validation.json'
+with open(path) as fh:
+    data = json.load(fh)
+data.update({'top': sys.argv[1], 'def': sys.argv[2], 'flow': sys.argv[3]})
+with open(path, 'w') as fh:
+    json.dump(data, fh, indent=2)
+PY
+cat gds_validation.json
 ls -la "$NAME.gds"
 echo "== [$NAME] export done; whole-layout DRC is the next CI job"

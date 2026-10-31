@@ -83,9 +83,11 @@ gh workflow run gds.yml -f target=core -f start_stage=drt -f resume_run_id=<run-
   ones that can exhaust the job. `repair_timing` is skipped (that was the stage
   that sat silently for half an hour locally), and the final routed ODB is not
   written during CI to save disk.
-- **gds** — KLayout DEF→GDS against the real PDK cell masters, then a
-  finalize pass that re-reads the file and checks the top cell and geometry.
-  Minutes, not hours, even on `core`.
+- **gds** — KLayout DEF→GDS against the real PDK cell masters (78 s on
+  `core`, ~93 MB compressed artifact), then a streaming GDSII record walk
+  (`scripts/gds/ci/check_gds.py`) that fails on truncation. The old finalize
+  pass re-read the whole layout and was OOM-killed on 2026-10-31; nothing in
+  this stage loads more than 1 MB of the file at a time now.
 - **drc** — Magic flatten + full-rule DRC on the exported GDS, plus a routing
   violation check read from the route log. This is the long one on `core`; it
   gets 5 h 50 m and its failure leaves the GDS artifact untouched.

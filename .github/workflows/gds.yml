@@ -478,7 +478,7 @@ jobs:
         run: bash scripts/gds/ci/pdk.sh
       - name: Pull OpenLane container
         run: docker pull "$OPENLANE_IMAGE"
-      - name: KLayout DEF to GDS, finalize
+      - name: KLayout DEF to GDS, completeness check
         env:
           GDS_STAGE_TIMEOUT: "7800"
         run: |
