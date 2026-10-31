@@ -131,11 +131,17 @@ jobs:
         run: |
           # The runner image already owns /swapfile (busy), so add a second one
           # under a unique path. Best-effort: routing runs without it, closer to OOM.
+          # 16 GB matches the box this synth was developed on (16 GB RAM + 16 GB
+          # swap); rtr_scan's ABC pass needs the overflow. Falls back to 8G/4G if
+          # the runner is short on disk.
           SW=/mnt/swapfile-gds
           sudo swapoff "$SW" 2>/dev/null || true
           sudo rm -f "$SW"
-          sudo fallocate -l 4G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=4096 status=none
-          sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" || echo "swap unavailable"
+          for G in 16 8 4; do
+            sudo fallocate -l ${G}G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=$((G*1024)) status=none
+            sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" && { echo "swap: ${G}G"; break; }
+            sudo rm -f "$SW"
+          done
           df -h / | tail -1; free -h | head -2
       - uses: actions/cache@v4
         with:
@@ -150,8 +156,14 @@ jobs:
       - name: Synthesise
         env:
           GDS_SYNTH_TIMEOUT: "16000"
-          GDS_RSS_LIMIT_KB: "13000000"
         run: |
+          # The 13 GB guard is right for smaller blocks but it is what killed
+          # rtr_scan and rtr_top at 13.2 GB mid-ABC. They get the same 24 GB
+          # ceiling the local box effectively had through swap.
+          LIMIT=13000000
+          case "${{ matrix.block }}" in rtr_scan|rtr_top) LIMIT=24000000;; esac
+          echo "GDS_RSS_LIMIT_KB=$LIMIT" >> "$GITHUB_ENV"
+          echo "synth RSS limit: $LIMIT kB"
           docker run --rm --user 0:0 --shm-size=2g \
             -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
             -e HOME=/root -e GDS_ROOT=/work \
