@@ -6,11 +6,16 @@ name: GDS
 # rtr_setup, cp, tu) are deliberately absent: their GDS files and zero-DRC
 # audits are already committed and nothing here touches their recipe.
 #
-# Why five jobs instead of one: a GitHub-hosted runner is killed at 6 h, and
+# Why six jobs instead of one: a GitHub-hosted runner is killed at 6 h, and
 # core's P&R took a whole night locally. Each stage checkpoints (placed.odb,
-# grt.odb, final.def) and hands the next job an artifact, so a timeout costs
-# one stage, not the run. Re-dispatch with resume_run_id to continue from an
-# earlier run's checkpoints.
+# grt.odb, final.def, <block>.gds) and hands the next job an artifact, so a
+# timeout costs one stage, not the run. Re-dispatch with resume_run_id to
+# continue from an earlier run's checkpoints.
+#
+# GDS is deliberately split in two: "gds" is a KLayout DEF->GDS export
+# (minutes), "drc" is Magic's whole-layout flattened check (hours, and the only
+# step that cannot be trusted to fit a runner job on a 347k-cell block). A DRC
+# job that runs out of time reports "unverified" and leaves the GDS intact.
 
 on:
   workflow_dispatch:
@@ -24,7 +29,7 @@ on:
         description: "First stage to run (earlier checkpoints are restored from artifacts)"
         type: choice
         default: all
-        options: [all, synth, place, grt, drt, gds]
+        options: [all, synth, place, grt, drt, gds, drc]
       resume_run_id:
         description: "Optional: workflow run id to pull missing checkpoints from"
         type: string
@@ -79,6 +84,7 @@ jobs:
       run_grt: ${{ steps.plan.outputs.run_grt }}
       run_drt: ${{ steps.plan.outputs.run_drt }}
       run_gds: ${{ steps.plan.outputs.run_gds }}
+      run_drc: ${{ steps.plan.outputs.run_drc }}
     steps:
       - id: plan
         run: |
@@ -89,7 +95,7 @@ jobs:
             remaining) BLOCKS='["core","rtr_scan","rtr_top"]' ;;
             *) echo "bad target"; exit 2 ;;
           esac
-          ORDER="synth place grt drt gds"
+          ORDER="synth place grt drt gds drc"
           START="${{ inputs.start_stage }}"
           [ "$START" = all ] && START=synth
           reach=0
@@ -427,7 +433,7 @@ jobs:
       matrix:
         block: ${{ fromJSON(needs.plan.outputs.blocks) }}
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
         with:
@@ -472,17 +478,15 @@ jobs:
         run: bash scripts/gds/ci/pdk.sh
       - name: Pull OpenLane container
         run: docker pull "$OPENLANE_IMAGE"
-      - name: Magic GDS + DRC, KLayout finalize, audit
+      - name: KLayout DEF to GDS, finalize
         env:
-          GDS_MAGIC_TIMEOUT: "15600"
-          GDS_AUDIT_TIMEOUT: "3600"
-          GDS_STAGE_TIMEOUT: "16800"
+          GDS_STAGE_TIMEOUT: "7800"
         run: |
           docker run --rm --user 0:0 --shm-size=2g \
             -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
             -e HOME=/root -e GDS_ROOT=/work \
             -e GDS_PDK="/root/.volare/volare/sky130/versions/$SKY130_VERSION/sky130A" \
-            -e GDS_MAGIC_TIMEOUT -e GDS_AUDIT_TIMEOUT -e GDS_STAGE_TIMEOUT \
+            -e GDS_STAGE_TIMEOUT \
             -w /work "$OPENLANE_IMAGE" \
             bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" gds
       - name: Fix checkpoint ownership
@@ -494,6 +498,7 @@ jobs:
           name: ${{ matrix.block }}-gds
           path: |
             build/gds/${{ matrix.block }}/*.gds
+            build/gds/${{ matrix.block }}/openroad*.log
             build/gds/${{ matrix.block }}/export_audit.json
             build/gds/${{ matrix.block }}/export_audit_run.log
             build/gds/${{ matrix.block }}/magic.log
@@ -504,8 +509,91 @@ jobs:
           if-no-files-found: warn
           retention-days: 14
 
+  drc:
+    needs: [plan, gds]
+    if: |
+      always() && !cancelled() && needs.plan.outputs.run_drc == 'true' &&
+      (needs.gds.result == 'success' || needs.gds.result == 'skipped')
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        block: ${{ fromJSON(needs.plan.outputs.blocks) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            /rtl/
+            /scripts/
+            /build/gds/*.v
+          sparse-checkout-cone-mode: false
+      - name: Restore exported GDS
+        id: ckpt
+        continue-on-error: true
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-gds
+          path: build/gds/${{ matrix.block }}
+      - name: Restore exported GDS (earlier run)
+        if: steps.ckpt.outcome == 'failure' && inputs.resume_run_id != ''
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.block }}-gds
+          run-id: ${{ inputs.resume_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: build/gds/${{ matrix.block }}
+      - name: Verify GDS checkpoint
+        run: test -s "build/gds/${{ matrix.block }}/${{ matrix.block }}.gds" || { echo "no exported GDS checkpoint"; exit 1; }
+      - name: Swap headroom (Magic flatten)
+        run: |
+          # Flat DRC on a 347k-cell block is the memory peak of the whole flow.
+          SW=/mnt/swapfile-gds
+          sudo swapoff "$SW" 2>/dev/null || true
+          sudo rm -f "$SW"
+          sudo fallocate -l 8G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=8192 status=none
+          sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" || echo "swap unavailable"
+          free -h | head -2
+      - uses: actions/cache@v4
+        with:
+          path: ~/.volare
+          key: volare-sky130-fa87f8f4bbcc7255b6f0c0fb506960f531ae2392
+      - name: Install/restore sky130A PDK
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash scripts/gds/ci/pdk.sh
+      - name: Pull OpenLane container
+        run: docker pull "$OPENLANE_IMAGE"
+      - name: Whole-layout flattened Magic DRC
+        env:
+          GDS_AUDIT_TIMEOUT: "19000"
+          GDS_STAGE_TIMEOUT: "19800"
+        run: |
+          docker run --rm --user 0:0 --shm-size=2g \
+            -v "$PWD:/work" -v "$HOME/.volare:/root/.volare:ro" \
+            -e HOME=/root -e GDS_ROOT=/work \
+            -e GDS_PDK="/root/.volare/volare/sky130/versions/$SKY130_VERSION/sky130A" \
+            -e GDS_AUDIT_TIMEOUT -e GDS_STAGE_TIMEOUT \
+            -w /work "$OPENLANE_IMAGE" \
+            bash /work/scripts/gds/ci/run_stage.sh "${{ matrix.block }}" drc
+      - name: Fix checkpoint ownership
+        if: always()
+        run: sudo chown -R "$(id -u):$(id -g)" build/gds 2>/dev/null || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.block }}-drc
+          path: |
+            build/gds/${{ matrix.block }}/export_audit.json
+            build/gds/${{ matrix.block }}/export_audit_run.log
+            build/gds/${{ matrix.block }}/audit_magic.log
+            build/gds/${{ matrix.block }}/ci_stage.json
+          if-no-files-found: warn
+          retention-days: 14
+
   summary:
-    needs: [plan, synth, place, grt, drt, gds]
+    needs: [plan, synth, place, grt, drt, gds, drc]
     if: always()
     runs-on: ubuntu-latest
     steps:

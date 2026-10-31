@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# run_stage.sh <block> <synth|place|grt|drt|gds>
+# run_stage.sh <block> <synth|place|grt|drt|gds|drc>
 #
 # Runs ONE stage of the block flow inside the OpenLane container and leaves a
 # checkpoint plus ci_stage.json in build/gds/<block>/. The GitHub workflow calls
@@ -70,7 +70,13 @@ case "$STAGE" in
     if [ "$STAGE" = drt ]; then cp -f "$OUT/openroad_drt.log" "$OUT/openroad.log"; fi
     ;;
   gds)
-    timeout "$TMO" bash "$ROOT/scripts/gds/ci/gds_stage.sh" "$NAME" "$TOP"
+    # KLayout DEF->GDS only. Magic's flatten is a separate job (stage "drc")
+    # because it cannot finish inside one runner job on the big blocks.
+    timeout "$TMO" bash "$ROOT/scripts/gds/ci/export_gds.sh" "$NAME" "$TOP"
+    RC=$?
+    ;;
+  drc)
+    timeout "$TMO" bash "$ROOT/scripts/gds/ci/drc_audit.sh" "$NAME"
     RC=$?
     ;;
   *)

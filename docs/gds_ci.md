@@ -17,7 +17,7 @@ The nine finished blocks (`display`, `xbar`, `ram_slave`, `blit`, `fpu4`,
 GDS files and zero-DRC audits are left exactly as they are, and none of their
 scripts changed.
 
-## Why five jobs instead of one
+## Why six jobs instead of one
 
 GitHub-hosted runners are killed at 6 h. `core`'s local P&R ran far longer
 than that, and a kill used to lose the whole attempt. The flow is therefore
@@ -28,8 +28,17 @@ synth  : build/gds/<block>.v   -> synth.v (+ .synthkey)
 place  : synth.v               -> placed.odb, placed.def
 grt    : placed.odb            -> grt.odb, global_route.def
 drt    : grt.odb               -> final.def, final.nv, openroad.log
-gds    : final.def             -> <block>.gds, export_audit.json
+gds    : final.def             -> <block>.gds, gds_validation.json
+drc    : <block>.gds           -> export_audit.json (whole-layout flattened DRC)
 ```
+
+`gds` and `drc` are separate steps for a specific reason: Magic's flatten of a
+347 k-cell block is the most expensive operation in the flow and it breached
+the 6 h cap on 2026-10-30 (4 h 20 m in one Magic script, killed before it had
+written any GDS). Export is now KLayout's LEF/DEF importer, which resolves each
+standard cell against the real PDK GDS masters and writes the hierarchy in
+minutes; the flat Magic DRC keeps its own job and its own timeout, so running
+out of time marks the block **unverified** instead of destroying the GDS.
 
 Each stage is its own job and hands the next one an artifact. A timeout costs
 one stage, not the run. `scripts/gds/ci/run_stage.sh` is the container entry
@@ -74,8 +83,12 @@ gh workflow run gds.yml -f target=core -f start_stage=drt -f resume_run_id=<run-
   ones that can exhaust the job. `repair_timing` is skipped (that was the stage
   that sat silently for half an hour locally), and the final routed ODB is not
   written during CI to save disk.
-- **gds** — Magic merge + whole-layout DRC, KLayout finalize, exported-GDS
-  audit. Small blocks take minutes; `core` is the one to watch.
+- **gds** — KLayout DEF→GDS against the real PDK cell masters, then a
+  finalize pass that re-reads the file and checks the top cell and geometry.
+  Minutes, not hours, even on `core`.
+- **drc** — Magic flatten + full-rule DRC on the exported GDS, plus a routing
+  violation check read from the route log. This is the long one on `core`; it
+  gets 5 h 50 m and its failure leaves the GDS artifact untouched.
 
 If a stage does not fit, artifacts from the completed stages are kept, and the
 next attempt can start from that stage. For heavier work, point the jobs at a
