@@ -59,7 +59,15 @@ case "$STAGE" in
     fi
     # harden_block.sh with GDS_SYNTH_ONLY=1 stops after validate_synth.py.
     export GDS_SYNTH_ONLY=1
-    timeout "$TMO" bash "$ROOT/scripts/gds/harden_block.sh" "$NAME" "$TOP" "$VF"
+    if [ "$NAME" = rtr_top ]; then
+      # rtr_top cannot be synthesised monolithically: ABC OOM-kills on the
+      # multiplier-heavy AIG of the concatenated setup+scan+top netlist even at
+      # 27 GB. The dedicated script keeps ember_rtr_setup/ember_rtr_scan as
+      # blackbox macros (read as -lib libraries) and maps only the top FSM glue.
+      timeout "$TMO" bash "$ROOT/scripts/gds/make_rtr_top_netlist.sh"
+    else
+      timeout "$TMO" bash "$ROOT/scripts/gds/harden_block.sh" "$NAME" "$TOP" "$VF"
+    fi
     RC=$?
     ;;
   place|grt|drt)
