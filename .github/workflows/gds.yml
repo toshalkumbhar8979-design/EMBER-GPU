@@ -127,19 +127,29 @@ jobs:
             /scripts/
             /build/gds/*.v
           sparse-checkout-cone-mode: false
-      - name: Swap headroom (OpenROAD/Magic on a 16 GB runner)
+      - name: Disk reclaim + swap headroom (16 GB runner)
         run: |
-          # The runner image already owns /swapfile (busy), so add a second one
-          # under a unique path. Best-effort: routing runs without it, closer to OOM.
-          # 16 GB matches the box this synth was developed on (16 GB RAM + 16 GB
-          # swap); rtr_scan's ABC pass needs the overflow. Falls back to 8G/4G if
-          # the runner is short on disk.
-          SW=/mnt/swapfile-gds
+          # Two constraints on a hosted runner, both learned the hard way:
+          #  1. Disk. ubuntu-latest ships ~25 GB of toolchains (Android SDK,
+          #     .NET, GHC, boost) this flow never touches; without reclaiming
+          #     them `fallocate -l 16G` fails with ENOSPC and the job dies in
+          #     the first 60 s.
+          #  2. Memory. rtr_scan/rtr_top synthesise on a box with 16 GB RAM plus
+          #     16 GB swap; the runner's stock 4 GB swap is not enough for ABC.
+          # Reclaim first, then size the swapfile to what actually fits.
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc \
+                      /usr/local/share/boost /usr/local/.ghcup \
+                      /opt/hostedtoolcache 2>/dev/null || true
+          SW=/swapfile-gds
           sudo swapoff "$SW" 2>/dev/null || true
           sudo rm -f "$SW"
-          for G in 16 8 4; do
-            sudo fallocate -l ${G}G "$SW" || sudo dd if=/dev/zero of="$SW" bs=1M count=$((G*1024)) status=none
-            sudo chmod 600 "$SW" && sudo mkswap "$SW" >/dev/null && sudo swapon "$SW" && { echo "swap: ${G}G"; break; }
+          for G in 16 12 8 4; do
+            if sudo fallocate -l ${G}G "$SW" 2>/dev/null \
+               && sudo chmod 600 "$SW" \
+               && sudo mkswap "$SW" >/dev/null \
+               && sudo swapon "$SW"; then
+              echo "swap: ${G}G"; break
+            fi
             sudo rm -f "$SW"
           done
           df -h / | tail -1; free -h | head -2
