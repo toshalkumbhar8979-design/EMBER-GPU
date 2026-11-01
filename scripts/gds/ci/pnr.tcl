@@ -57,7 +57,19 @@ set routability [envdef GDS_PL_ROUTABILITY 1]
 # skips the three STA-driven steps (both estimate_parasitics calls and
 # repair_design); timing closure is explicitly out of scope for this flow, and
 # clock_tree_synthesis does not need them.
+# ...but estimate_parasitics must NOT be skipped on its own: TritonCTS calls
+# STA internally for buffer characterization, and with no RC data it segfaulted
+# right after "Characterization buffer" (2026-11-01 15:20, 1,198 flops only, so
+# not a scale problem). The two STA users are therefore separate knobs:
+#   GDS_PL_STA=0            -> skip estimate_parasitics (CTS then has no RC data)
+#   GDS_PL_REPAIR_DESIGN=0  -> skip buffer insertion, the likely crash point in
+#                              the run that died before CTS ever started
 set do_sta   [envdef GDS_PL_STA 1]
+set do_rep   [envdef GDS_PL_REPAIR_DESIGN 1]
+# Comma-separated (blocks.txt overrides are word-split, so no spaces allowed).
+# Without it TritonCTS picks clkbuf_16 as BOTH root and sink buffer, which is
+# pathological for a 1,198-sink clock and is what it did before crashing.
+set cts_bufs [envdef GDS_PL_CTS_BUFS ""]
 set tpasses  [envdef GDS_TIMING_PASSES 2]
 set rtns     [envdef GDS_REPAIR_TNS 10]
 
@@ -148,14 +160,24 @@ if {$stage eq "place" || $stage eq "all"} {
   if {$do_sta == 1} {
     estimate_parasitics -placement
     mark "after estimate_parasitics"
+  } else {
+    puts "PL_STA: skipped estimate_parasitics (GDS_PL_STA=0; CTS will have no RC data)"
+  }
+  if {$do_rep == 1} {
     repair_design
     mark "after repair_design"
   } else {
-    puts "PL_STA: skipped estimate_parasitics + repair_design (GDS_PL_STA=0)"
+    puts "PL_REPAIR_DESIGN: skipped (GDS_PL_REPAIR_DESIGN=0)"
   }
   detailed_placement
   mark "after detailed_placement"
-  clock_tree_synthesis
+  if {$cts_bufs ne ""} {
+    set bufs [split $cts_bufs ,]
+    clock_tree_synthesis -buf_list $bufs
+    puts "PL_CTS_BUFS: $cts_bufs"
+  } else {
+    clock_tree_synthesis
+  }
   mark "after clock_tree_synthesis"
   if {$do_sta == 1} { estimate_parasitics -placement }
   # repair_timing is the stage that sat for 30+ minutes on core in the local
