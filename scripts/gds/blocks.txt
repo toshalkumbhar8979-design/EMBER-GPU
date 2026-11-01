@@ -52,11 +52,18 @@ rtr_setup|ember_rtr_setup|rtl/ember_pkg.sv rtl/ember_rtr_setup.sv|GDS_UTIL=20 GD
 # the placer now converges (Overflow 0.0999 in 63 min), and the run then died
 # with SIGSEGV (rc 139) in the next command, estimate_parasitics -placement,
 # which builds an RC tree for ~950k nets. 16 GB of runner is the ceiling there,
-# so GDS_PL_STA=0 drops the three STA-driven steps (both estimate_parasitics
-# calls and repair_design). Timing closure is out of scope for this flow and
-# CTS does not consume that data. PL_MARK lines now record RSS per step so any
-# further crash names itself instead of needing a bisect.
-rtr_scan|ember_rtr_scan|rtl/ember_pkg.sv rtl/ember_rtr_scan.sv|GDS_UTIL=40 GDS_PL_DENSITY=0.50 GDS_PL_ROUTABILITY=0 GDS_PL_STA=0 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400 GDS_MAGIC_TIMEOUT=43200
+# so the whole STA group was skipped. Third run (2026-11-01 15:20) disproved
+# that: with PL_MARK instrumentation, global_placement and detailed_placement
+# both PASSED at 4.4 GB RSS -- memory was never the wall -- and the process
+# died inside clock_tree_synthesis, right after "Characterization buffer".
+# TritonCTS calls STA internally, so skipping estimate_parasitics starved it.
+# The design has only 1,198 flops, so this is not a scale problem either.
+#   estimate_parasitics : RESTORED (CTS needs the RC data)
+#   repair_design       : skipped -- buffer insertion was never reached in the
+#                         run that died, and it is the remaining suspect
+#   CTS buffer list     : pinned to clkbuf_2/4/8; left to itself TritonCTS
+#                         chose clkbuf_16 as BOTH root and sink buffer
+rtr_scan|ember_rtr_scan|rtl/ember_pkg.sv rtl/ember_rtr_scan.sv|GDS_UTIL=40 GDS_PL_DENSITY=0.50 GDS_PL_ROUTABILITY=0 GDS_PL_REPAIR_DESIGN=0 GDS_PL_CTS_BUFS=sky130_fd_sc_hd__clkbuf_2,sky130_fd_sc_hd__clkbuf_4,sky130_fd_sc_hd__clkbuf_8 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400 GDS_MAGIC_TIMEOUT=43200
 # ENABLED 2026-10-04: hierarchical netlist (509,562 cells) synth-cache installed; see agentbible.
 # ENABLED 2026-10-04: builds via make_rtr_top_netlist.sh + rtr_top_pnr.sh once rtr_scan verifies clean.
 rtr_top|ember_rtr_top|rtl/ember_pkg.sv rtl/ember_rtr_setup.sv rtl/ember_rtr_scan.sv rtl/ember_rtr_top.sv|GDS_UTIL=18 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400
