@@ -118,6 +118,24 @@
   21600/MAGIC 36000), rtr_top (via make_rtr_top_netlist.sh + rtr_top_pnr.sh
   once rtr_scan verifies), cp. Nothing deferred. Die stage runs after all
   macros clean (queue exits nonzero if any block fails).
+- **build/gds/rtr_scan.v was STALE on main (found 2026-11-01)**: the file
+  committed for CI was still the FLAT netlist (1.35M cells) from before the
+  hierarchical restructure -- it had no _rtr_smul96/_rtr_sdiv96 modules and
+  no t_texpal port, so the 2026-10-04 "509,562 cells" regen never reached
+  the repo and every CI synth since rebuilt the 1.42M-cell flat design. That
+  is what made rtr_scan place die (global_placement peaked correctly, then
+  estimate_parasitics -placement SIGSEGV'd on 1.34M nets at 4.5 GB RSS on a
+  16 GB runner). rtr_scan.v, rtr_top.v and top.v were regenerated from
+  current RTL; chip.v was already current.
+- **_rtr_sdiv96 narrowed 192 -> 118 bits (2026-11-01), bit-exact**: `num` is
+  s96, so num<<22 needs exactly 118 bits and the exact quotient of a
+  s118/s118 divide also fits in s118 (worst case num=-2^95, den=1 -> -2^117
+  = the s118 minimum), so qq[95:0] is unchanged; the s192 operands only
+  bought a 192/192 divider. Proven with prep/eqv_div.v (iverilog): 200,008
+  vectors incl. 0/0, +/-min/1, max/max, 1/3 truncation -> 0 mismatches.
+  Measured cost of the constructs: one _rtr_smul96 = 22,171 cells (x20
+  instances = 443k), one 192-bit _rtr_sdiv96 alone was still grinding in ABC
+  at 3.4 GB after 15 min on a 15 GB box.
 
 ### Freebuff/WSL restart recovery + parallel fpu4-salvage/gsx (2026-10-03 morning)
 - [Full body of this and all earlier sections predates the recovery and is

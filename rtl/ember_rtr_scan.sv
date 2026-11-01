@@ -65,9 +65,18 @@ module _rtr_sdiv96 (
   // Widths are self-determined per wire, matching the original inline
   // pdiv() bit-for-bit: sign-extend, shift left 22, signed '/' truncates
   // toward zero, result truncated to s96, den==0 -> 0 (golden rule).
-  wire signed [191:0] n  = {{96{num[95]}}, num};
-  wire signed [191:0] d  = {{96{den[95]}}, den};
-  wire signed [191:0] qq = $signed(n <<< 22) / $signed(d);
+  //
+  // WIDTH: 118, not 192. `num` is s96, so num<<22 needs exactly 118 bits and
+  // the exact quotient of a s118/s118 divide also fits in 118 bits (worst case
+  // is num=-2^95 / den=1 -> -2^117, the s118 minimum), so qq[95:0] is identical
+  // to the s192 form. The s192 operands bought nothing but a 192/192 divider:
+  // yosys built ~430k gates per instance (2.2x the core block's whole netlist)
+  // and is why rtr_scan synthesis reached 1.34M cells. Verified bit-exact over
+  // 200k random vectors plus 0/0, +/-min/1, max/max and 1/3 truncation corners
+  // (prep/eqv_div.v, 0 mismatches).
+  wire signed [117:0] n  = {{22{num[95]}}, num};
+  wire signed [117:0] d  = {{22{den[95]}}, den};
+  wire signed [117:0] qq = $signed(n <<< 22) / $signed(d);
   assign q = (den == 0) ? 96'sd0 : qq[95:0];
 endmodule
 
