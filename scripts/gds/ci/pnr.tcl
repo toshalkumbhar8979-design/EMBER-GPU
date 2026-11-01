@@ -49,8 +49,36 @@ set do_timing [envdef GDS_REPAIR_TIMING 1]
 # with it. Blocks that big place fine without it; the congestion pass then runs
 # once, in the dedicated grt stage, where a failure costs one job, not place.
 set routability [envdef GDS_PL_ROUTABILITY 1]
+# rtr_scan (2026-11-01, second crash): with util 40 + routability off,
+# global_placement now converges (Overflow 0.0999) -- and the process then died
+# with SIGSEGV (rc 139) in the very next command, estimate_parasitics
+# -placement, which builds a full RC tree for ~950k nets. That is an OpenSTA
+# peak-memory wall on a 16 GB runner, not a placement problem. GDS_PL_STA=0
+# skips the three STA-driven steps (both estimate_parasitics calls and
+# repair_design); timing closure is explicitly out of scope for this flow, and
+# clock_tree_synthesis does not need them.
+set do_sta   [envdef GDS_PL_STA 1]
 set tpasses  [envdef GDS_TIMING_PASSES 2]
 set rtns     [envdef GDS_REPAIR_TNS 10]
+
+# Peak memory per step, so the next crash is attributable from the log alone.
+# VmRSS rather than VmHWM: HWM only reports the run's high-water mark, which
+# cannot say which command reached it.
+proc mark {label} {
+  set rss 0
+  if {[catch {
+    set fh [open /proc/self/status r]
+    while {[gets $fh line] >= 0} {
+      if {[string match "VmRSS:*" $line]} {
+        set rss [lindex $line 1]
+        break
+      }
+    }
+    close $fh
+  }]} { set rss 0 }
+  puts [format "PL_MARK: %-24s rss=%d MB" $label [expr {$rss / 1024}]]
+  flush stdout
+}
 
 cd $out
 read_liberty $lib
@@ -116,11 +144,20 @@ if {$stage eq "place" || $stage eq "all"} {
     set_placement_padding -global -left $pad -right $pad
     puts "PL_PAD: $pad site(s) left/right per cell"
   }
-  estimate_parasitics -placement
-  repair_design
+  mark "after global_placement"
+  if {$do_sta == 1} {
+    estimate_parasitics -placement
+    mark "after estimate_parasitics"
+    repair_design
+    mark "after repair_design"
+  } else {
+    puts "PL_STA: skipped estimate_parasitics + repair_design (GDS_PL_STA=0)"
+  }
   detailed_placement
+  mark "after detailed_placement"
   clock_tree_synthesis
-  estimate_parasitics -placement
+  mark "after clock_tree_synthesis"
+  if {$do_sta == 1} { estimate_parasitics -placement }
   # repair_timing is the stage that sat for 30+ minutes on core in the local
   # run; CI turns it off by default (GDS_REPAIR_TIMING=0) because timing
   # closure is explicitly out of scope for this evaluation flow.
@@ -133,6 +170,7 @@ if {$stage eq "place" || $stage eq "all"} {
     puts "TAPCELL_WARN: $tmsg"
   }
   detailed_placement
+  mark "after tapcell+dpl"
 
   # PDN. Without this every cell's rails float and TritonRoute shorts against
   # them (cp: 7416 met1 shorts at iteration 0, one per cell).
@@ -149,6 +187,7 @@ if {$stage eq "place" || $stage eq "all"} {
   add_pdn_connect -grid stdcell -layers {met1 met4}
   add_pdn_connect -grid stdcell -layers {met4 met5} -cut_pitch 1.3
   pdngen
+  mark "after pdngen"
 
   # Delete any probe-family instance the resizer inserted (no logical function,
   # but its landing pads violate met4/via4 spacing next to the PDN).
@@ -164,6 +203,7 @@ if {$stage eq "place" || $stage eq "all"} {
 
   write_db placed.odb
   write_def placed.def
+  mark "after write_db"
   if {$stage eq "place"} {
     puts "STAGE_PLACE_CHECKPOINT: $out/placed.odb"
     exit 0
