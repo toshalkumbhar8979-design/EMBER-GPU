@@ -39,7 +39,16 @@ rtr_setup|ember_rtr_setup|rtl/ember_pkg.sv rtl/ember_rtr_setup.sv|GDS_UTIL=20 GD
 # more whitespace + more DRT repair passes so violations grind down early in the
 # run (core's 477K-violation drama must not repeat), generous timeboxes so
 # nothing dies mid-run overnight.
-rtr_scan|ember_rtr_scan|rtl/ember_pkg.sv rtl/ember_rtr_scan.sv|GDS_UTIL=18 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400 GDS_MAGIC_TIMEOUT=43200
+# rtr_scan: MEASURED on the 2026-10-31 CI synthesis -- 6.78 mm2 of standard-cell
+# area (Chip area 6781006 um2) in ~950k instances (499,949 nor2_1 + 161,528
+# xor2_1 from the ripple-carry divider remap). The old util 18 / density 0.25
+# pair was sized for a 509k-cell block and floored a 37 mm2 die around that
+# geometry; global_placement -routability_driven then segfaulted (rc 139) in its
+# first routability estimate at 67 min on 2026-11-01. util 40 -> 16.9 mm2 core
+# (4118 um square), density 0.50 leaves the placer headroom above 40% occupancy,
+# and the routability pass is off (GDS_PL_ROUTABILITY=0): congestion is measured
+# in the grt stage instead, where a crash costs one job rather than placement.
+rtr_scan|ember_rtr_scan|rtl/ember_pkg.sv rtl/ember_rtr_scan.sv|GDS_UTIL=40 GDS_PL_DENSITY=0.50 GDS_PL_ROUTABILITY=0 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400 GDS_MAGIC_TIMEOUT=43200
 # ENABLED 2026-10-04: hierarchical netlist (509,562 cells) synth-cache installed; see agentbible.
 # ENABLED 2026-10-04: builds via make_rtr_top_netlist.sh + rtr_top_pnr.sh once rtr_scan verifies clean.
 rtr_top|ember_rtr_top|rtl/ember_pkg.sv rtl/ember_rtr_setup.sv rtl/ember_rtr_scan.sv rtl/ember_rtr_top.sv|GDS_UTIL=18 GDS_PL_DENSITY=0.25 GDS_DRT_ITER=60 GDS_PNR_TIMEOUT=86400

@@ -65,12 +65,25 @@ for name in sys.argv[1:]:
     rc = directory / 'audit_export.magicrc'
     rc.write_text(f'tech load {pdk}/libs.tech/magic/sky130A.tech\n'
                   'scalegrid 1 2\ndrc euclidean on\n')
+    # Hierarchy is KEPT by default (2026-11-01). The audit used to flatten the
+    # routed netlist into one cell first, which on core means exploding 347k
+    # instances (~7.6M uses) before DRC even starts -- that flat run was still
+    # checking 5 h 17 m in and hit the job timeout with no verdict. Magic's DRC
+    # engine walks the cell tree itself and checks every unique master once, so
+    # the same rules cost a fraction of that. The flatten path stays available
+    # behind GDS_AUDIT_FLATTEN=1 for comparing old evidence against new.
+    flatten = os.environ.get('GDS_AUDIT_FLATTEN', '0') == '1'
+    if flatten:
+        prelude = (f'flatten ember_{name}_export_audit\n'
+                   f'load ember_{name}_export_audit\n')
+        drc_mode = 'flattened'
+    else:
+        prelude = ''
+        drc_mode = 'hierarchical'
     script = directory / 'audit_export.tcl'
     script.write_text(f'''gds read {src}
 load ember_{name}
-flatten ember_{name}_export_audit
-load ember_{name}_export_audit
-select top cell
+{prelude}select top cell
 box {' '.join(str(v) + 'um' for v in coords)}
 drc on
 drc style drc(full)
@@ -98,5 +111,6 @@ quit -noprompt
                 'gds_mtime_ns': source_stat.st_mtime_ns,
                 'gds_sha256': source_hash,
                 'whole_layout_flattened_drc': int(counts[-1]),
+                'drc_mode': drc_mode,
                 'rule_style': 'drc(full)', 'rules_suppressed': False}
     (directory / 'export_audit.json').write_text(json.dumps(evidence, indent=2))

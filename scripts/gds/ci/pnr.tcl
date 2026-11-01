@@ -44,6 +44,11 @@ set tilt     [envdef GDS_GRT_TILT ""]
 set drt_iter [envdef GDS_DRT_ITER 20]
 set threads  [envdef GDS_THREADS 4]
 set do_timing [envdef GDS_REPAIR_TIMING 1]
+# rtr_scan (2026-11-01): `-routability_driven` segfaulted OpenROAD (rc 139) in
+# its first routability estimate on a ~950k-instance die and took place down
+# with it. Blocks that big place fine without it; the congestion pass then runs
+# once, in the dedicated grt stage, where a failure costs one job, not place.
+set routability [envdef GDS_PL_ROUTABILITY 1]
 set tpasses  [envdef GDS_TIMING_PASSES 2]
 set rtns     [envdef GDS_REPAIR_TNS 10]
 
@@ -101,7 +106,12 @@ if {$stage eq "place" || $stage eq "all"} {
   # Probe masters carry met4/met5 pads that collide with PDN stripes.
   set_dont_use {sky130_fd_sc_hd__probe_p_8 sky130_fd_sc_hd__probec_p_8}
 
-  global_placement -routability_driven -density $density
+  if {$routability == 1} {
+    global_placement -routability_driven -density $density
+  } else {
+    global_placement -density $density
+    puts "PL_ROUTABILITY: off (plain global_placement)"
+  }
   if {$pad > 0} {
     set_placement_padding -global -left $pad -right $pad
     puts "PL_PAD: $pad site(s) left/right per cell"
