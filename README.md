@@ -81,6 +81,9 @@ comparison throughout (not eyeball checks).
     <td align="center"><img src="test/scene_golden.png" width="260"><br><sub>Golden model reference scene</sub></td>
     <td align="center"><img src="test/scene_rtl.png" width="260"><br><sub>RTL-rendered scene (bit-exact vs golden)</sub></td>
   </tr>
+  <tr>
+    <td align="center" colspan="3"><a href="docs/media/doom_ember.mp4"><img src="docs/media/doom_ember.gif" width="320"></a><br><sub>Doom E1M1 played continuously — 20 frames through <code>ember_rtr_top</code>, 15.97 fps (click for the MP4)</sub></td>
+  </tr>
 </table>
 </div>
 
