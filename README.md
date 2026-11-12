@@ -81,8 +81,49 @@ comparison throughout (not eyeball checks).
     <td align="center"><img src="test/scene_golden.png" width="260"><br><sub>Golden model reference scene</sub></td>
     <td align="center"><img src="test/scene_rtl.png" width="260"><br><sub>RTL-rendered scene (bit-exact vs golden)</sub></td>
   </tr>
+  <tr>
+    <td align="center" colspan="3"><a href="docs/media/doom_ember.mp4"><img src="docs/media/doom_ember.gif" width="320"></a><br><sub>Doom E1M1 played continuously — 20 frames through <code>ember_rtr_top</code>, 15.97 fps (click for the MP4)</sub></td>
+  </tr>
 </table>
 </div>
+
+## Play it: a continuous Doom session
+
+The Doom demo is a *session*, not just one still frame: 20 frames of E1M1
+rendered back to back through `ember_rtr_top`, starting at the player start and
+walking out into the courtyard. Every frame below came out of the RTL in
+Verilator (CP DMA → RTR → RGB565 framebuffer → display), and the corner of each
+frame shows the frame rate that frame actually achieved.
+
+[![Doom E1M1 running continuously on the EMBER RTL](docs/media/doom_ember.gif)](docs/media/doom_ember.mp4)
+
+*(GIF above · [5 s MP4](docs/media/doom_ember.mp4))*
+
+| Measured on the RTL — 50 MHz, 320×240 | Value |
+|---|---|
+| Mean frame time | **62.6 ms → 15.97 fps** |
+| Frame time (best / worst) | 57.8 ms (17.32 fps) / 70.1 ms (14.27 fps) |
+| Geometry per frame | ~9,600 textured triangles (192,050 total) |
+| Cycles per frame | 6,262,826 @ 50 MHz |
+| Throughput | 153,325 triangles/s · 1,226,283 px/s |
+| Host capture | 0.8 ms/frame debug-port readback, not counted above |
+
+Reproduce it:
+
+```bash
+cd test && make MODULE=tb_doom_demo                    # build once
+DOOM_FRAMES=20 DOOM_WORKERS=5 bash doom_session.sh      # play 20 frames
+python doom_video.py --session demo_frames              # -> docs/media/doom_ember.mp4
+python doom_player.py                                   # play it in a window
+```
+
+Frames are independent (each one clears FB and Z first), so `doom_session.sh`
+splits the session across parallel simulator processes and `tb_doom_demo.py`
+writes `metrics.json` with every frame's pose, triangle count, cycles, ms and
+fps. Verilator runs this design at ~0.065% of real time, so this is a rendered
+session rather than a live keyboard-driven game; the input path is exercised
+separately by `tb_input`/`tb_fly`, where game state runs as a kernel on the
+compute core.
 
 ## Architecture & silicon
 
