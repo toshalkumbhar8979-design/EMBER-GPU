@@ -1,3 +1,6 @@
 prep/
 tools/
 .freebuff/
+
+# Doom session frame dumps (regenerate with test/doom_session.sh)
+test/demo_frames/
